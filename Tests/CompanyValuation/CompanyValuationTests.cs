@@ -128,5 +128,19 @@ namespace Tests.CompanyValuation
             Assert.Equal(5, result.Data.Count);
             Assert.All(result.Data, data => Assert.Equal("AAPL", data.Symbol));
         }
+
+        [Fact]
+        public async Task GetStockNewsAsync()
+        {
+            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
+
+            var result = await api.CompanyValuation.GetStockNewsAsync("AAPL", 5);
+
+            Assert.NotNull(result);
+            Assert.False(result.HasError);
+            Assert.NotEmpty(result.Data);
+            Assert.Equal(5, result.Data.Count);
+            Assert.All(result.Data, data => Assert.Equal("AAPL", data.Symbol));
+        }
     }
 }

@@ -161,5 +161,22 @@ namespace MatthiWare.FinancialModelingPrepApi.Core.CompanyValuation
 
             return client.GetAsync<List<IncomeStatementResponse>>(url, pathParams, queryString);
         }
+
+        public Task<ApiResponse<List<StockNewsResponse>>> GetStockNewsAsync(string symbol, int limit = 50)
+        {
+            const string url = "[version]/stock_news";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+            };
+
+            var queryString = new QueryStringBuilder();
+
+            queryString.Add("tickers", symbol);
+            queryString.Add("limit", limit);
+
+            return client.GetAsync<List<StockNewsResponse>>(url, pathParams, queryString);
+        }
     }
 }
