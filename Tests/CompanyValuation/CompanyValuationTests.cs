@@ -98,7 +98,7 @@ namespace Tests.CompanyValuation
             Assert.False(result.HasError);
             Assert.NotEmpty(result.Data);
             Assert.Equal(5, result.Data.Count);
-            Assert.All(result.Data, data => Assert.Equal("AAPL", data.symbol));
+            Assert.All(result.Data, data => Assert.Equal("AAPL", data.Symbol));
         }
 
         [Fact]
@@ -112,7 +112,7 @@ namespace Tests.CompanyValuation
             Assert.False(result.HasError);
             Assert.NotEmpty(result.Data);
             Assert.Equal(5, result.Data.Count);
-            Assert.All(result.Data, data => Assert.Equal("AAPL", data.symbol));
+            Assert.All(result.Data, data => Assert.Equal("AAPL", data.Symbol));
         }
 
         [Fact]
@@ -126,7 +126,7 @@ namespace Tests.CompanyValuation
             Assert.False(result.HasError);
             Assert.NotEmpty(result.Data);
             Assert.Equal(5, result.Data.Count);
-            Assert.All(result.Data, data => Assert.Equal("AAPL", data.symbol));
+            Assert.All(result.Data, data => Assert.Equal("AAPL", data.Symbol));
         }
     }
 }

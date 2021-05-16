@@ -14,5 +14,9 @@ namespace FinancialModelingPrepApi.Abstractions.CompanyValuation
         public Task<ApiResponse<List<SymbolResponse>>> GetETFListAsync();
 
         public Task<ApiResponse<List<EnterpriseValueResponse>>> GetEnterpriseValueAsync(string symbol, Period period = Period.Quarter, int limit = 40);
+        
+        public Task<ApiResponse<List<BalanceSheetResponse>>> GetBalanceSheetStatementAsync(string symbol, Period period = Period.Quarter, int limit = 40);
+        public Task<ApiResponse<List<CashFlowResponse>>> GetCashFlowStatementAsync(string symbol, Period period = Period.Quarter, int limit = 40);
+        public Task<ApiResponse<List<IncomeStatementResponse>>> GetIncomeStatementAsync(string symbol, Period period = Period.Quarter, int limit = 40);
     }
 }

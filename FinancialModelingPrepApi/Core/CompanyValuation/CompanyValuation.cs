@@ -1,5 +1,4 @@
-﻿using FinancialModelingPrepApi.Abstractions;
-using FinancialModelingPrepApi.Abstractions.CompanyValuation;
+﻿using FinancialModelingPrepApi.Abstractions.CompanyValuation;
 using FinancialModelingPrepApi.Core.Http;
 using FinancialModelingPrepApi.Model;
 using FinancialModelingPrepApi.Model.CompanyValuation;
@@ -89,12 +88,78 @@ namespace FinancialModelingPrepApi.Core.CompanyValuation
 
             queryString.Add("limit", limit);
 
-            if (period != Period.Quarter)
+            if (period == Period.Quarter)
             {
                 queryString.Add("period", period.ToString().ToLower());
             }
 
             return client.GetAsync<List<EnterpriseValueResponse>>(url, pathParams, queryString);
+        }
+
+        public Task<ApiResponse<List<BalanceSheetResponse>>> GetBalanceSheetStatementAsync(string symbol, Period period = Period.Quarter, int limit = 40)
+        {
+            const string url = "[version]/balance-sheet-statement/[symbol]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "symbol", symbol }
+            };
+
+            var queryString = new QueryStringBuilder();
+
+            queryString.Add("limit", limit);
+
+            if (period == Period.Quarter)
+            {
+                queryString.Add("period", period.ToString().ToLower());
+            }
+
+            return client.GetAsync<List<BalanceSheetResponse>>(url, pathParams, queryString);
+        }
+
+        public Task<ApiResponse<List<CashFlowResponse>>> GetCashFlowStatementAsync(string symbol, Period period = Period.Quarter, int limit = 40)
+        {
+            const string url = "[version]/cash-flow-statement/[symbol]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "symbol", symbol }
+            };
+
+            var queryString = new QueryStringBuilder();
+
+            queryString.Add("limit", limit);
+
+            if (period == Period.Quarter)
+            {
+                queryString.Add("period", period.ToString().ToLower());
+            }
+
+            return client.GetAsync<List<CashFlowResponse>>(url, pathParams, queryString);
+        }
+
+        public Task<ApiResponse<List<IncomeStatementResponse>>> GetIncomeStatementAsync(string symbol, Period period = Period.Quarter, int limit = 40)
+        {
+            const string url = "[version]/income-statement/[symbol]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "symbol", symbol }
+            };
+
+            var queryString = new QueryStringBuilder();
+
+            queryString.Add("limit", limit);
+
+            if (period == Period.Quarter)
+            {
+                queryString.Add("period", period.ToString().ToLower());
+            }
+
+            return client.GetAsync<List<IncomeStatementResponse>>(url, pathParams, queryString);
         }
     }
 }
