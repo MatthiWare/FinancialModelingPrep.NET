@@ -74,5 +74,27 @@ namespace FinancialModelingPrepApi.Core.CompanyValuation
 
             return client.GetAsync<List<SymbolResponse>>(url, pathParams, null);
         }
+
+        public Task<ApiResponse<List<EnterpriseValueResponse>>> GetEnterpriseValueAsync(string symbol, Period period = Period.Quarter, int limit = 40)
+        {
+            const string url = "[version]/enterprise-values/[symbol]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "symbol", symbol }
+            };
+
+            var queryString = new QueryStringBuilder();
+
+            queryString.Add("limit", limit);
+
+            if (period != Period.Quarter)
+            {
+                queryString.Add("period", period.ToString().ToLower());
+            }
+
+            return client.GetAsync<List<EnterpriseValueResponse>>(url, pathParams, queryString);
+        }
     }
 }

@@ -8,8 +8,11 @@ namespace FinancialModelingPrepApi.Abstractions.CompanyValuation
     public interface ICompanyValuation
     {
         public Task<ApiResponse<CompanyProfileResponse>> GetCompanyProfileAsync(string symbol);
+
         public Task<ApiResponse<List<SymbolResponse>>> GetSymbolsListAsync();
         public Task<ApiResponse<List<SymbolResponse>>> GetTradableSymbolsListAsync();
         public Task<ApiResponse<List<SymbolResponse>>> GetETFListAsync();
+
+        public Task<ApiResponse<List<EnterpriseValueResponse>>> GetEnterpriseValueAsync(string symbol, Period period = Period.Quarter, int limit = 40);
     }
 }

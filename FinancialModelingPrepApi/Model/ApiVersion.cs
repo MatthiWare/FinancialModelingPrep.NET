@@ -1,4 +1,4 @@
-﻿namespace FinancialModelingPrepApi.Abstractions
+﻿namespace FinancialModelingPrepApi.Model
 {
     public enum ApiVersion
     {
