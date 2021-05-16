@@ -1,4 +1,5 @@
 ﻿using System.Collections.Specialized;
+using System.Web;
 
 namespace FinancialModelingPrepApi.Core.Http
 {
@@ -8,7 +9,7 @@ namespace FinancialModelingPrepApi.Core.Http
 
         public QueryStringBuilder()
         {
-            queryParams = new NameValueCollection();
+            queryParams = HttpUtility.ParseQueryString(string.Empty);
         }
 
         public void Add(string key, object value)

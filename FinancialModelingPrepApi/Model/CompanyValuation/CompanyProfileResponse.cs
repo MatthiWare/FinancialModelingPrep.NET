@@ -1,6 +1,6 @@
 ﻿namespace FinancialModelingPrepApi.Model.CompanyValuation
 {
-    public sealed class CompanyProfileResponse
+    public class CompanyProfileResponse
     {
         public string symbol { get; set; }
         public double price { get; set; }

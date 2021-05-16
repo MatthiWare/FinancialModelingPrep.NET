@@ -11,11 +11,13 @@ namespace FinancialModelingPrepApi.Core.Http
     {
         private readonly HttpClient client;
         private readonly FinancialModelingPrepOptions options;
+        private readonly JsonSerializerOptions jsonSerializerOptions;
 
         public FinancialModelingPrepHttpClient(HttpClient client, FinancialModelingPrepOptions options)
         {
             this.client = client ?? throw new ArgumentNullException(nameof(client));
             this.options = options ?? throw new ArgumentNullException(nameof(options));
+            this.jsonSerializerOptions = new JsonSerializerOptions(JsonSerializerDefaults.Web);
 
             if (string.IsNullOrWhiteSpace(this.options.ApiKey))
             {
@@ -29,11 +31,11 @@ namespace FinancialModelingPrepApi.Core.Http
             try
             {
                 var response = await CallApiAsync(urlPattern, pathParams, queryString);
-                var data = JsonSerializer.Deserialize<T>(response.Data);
+                var data = JsonSerializer.Deserialize<T>(response.Data, jsonSerializerOptions);
 
                 return ApiResponse.FromSucces(data);
             }
-            catch (Exception ex)
+            catch (JsonException ex)
             {
                 return ApiResponse.FromError<T>(ex.ToString());
             }
