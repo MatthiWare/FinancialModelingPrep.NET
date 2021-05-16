@@ -5,6 +5,7 @@ using FinancialModelingPrepApi.Model;
 using FinancialModelingPrepApi.Model.CompanyValuation;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace FinancialModelingPrepApi.Core.CompanyValuation
@@ -18,7 +19,7 @@ namespace FinancialModelingPrepApi.Core.CompanyValuation
             this.client = client ?? throw new System.ArgumentNullException(nameof(client));
         }
 
-        public Task<ApiResponse<List<CompanyProfileResponse>>> GetCompanyProfileAsync(string symbol)
+        public async Task<ApiResponse<CompanyProfileResponse>> GetCompanyProfileAsync(string symbol)
         {
             const string url = "[version]/profile/[symbol]";
 
@@ -28,7 +29,14 @@ namespace FinancialModelingPrepApi.Core.CompanyValuation
                 { "symbol", symbol }
             };
 
-            return client.GetAsync<List<CompanyProfileResponse>>(url, pathParams, null);
+            var result = await client.GetAsync<List<CompanyProfileResponse>>(url, pathParams, null);
+
+            if (result.HasError)
+            {
+                return ApiResponse.FromError<CompanyProfileResponse>(result.Error);
+            }
+
+            return ApiResponse.FromSucces(result.Data.First());
         }
     }
 }

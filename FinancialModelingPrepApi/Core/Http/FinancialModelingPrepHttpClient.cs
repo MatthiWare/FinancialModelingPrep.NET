@@ -1,4 +1,5 @@
 ﻿using FinancialModelingPrepApi.Model;
+using FinancialModelingPrepApi.Model.Error;
 using System;
 using System.Collections.Specialized;
 using System.Net.Http;
@@ -31,6 +32,19 @@ namespace FinancialModelingPrepApi.Core.Http
             try
             {
                 var response = await CallApiAsync(urlPattern, pathParams, queryString);
+
+                if (response.HasError)
+                {
+                    ApiResponse.FromError<T>(response.Data);
+                }
+
+                if (response.Data.Contains("Error Message"))
+                {
+                    var errorData = JsonSerializer.Deserialize<ErrorResponse>(response.Data);
+
+                    return ApiResponse.FromError<T>(errorData.ErrorMessage);
+                }
+
                 var data = JsonSerializer.Deserialize<T>(response.Data, jsonSerializerOptions);
 
                 return ApiResponse.FromSucces(data);
