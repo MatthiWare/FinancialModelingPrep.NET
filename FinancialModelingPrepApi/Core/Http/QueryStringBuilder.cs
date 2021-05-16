@@ -1,7 +1,7 @@
 ﻿using System.Collections.Specialized;
 using System.Web;
 
-namespace FinancialModelingPrepApi.Core.Http
+namespace MatthiWare.FinancialModelingPrepApi.Core.Http
 {
     public class QueryStringBuilder
     {

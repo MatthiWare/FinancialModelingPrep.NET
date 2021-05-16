@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace FinancialModelingPrepApi.Model.CompanyValuation
+namespace MatthiWare.FinancialModelingPrepApi.Model.CompanyValuation
 {
     public class IncomeStatementResponse
     {

@@ -1,6 +1,6 @@
-﻿using FinancialModelingPrepApi.Abstractions.CompanyValuation;
+﻿using MatthiWare.FinancialModelingPrepApi.Abstractions.CompanyValuation;
 
-namespace FinancialModelingPrepApi.Core
+namespace MatthiWare.FinancialModelingPrepApi.Core
 {
     public class FinancialModelingPrepApiClient : IFinancialModelingPrepApiClient
     {

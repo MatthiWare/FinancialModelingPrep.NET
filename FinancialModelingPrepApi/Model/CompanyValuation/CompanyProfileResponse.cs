@@ -1,4 +1,4 @@
-﻿namespace FinancialModelingPrepApi.Model.CompanyValuation
+﻿namespace MatthiWare.FinancialModelingPrepApi.Model.CompanyValuation
 {
     public class CompanyProfileResponse
     {

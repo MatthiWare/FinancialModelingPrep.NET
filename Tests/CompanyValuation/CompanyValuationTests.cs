@@ -1,6 +1,6 @@
-﻿using FinancialModelingPrepApi;
-using FinancialModelingPrepApi.Abstractions.CompanyValuation;
-using FinancialModelingPrepApi.Model;
+﻿using MatthiWare.FinancialModelingPrepApi;
+using MatthiWare.FinancialModelingPrepApi.Abstractions.CompanyValuation;
+using MatthiWare.FinancialModelingPrepApi.Model;
 using Microsoft.Extensions.DependencyInjection;
 using System.Threading.Tasks;
 using Xunit;

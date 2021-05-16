@@ -1,12 +1,12 @@
-﻿using FinancialModelingPrepApi.Core.Http;
+﻿using MatthiWare.FinancialModelingPrepApi.Abstractions.CompanyValuation;
+using MatthiWare.FinancialModelingPrepApi.Core;
+using MatthiWare.FinancialModelingPrepApi.Core.CompanyValuation;
+using MatthiWare.FinancialModelingPrepApi.Core.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using System;
-using FinancialModelingPrepApi.Core;
-using FinancialModelingPrepApi.Abstractions.CompanyValuation;
-using FinancialModelingPrepApi.Core.CompanyValuation;
 
-namespace FinancialModelingPrepApi
+namespace MatthiWare.FinancialModelingPrepApi
 {
     public static class DependencyInjectionExtensions
     {

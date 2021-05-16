@@ -1,4 +1,4 @@
-﻿namespace FinancialModelingPrepApi.Model
+﻿namespace MatthiWare.FinancialModelingPrepApi.Model
 {
     public static class ApiResponse
     {
