@@ -1,6 +1,8 @@
-﻿using System;
+﻿using FinancialModelingPrepApi.Model;
+using System;
 using System.Collections.Specialized;
 using System.Net.Http;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace FinancialModelingPrepApi.Core.Http
@@ -21,7 +23,23 @@ namespace FinancialModelingPrepApi.Core.Http
             }
         }
 
-        public async Task<string> CallApiAsync(string urlPattern, NameValueCollection pathParams, QueryStringBuilder queryString)
+        public async Task<ApiResponse<T>> GetAsync<T>(string urlPattern, NameValueCollection pathParams, QueryStringBuilder queryString)
+            where T : class
+        {
+            try
+            {
+                var response = await CallApiAsync(urlPattern, pathParams, queryString);
+                var data = JsonSerializer.Deserialize<T>(response.Data);
+
+                return ApiResponse.FromSucces(data);
+            }
+            catch (Exception ex)
+            {
+                return ApiResponse.FromError<T>(ex.ToString());
+            }
+        }
+
+        private async Task<ApiResponse<string>> CallApiAsync(string urlPattern, NameValueCollection pathParams, QueryStringBuilder queryString)
         {
             PreProcessUrl(ref urlPattern, ref pathParams, ref queryString);
 
@@ -30,7 +48,14 @@ namespace FinancialModelingPrepApi.Core.Http
             var requestUrl = $"{urlPattern}{queryString}";
 
             using var response = await client.GetAsync(requestUrl);
-            return await response.EnsureSuccessStatusCode().Content.ReadAsStringAsync();
+            var content = await response.Content.ReadAsStringAsync();
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return ApiResponse.FromError<string>($"{response.StatusCode} - {content}");
+            }
+
+            return ApiResponse.FromSucces(content);
         }
 
         private static void PreProcessUrl(ref string url, ref NameValueCollection pathParams, ref QueryStringBuilder qsb)
