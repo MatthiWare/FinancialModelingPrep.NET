@@ -38,5 +38,41 @@ namespace FinancialModelingPrepApi.Core.CompanyValuation
 
             return ApiResponse.FromSucces(result.Data.First());
         }
+
+        public Task<ApiResponse<List<SymbolResponse>>> GetETFListAsync()
+        {
+            const string url = "[version]/etf/list";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() }
+            };
+
+            return client.GetAsync<List<SymbolResponse>>(url, pathParams, null);
+        }
+
+        public Task<ApiResponse<List<SymbolResponse>>> GetSymbolsListAsync()
+        {
+            const string url = "[version]/stock/list";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() }
+            };
+
+            return client.GetAsync<List<SymbolResponse>>(url, pathParams, null);
+        }
+
+        public Task<ApiResponse<List<SymbolResponse>>> GetTradableSymbolsListAsync()
+        {
+            const string url = "[version]/available-traded/list";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() }
+            };
+
+            return client.GetAsync<List<SymbolResponse>>(url, pathParams, null);
+        }
     }
 }

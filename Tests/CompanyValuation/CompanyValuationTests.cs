@@ -35,5 +35,41 @@ namespace Tests.CompanyValuation
             Assert.NotNull(result);
             Assert.True(result.HasError);
         }
+
+        [Fact]
+        public async Task GetSymbolsList()
+        {
+            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
+
+            var result = await api.CompanyValuation.GetSymbolsListAsync();
+
+            Assert.NotNull(result);
+            Assert.False(result.HasError);
+            Assert.NotEmpty(result.Data);
+        }
+
+        [Fact]
+        public async Task GetETFList()
+        {
+            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
+
+            var result = await api.CompanyValuation.GetETFListAsync();
+
+            Assert.NotNull(result);
+            Assert.False(result.HasError);
+            Assert.NotEmpty(result.Data);
+        }
+
+        [Fact]
+        public async Task GetTradableSymbolsList()
+        {
+            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
+
+            var result = await api.CompanyValuation.GetTradableSymbolsListAsync();
+
+            Assert.NotNull(result);
+            Assert.False(result.HasError);
+            Assert.NotEmpty(result.Data);
+        }
     }
 }
