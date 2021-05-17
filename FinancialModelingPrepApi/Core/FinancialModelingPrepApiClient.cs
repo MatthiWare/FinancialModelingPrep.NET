@@ -1,4 +1,5 @@
 ﻿using MatthiWare.FinancialModelingPrepApi.Abstractions.CompanyValuation;
+using MatthiWare.FinancialModelingPrepApi.Abstractions.MarketIndexes;
 
 namespace MatthiWare.FinancialModelingPrepApi.Core
 {
@@ -6,9 +7,12 @@ namespace MatthiWare.FinancialModelingPrepApi.Core
     {
         public ICompanyValuation CompanyValuation { get; private set; }
 
-        public FinancialModelingPrepApiClient(ICompanyValuation companyValuation)
+        public IMarketIndexes MarketIndexes { get; private set; }
+
+        public FinancialModelingPrepApiClient(ICompanyValuation companyValuation, IMarketIndexes marketIndexes)
         {
-            this.CompanyValuation = companyValuation;
+            CompanyValuation = companyValuation;
+            MarketIndexes = marketIndexes;
         }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using MatthiWare.FinancialModelingPrepApi.Abstractions.CompanyValuation;
+using MatthiWare.FinancialModelingPrepApi.Abstractions.MarketIndexes;
 using MatthiWare.FinancialModelingPrepApi.Core;
 using MatthiWare.FinancialModelingPrepApi.Core.CompanyValuation;
 using MatthiWare.FinancialModelingPrepApi.Core.Http;
+using MatthiWare.FinancialModelingPrepApi.Core.MarketIndexes;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using System;
@@ -21,6 +23,7 @@ namespace MatthiWare.FinancialModelingPrepApi
 
             services.TryAddSingleton<IFinancialModelingPrepApiClient, FinancialModelingPrepApiClient>();
             services.TryAddScoped<ICompanyValuation, CompanyValuation>();
+            services.TryAddScoped<IMarketIndexes, MarketIndexes>();
         }
     }
 }
