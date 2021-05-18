@@ -272,5 +272,47 @@ namespace MatthiWare.FinancialModelingPrepApi.Core.CompanyValuation
 
             return client.GetAsync<List<HistoricalDailyDCFResponse>>(url, pathParams, queryString);
         }
+
+        public async Task<ApiResponse<KeyMetricsTTMResponse>> GetCompanyKeyMetricsTTMAsync(string symbol)
+        {
+            const string url = "[version]/key-metrics-ttm/[symbol]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "symbol", symbol }
+            };
+
+            var result = await client.GetAsync<List<KeyMetricsTTMResponse>>(url, pathParams, null);
+
+            if (result.HasError)
+            {
+                return ApiResponse.FromError<KeyMetricsTTMResponse>(result.Error);
+            }
+
+            return ApiResponse.FromSucces(result.Data.First());
+        }
+
+        public Task<ApiResponse<List<KeyMetricsResponse>>> GetCompanyKeyMetricsAsync(string symbol, Period period = Period.Annual, int limit = 130)
+        {
+            const string url = "[version]/key-metrics/[symbol]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "symbol", symbol }
+            };
+
+            var queryString = new QueryStringBuilder();
+
+            queryString.Add("limit", limit);
+
+            if (period != Period.Annual)
+            {
+                queryString.Add("period", period.ToString().ToLower());
+            }
+
+            return client.GetAsync<List<KeyMetricsResponse>>(url, pathParams, queryString);
+        }
     }
 }

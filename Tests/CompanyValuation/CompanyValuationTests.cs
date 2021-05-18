@@ -193,5 +193,28 @@ namespace Tests.CompanyValuation
             Assert.Equal(5, result.Data.Count);
             Assert.All(result.Data, data => Assert.Equal("AAPL", data.Symbol));
         }
+
+        [Fact]
+        public async Task GetCompanyKeyMetricsTTMAsync()
+        {
+            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
+
+            var result = await api.CompanyValuation.GetCompanyKeyMetricsTTMAsync("AAPL");
+
+            result.AssertNoErrors();
+        }
+
+        [Fact]
+        public async Task GetCompanyKeyMetricsAsync()
+        {
+            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
+
+            var result = await api.CompanyValuation.GetCompanyKeyMetricsAsync("AAPL", Period.Quarter, 5);
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+            Assert.Equal(5, result.Data.Count);
+            Assert.All(result.Data, data => Assert.Equal("AAPL", data.Symbol));
+        }
     }
 }

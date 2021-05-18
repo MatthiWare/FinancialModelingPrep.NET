@@ -8,6 +8,8 @@ namespace MatthiWare.FinancialModelingPrepApi.Abstractions.CompanyValuation
     public interface ICompanyValuation
     {
         public Task<ApiResponse<CompanyProfileResponse>> GetCompanyProfileAsync(string symbol);
+        public Task<ApiResponse<KeyMetricsTTMResponse>> GetCompanyKeyMetricsTTMAsync(string symbol);
+        public Task<ApiResponse<List<KeyMetricsResponse>>> GetCompanyKeyMetricsAsync(string symbol, Period period = Period.Annual, int limit = 130);
 
         public Task<ApiResponse<DCFResponse>> GetDiscountedCashFlowAsync(string symbol);
         public Task<ApiResponse<List<HistoricalDCFResponse>>> GetHistoricalDiscountedCashFlowAsync(string symbol, Period period = Period.Annual);
