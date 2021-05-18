@@ -20,8 +20,7 @@ namespace Tests.CompanyValuation
 
             var result = await api.MarketIndexes.GetDowJonesCompaniesAsync();
 
-            Assert.NotNull(result);
-            Assert.False(result.HasError);
+            result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
         }
 
@@ -32,8 +31,7 @@ namespace Tests.CompanyValuation
 
             var result = await api.MarketIndexes.GetNasdaqCompaniesAsync();
 
-            Assert.NotNull(result);
-            Assert.False(result.HasError);
+            result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
         }
 
@@ -44,8 +42,7 @@ namespace Tests.CompanyValuation
 
             var result = await api.MarketIndexes.GetSP500CompaniesAsync();
 
-            Assert.NotNull(result);
-            Assert.False(result.HasError);
+            result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
         }
     }

@@ -21,8 +21,7 @@ namespace Tests.CompanyValuation
 
             var result = await api.CompanyValuation.GetCompanyProfileAsync("AAPL");
 
-            Assert.NotNull(result);
-            Assert.False(result.HasError);
+            result.AssertNoErrors();
             Assert.Equal("AAPL", result.Data.symbol);
         }
 
@@ -44,8 +43,7 @@ namespace Tests.CompanyValuation
 
             var result = await api.CompanyValuation.GetSymbolsListAsync();
 
-            Assert.NotNull(result);
-            Assert.False(result.HasError);
+            result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
         }
 
@@ -56,8 +54,7 @@ namespace Tests.CompanyValuation
 
             var result = await api.CompanyValuation.GetETFListAsync();
 
-            Assert.NotNull(result);
-            Assert.False(result.HasError);
+            result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
         }
 
@@ -68,8 +65,7 @@ namespace Tests.CompanyValuation
 
             var result = await api.CompanyValuation.GetTradableSymbolsListAsync();
 
-            Assert.NotNull(result);
-            Assert.False(result.HasError);
+            result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
         }
 
@@ -80,8 +76,7 @@ namespace Tests.CompanyValuation
 
             var result = await api.CompanyValuation.GetEnterpriseValueAsync("AAPL", Period.Annual, 5);
 
-            Assert.NotNull(result);
-            Assert.False(result.HasError);
+            result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
             Assert.Equal(5, result.Data.Count);
             Assert.All(result.Data, data => Assert.Equal("AAPL", data.symbol));
@@ -94,8 +89,7 @@ namespace Tests.CompanyValuation
 
             var result = await api.CompanyValuation.GetIncomeStatementAsync("AAPL", Period.Annual, 5);
 
-            Assert.NotNull(result);
-            Assert.False(result.HasError);
+            result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
             Assert.Equal(5, result.Data.Count);
             Assert.All(result.Data, data => Assert.Equal("AAPL", data.Symbol));
@@ -108,8 +102,7 @@ namespace Tests.CompanyValuation
 
             var result = await api.CompanyValuation.GetCashFlowStatementAsync("AAPL", Period.Annual, 5);
 
-            Assert.NotNull(result);
-            Assert.False(result.HasError);
+            result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
             Assert.Equal(5, result.Data.Count);
             Assert.All(result.Data, data => Assert.Equal("AAPL", data.Symbol));
@@ -122,8 +115,7 @@ namespace Tests.CompanyValuation
 
             var result = await api.CompanyValuation.GetBalanceSheetStatementAsync("AAPL", Period.Annual, 5);
 
-            Assert.NotNull(result);
-            Assert.False(result.HasError);
+            result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
             Assert.Equal(5, result.Data.Count);
             Assert.All(result.Data, data => Assert.Equal("AAPL", data.Symbol));
@@ -136,8 +128,7 @@ namespace Tests.CompanyValuation
 
             var result = await api.CompanyValuation.GetStockNewsAsync("AAPL", 5);
 
-            Assert.NotNull(result);
-            Assert.False(result.HasError);
+            result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
             Assert.Equal(5, result.Data.Count);
             Assert.All(result.Data, data => Assert.Equal("AAPL", data.Symbol));
@@ -150,8 +141,7 @@ namespace Tests.CompanyValuation
 
             var result = await api.CompanyValuation.GetCompanyRatingAsync("AAPL");
 
-            Assert.NotNull(result);
-            Assert.False(result.HasError);
+            result.AssertNoErrors();
             Assert.Equal("AAPL", result.Data.Symbol);
         }
 
@@ -162,8 +152,7 @@ namespace Tests.CompanyValuation
 
             var result = await api.CompanyValuation.GetHistoricalCompanyRatingAsync("AAPL", 5);
 
-            Assert.NotNull(result);
-            Assert.False(result.HasError);
+            result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
             Assert.Equal(5, result.Data.Count);
             Assert.All(result.Data, data => Assert.Equal("AAPL", data.Symbol));
