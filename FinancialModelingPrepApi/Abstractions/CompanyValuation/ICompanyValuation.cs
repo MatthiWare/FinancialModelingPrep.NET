@@ -20,5 +20,8 @@ namespace MatthiWare.FinancialModelingPrepApi.Abstractions.CompanyValuation
         public Task<ApiResponse<List<IncomeStatementResponse>>> GetIncomeStatementAsync(string symbol, Period period = Period.Quarter, int limit = 40);
 
         public Task<ApiResponse<List<StockNewsResponse>>> GetStockNewsAsync(string symbol, int limit = 50);
+
+        public Task<ApiResponse<CompanyRatingResponse>> GetCompanyRatingAsync(string symbol);
+        public Task<ApiResponse<List<CompanyRatingResponse>>> GetHistoricalCompanyRatingAsync(string symbol, int limit = 140);
     }
 }

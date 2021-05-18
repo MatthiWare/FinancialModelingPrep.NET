@@ -178,5 +178,42 @@ namespace MatthiWare.FinancialModelingPrepApi.Core.CompanyValuation
 
             return client.GetAsync<List<StockNewsResponse>>(url, pathParams, queryString);
         }
+
+        public async Task<ApiResponse<CompanyRatingResponse>> GetCompanyRatingAsync(string symbol)
+        {
+            const string url = "[version]/rating/[symbol]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "symbol", symbol }
+            };
+
+            var result = await client.GetAsync<List<CompanyRatingResponse>>(url, pathParams, null);
+
+            if (result.HasError)
+            {
+                return ApiResponse.FromError<CompanyRatingResponse>(result.Error);
+            }
+
+            return ApiResponse.FromSucces(result.Data.First());
+        }
+
+        public Task<ApiResponse<List<CompanyRatingResponse>>> GetHistoricalCompanyRatingAsync(string symbol, int limit = 140)
+        {
+            const string url = "[version]/historical-rating/[symbol]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "symbol", symbol }
+            };
+
+            var queryString = new QueryStringBuilder();
+
+            queryString.Add("limit", limit);
+
+            return client.GetAsync<List<CompanyRatingResponse>>(url, pathParams, queryString);
+        }
     }
 }
