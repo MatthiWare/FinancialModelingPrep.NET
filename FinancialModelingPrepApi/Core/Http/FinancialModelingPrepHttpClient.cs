@@ -35,7 +35,7 @@ namespace MatthiWare.FinancialModelingPrepApi.Core.Http
 
                 if (response.HasError)
                 {
-                    ApiResponse.FromError<T>(response.Data);
+                    return ApiResponse.FromError<T>(response.Error);
                 }
 
                 if (response.Data.Contains("Error Message"))
