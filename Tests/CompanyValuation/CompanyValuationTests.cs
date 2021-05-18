@@ -157,5 +157,41 @@ namespace Tests.CompanyValuation
             Assert.Equal(5, result.Data.Count);
             Assert.All(result.Data, data => Assert.Equal("AAPL", data.Symbol));
         }
+
+        [Fact]
+        public async Task GetDiscountedCashFlowAsync()
+        {
+            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
+
+            var result = await api.CompanyValuation.GetDiscountedCashFlowAsync("AAPL");
+
+            result.AssertNoErrors();
+            Assert.Equal("AAPL", result.Data.Symbol);
+        }
+
+        [Fact]
+        public async Task GetHistoricalDiscountedCashFlowAsync()
+        {
+            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
+
+            var result = await api.CompanyValuation.GetHistoricalDiscountedCashFlowAsync("AAPL", Period.Quarter);
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+            Assert.All(result.Data, data => Assert.Equal("AAPL", data.Symbol));
+        }
+
+        [Fact]
+        public async Task GetHistoricalDiscountedCashFlowDailyAsync()
+        {
+            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
+
+            var result = await api.CompanyValuation.GetHistoricalDiscountedCashFlowDailyAsync("AAPL", 5);
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+            Assert.Equal(5, result.Data.Count);
+            Assert.All(result.Data, data => Assert.Equal("AAPL", data.Symbol));
+        }
     }
 }

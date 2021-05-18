@@ -215,5 +215,62 @@ namespace MatthiWare.FinancialModelingPrepApi.Core.CompanyValuation
 
             return client.GetAsync<List<CompanyRatingResponse>>(url, pathParams, queryString);
         }
+
+        public async Task<ApiResponse<DCFResponse>> GetDiscountedCashFlowAsync(string symbol)
+        {
+            const string url = "[version]/discounted-cash-flow/[symbol]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "symbol", symbol }
+            };
+
+            var result = await client.GetAsync<List<DCFResponse>>(url, pathParams, null);
+
+            if (result.HasError)
+            {
+                return ApiResponse.FromError<DCFResponse>(result.Error);
+            }
+
+            return ApiResponse.FromSucces(result.Data.First());
+        }
+
+        public Task<ApiResponse<List<HistoricalDCFResponse>>> GetHistoricalDiscountedCashFlowAsync(string symbol, Period period = Period.Annual)
+        {
+            const string url = "[version]/historical-discounted-cash-flow-statement/[symbol]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "symbol", symbol }
+            };
+
+            var queryString = new QueryStringBuilder();
+
+            if (period != Period.Annual)
+            {
+                queryString.Add("period", period.ToString().ToLower());
+            }
+
+            return client.GetAsync<List<HistoricalDCFResponse>>(url, pathParams, queryString);
+        }
+
+        public Task<ApiResponse<List<HistoricalDailyDCFResponse>>> GetHistoricalDiscountedCashFlowDailyAsync(string symbol, int limit = 100)
+        {
+            const string url = "[version]/historical-discounted-cash-flow-statement/[symbol]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "symbol", symbol }
+            };
+
+            var queryString = new QueryStringBuilder();
+
+            queryString.Add("limit", limit);
+
+            return client.GetAsync<List<HistoricalDailyDCFResponse>>(url, pathParams, queryString);
+        }
     }
 }
