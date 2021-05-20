@@ -3,12 +3,36 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>MatthiWare.FinancialModelingPrepApi</RootNamespace>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <FileVersion>0.1.0.0</FileVersion>
+    <Company>MatthiWare</Company>
+    <PackageId>MatthiWare.FinancialModelingPrepApi</PackageId>
+    <Version>0.1.0</Version>
+    <Description>FinancialModelingPrep API Client written in .NET 5</Description>
+    <Copyright>Copyright Matthias Beerens 2021</Copyright>
+    <Product>FinancialModelingPrep API Client</Product>
+    <Authors>Matthias Beerens</Authors>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/MatthiWare/FinancialModelingPrep.NET</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>FinancialModelingPrep stock quote finance-api</PackageTags>
+    <PackageProjectUrl>https://github.com/MatthiWare/FinancialModelingPrep.NET</PackageProjectUrl>
+    <PackageReleaseNotes>First version with basic endpoints implemented</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
