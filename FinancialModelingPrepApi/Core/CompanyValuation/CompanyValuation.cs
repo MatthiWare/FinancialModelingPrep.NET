@@ -334,5 +334,41 @@ namespace MatthiWare.FinancialModelingPrepApi.Core.CompanyValuation
 
             return ApiResponse.FromSucces(result.Data.First());
         }
+
+        public async Task<ApiResponse<MarketCapResponse>> GetMarketCapitalizationAsync(string symbol)
+        {
+            const string url = "[version]/historical-market-capitalization/[symbol]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "symbol", symbol }
+            };
+
+            var result = await client.GetAsync<List<MarketCapResponse>>(url, pathParams, null);
+
+            if (result.HasError)
+            {
+                return ApiResponse.FromError<MarketCapResponse>(result.Error);
+            }
+
+            return ApiResponse.FromSucces(result.Data.First());
+        }
+
+        public Task<ApiResponse<List<MarketCapResponse>>> GetHistoricalMarketCapitalizationAsync(string symbol, int limit = 100)
+        {
+            const string url = "[version]/historical-market-capitalization/[symbol]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "symbol", symbol }
+            };
+
+            var queryString = new QueryStringBuilder();
+            queryString.Add("limit", limit);
+
+            return client.GetAsync<List<MarketCapResponse>>(url, pathParams, queryString);
+        }
     }
 }

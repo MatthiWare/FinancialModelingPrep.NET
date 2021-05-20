@@ -227,5 +227,29 @@ namespace Tests.CompanyValuation
             result.AssertNoErrors();
             Assert.Equal("AAPL", result.Data.Symbol);
         }
+
+        [Fact]
+        public async Task GetHistoricalMarketCapAsync()
+        {
+            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
+
+            var result = await api.CompanyValuation.GetHistoricalMarketCapitalizationAsync("AAPL", 5);
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+            Assert.Equal(5, result.Data.Count);
+            Assert.All(result.Data, data => Assert.Equal("AAPL", data.Symbol));
+        }
+
+        [Fact]
+        public async Task GetMarketCapAsync()
+        {
+            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
+
+            var result = await api.CompanyValuation.GetMarketCapitalizationAsync("AAPL");
+
+            result.AssertNoErrors();
+            Assert.Equal("AAPL", result.Data.Symbol);
+        }
     }
 }
