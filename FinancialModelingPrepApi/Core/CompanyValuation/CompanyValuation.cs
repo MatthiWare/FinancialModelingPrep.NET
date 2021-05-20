@@ -314,5 +314,25 @@ namespace MatthiWare.FinancialModelingPrepApi.Core.CompanyValuation
 
             return client.GetAsync<List<KeyMetricsResponse>>(url, pathParams, queryString);
         }
+
+        public async Task<ApiResponse<QuoteResponse>> GetQuoteAsync(string symbol)
+        {
+            const string url = "[version]/quote/[symbol]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "symbol", symbol }
+            };
+
+            var result = await client.GetAsync<List<QuoteResponse>>(url, pathParams, null);
+
+            if (result.HasError)
+            {
+                return ApiResponse.FromError<QuoteResponse>(result.Error);
+            }
+
+            return ApiResponse.FromSucces(result.Data.First());
+        }
     }
 }

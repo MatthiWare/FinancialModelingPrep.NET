@@ -216,5 +216,16 @@ namespace Tests.CompanyValuation
             Assert.Equal(5, result.Data.Count);
             Assert.All(result.Data, data => Assert.Equal("AAPL", data.Symbol));
         }
+
+        [Fact]
+        public async Task GetQuoteAsync()
+        {
+            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
+
+            var result = await api.CompanyValuation.GetQuoteAsync("AAPL");
+
+            result.AssertNoErrors();
+            Assert.Equal("AAPL", result.Data.Symbol);
+        }
     }
 }
