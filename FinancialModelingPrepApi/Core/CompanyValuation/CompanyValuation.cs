@@ -74,7 +74,7 @@ namespace MatthiWare.FinancialModelingPrepApi.Core.CompanyValuation
             return client.GetAsync<List<SymbolResponse>>(url, pathParams, null);
         }
 
-        public Task<ApiResponse<List<EnterpriseValueResponse>>> GetEnterpriseValueAsync(string symbol, Period period = Period.Quarter, int limit = 40)
+        public Task<ApiResponse<List<EnterpriseValueResponse>>> GetEnterpriseValueAsync(string symbol, Period period = Period.Quarter, int? limit = 40)
         {
             const string url = "[version]/enterprise-values/[symbol]";
 
@@ -86,7 +86,10 @@ namespace MatthiWare.FinancialModelingPrepApi.Core.CompanyValuation
 
             var queryString = new QueryStringBuilder();
 
-            queryString.Add("limit", limit);
+            if (limit != null)
+            { 
+                queryString.Add("limit", limit);
+            }
 
             if (period == Period.Quarter)
             {
@@ -96,7 +99,7 @@ namespace MatthiWare.FinancialModelingPrepApi.Core.CompanyValuation
             return client.GetAsync<List<EnterpriseValueResponse>>(url, pathParams, queryString);
         }
 
-        public Task<ApiResponse<List<BalanceSheetResponse>>> GetBalanceSheetStatementAsync(string symbol, Period period = Period.Quarter, int limit = 40)
+        public Task<ApiResponse<List<BalanceSheetResponse>>> GetBalanceSheetStatementAsync(string symbol, Period period = Period.Quarter, int? limit = 40)
         {
             const string url = "[version]/balance-sheet-statement/[symbol]";
 
@@ -108,7 +111,10 @@ namespace MatthiWare.FinancialModelingPrepApi.Core.CompanyValuation
 
             var queryString = new QueryStringBuilder();
 
-            queryString.Add("limit", limit);
+            if (limit != null)
+            {
+                queryString.Add("limit", limit);
+            }
 
             if (period == Period.Quarter)
             {
@@ -118,7 +124,7 @@ namespace MatthiWare.FinancialModelingPrepApi.Core.CompanyValuation
             return client.GetAsync<List<BalanceSheetResponse>>(url, pathParams, queryString);
         }
 
-        public Task<ApiResponse<List<CashFlowResponse>>> GetCashFlowStatementAsync(string symbol, Period period = Period.Quarter, int limit = 40)
+        public Task<ApiResponse<List<CashFlowResponse>>> GetCashFlowStatementAsync(string symbol, Period period = Period.Quarter, int? limit = 40)
         {
             const string url = "[version]/cash-flow-statement/[symbol]";
 
@@ -130,7 +136,10 @@ namespace MatthiWare.FinancialModelingPrepApi.Core.CompanyValuation
 
             var queryString = new QueryStringBuilder();
 
-            queryString.Add("limit", limit);
+            if (limit != null)
+            {
+                queryString.Add("limit", limit);
+            }
 
             if (period == Period.Quarter)
             {
@@ -140,7 +149,7 @@ namespace MatthiWare.FinancialModelingPrepApi.Core.CompanyValuation
             return client.GetAsync<List<CashFlowResponse>>(url, pathParams, queryString);
         }
 
-        public Task<ApiResponse<List<IncomeStatementResponse>>> GetIncomeStatementAsync(string symbol, Period period = Period.Quarter, int limit = 40)
+        public Task<ApiResponse<List<IncomeStatementResponse>>> GetIncomeStatementAsync(string symbol, Period period = Period.Quarter, int? limit = 40)
         {
             const string url = "[version]/income-statement/[symbol]";
 
@@ -152,7 +161,10 @@ namespace MatthiWare.FinancialModelingPrepApi.Core.CompanyValuation
 
             var queryString = new QueryStringBuilder();
 
-            queryString.Add("limit", limit);
+            if (limit != null)
+            {
+                queryString.Add("limit", limit);
+            }
 
             if (period == Period.Quarter)
             {
@@ -162,7 +174,7 @@ namespace MatthiWare.FinancialModelingPrepApi.Core.CompanyValuation
             return client.GetAsync<List<IncomeStatementResponse>>(url, pathParams, queryString);
         }
 
-        public Task<ApiResponse<List<StockNewsResponse>>> GetStockNewsAsync(string symbol, int limit = 50)
+        public Task<ApiResponse<List<StockNewsResponse>>> GetStockNewsAsync(string symbol, int? limit = 50)
         {
             const string url = "[version]/stock_news";
 
@@ -174,7 +186,10 @@ namespace MatthiWare.FinancialModelingPrepApi.Core.CompanyValuation
             var queryString = new QueryStringBuilder();
 
             queryString.Add("tickers", symbol);
-            queryString.Add("limit", limit);
+            if (limit != null)
+            {
+                queryString.Add("limit", limit);
+            }
 
             return client.GetAsync<List<StockNewsResponse>>(url, pathParams, queryString);
         }
@@ -199,7 +214,7 @@ namespace MatthiWare.FinancialModelingPrepApi.Core.CompanyValuation
             return ApiResponse.FromSucces(result.Data.First());
         }
 
-        public Task<ApiResponse<List<CompanyRatingResponse>>> GetHistoricalCompanyRatingAsync(string symbol, int limit = 140)
+        public Task<ApiResponse<List<CompanyRatingResponse>>> GetHistoricalCompanyRatingAsync(string symbol, int? limit = 140)
         {
             const string url = "[version]/historical-rating/[symbol]";
 
@@ -211,7 +226,10 @@ namespace MatthiWare.FinancialModelingPrepApi.Core.CompanyValuation
 
             var queryString = new QueryStringBuilder();
 
-            queryString.Add("limit", limit);
+            if (limit != null)
+            {
+                queryString.Add("limit", limit);
+            }
 
             return client.GetAsync<List<CompanyRatingResponse>>(url, pathParams, queryString);
         }
@@ -256,7 +274,7 @@ namespace MatthiWare.FinancialModelingPrepApi.Core.CompanyValuation
             return client.GetAsync<List<HistoricalDCFResponse>>(url, pathParams, queryString);
         }
 
-        public Task<ApiResponse<List<HistoricalDailyDCFResponse>>> GetHistoricalDiscountedCashFlowDailyAsync(string symbol, int limit = 100)
+        public Task<ApiResponse<List<HistoricalDailyDCFResponse>>> GetHistoricalDiscountedCashFlowDailyAsync(string symbol, int? limit = 100)
         {
             const string url = "[version]/historical-discounted-cash-flow-statement/[symbol]";
 
@@ -268,7 +286,10 @@ namespace MatthiWare.FinancialModelingPrepApi.Core.CompanyValuation
 
             var queryString = new QueryStringBuilder();
 
-            queryString.Add("limit", limit);
+            if (limit != null)
+            {
+                queryString.Add("limit", limit);
+            }
 
             return client.GetAsync<List<HistoricalDailyDCFResponse>>(url, pathParams, queryString);
         }
@@ -293,7 +314,7 @@ namespace MatthiWare.FinancialModelingPrepApi.Core.CompanyValuation
             return ApiResponse.FromSucces(result.Data.First());
         }
 
-        public Task<ApiResponse<List<KeyMetricsResponse>>> GetCompanyKeyMetricsAsync(string symbol, Period period = Period.Annual, int limit = 130)
+        public Task<ApiResponse<List<KeyMetricsResponse>>> GetCompanyKeyMetricsAsync(string symbol, Period period = Period.Annual, int? limit = 130)
         {
             const string url = "[version]/key-metrics/[symbol]";
 
@@ -305,7 +326,10 @@ namespace MatthiWare.FinancialModelingPrepApi.Core.CompanyValuation
 
             var queryString = new QueryStringBuilder();
 
-            queryString.Add("limit", limit);
+            if (limit != null)
+            {
+                queryString.Add("limit", limit);
+            }
 
             if (period != Period.Annual)
             {
@@ -355,7 +379,7 @@ namespace MatthiWare.FinancialModelingPrepApi.Core.CompanyValuation
             return ApiResponse.FromSucces(result.Data.First());
         }
 
-        public Task<ApiResponse<List<MarketCapResponse>>> GetHistoricalMarketCapitalizationAsync(string symbol, int limit = 100)
+        public Task<ApiResponse<List<MarketCapResponse>>> GetHistoricalMarketCapitalizationAsync(string symbol, int? limit = 100)
         {
             const string url = "[version]/historical-market-capitalization/[symbol]";
 
@@ -366,7 +390,10 @@ namespace MatthiWare.FinancialModelingPrepApi.Core.CompanyValuation
             };
 
             var queryString = new QueryStringBuilder();
-            queryString.Add("limit", limit);
+            if (limit != null)
+            {
+                queryString.Add("limit", limit);
+            }
 
             return client.GetAsync<List<MarketCapResponse>>(url, pathParams, queryString);
         }
