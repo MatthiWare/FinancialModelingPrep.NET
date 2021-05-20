@@ -1,4 +1,4 @@
-﻿namespace MatthiWare.FinancialModelingPrepApi.Model
+﻿namespace MatthiWare.FinancialModelingPrep.Model
 {
     public enum ApiVersion
     {

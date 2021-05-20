@@ -1,9 +1,9 @@
-﻿using MatthiWare.FinancialModelingPrepApi.Model;
-using MatthiWare.FinancialModelingPrepApi.Model.MarketIndexes;
+﻿using MatthiWare.FinancialModelingPrep.Model;
+using MatthiWare.FinancialModelingPrep.Model.MarketIndexes;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MatthiWare.FinancialModelingPrepApi.Abstractions.MarketIndexes
+namespace MatthiWare.FinancialModelingPrep.Abstractions.MarketIndexes
 {
     public interface IMarketIndexes
     {

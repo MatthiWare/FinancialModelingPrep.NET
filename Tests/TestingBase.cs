@@ -1,4 +1,4 @@
-﻿using MatthiWare.FinancialModelingPrepApi;
+﻿using MatthiWare.FinancialModelingPrep;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;

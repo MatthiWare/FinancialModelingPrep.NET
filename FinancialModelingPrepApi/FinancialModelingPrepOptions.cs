@@ -1,4 +1,4 @@
-﻿namespace MatthiWare.FinancialModelingPrepApi
+﻿namespace MatthiWare.FinancialModelingPrep
 {
     public class FinancialModelingPrepOptions
     {

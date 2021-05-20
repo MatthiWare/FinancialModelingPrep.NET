@@ -1,13 +1,13 @@
-﻿using MatthiWare.FinancialModelingPrepApi.Abstractions.MarketIndexes;
-using MatthiWare.FinancialModelingPrepApi.Core.Http;
-using MatthiWare.FinancialModelingPrepApi.Model;
-using MatthiWare.FinancialModelingPrepApi.Model.CompanyValuation;
-using MatthiWare.FinancialModelingPrepApi.Model.MarketIndexes;
+﻿using MatthiWare.FinancialModelingPrep.Abstractions.MarketIndexes;
+using MatthiWare.FinancialModelingPrep.Core.Http;
+using MatthiWare.FinancialModelingPrep.Model;
+using MatthiWare.FinancialModelingPrep.Model.CompanyValuation;
+using MatthiWare.FinancialModelingPrep.Model.MarketIndexes;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Threading.Tasks;
 
-namespace MatthiWare.FinancialModelingPrepApi.Core.MarketIndexes
+namespace MatthiWare.FinancialModelingPrep.Core.MarketIndexes
 {
     public class MarketIndexes : IMarketIndexes
     {

@@ -1,4 +1,4 @@
-﻿using MatthiWare.FinancialModelingPrepApi.Model;
+﻿using MatthiWare.FinancialModelingPrep.Model;
 using Xunit;
 
 namespace Tests

@@ -1,8 +1,8 @@
-﻿using MatthiWare.FinancialModelingPrepApi.Model;
+﻿using MatthiWare.FinancialModelingPrep.Model;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MatthiWare.FinancialModelingPrepApi.Abstractions.AdvancedData
+namespace MatthiWare.FinancialModelingPrep.Abstractions.AdvancedData
 {
     public interface IAdvancedData
     {

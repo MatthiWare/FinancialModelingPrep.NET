@@ -1,8 +1,8 @@
-﻿using MatthiWare.FinancialModelingPrepApi.Abstractions.AdvancedData;
-using MatthiWare.FinancialModelingPrepApi.Abstractions.CompanyValuation;
-using MatthiWare.FinancialModelingPrepApi.Abstractions.MarketIndexes;
+﻿using MatthiWare.FinancialModelingPrep.Abstractions.AdvancedData;
+using MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation;
+using MatthiWare.FinancialModelingPrep.Abstractions.MarketIndexes;
 
-namespace MatthiWare.FinancialModelingPrepApi
+namespace MatthiWare.FinancialModelingPrep
 {
     public interface IFinancialModelingPrepApiClient
     {

@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace MatthiWare.FinancialModelingPrepApi.Model.MarketIndexes
+namespace MatthiWare.FinancialModelingPrep.Model.MarketIndexes
 {
     public class IndexConstituentResponse
     {

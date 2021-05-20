@@ -1,12 +1,12 @@
-﻿using MatthiWare.FinancialModelingPrepApi.Model;
-using MatthiWare.FinancialModelingPrepApi.Model.Error;
+﻿using MatthiWare.FinancialModelingPrep.Model;
+using MatthiWare.FinancialModelingPrep.Model.Error;
 using System;
 using System.Collections.Specialized;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace MatthiWare.FinancialModelingPrepApi.Core.Http
+namespace MatthiWare.FinancialModelingPrep.Core.Http
 {
     public class FinancialModelingPrepHttpClient
     {

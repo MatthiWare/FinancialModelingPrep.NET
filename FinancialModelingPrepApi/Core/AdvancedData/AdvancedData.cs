@@ -1,7 +1,7 @@
-﻿using MatthiWare.FinancialModelingPrepApi.Abstractions.AdvancedData;
-using MatthiWare.FinancialModelingPrepApi.Core.Http;
+﻿using MatthiWare.FinancialModelingPrep.Abstractions.AdvancedData;
+using MatthiWare.FinancialModelingPrep.Core.Http;
 
-namespace MatthiWare.FinancialModelingPrepApi.Core.AdvancedData
+namespace MatthiWare.FinancialModelingPrep.Core.AdvancedData
 {
     public class AdvancedData : IAdvancedData
     {

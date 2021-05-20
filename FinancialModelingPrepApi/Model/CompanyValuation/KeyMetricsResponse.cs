@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace MatthiWare.FinancialModelingPrepApi.Model.CompanyValuation
+namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
 {
     public class KeyMetricsResponse
     {
