@@ -1,5 +1,5 @@
 # FinancialModelingPrep.NET
-C# API Client For Financial Modeling Prep API written in .NET 5
+C# API Client For https://financialmodelingprep.com/ API written in .NET 5
 
 ## Installation
 ```powershell
@@ -9,7 +9,7 @@ PM> Install-Package MatthiWare.FinancialModelingPrep
 # Quick Start
 
 Register FinancialModelingPrepApiClient in Dependency Injection provider
-
+> You can find your API Key here https://financialmodelingprep.com/developer/docs/dashboard
 ``` csharp
 Services.AddFinancialModelingPrepApiClient(new FinancialModelingPrepOptions() 
 {
@@ -17,7 +17,7 @@ Services.AddFinancialModelingPrepApiClient(new FinancialModelingPrepOptions()
 });
 ```
 
-Resolve FMP API Client
+### Resolve FMP API Client
 
 ``` csharp
 var apiClient = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
@@ -26,7 +26,7 @@ var apiClient = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClie
 var quoteResult = await api.CompanyValuation.GetQuoteAsync("AAPL");
 ```
 
-All API Responses are wrapped in an `ApiResponse<T>` object.
+### All API Responses are wrapped in an `ApiResponse<T>` object.
 
 ``` csharp
 var quoteResult = await api.CompanyValuation.GetQuoteAsync("AAPL");
