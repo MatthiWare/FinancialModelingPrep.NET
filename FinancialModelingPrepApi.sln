@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31229.75
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialModelingPrepApi", "FinancialModelingPrepApi.csproj", "{B691C86E-CE23-40FA-811E-8D17BE9DD8BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialModelingPrepApi", "FinancialModelingPrepApi\FinancialModelingPrepApi.csproj", "{B691C86E-CE23-40FA-811E-8D17BE9DD8BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "..\Tests\Tests.csproj", "{239A9A06-4A6A-47E8-9255-C9C5FA1BF13D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{239A9A06-4A6A-47E8-9255-C9C5FA1BF13D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
