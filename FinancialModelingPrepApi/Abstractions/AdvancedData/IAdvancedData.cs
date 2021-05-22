@@ -1,12 +1,13 @@
 ﻿using MatthiWare.FinancialModelingPrep.Model;
-using System.Collections.Generic;
+using MatthiWare.FinancialModelingPrep.Model.AdvancedData;
 using System.Threading.Tasks;
 
 namespace MatthiWare.FinancialModelingPrep.Abstractions.AdvancedData
 {
     public interface IAdvancedData
     {
-        // TODO: Add after getting premium
-        //Task<ApiResponse<List<...>> GetStandardIndustrialClassificationListAsync();
+        Task<ApiResponse<StandardIndustrialClassificationResponse>> GetStandardIndustrialClassificationByCikAsync(string cik);
+        Task<ApiResponse<StandardIndustrialClassificationResponse>> GetStandardIndustrialClassificationBySymbolAsync(string symbol);
+        Task<ApiResponse<StandardIndustrialClassificationResponse>> GetStandardIndustrialClassificationBySicCodeAsync(string sic);
     }
 }
