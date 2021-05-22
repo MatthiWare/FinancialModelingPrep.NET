@@ -13,6 +13,8 @@ namespace MatthiWare.FinancialModelingPrep.Core.Http
         private readonly HttpClient client;
         private readonly FinancialModelingPrepOptions options;
         private readonly JsonSerializerOptions jsonSerializerOptions;
+        private const string EmptyArrayResponse = "[ ]";
+        private const string ErrorMessageResponse = "Error Message";
 
         public FinancialModelingPrepHttpClient(HttpClient client, FinancialModelingPrepOptions options)
         {
@@ -38,11 +40,16 @@ namespace MatthiWare.FinancialModelingPrep.Core.Http
                     return ApiResponse.FromError<T>(response.Error);
                 }
 
-                if (response.Data.Contains("Error Message"))
+                if (response.Data.Contains(ErrorMessageResponse))
                 {
                     var errorData = JsonSerializer.Deserialize<ErrorResponse>(response.Data);
 
                     return ApiResponse.FromError<T>(errorData.ErrorMessage);
+                }
+
+                if (response.Data.Equals(EmptyArrayResponse, StringComparison.OrdinalIgnoreCase))
+                {
+                    return ApiResponse.FromError<T>("Invalid parameters");
                 }
 
                 var data = JsonSerializer.Deserialize<T>(response.Data, jsonSerializerOptions);
