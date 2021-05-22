@@ -32,17 +32,13 @@ namespace Tests.AdvancedData
         {
             var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
 
-            switch (by)
+            return by switch
             {
-                case "cik":
-                    return api.AdvancedData.GetStandardIndustrialClassificationByCikAsync(value);
-                case "sic":
-                    return api.AdvancedData.GetStandardIndustrialClassificationBySicCodeAsync(value);
-                case "symbol":
-                    return api.AdvancedData.GetStandardIndustrialClassificationBySymbolAsync(value);
-            }
-
-            return null;
+                "cik" => api.AdvancedData.GetStandardIndustrialClassificationByCikAsync(value),
+                "sic" => api.AdvancedData.GetStandardIndustrialClassificationBySicCodeAsync(value),
+                "symbol" => api.AdvancedData.GetStandardIndustrialClassificationBySymbolAsync(value),
+                _ => null,
+            };
         }
     }
 }
