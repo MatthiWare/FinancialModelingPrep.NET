@@ -1,4 +1,5 @@
-﻿using MatthiWare.FinancialModelingPrep;
+﻿using Divergic.Logging.Xunit;
+using MatthiWare.FinancialModelingPrep;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
@@ -18,13 +19,22 @@ namespace Tests
             this.Services.AddLogging(builder => 
             {
                 builder.ClearProviders();
-                builder.AddXunit(testOutput);
-                builder.SetMinimumLevel(LogLevel.Trace);
+                builder.AddXunit(testOutput, CreateLoggingConfig());
+                builder.SetMinimumLevel(LogLevel.Debug);
             });
 
             this.Services.AddFinancialModelingPrepApiClient(new FinancialModelingPrepOptions());
 
             Build();
+        }
+
+        private static LoggingConfig CreateLoggingConfig()
+        {
+            var config = new LoggingConfig();
+
+            config.Formatter = new RemoveApiKeyFromLogSanitizer("demo", config.Formatter);
+
+            return config;
         }
 
         protected void Build()
