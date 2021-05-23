@@ -22,4 +22,6 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Test
+      env: 
+        FMP_TESTS_API_KEY: ${{ secrets.FMP_TESTS_API_KEY }}
       run: dotnet test --no-build --verbosity normal
