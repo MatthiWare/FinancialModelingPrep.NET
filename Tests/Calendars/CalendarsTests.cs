@@ -90,5 +90,76 @@ namespace Tests.Calendars
             Assert.Equal(21360000, firstResult.Shares);
             Assert.Equal(320400000, firstResult.MarketCap);
         }
+
+        [Theory]
+        [InlineData("2021-04-14", null)]
+        [InlineData(null, "2021-04-14")]
+        public async Task GetDividendCalendarAsync_With_Null_Args_Throws(string from, string to)
+        {
+            await Assert.ThrowsAsync<ArgumentException>(() => api.GetDividendCalendarAsync(from, to));
+        }
+
+        [Fact]
+        public async Task GetDividendCalendarAsync()
+        {
+            var result = await api.GetDividendCalendarAsync("2020-11-03", "2020-11-03");
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+            var firstResult = result.Data.First(_ => _.Symbol == "BRO");
+
+            Assert.Equal("BRO", firstResult.Symbol);
+            Assert.Equal(0.0925, firstResult.AdjDividend);
+            Assert.Equal("2020-11-04", firstResult.RecordDate);
+            Assert.Equal("2020-11-18", firstResult.PaymentDate);
+            Assert.Equal("2020-10-20", firstResult.DeclarationDate);
+        }
+
+        [Theory]
+        [InlineData("2021-04-14", null)]
+        [InlineData(null, "2021-04-14")]
+        public async Task GetEconomicCalendarAsync_With_Null_Args_Throws(string from, string to)
+        {
+            await Assert.ThrowsAsync<ArgumentException>(() => api.GetEconomicCalendarAsync(from, to));
+        }
+
+        [Fact]
+        public async Task GetEconomicCalendarAsync()
+        {
+            var result = await api.GetEconomicCalendarAsync("2020-10-19", "2020-10-20");
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+            var firstResult = result.Data.First(_ => _.Event == "United States NAHB housing market NAHB Housing Market Indx");
+
+            Assert.Equal("US", firstResult.Country);
+            Assert.Equal("2020-10-19 14:00:00", firstResult.Date);
+            Assert.Equal(85, firstResult.Actual);
+            Assert.Equal(83, firstResult.Previous);
+            Assert.Equal(2, firstResult.Change);
+            Assert.Equal(0.0241, firstResult.ChangePercentage);
+            Assert.Equal(83, firstResult.Estimate);
+        }
+
+        [Theory]
+        [InlineData("2021-04-14", null)]
+        [InlineData(null, "2021-04-14")]
+        public async Task GetStockSplitCalendarAsync_With_Null_Args_Throws(string from, string to)
+        {
+            await Assert.ThrowsAsync<ArgumentException>(() => api.GetStockSplitCalendarAsync(from, to));
+        }
+
+        [Fact]
+        public async Task GetStockSplitCalendarAsync()
+        {
+            var result = await api.GetStockSplitCalendarAsync("2020-08-31", "2020-08-31");
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+            var firstResult = result.Data.First(_ => _.Symbol == "AAPL");
+
+            Assert.Equal(4, firstResult.Numerator);
+            Assert.Equal(1, firstResult.Denominator);
+        }
     }
 }

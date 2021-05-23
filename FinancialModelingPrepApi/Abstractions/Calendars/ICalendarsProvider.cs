@@ -37,5 +37,32 @@ namespace MatthiWare.FinancialModelingPrep.Abstractions.Calendars
         /// <param name="to">To date YYYY-MM-DD</param>
         /// <returns></returns>
         Task<ApiResponse<List<IPOCalendarResponse>>> GetIPOCalendarAsync(string from, string to);
+
+        /// <summary>
+        /// Gets the Dividend Calendar
+        /// The maximum time interval between from and to is 3 months.
+        /// </summary>
+        /// <param name="from">From date YYYY-MM-DD</param>
+        /// <param name="to">To date YYYY-MM-DD</param>
+        /// <returns></returns>
+        Task<ApiResponse<List<DividendCalendarResponse>>> GetDividendCalendarAsync(string from, string to);
+
+        /// <summary>
+        /// Gets the Economic Calendar
+        /// The maximum time interval between from and to is 3 months.
+        /// </summary>
+        /// <param name="from">From date YYYY-MM-DD</param>
+        /// <param name="to">To date YYYY-MM-DD</param>
+        /// <returns></returns>
+        Task<ApiResponse<List<EconomicCalendarResponse>>> GetEconomicCalendarAsync(string from, string to);
+
+        /// <summary>
+        /// Gets the Stock Split Calendar
+        /// The maximum time interval between from and to is 3 months.
+        /// </summary>
+        /// <param name="from">From date YYYY-MM-DD</param>
+        /// <param name="to">To date YYYY-MM-DD</param>
+        /// <returns></returns>
+        Task<ApiResponse<List<StockSplitCalendarResponse>>> GetStockSplitCalendarAsync(string from, string to);
     }
 }

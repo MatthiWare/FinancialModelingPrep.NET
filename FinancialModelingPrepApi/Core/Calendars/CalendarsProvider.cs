@@ -81,6 +81,21 @@ namespace MatthiWare.FinancialModelingPrep.Core.Calendars
 
         /// <inheritdoc/>
         public Task<ApiResponse<List<IPOCalendarResponse>>> GetIPOCalendarAsync(string from, string to)
+            => GetGenericCalendarAsync<IPOCalendarResponse>("[version]/ipo_calendar", from, to);
+
+        /// <inheritdoc/>
+        public Task<ApiResponse<List<DividendCalendarResponse>>> GetDividendCalendarAsync(string from, string to)
+            => GetGenericCalendarAsync<DividendCalendarResponse>("[version]/stock_dividend_calendar", from, to);
+
+        /// <inheritdoc/>
+        public Task<ApiResponse<List<EconomicCalendarResponse>>> GetEconomicCalendarAsync(string from, string to)
+            => GetGenericCalendarAsync<EconomicCalendarResponse>("[version]/economic_calendar", from, to);
+
+        /// <inheritdoc/>
+        public Task<ApiResponse<List<StockSplitCalendarResponse>>> GetStockSplitCalendarAsync(string from, string to)
+            => GetGenericCalendarAsync<StockSplitCalendarResponse>("[version]/stock_split_calendar", from, to);
+
+        private Task<ApiResponse<List<T>>> GetGenericCalendarAsync<T>(string urlTemplate, string from, string to)
         {
             if (string.IsNullOrEmpty(from))
             {
@@ -92,8 +107,6 @@ namespace MatthiWare.FinancialModelingPrep.Core.Calendars
                 throw new ArgumentException($"'{nameof(to)}' cannot be null or empty.", nameof(to));
             }
 
-            const string url = "[version]/ipo_calendar";
-
             var pathParams = new NameValueCollection()
             {
                 { "version", ApiVersion.v3.ToString() }
@@ -104,7 +117,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.Calendars
             queryString.Add("from", from);
             queryString.Add("to", to);
 
-            return client.GetAsync<List<IPOCalendarResponse>>(url, pathParams, queryString);
+            return client.GetAsync<List<T>>(urlTemplate, pathParams, queryString);
         }
     }
 }
