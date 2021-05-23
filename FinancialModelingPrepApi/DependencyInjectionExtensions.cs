@@ -14,9 +14,15 @@ namespace MatthiWare.FinancialModelingPrep
 {
     public static class DependencyInjectionExtensions
     {
-        public static void AddFinancialModelingPrepApiClient(this IServiceCollection services, FinancialModelingPrepOptions options)
+        /// <summary>
+        /// Adds the <see cref="IFinancialModelingPrepApiClient"/> to the services.
+        /// This package does not override any existing registrations. 
+        /// </summary>
+        /// <param name="services">DI Service Collection</param>
+        /// <param name="options">FMP Options <see cref="FinancialModelingPrepOptions"/> if left as null it will use the default options and default API Key</param>
+        public static void AddFinancialModelingPrepApiClient(this IServiceCollection services, FinancialModelingPrepOptions options = null)
         {
-            services.AddSingleton(options);
+            services.TryAddSingleton(options ?? new FinancialModelingPrepOptions());
 
             services.AddLogging();
 

@@ -4,10 +4,25 @@ using MatthiWare.FinancialModelingPrep.Abstractions.MarketIndexes;
 
 namespace MatthiWare.FinancialModelingPrep
 {
+    /// <summary>
+    /// FMP Client that exposes different sections of Endpoints
+    /// </summary>
     public interface IFinancialModelingPrepApiClient
     {
+        /// <summary>
+        /// Advanced Data Endpoints are grouped here
+        /// Note: most of these endpoints require a premium API Key
+        /// </summary>
         IAdvancedData AdvancedData { get; }
+
+        /// <summary>
+        /// All Company Valuation Endpoints are grouped here
+        /// </summary>
         ICompanyValuation CompanyValuation { get; }
+
+        /// <summary>
+        /// All Market Index Endpoints are grouped here
+        /// </summary>
         IMarketIndexes MarketIndexes { get; }
     }
 }
