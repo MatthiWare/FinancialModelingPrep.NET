@@ -68,5 +68,27 @@ namespace Tests.Calendars
             Assert.Equal(5, result.Data.Count);
             Assert.All(result.Data, _ => Assert.Equal("AAPL", _.Symbol));
         }
+
+        [Theory]
+        [InlineData("2021-04-14", null)]
+        [InlineData(null, "2021-04-14")]
+        public async Task GetIPOCalendarAsync_With_Null_Args_Throws(string from, string to)
+        {
+            await Assert.ThrowsAsync<ArgumentException>(() => api.GetIPOCalendarAsync(from, to));
+        }
+
+        [Fact]
+        public async Task GetIPOCalendarAsync()
+        {
+            var result = await api.GetIPOCalendarAsync("2010-04-01", "2010-04-01");
+
+            result.AssertNoErrors();
+            Assert.Single(result.Data);
+            var firstResult = result.Data.First();
+
+            Assert.Equal("PRI", firstResult.Symbol);
+            Assert.Equal(21360000, firstResult.Shares);
+            Assert.Equal(320400000, firstResult.MarketCap);
+        }
     }
 }

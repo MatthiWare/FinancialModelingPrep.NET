@@ -18,6 +18,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.Calendars
             this.client = client ?? throw new ArgumentNullException(nameof(client));
         }
 
+        /// <inheritdoc/>
         public Task<ApiResponse<List<EarningsCalendarResponse>>> GetEarningsCalendarAsync(string from, string to)
         {
             if (string.IsNullOrEmpty(from))
@@ -33,6 +34,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.Calendars
             return GetEarningsCalendarInternalAsync(from, to);
         }
 
+        /// <inheritdoc/>
         public Task<ApiResponse<List<EarningsCalendarResponse>>> GetEarningsCalendarAsync()
             => GetEarningsCalendarInternalAsync();
 
@@ -56,6 +58,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.Calendars
             return client.GetAsync<List<EarningsCalendarResponse>>(url, pathParams, queryString);
         }
 
+        /// <inheritdoc/>
         public Task<ApiResponse<List<EarningsCalendarResponse>>> GetHistoricalEarningsCalendarAsync(string symbol, int? limit = null)
         {
             const string url = "[version]/historical/earning_calendar/[symbol]";
@@ -74,6 +77,34 @@ namespace MatthiWare.FinancialModelingPrep.Core.Calendars
             }
 
             return client.GetAsync<List<EarningsCalendarResponse>>(url, pathParams, queryString);
+        }
+
+        /// <inheritdoc/>
+        public Task<ApiResponse<List<IPOCalendarResponse>>> GetIPOCalendarAsync(string from, string to)
+        {
+            if (string.IsNullOrEmpty(from))
+            {
+                throw new ArgumentException($"'{nameof(from)}' cannot be null or empty.", nameof(from));
+            }
+
+            if (string.IsNullOrEmpty(to))
+            {
+                throw new ArgumentException($"'{nameof(to)}' cannot be null or empty.", nameof(to));
+            }
+
+            const string url = "[version]/ipo_calendar";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() }
+            };
+
+            var queryString = new QueryStringBuilder();
+
+            queryString.Add("from", from);
+            queryString.Add("to", to);
+
+            return client.GetAsync<List<IPOCalendarResponse>>(url, pathParams, queryString);
         }
     }
 }
