@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace MatthiWare.FinancialModelingPrep.Abstractions.AdvancedData
 {
-    public interface IAdvancedData
+    public interface IAdvancedDataProvider
     {
         Task<ApiResponse<StandardIndustrialClassificationResponse>> GetStandardIndustrialClassificationByCikAsync(string cik);
         Task<ApiResponse<StandardIndustrialClassificationResponse>> GetStandardIndustrialClassificationBySymbolAsync(string symbol);

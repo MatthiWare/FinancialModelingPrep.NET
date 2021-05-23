@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace MatthiWare.FinancialModelingPrep.Core.MarketIndexes
 {
-    public class MarketIndexes : IMarketIndexes
+    public class MarketIndexesProvider : IMarketIndexesProvider
     {
         private readonly FinancialModelingPrepHttpClient client;
 
-        public MarketIndexes(FinancialModelingPrepHttpClient client)
+        public MarketIndexesProvider(FinancialModelingPrepHttpClient client)
         {
             this.client = client ?? throw new System.ArgumentNullException(nameof(client));
         }

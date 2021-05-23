@@ -14,17 +14,17 @@ namespace MatthiWare.FinancialModelingPrep
         /// Advanced Data Endpoints are grouped here
         /// Note: most of these endpoints require a premium API Key
         /// </summary>
-        IAdvancedData AdvancedData { get; }
+        IAdvancedDataProvider AdvancedData { get; }
 
         /// <summary>
         /// All Company Valuation Endpoints are grouped here
         /// </summary>
-        ICompanyValuation CompanyValuation { get; }
+        ICompanyValuationProvider CompanyValuation { get; }
 
         /// <summary>
         /// All Market Index Endpoints are grouped here
         /// </summary>
-        IMarketIndexes MarketIndexes { get; }
+        IMarketIndexesProvider MarketIndexes { get; }
 
         /// <summary>
         /// All Calendar related Endpoints are grouped here (Earnings, IPO, stock splits, Dividends, Economic)

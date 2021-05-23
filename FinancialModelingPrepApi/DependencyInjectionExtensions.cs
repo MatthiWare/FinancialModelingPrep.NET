@@ -32,9 +32,9 @@ namespace MatthiWare.FinancialModelingPrep
                 => client.BaseAddress = new Uri("https://financialmodelingprep.com/api/"));
 
             services.TryAddSingleton<IFinancialModelingPrepApiClient, FinancialModelingPrepApiClient>();
-            services.TryAddScoped<ICompanyValuation, CompanyValuation>();
-            services.TryAddScoped<IMarketIndexes, MarketIndexes>();
-            services.TryAddScoped<IAdvancedData, AdvancedData>();
+            services.TryAddScoped<ICompanyValuationProvider, CompanyValuation>();
+            services.TryAddScoped<IMarketIndexesProvider, MarketIndexesProvider>();
+            services.TryAddScoped<IAdvancedDataProvider, AdvancedDataProvider>();
             services.TryAddScoped<ICalendarsProvider, CalendarsProvider>();
         }
     }

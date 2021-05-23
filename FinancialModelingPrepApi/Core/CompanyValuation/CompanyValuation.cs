@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
 {
-    public class CompanyValuation : ICompanyValuation
+    public class CompanyValuation : ICompanyValuationProvider
     {
         private readonly FinancialModelingPrepHttpClient client;
 

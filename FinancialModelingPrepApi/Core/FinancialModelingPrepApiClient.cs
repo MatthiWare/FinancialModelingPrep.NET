@@ -9,20 +9,20 @@ namespace MatthiWare.FinancialModelingPrep.Core
     public class FinancialModelingPrepApiClient : IFinancialModelingPrepApiClient
     {
         /// <inheritdoc/>
-        public ICompanyValuation CompanyValuation { get; }
+        public ICompanyValuationProvider CompanyValuation { get; }
 
         /// <inheritdoc/>
-        public IMarketIndexes MarketIndexes { get; }
+        public IMarketIndexesProvider MarketIndexes { get; }
 
         /// <inheritdoc/>
-        public IAdvancedData AdvancedData { get; }
+        public IAdvancedDataProvider AdvancedData { get; }
 
         /// <inheritdoc/>
         public ICalendarsProvider Calendars { get; }
 
-        public FinancialModelingPrepApiClient(ICompanyValuation companyValuation,
-                                              IMarketIndexes marketIndexes,
-                                              IAdvancedData advancedData,
+        public FinancialModelingPrepApiClient(ICompanyValuationProvider companyValuation,
+                                              IMarketIndexesProvider marketIndexes,
+                                              IAdvancedDataProvider advancedData,
                                               ICalendarsProvider calendars)
         {
             CompanyValuation = companyValuation;

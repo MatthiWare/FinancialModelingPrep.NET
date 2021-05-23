@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation
 {
-    public interface ICompanyValuation
+    public interface ICompanyValuationProvider
     {
         public Task<ApiResponse<QuoteResponse>> GetQuoteAsync(string symbol);
 

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MatthiWare.FinancialModelingPrep.Abstractions.MarketIndexes
 {
-    public interface IMarketIndexes
+    public interface IMarketIndexesProvider
     {
         Task<ApiResponse<List<IndexConstituentResponse>>> GetSP500CompaniesAsync();
         Task<ApiResponse<List<IndexConstituentResponse>>> GetNasdaqCompaniesAsync();

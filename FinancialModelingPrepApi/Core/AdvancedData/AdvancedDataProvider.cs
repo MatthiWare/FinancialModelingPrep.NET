@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace MatthiWare.FinancialModelingPrep.Core.AdvancedData
 {
-    public class AdvancedData : IAdvancedData
+    public class AdvancedDataProvider : IAdvancedDataProvider
     {
         private readonly FinancialModelingPrepHttpClient client;
 
-        public AdvancedData(FinancialModelingPrepHttpClient client)
+        public AdvancedDataProvider(FinancialModelingPrepHttpClient client)
         {
             this.client = client ?? throw new System.ArgumentNullException(nameof(client));
         }
