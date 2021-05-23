@@ -1,4 +1,5 @@
 ﻿using MatthiWare.FinancialModelingPrep.Abstractions.AdvancedData;
+using MatthiWare.FinancialModelingPrep.Abstractions.Calendars;
 using MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation;
 using MatthiWare.FinancialModelingPrep.Abstractions.MarketIndexes;
 
@@ -24,5 +25,10 @@ namespace MatthiWare.FinancialModelingPrep
         /// All Market Index Endpoints are grouped here
         /// </summary>
         IMarketIndexes MarketIndexes { get; }
+
+        /// <summary>
+        /// All Calendar related Endpoints are grouped here (Earnings, IPO, stock splits, Dividends, Economic)
+        /// </summary>
+        ICalendarsProvider Calendars { get; }
     }
 }

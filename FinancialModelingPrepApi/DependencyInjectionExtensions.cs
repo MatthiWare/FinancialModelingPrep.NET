@@ -1,8 +1,10 @@
 ﻿using MatthiWare.FinancialModelingPrep.Abstractions.AdvancedData;
+using MatthiWare.FinancialModelingPrep.Abstractions.Calendars;
 using MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation;
 using MatthiWare.FinancialModelingPrep.Abstractions.MarketIndexes;
 using MatthiWare.FinancialModelingPrep.Core;
 using MatthiWare.FinancialModelingPrep.Core.AdvancedData;
+using MatthiWare.FinancialModelingPrep.Core.Calendars;
 using MatthiWare.FinancialModelingPrep.Core.CompanyValuation;
 using MatthiWare.FinancialModelingPrep.Core.Http;
 using MatthiWare.FinancialModelingPrep.Core.MarketIndexes;
@@ -33,6 +35,7 @@ namespace MatthiWare.FinancialModelingPrep
             services.TryAddScoped<ICompanyValuation, CompanyValuation>();
             services.TryAddScoped<IMarketIndexes, MarketIndexes>();
             services.TryAddScoped<IAdvancedData, AdvancedData>();
+            services.TryAddScoped<ICalendarsProvider, CalendarsProvider>();
         }
     }
 }
