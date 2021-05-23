@@ -25,3 +25,10 @@ jobs:
       env: 
         FMP_TESTS_API_KEY: ${{ secrets.FMP_TESTS_API_KEY }}
       run: dotnet test --no-build --verbosity normal
+    - name: Build Release
+      run: dotnet build --configuration Release --no-restore
+    - name: Upload Nuget Package Build Artifact
+      uses: actions/upload-artifact@v2.2.3
+      with:
+        name: Nuget
+        path: /home/runner/work/FinancialModelingPrep.NET/FinancialModelingPrep.NET/FinancialModelingPrepApi/bin/Release/*.nupkg
