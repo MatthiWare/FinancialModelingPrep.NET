@@ -20,7 +20,7 @@ Services.AddFinancialModelingPrepApiClient(new FinancialModelingPrepOptions()
 ### Resolve FMP API Client
 
 ``` csharp
-var apiClient = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
+var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
 
 // do something with apiClient like getting the latest Apple Stock Quote
 var quoteResult = await api.CompanyValuation.GetQuoteAsync("AAPL");
