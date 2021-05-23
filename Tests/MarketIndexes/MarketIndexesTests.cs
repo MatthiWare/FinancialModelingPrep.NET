@@ -1,11 +1,10 @@
 ﻿using MatthiWare.FinancialModelingPrep;
-using MatthiWare.FinancialModelingPrep.Model;
 using Microsoft.Extensions.DependencyInjection;
 using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Tests.CompanyValuation
+namespace Tests.MarketIndexes
 {
     public class MarketIndexesTests : TestingBase
     {
