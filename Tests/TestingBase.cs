@@ -30,12 +30,12 @@ namespace Tests
 
             // TODO: add logging not possible yet as I don't want to expose API Keys in the CI/CD logs
             // See:  
-            //this.Services.AddLogging(builder => 
-            //{
-            //    builder.ClearProviders();
-            //    builder.AddXunit(testOutput, CreateLoggingConfig());
-            //    builder.SetMinimumLevel(LogLevel.Debug);
-            //});
+            this.Services.AddLogging(builder =>
+            {
+                builder.ClearProviders();
+                builder.AddXunit(testOutput, CreateLoggingConfig());
+                builder.SetMinimumLevel(LogLevel.Debug);
+            });
 
             this.Services.AddFinancialModelingPrepApiClient(CreateDefaultFMPOptions());
 
