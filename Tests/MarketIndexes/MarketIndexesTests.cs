@@ -1,4 +1,5 @@
 ﻿using MatthiWare.FinancialModelingPrep;
+using MatthiWare.FinancialModelingPrep.Abstractions.MarketIndexes;
 using Microsoft.Extensions.DependencyInjection;
 using System.Threading.Tasks;
 using Xunit;
@@ -8,16 +9,17 @@ namespace Tests.MarketIndexes
 {
     public class MarketIndexesTests : TestingBase
     {
+        private readonly IMarketIndexesProvider api;
+
         public MarketIndexesTests(ITestOutputHelper testOutput) : base(testOutput)
         {
+            api = ServiceProvider.GetRequiredService<IMarketIndexesProvider>();
         }
 
         [Fact]
         public async Task GetDowJonesCompaniesTests()
         {
-            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
-
-            var result = await api.MarketIndexes.GetDowJonesCompaniesAsync();
+            var result = await api.GetDowJonesCompaniesAsync();
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
@@ -26,9 +28,7 @@ namespace Tests.MarketIndexes
         [Fact]
         public async Task GetNasdaqCompaniesTests()
         {
-            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
-
-            var result = await api.MarketIndexes.GetNasdaqCompaniesAsync();
+            var result = await api.GetNasdaqCompaniesAsync();
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
@@ -37,9 +37,7 @@ namespace Tests.MarketIndexes
         [Fact]
         public async Task GetSP500CompaniesTests()
         {
-            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
-
-            var result = await api.MarketIndexes.GetSP500CompaniesAsync();
+            var result = await api.GetSP500CompaniesAsync();
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);

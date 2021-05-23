@@ -1,4 +1,5 @@
 ﻿using MatthiWare.FinancialModelingPrep;
+using MatthiWare.FinancialModelingPrep.Abstractions.AdvancedData;
 using MatthiWare.FinancialModelingPrep.Model;
 using MatthiWare.FinancialModelingPrep.Model.AdvancedData;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,8 +11,11 @@ namespace Tests.AdvancedData
 {
     public class CompanyValuationTests : TestingBase
     {
+        private readonly IAdvancedDataProvider api;
+
         public CompanyValuationTests(ITestOutputHelper testOutput) : base(testOutput)
         {
+            api = ServiceProvider.GetRequiredService<IAdvancedDataProvider>();
         }
 
         [Theory]
@@ -30,13 +34,11 @@ namespace Tests.AdvancedData
 
         private Task<ApiResponse<StandardIndustrialClassificationResponse>> GetStandardIndustrialClassSwitch(string by, string value)
         {
-            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
-
             return by switch
             {
-                "cik" => api.AdvancedData.GetStandardIndustrialClassificationByCikAsync(value),
-                "sic" => api.AdvancedData.GetStandardIndustrialClassificationBySicCodeAsync(value),
-                "symbol" => api.AdvancedData.GetStandardIndustrialClassificationBySymbolAsync(value),
+                "cik" => api.GetStandardIndustrialClassificationByCikAsync(value),
+                "sic" => api.GetStandardIndustrialClassificationBySicCodeAsync(value),
+                "symbol" => api.GetStandardIndustrialClassificationBySymbolAsync(value),
                 _ => null,
             };
         }

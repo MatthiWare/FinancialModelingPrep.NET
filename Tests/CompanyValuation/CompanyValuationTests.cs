@@ -10,16 +10,17 @@ namespace Tests.CompanyValuation
 {
     public class CompanyValuationTests : TestingBase
     {
+        private readonly ICompanyValuationProvider api;
+
         public CompanyValuationTests(ITestOutputHelper testOutput) : base(testOutput)
         {
+            api = ServiceProvider.GetRequiredService<ICompanyValuationProvider>();
         }
 
         [Fact]
         public async Task GetCompanyProfileTests()
         {
-            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
-
-            var result = await api.CompanyValuation.GetCompanyProfileAsync("AAPL");
+            var result = await api.GetCompanyProfileAsync("AAPL");
 
             result.AssertNoErrors();
             Assert.Equal("AAPL", result.Data.symbol);
@@ -28,9 +29,7 @@ namespace Tests.CompanyValuation
         [Fact]
         public async Task GetCompanyProfile_Unknown_Symbol_Returns_HasError_True()
         {
-            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
-
-            var result = await api.CompanyValuation.GetCompanyProfileAsync("doesnotexist");
+            var result = await api.GetCompanyProfileAsync("doesnotexist");
 
             Assert.NotNull(result);
             Assert.True(result.HasError);
@@ -39,9 +38,7 @@ namespace Tests.CompanyValuation
         [Fact]
         public async Task GetSymbolsList()
         {
-            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
-
-            var result = await api.CompanyValuation.GetSymbolsListAsync();
+            var result = await api.GetSymbolsListAsync();
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
@@ -50,9 +47,7 @@ namespace Tests.CompanyValuation
         [Fact]
         public async Task GetETFList()
         {
-            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
-
-            var result = await api.CompanyValuation.GetETFListAsync();
+            var result = await api.GetETFListAsync();
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
@@ -61,9 +56,7 @@ namespace Tests.CompanyValuation
         [Fact]
         public async Task GetTradableSymbolsList()
         {
-            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
-
-            var result = await api.CompanyValuation.GetTradableSymbolsListAsync();
+            var result = await api.GetTradableSymbolsListAsync();
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
@@ -72,9 +65,7 @@ namespace Tests.CompanyValuation
         [Fact]
         public async Task GetEnterpriseValue()
         {
-            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
-
-            var result = await api.CompanyValuation.GetEnterpriseValueAsync("AAPL", Period.Annual, 5);
+            var result = await api.GetEnterpriseValueAsync("AAPL", Period.Annual, 5);
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
@@ -85,9 +76,7 @@ namespace Tests.CompanyValuation
         [Fact]
         public async Task GetIncomeStatement()
         {
-            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
-
-            var result = await api.CompanyValuation.GetIncomeStatementAsync("AAPL", Period.Annual, 5);
+            var result = await api.GetIncomeStatementAsync("AAPL", Period.Annual, 5);
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
@@ -98,9 +87,7 @@ namespace Tests.CompanyValuation
         [Fact]
         public async Task GetCashFlowStatement()
         {
-            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
-
-            var result = await api.CompanyValuation.GetCashFlowStatementAsync("AAPL", Period.Annual, 5);
+            var result = await api.GetCashFlowStatementAsync("AAPL", Period.Annual, 5);
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
@@ -111,9 +98,7 @@ namespace Tests.CompanyValuation
         [Fact]
         public async Task GetBalanceSheetStatement()
         {
-            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
-
-            var result = await api.CompanyValuation.GetBalanceSheetStatementAsync("AAPL", Period.Annual, 5);
+            var result = await api.GetBalanceSheetStatementAsync("AAPL", Period.Annual, 5);
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
@@ -124,9 +109,7 @@ namespace Tests.CompanyValuation
         [Fact]
         public async Task GetStockNewsAsync()
         {
-            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
-
-            var result = await api.CompanyValuation.GetStockNewsAsync("AAPL", 5);
+            var result = await api.GetStockNewsAsync("AAPL", 5);
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
@@ -137,9 +120,7 @@ namespace Tests.CompanyValuation
         [Fact]
         public async Task GetCompanyRatingAsync()
         {
-            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
-
-            var result = await api.CompanyValuation.GetCompanyRatingAsync("AAPL");
+            var result = await api.GetCompanyRatingAsync("AAPL");
 
             result.AssertNoErrors();
             Assert.Equal("AAPL", result.Data.Symbol);
@@ -148,9 +129,7 @@ namespace Tests.CompanyValuation
         [Fact]
         public async Task GetHistoricalCompanyRatingAsync()
         {
-            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
-
-            var result = await api.CompanyValuation.GetHistoricalCompanyRatingAsync("AAPL", 5);
+            var result = await api.GetHistoricalCompanyRatingAsync("AAPL", 5);
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
@@ -161,9 +140,7 @@ namespace Tests.CompanyValuation
         [Fact]
         public async Task GetDiscountedCashFlowAsync()
         {
-            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
-
-            var result = await api.CompanyValuation.GetDiscountedCashFlowAsync("AAPL");
+            var result = await api.GetDiscountedCashFlowAsync("AAPL");
 
             result.AssertNoErrors();
             Assert.Equal("AAPL", result.Data.Symbol);
@@ -172,9 +149,7 @@ namespace Tests.CompanyValuation
         [Fact]
         public async Task GetHistoricalDiscountedCashFlowAsync()
         {
-            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
-
-            var result = await api.CompanyValuation.GetHistoricalDiscountedCashFlowAsync("AAPL", Period.Quarter);
+            var result = await api.GetHistoricalDiscountedCashFlowAsync("AAPL", Period.Quarter);
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
@@ -184,9 +159,7 @@ namespace Tests.CompanyValuation
         [Fact]
         public async Task GetHistoricalDiscountedCashFlowDailyAsync()
         {
-            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
-
-            var result = await api.CompanyValuation.GetHistoricalDiscountedCashFlowDailyAsync("AAPL", 5);
+            var result = await api.GetHistoricalDiscountedCashFlowDailyAsync("AAPL", 5);
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
@@ -197,9 +170,7 @@ namespace Tests.CompanyValuation
         [Fact]
         public async Task GetCompanyKeyMetricsTTMAsync()
         {
-            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
-
-            var result = await api.CompanyValuation.GetCompanyKeyMetricsTTMAsync("AAPL");
+            var result = await api.GetCompanyKeyMetricsTTMAsync("AAPL");
 
             result.AssertNoErrors();
         }
@@ -207,9 +178,7 @@ namespace Tests.CompanyValuation
         [Fact]
         public async Task GetCompanyKeyMetricsAsync()
         {
-            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
-
-            var result = await api.CompanyValuation.GetCompanyKeyMetricsAsync("AAPL", Period.Quarter, 5);
+            var result = await api.GetCompanyKeyMetricsAsync("AAPL", Period.Quarter, 5);
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
@@ -220,9 +189,7 @@ namespace Tests.CompanyValuation
         [Fact]
         public async Task GetQuoteAsync()
         {
-            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
-
-            var result = await api.CompanyValuation.GetQuoteAsync("AAPL");
+            var result = await api.GetQuoteAsync("AAPL");
 
             result.AssertNoErrors();
             Assert.Equal("AAPL", result.Data.Symbol);
@@ -231,9 +198,7 @@ namespace Tests.CompanyValuation
         [Fact]
         public async Task GetHistoricalMarketCapAsync()
         {
-            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
-
-            var result = await api.CompanyValuation.GetHistoricalMarketCapitalizationAsync("AAPL", 5);
+            var result = await api.GetHistoricalMarketCapitalizationAsync("AAPL", 5);
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
@@ -244,9 +209,7 @@ namespace Tests.CompanyValuation
         [Fact]
         public async Task GetMarketCapAsync()
         {
-            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
-
-            var result = await api.CompanyValuation.GetMarketCapitalizationAsync("AAPL");
+            var result = await api.GetMarketCapitalizationAsync("AAPL");
 
             result.AssertNoErrors();
             Assert.Equal("AAPL", result.Data.Symbol);
