@@ -8,9 +8,31 @@ namespace MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund
     public interface IInstitutionalFundProvider
     {
         #region 13F
+        /// <summary>
+        /// Complete list of all institutional investment managers by cik 
+        /// </summary>
+        /// <returns></returns>
         public Task<ApiResponse<List<CikListResponse>>> Get13FListAsync();
+
+        /// <summary>
+        /// Cusip mapper
+        /// </summary>
+        /// <param name="cusip"></param>
+        /// <returns></returns>
         public Task<ApiResponse<CusipMapperResponse>> MapCusipAsync(string cusip);
+
+        /// <summary>
+        /// FORM 13F cik search by name 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public Task<ApiResponse<List<CikListResponse>>> SearchCikByName(string name);
+
+        /// <summary>
+        /// FORM 13F get company name by cik
+        /// </summary>
+        /// <param name="cik"></param>
+        /// <returns></returns>
         public Task<ApiResponse<List<CikListResponse>>> GetCompanyNameByCik(string cik);
 
         /// <summary>

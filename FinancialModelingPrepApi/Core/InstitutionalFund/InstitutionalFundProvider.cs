@@ -19,6 +19,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.InstitutionalFund
             this.client = client ?? throw new System.ArgumentNullException(nameof(client));
         }
 
+        /// <inheritdoc/>
         public Task<ApiResponse<List<CikListResponse>>> Get13FListAsync()
         {
             const string url = "[version]/cik_list";
@@ -31,6 +32,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.InstitutionalFund
             return client.GetJsonAsync<List<CikListResponse>>(url, pathParams, null);
         }
 
+        /// <inheritdoc/>
         public Task<ApiResponse<List<CikListResponse>>> GetCompanyNameByCik(string cik)
         {
             const string url = "[version]/cik/[cik]";
@@ -61,6 +63,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.InstitutionalFund
             return client.GetJsonAsync<List<Form13FResponse>>(url, pathParams, queryString);
         }
 
+        /// <inheritdoc/>
         public async Task<ApiResponse<CusipMapperResponse>> MapCusipAsync(string cusip)
         {
             const string url = "[version]/cusip/[cusip]";
@@ -81,6 +84,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.InstitutionalFund
             return ApiResponse.FromSucces(result.Data.First());
         }
 
+        /// <inheritdoc/>
         public Task<ApiResponse<List<CikListResponse>>> SearchCikByName(string name)
         {
             const string url = "[version]/cik-search/[name]";
