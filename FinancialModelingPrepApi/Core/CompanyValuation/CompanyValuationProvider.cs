@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
 {
-    public class CompanyValuation : ICompanyValuationProvider
+    public class CompanyValuationProvider : ICompanyValuationProvider
     {
         private readonly FinancialModelingPrepHttpClient client;
 
-        public CompanyValuation(FinancialModelingPrepHttpClient client)
+        public CompanyValuationProvider(FinancialModelingPrepHttpClient client)
         {
             this.client = client ?? throw new System.ArgumentNullException(nameof(client));
         }
