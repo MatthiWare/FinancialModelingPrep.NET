@@ -2,7 +2,7 @@
 [![Nuget](https://buildstats.info/nuget/MatthiWare.FinancialModelingPrep)](https://www.nuget.org/packages/MatthiWare.FinancialModelingPrep/)
 
 # FinancialModelingPrep.NET
-C# API Client For https://financialmodelingprep.com/ API written in .NET 5
+.NET 5 API Client For https://financialmodelingprep.com/ API written in C#
 
 ## Installation
 ```powershell
