@@ -26,6 +26,26 @@ namespace Tests.InstitutionalFund
         }
 
         [Fact]
+        public async Task SearchCIKByName()
+        {
+            var result = await api.SearchCikByName("Berkshire");
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+        }
+
+        [Fact]
+        public async Task GetCompanyNameByCIK()
+        {
+            var result = await api.GetCompanyNameByCik("0001067983");
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+
+            Assert.All(result.Data, _ => Assert.Equal("0001067983", _.Cik));
+        }
+
+        [Fact]
         public async Task MapCusipAsync()
         {
             var result = await api.MapCusipAsync("000360206");
