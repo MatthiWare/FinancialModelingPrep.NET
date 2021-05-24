@@ -52,6 +52,34 @@ namespace Tests.AdvancedData
             Assert.Equal("3571", result.Data.SicCode);
         }
 
+        [Fact]
+        public async Task GetStockPeersAsync()
+        {
+            var result = await api.GetStockPeersAsync("AAPL");
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data.PeersList);
+            Assert.Equal("AAPL", result.Data.Symbol);
+        }
+
+        [Fact]
+        public async Task GetSectorsPriceEarningsRatioAsync()
+        {
+            var result = await api.GetSectorsPriceEarningsRatioAsync("2021-05-07", "NYSE");
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+        }
+
+        [Fact]
+        public async Task GetIndustriesPriceEarningsRatioAsync()
+        {
+            var result = await api.GetIndustriesPriceEarningsRatioAsync("2021-05-07", "NYSE");
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+        }
+
         private Task<ApiResponse<StandardIndustrialClassificationResponse>> GetStandardIndustrialClassSwitch(string by, string value)
         {
             return by switch

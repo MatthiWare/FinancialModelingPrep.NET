@@ -79,5 +79,62 @@ namespace MatthiWare.FinancialModelingPrep.Core.AdvancedData
 
             return ApiResponse.FromSucces(result.Data.First());
         }
+
+        public async Task<ApiResponse<CompanyPeersResponse>> GetStockPeersAsync(string symbol)
+        {
+            const string url = "[version]/stock_peers";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v4.ToString() }
+            };
+
+            var queryString = new QueryStringBuilder();
+            queryString.Add("symbol", symbol);
+
+            var result = await client.GetJsonAsync<List<CompanyPeersResponse>>(url, pathParams, queryString);
+
+            if (result.HasError)
+            {
+                return ApiResponse.FromError<CompanyPeersResponse>(result.Error);
+            }
+
+            return ApiResponse.FromSucces(result.Data.First());
+        }
+
+        public Task<ApiResponse<List<SectorPEResponse>>> GetSectorsPriceEarningsRatioAsync(string date, string exchange)
+            => GetGenericPERationAsync<SectorPEResponse>("[version]/sector_price_earning_ratio", date, exchange);
+
+            public Task<ApiResponse<List<IndustryPEResponse>>> GetIndustriesPriceEarningsRatioAsync(string date, string exchange)
+            => GetGenericPERationAsync<IndustryPEResponse>("[version]/industry_price_earning_ratio", date, exchange);
+
+        private Task<ApiResponse<List<T>>> GetGenericPERationAsync<T>(string url, string date, string exchange)
+        {
+            if (string.IsNullOrEmpty(url))
+            {
+                throw new System.ArgumentException($"'{nameof(url)}' cannot be null or empty.", nameof(url));
+            }
+
+            if (string.IsNullOrEmpty(date))
+            {
+                throw new System.ArgumentException($"'{nameof(date)}' cannot be null or empty.", nameof(date));
+            }
+
+            if (string.IsNullOrEmpty(exchange))
+            {
+                throw new System.ArgumentException($"'{nameof(exchange)}' cannot be null or empty.", nameof(exchange));
+            }
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v4.ToString() }
+            };
+
+            var queryString = new QueryStringBuilder();
+            queryString.Add(nameof(date), date);
+            queryString.Add(nameof(exchange), exchange);
+
+            return client.GetJsonAsync<List<T>>(url, pathParams, queryString);
+        }
     }
 }
