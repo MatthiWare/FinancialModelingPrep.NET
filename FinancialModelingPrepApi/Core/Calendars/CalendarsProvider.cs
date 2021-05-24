@@ -55,7 +55,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.Calendars
                 queryString.Add("to", to);
             }
 
-            return client.GetAsync<List<EarningsCalendarResponse>>(url, pathParams, queryString);
+            return client.GetJsonAsync<List<EarningsCalendarResponse>>(url, pathParams, queryString);
         }
 
         /// <inheritdoc/>
@@ -76,7 +76,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.Calendars
                 queryString.Add("limit", limit);
             }
 
-            return client.GetAsync<List<EarningsCalendarResponse>>(url, pathParams, queryString);
+            return client.GetJsonAsync<List<EarningsCalendarResponse>>(url, pathParams, queryString);
         }
 
         /// <inheritdoc/>
@@ -117,7 +117,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.Calendars
             queryString.Add("from", from);
             queryString.Add("to", to);
 
-            return client.GetAsync<List<T>>(urlTemplate, pathParams, queryString);
+            return client.GetJsonAsync<List<T>>(urlTemplate, pathParams, queryString);
         }
     }
 }

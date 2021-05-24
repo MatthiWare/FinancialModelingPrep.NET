@@ -28,7 +28,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
                 { "symbol", symbol }
             };
 
-            var result = await client.GetAsync<List<CompanyProfileResponse>>(url, pathParams, null);
+            var result = await client.GetJsonAsync<List<CompanyProfileResponse>>(url, pathParams, null);
 
             if (result.HasError)
             {
@@ -47,7 +47,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
                 { "version", ApiVersion.v3.ToString() }
             };
 
-            return client.GetAsync<List<SymbolResponse>>(url, pathParams, null);
+            return client.GetJsonAsync<List<SymbolResponse>>(url, pathParams, null);
         }
 
         public Task<ApiResponse<List<SymbolResponse>>> GetSymbolsListAsync()
@@ -59,7 +59,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
                 { "version", ApiVersion.v3.ToString() }
             };
 
-            return client.GetAsync<List<SymbolResponse>>(url, pathParams, null);
+            return client.GetJsonAsync<List<SymbolResponse>>(url, pathParams, null);
         }
 
         public Task<ApiResponse<List<SymbolResponse>>> GetTradableSymbolsListAsync()
@@ -71,7 +71,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
                 { "version", ApiVersion.v3.ToString() }
             };
 
-            return client.GetAsync<List<SymbolResponse>>(url, pathParams, null);
+            return client.GetJsonAsync<List<SymbolResponse>>(url, pathParams, null);
         }
 
         public Task<ApiResponse<List<EnterpriseValueResponse>>> GetEnterpriseValueAsync(string symbol, Period period = Period.Quarter, int? limit = 40)
@@ -96,7 +96,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
                 queryString.Add("period", period.ToString().ToLower());
             }
 
-            return client.GetAsync<List<EnterpriseValueResponse>>(url, pathParams, queryString);
+            return client.GetJsonAsync<List<EnterpriseValueResponse>>(url, pathParams, queryString);
         }
 
         public Task<ApiResponse<List<BalanceSheetResponse>>> GetBalanceSheetStatementAsync(string symbol, Period period = Period.Quarter, int? limit = 40)
@@ -121,7 +121,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
                 queryString.Add("period", period.ToString().ToLower());
             }
 
-            return client.GetAsync<List<BalanceSheetResponse>>(url, pathParams, queryString);
+            return client.GetJsonAsync<List<BalanceSheetResponse>>(url, pathParams, queryString);
         }
 
         public Task<ApiResponse<List<CashFlowResponse>>> GetCashFlowStatementAsync(string symbol, Period period = Period.Quarter, int? limit = 40)
@@ -146,7 +146,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
                 queryString.Add("period", period.ToString().ToLower());
             }
 
-            return client.GetAsync<List<CashFlowResponse>>(url, pathParams, queryString);
+            return client.GetJsonAsync<List<CashFlowResponse>>(url, pathParams, queryString);
         }
 
         public Task<ApiResponse<List<IncomeStatementResponse>>> GetIncomeStatementAsync(string symbol, Period period = Period.Quarter, int? limit = 40)
@@ -171,7 +171,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
                 queryString.Add("period", period.ToString().ToLower());
             }
 
-            return client.GetAsync<List<IncomeStatementResponse>>(url, pathParams, queryString);
+            return client.GetJsonAsync<List<IncomeStatementResponse>>(url, pathParams, queryString);
         }
 
         public Task<ApiResponse<List<StockNewsResponse>>> GetStockNewsAsync(string symbol, int? limit = 50)
@@ -191,7 +191,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
                 queryString.Add("limit", limit);
             }
 
-            return client.GetAsync<List<StockNewsResponse>>(url, pathParams, queryString);
+            return client.GetJsonAsync<List<StockNewsResponse>>(url, pathParams, queryString);
         }
 
         public async Task<ApiResponse<CompanyRatingResponse>> GetCompanyRatingAsync(string symbol)
@@ -204,7 +204,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
                 { "symbol", symbol }
             };
 
-            var result = await client.GetAsync<List<CompanyRatingResponse>>(url, pathParams, null);
+            var result = await client.GetJsonAsync<List<CompanyRatingResponse>>(url, pathParams, null);
 
             if (result.HasError)
             {
@@ -231,7 +231,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
                 queryString.Add("limit", limit);
             }
 
-            return client.GetAsync<List<CompanyRatingResponse>>(url, pathParams, queryString);
+            return client.GetJsonAsync<List<CompanyRatingResponse>>(url, pathParams, queryString);
         }
 
         public async Task<ApiResponse<DCFResponse>> GetDiscountedCashFlowAsync(string symbol)
@@ -244,7 +244,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
                 { "symbol", symbol }
             };
 
-            var result = await client.GetAsync<List<DCFResponse>>(url, pathParams, null);
+            var result = await client.GetJsonAsync<List<DCFResponse>>(url, pathParams, null);
 
             if (result.HasError)
             {
@@ -271,7 +271,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
                 queryString.Add("period", period.ToString().ToLower());
             }
 
-            return client.GetAsync<List<HistoricalDCFResponse>>(url, pathParams, queryString);
+            return client.GetJsonAsync<List<HistoricalDCFResponse>>(url, pathParams, queryString);
         }
 
         public Task<ApiResponse<List<HistoricalDailyDCFResponse>>> GetHistoricalDiscountedCashFlowDailyAsync(string symbol, int? limit = 100)
@@ -291,7 +291,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
                 queryString.Add("limit", limit);
             }
 
-            return client.GetAsync<List<HistoricalDailyDCFResponse>>(url, pathParams, queryString);
+            return client.GetJsonAsync<List<HistoricalDailyDCFResponse>>(url, pathParams, queryString);
         }
 
         public async Task<ApiResponse<KeyMetricsTTMResponse>> GetCompanyKeyMetricsTTMAsync(string symbol)
@@ -304,7 +304,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
                 { "symbol", symbol }
             };
 
-            var result = await client.GetAsync<List<KeyMetricsTTMResponse>>(url, pathParams, null);
+            var result = await client.GetJsonAsync<List<KeyMetricsTTMResponse>>(url, pathParams, null);
 
             if (result.HasError)
             {
@@ -336,7 +336,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
                 queryString.Add("period", period.ToString().ToLower());
             }
 
-            return client.GetAsync<List<KeyMetricsResponse>>(url, pathParams, queryString);
+            return client.GetJsonAsync<List<KeyMetricsResponse>>(url, pathParams, queryString);
         }
 
         public async Task<ApiResponse<QuoteResponse>> GetQuoteAsync(string symbol)
@@ -349,7 +349,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
                 { "symbol", symbol }
             };
 
-            var result = await client.GetAsync<List<QuoteResponse>>(url, pathParams, null);
+            var result = await client.GetJsonAsync<List<QuoteResponse>>(url, pathParams, null);
 
             if (result.HasError)
             {
@@ -369,7 +369,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
                 { "symbol", symbol }
             };
 
-            var result = await client.GetAsync<List<MarketCapResponse>>(url, pathParams, null);
+            var result = await client.GetJsonAsync<List<MarketCapResponse>>(url, pathParams, null);
 
             if (result.HasError)
             {
@@ -395,7 +395,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
                 queryString.Add("limit", limit);
             }
 
-            return client.GetAsync<List<MarketCapResponse>>(url, pathParams, queryString);
+            return client.GetJsonAsync<List<MarketCapResponse>>(url, pathParams, queryString);
         }
     }
 }

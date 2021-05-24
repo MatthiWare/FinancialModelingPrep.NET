@@ -27,7 +27,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.MarketIndexes
                 { "version", ApiVersion.v3.ToString() },
             };
 
-            return client.GetAsync<List<IndexConstituentResponse>>(url, pathParams, null);
+            return client.GetJsonAsync<List<IndexConstituentResponse>>(url, pathParams, null);
         }
 
         public Task<ApiResponse<List<IndexConstituentResponse>>> GetNasdaqCompaniesAsync()
@@ -39,7 +39,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.MarketIndexes
                 { "version", ApiVersion.v3.ToString() },
             };
 
-            return client.GetAsync<List<IndexConstituentResponse>>(url, pathParams, null);
+            return client.GetJsonAsync<List<IndexConstituentResponse>>(url, pathParams, null);
         }
 
         public Task<ApiResponse<List<IndexConstituentResponse>>> GetSP500CompaniesAsync()
@@ -51,7 +51,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.MarketIndexes
                 { "version", ApiVersion.v3.ToString() },
             };
 
-            return client.GetAsync<List<IndexConstituentResponse>>(url, pathParams, null);
+            return client.GetJsonAsync<List<IndexConstituentResponse>>(url, pathParams, null);
         }
     }
 }

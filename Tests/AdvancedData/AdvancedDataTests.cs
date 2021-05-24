@@ -18,6 +18,26 @@ namespace Tests.AdvancedData
             api = ServiceProvider.GetRequiredService<IAdvancedDataProvider>();
         }
 
+        [Fact]
+        public async Task GetFinancialReportAnnualAsync()
+        {
+            var result = await api.GetAnnualReportsForm10KJsonAsync("AAPL", 2020);
+
+            result.AssertNoErrors();
+            Assert.Contains("10-K", result.Data);
+            Assert.Contains("AAPL", result.Data);
+        }
+
+        [Fact]
+        public async Task GetFinancialReportQuarterAsync()
+        {
+            var result = await api.GetQuarterlyReportsForm10QJsonAsync("AAPL", 2020, Quarter.Q1);
+
+            result.AssertNoErrors();
+            Assert.Contains("10-Q", result.Data);
+            Assert.Contains("AAPL", result.Data);
+        }
+
         [Theory]
         [InlineData("cik", "0000320193")]
         [InlineData("sic", "3571")]

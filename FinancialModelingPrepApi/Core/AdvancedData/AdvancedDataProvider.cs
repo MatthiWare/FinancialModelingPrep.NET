@@ -18,6 +18,37 @@ namespace MatthiWare.FinancialModelingPrep.Core.AdvancedData
             this.client = client ?? throw new System.ArgumentNullException(nameof(client));
         }
 
+        public Task<ApiResponse<string>> GetAnnualReportsForm10KJsonAsync(string symbol, int year)
+            => GetFinancialReportsJsonAsync(symbol, year, Period.Annual, null);
+
+        public Task<ApiResponse<string>> GetQuarterlyReportsForm10QJsonAsync(string symbol, int year, Quarter quarter)
+            => GetFinancialReportsJsonAsync(symbol, year, Period.Quarter, quarter);
+
+        private Task<ApiResponse<string>> GetFinancialReportsJsonAsync(string symbol, int year, Period period, Quarter? quarter)
+        {
+            const string url = "[version]/financial-reports-json";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v4.ToString() }
+            };
+
+            var queryString = new QueryStringBuilder();
+            queryString.Add("symbol", symbol);
+            queryString.Add("year", year);
+
+            if (period == Period.Quarter && quarter != null)
+            {
+                queryString.Add("period", quarter.Value.ToString());
+            }
+            else
+            {
+                queryString.Add("period", "FY");
+            }
+
+            return client.GetStringAsync(url, pathParams, queryString);
+        }
+
         public Task<ApiResponse<StandardIndustrialClassificationResponse>> GetStandardIndustrialClassificationByCikAsync(string cik)
             => GetStandardIndustrialClassificationInternalAsync("cik", cik);
 
@@ -39,7 +70,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.AdvancedData
             var queryString = new QueryStringBuilder();
             queryString.Add(queryParamName, queryParamValue);
 
-            var result = await client.GetAsync<List<StandardIndustrialClassificationResponse>>(url, pathParams, queryString);
+            var result = await client.GetJsonAsync<List<StandardIndustrialClassificationResponse>>(url, pathParams, queryString);
 
             if (result.HasError)
             {

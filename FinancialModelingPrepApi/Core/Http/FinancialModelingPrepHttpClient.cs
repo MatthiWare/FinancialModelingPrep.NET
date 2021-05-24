@@ -28,28 +28,40 @@ namespace MatthiWare.FinancialModelingPrep.Core.Http
             }
         }
 
-        public async Task<ApiResponse<T>> GetAsync<T>(string urlPattern, NameValueCollection pathParams, QueryStringBuilder queryString)
+        public async Task<ApiResponse<string>> GetStringAsync(string urlPattern, NameValueCollection pathParams, QueryStringBuilder queryString)
+        {
+            var response = await CallApiAsync(urlPattern, pathParams, queryString);
+
+            if (response.HasError)
+            {
+                return ApiResponse.FromError<string>(response.Error);
+            }
+
+            if (response.Data.Contains(ErrorMessageResponse))
+            {
+                var errorData = JsonSerializer.Deserialize<ErrorResponse>(response.Data);
+
+                return ApiResponse.FromError<string>(errorData.ErrorMessage);
+            }
+
+            if (response.Data.Equals(EmptyArrayResponse, StringComparison.OrdinalIgnoreCase))
+            {
+                return ApiResponse.FromError<string>("Invalid parameters");
+            }
+
+            return ApiResponse.FromSucces(response.Data);
+        }
+
+        public async Task<ApiResponse<T>> GetJsonAsync<T>(string urlPattern, NameValueCollection pathParams, QueryStringBuilder queryString)
             where T : class
         {
             try
             {
-                var response = await CallApiAsync(urlPattern, pathParams, queryString);
+                var response = await GetStringAsync(urlPattern, pathParams, queryString);
 
                 if (response.HasError)
                 {
                     return ApiResponse.FromError<T>(response.Error);
-                }
-
-                if (response.Data.Contains(ErrorMessageResponse))
-                {
-                    var errorData = JsonSerializer.Deserialize<ErrorResponse>(response.Data);
-
-                    return ApiResponse.FromError<T>(errorData.ErrorMessage);
-                }
-
-                if (response.Data.Equals(EmptyArrayResponse, StringComparison.OrdinalIgnoreCase))
-                {
-                    return ApiResponse.FromError<T>("Invalid parameters");
                 }
 
                 var data = JsonSerializer.Deserialize<T>(response.Data, jsonSerializerOptions);
