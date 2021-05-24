@@ -81,7 +81,7 @@ else
 - Advanced Data
 - Insider Trading (Not yet covered)
 - Calendars
-- Instituational Fund (Partially covered)
+- Instituational Fund
 - Stock Time Series (Partially covered)
 - Technical Indicators (Not yet covered)
 - Market Indexes (Partially covered)

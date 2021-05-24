@@ -6,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MatthiWare.FinancialModelingPrep.Core.InstitutionalFund
@@ -43,6 +42,23 @@ namespace MatthiWare.FinancialModelingPrep.Core.InstitutionalFund
             };
 
             return client.GetJsonAsync<List<CikListResponse>>(url, pathParams, null);
+        }
+
+        /// <inheritdoc/>
+        public Task<ApiResponse<List<Form13FResponse>>> GetForm13FAsync(string cik, string date)
+        {
+            const string url = "[version]/form-thirteen/[cik]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "cik", cik }
+            };
+
+            var queryString = new QueryStringBuilder();
+            queryString.Add("date", date);
+
+            return client.GetJsonAsync<List<Form13FResponse>>(url, pathParams, queryString);
         }
 
         public async Task<ApiResponse<CusipMapperResponse>> MapCusipAsync(string cusip)

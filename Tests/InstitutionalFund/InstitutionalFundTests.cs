@@ -53,5 +53,18 @@ namespace Tests.InstitutionalFund
             result.AssertNoErrors();
             Assert.Equal("AAON", result.Data.Ticker);
         }
+
+        [Fact]
+        public async Task GetForm13FAsync()
+        {
+            var result = await api.GetForm13FAsync("0001067983", "2020-06-30");
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+
+            var apple = result.Data.First(_ => _.Tickercusip == "AAPL");
+
+            Assert.Equal(245155566, apple.Shares);
+        }
     }
 }
