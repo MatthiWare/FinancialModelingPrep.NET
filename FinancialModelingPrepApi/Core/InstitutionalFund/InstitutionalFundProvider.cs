@@ -1,6 +1,7 @@
 ﻿using MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund;
 using MatthiWare.FinancialModelingPrep.Core.Http;
 using MatthiWare.FinancialModelingPrep.Model;
+using MatthiWare.FinancialModelingPrep.Model.InstitutionalFund;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -29,6 +30,26 @@ namespace MatthiWare.FinancialModelingPrep.Core.InstitutionalFund
             };
 
             return client.GetJsonAsync<List<CikListResponse>>(url, pathParams, null);
+        }
+
+        public async Task<ApiResponse<CusipMapperResponse>> MapCusipAsync(string cusip)
+        {
+            const string url = "[version]/cusip/[cusip]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "cusip", cusip }
+            };
+
+            var result = await client.GetJsonAsync<List<CusipMapperResponse>>(url, pathParams, null);
+
+            if (result.HasError)
+            {
+                return ApiResponse.FromError<CusipMapperResponse>(result.Error);
+            }
+
+            return ApiResponse.FromSucces(result.Data.First());
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using MatthiWare.FinancialModelingPrep.Model;
+using MatthiWare.FinancialModelingPrep.Model.InstitutionalFund;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -8,6 +9,7 @@ namespace MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund
     {
         #region 13F
         public Task<ApiResponse<List<CikListResponse>>> Get13FListAsync();
+        public Task<ApiResponse<CusipMapperResponse>> MapCusipAsync(string cusip);
         #endregion
     }
 }

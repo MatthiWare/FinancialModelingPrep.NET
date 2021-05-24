@@ -24,5 +24,14 @@ namespace Tests.InstitutionalFund
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
         }
+
+        [Fact]
+        public async Task MapCusipAsync()
+        {
+            var result = await api.MapCusipAsync("000360206");
+
+            result.AssertNoErrors();
+            Assert.Equal("AAON", result.Data.Ticker);
+        }
     }
 }
