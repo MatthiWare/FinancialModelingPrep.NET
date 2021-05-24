@@ -1,6 +1,7 @@
 ﻿using MatthiWare.FinancialModelingPrep.Abstractions.AdvancedData;
 using MatthiWare.FinancialModelingPrep.Abstractions.Calendars;
 using MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation;
+using MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund;
 using MatthiWare.FinancialModelingPrep.Abstractions.MarketIndexes;
 
 namespace MatthiWare.FinancialModelingPrep
@@ -30,5 +31,10 @@ namespace MatthiWare.FinancialModelingPrep
         /// All Calendar related Endpoints are grouped here (Earnings, IPO, stock splits, Dividends, Economic)
         /// </summary>
         ICalendarsProvider Calendars { get; }
+
+        /// <summary>
+        /// All Instituational Fund Endpoints are grouped here
+        /// </summary>
+        IInstitutionalFundProvider InstitutionalFund { get; }
     }
 }
