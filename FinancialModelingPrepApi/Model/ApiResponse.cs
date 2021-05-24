@@ -17,8 +17,19 @@
 
     public class ApiResponse<T> where T : class
     {
+        /// <summary>
+        /// Error message if any occured
+        /// </summary>
         public string Error { get; set; }
+
+        /// <summary>
+        /// True if there was an error with the request otherwise false
+        /// </summary>
         public bool HasError => !string.IsNullOrEmpty(Error);
+
+        /// <summary>
+        /// The FMP API response object <see cref="T"/>
+        /// </summary>
         public T Data { get; set; }
     }
 }

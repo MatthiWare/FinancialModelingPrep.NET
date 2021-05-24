@@ -25,23 +25,76 @@ Services.AddFinancialModelingPrepApiClient(new FinancialModelingPrepOptions()
 ``` csharp
 var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
 
-// do something with apiClient like getting the latest Apple Stock Quote
+// do something with api like getting the latest Apple Stock Quote
 var quoteResult = await api.CompanyValuation.GetQuoteAsync("AAPL");
+```
+
+### Get Stock Price Quote
+
+``` csharp
+var response = await api.CompanyValuation.GetQuoteAsync("AAPL");
+
+// Display Apple Stock Quote
+Console.WriteLine($"$AAPL is currently trading at: {response.Data.Price}");
 ```
 
 ### All API Responses are wrapped in an `ApiResponse<T>` object.
 
 ``` csharp
-var quoteResult = await api.CompanyValuation.GetQuoteAsync("AAPL");
+public class ApiResponse<T>
+{
+    /// <summary>
+    /// Error message if any occured
+    /// </summary>
+    public string Error { get; }
+
+    /// <summary>
+    /// True if there was an error with the request otherwise false
+    /// </summary>
+    public bool HasError { get; }
+
+    /// <summary>
+    /// The FMP API response object <see cref="T"/>
+    /// </summary>
+    public T Data { get; }
+}
+```
+
+Example:
+
+``` csharp
+var response = await api.CompanyValuation.GetQuoteAsync("AAPL");
 
 // Display Apple Stock Quote
 if (!quoteResult.HasError)
 {
-   Console.WriteLine($"$AAPL is currently trading at: {quoteResult.Data.Price}");
+   Console.WriteLine($"$AAPL is currently trading at: {response.Data.Price}");
 } 
 else 
 {
-   Console.WriteLine($"Error Message: {quoteResult.Error}");
+   Console.WriteLine($"Error occured, message: {response.Error}");
 }
 ```
+
+### Covered Endpoints
+- Company Valuation
+- Advanced Data
+- Insider Trading (Not yet covered)
+- Calendars
+- Instituational Fund (Partially covered)
+- Stock Time Series (Partially covered)
+- Technical Indicators (Not yet covered)
+- Market Indexes (Partially covered)
+- Alternative Data (Not yet covered)
+- Commodities (Not yet covered)
+- ETF (Not yet covered)
+- Mutual Funds (Not yet covered)
+- Euronext (Not yet covered)
+- TSX (Not yet covered)
+- Stock Market (Not yet covered)
+- Cryptocurrencies (Not yet covered)
+- Forex (Not yet covered)
+
+### Contribute
+Create a PR where you add or improve an Endpoint
 
