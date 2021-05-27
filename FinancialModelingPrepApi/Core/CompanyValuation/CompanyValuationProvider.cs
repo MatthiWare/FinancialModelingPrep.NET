@@ -87,7 +87,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
             var queryString = new QueryStringBuilder();
 
             if (limit != null)
-            { 
+            {
                 queryString.Add("limit", limit);
             }
 
@@ -409,6 +409,35 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
             }
 
             return client.GetJsonAsync<List<MarketCapResponse>>(url, pathParams, queryString);
+        }
+
+        public Task<ApiResponse<List<TickerSearchResponse>>> SearchAsync(string query, Exchange exchange, int? limit = null)
+            => SearchInternalAsync(query, exchange, false, limit);
+
+        public Task<ApiResponse<List<TickerSearchResponse>>> SearchByTickerAsync(string query, Exchange exchange, int? limit = null)
+            => SearchInternalAsync(query, exchange, true, limit);
+
+        private Task<ApiResponse<List<TickerSearchResponse>>> SearchInternalAsync(string query, Exchange exchange, bool byTicker, int? limit)
+        {
+            const string url = "[version]/search";
+            const string urlByTicker = "[version]/search-ticker";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+            };
+
+            var queryString = new QueryStringBuilder();
+
+            queryString.Add("query", query);
+            queryString.Add("exchange", exchange.ToString());
+
+            if (limit != null)
+            {
+                queryString.Add("limit", limit);
+            }
+
+            return client.GetJsonAsync<List<TickerSearchResponse>>(byTicker ? urlByTicker : url, pathParams, queryString);
         }
     }
 }

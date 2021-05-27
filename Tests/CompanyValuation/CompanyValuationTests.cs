@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
@@ -206,6 +207,32 @@ namespace Tests.CompanyValuation
 
             result.AssertNoErrors();
             Assert.Equal("AAPL", result.Data.Symbol);
+        }
+
+        [Fact]
+        public async Task SearchAsync()
+        {
+            var result = await api.SearchAsync("Ageas", Exchange.EURONEXT, 5);
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+            Assert.True(result.Data.Count <= 5);
+
+            var firstResult = result.Data.First(_ => _.Symbol == "AGS.BR");
+            Assert.Equal("AGS.BR", firstResult.Symbol);
+        }
+
+        [Fact]
+        public async Task SearchByTickerAsync()
+        {
+            var result = await api.SearchByTickerAsync("AGS", Exchange.EURONEXT, 5);
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+            Assert.True(result.Data.Count <= 5);
+
+            var firstResult = result.Data.First(_ => _.Symbol == "AGS.BR");
+            Assert.Equal("AGS.BR", firstResult.Symbol);
         }
 
         [Fact]
