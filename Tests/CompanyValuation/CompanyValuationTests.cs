@@ -2,6 +2,9 @@
 using MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation;
 using MatthiWare.FinancialModelingPrep.Model;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
@@ -186,6 +189,16 @@ namespace Tests.CompanyValuation
             Assert.All(result.Data, data => Assert.Equal("AAPL", data.Symbol));
         }
 
+        [Theory]
+        [MemberData(nameof(AvailableExchanges))]
+        public async Task GetQuotesAsync(Exchange exchange)
+        {
+            var result = await api.GetQuotesAsync(exchange);
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+        }
+
         [Fact]
         public async Task GetQuoteAsync()
         {
@@ -213,6 +226,17 @@ namespace Tests.CompanyValuation
 
             result.AssertNoErrors();
             Assert.Equal("AAPL", result.Data.Symbol);
+        }
+
+        public static IEnumerable<object[]> AvailableExchanges
+        {
+            get 
+            {
+                foreach (var enumValue in Enum.GetValues<Exchange>())
+                {
+                    yield return new object[] { enumValue };
+                }
+            }
         }
     }
 }

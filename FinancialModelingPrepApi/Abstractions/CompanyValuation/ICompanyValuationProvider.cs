@@ -8,6 +8,7 @@ namespace MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation
     public interface ICompanyValuationProvider
     {
         public Task<ApiResponse<QuoteResponse>> GetQuoteAsync(string symbol);
+        public Task<ApiResponse<List<QuoteResponse>>> GetQuotesAsync(Exchange exchange);
 
         public Task<ApiResponse<CompanyProfileResponse>> GetCompanyProfileAsync(string symbol);
         public Task<ApiResponse<KeyMetricsTTMResponse>> GetCompanyKeyMetricsTTMAsync(string symbol);

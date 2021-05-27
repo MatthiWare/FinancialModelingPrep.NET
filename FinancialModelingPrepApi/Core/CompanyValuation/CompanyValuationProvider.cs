@@ -359,6 +359,19 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
             return ApiResponse.FromSucces(result.Data.First());
         }
 
+        public Task<ApiResponse<List<QuoteResponse>>> GetQuotesAsync(Exchange exchange)
+        {
+            const string url = "[version]/quotes/[exchange]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "exchange", exchange.ToString() }
+            };
+
+            return client.GetJsonAsync<List<QuoteResponse>>(url, pathParams, null);
+        }
+
         public async Task<ApiResponse<MarketCapResponse>> GetMarketCapitalizationAsync(string symbol)
         {
             const string url = "[version]/historical-market-capitalization/[symbol]";
