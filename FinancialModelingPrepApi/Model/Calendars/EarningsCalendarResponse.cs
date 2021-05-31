@@ -20,9 +20,9 @@ namespace MatthiWare.FinancialModelingPrep.Model.Calendars
         public string Time { get; set; }
 
         [JsonPropertyName("revenue")]
-        public double Revenue { get; set; }
+        public double? Revenue { get; set; }
 
         [JsonPropertyName("revenueEstimated")]
-        public double RevenueEstimated { get; set; }
+        public double? RevenueEstimated { get; set; }
     }
 }
