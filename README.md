@@ -11,19 +11,28 @@ PM> Install-Package MatthiWare.FinancialModelingPrep
 
 # Quick Start
 
-Register FinancialModelingPrepApiClient in Dependency Injection provider
+### Register FinancialModelingPrepApiClient in Dependency Injection provider
 > You can find your API Key here https://financialmodelingprep.com/developer/docs/dashboard
 ``` csharp
+using MatthiWare.FinancialModelingPrep;
+
 Services.AddFinancialModelingPrepApiClient(new FinancialModelingPrepOptions() 
 {
     ApiKey = "API-KEY-HERE"
 });
+
+var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
+
+// do something with api like getting the latest Apple Stock Quote
+var quoteResult = await api.CompanyValuation.GetQuoteAsync("AAPL");
 ```
 
-### Resolve FMP API Client
+### Create FMP API Client using Factory (without Dependency Injection)
 
-``` csharp
-var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
+```csharp
+using MatthiWare.FinancialModelingPrep;
+
+var api = FinancialModelingPrepApiClientFactory.CreateClient(new FinancialModelingPrepOptions());
 
 // do something with api like getting the latest Apple Stock Quote
 var quoteResult = await api.CompanyValuation.GetQuoteAsync("AAPL");
