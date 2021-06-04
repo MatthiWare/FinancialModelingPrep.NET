@@ -80,6 +80,17 @@ namespace Tests.AdvancedData
             Assert.NotEmpty(result.Data);
         }
 
+        [Fact]
+        public async Task GetSharesFloatAsync()
+        {
+            var result = await api.GetSharesFloatAsync("AAPL");
+
+            result.AssertNoErrors();
+            Assert.True(result.Data.FloatShares > 0);
+            Assert.True(result.Data.FreeFloat > 0);
+            Assert.True(result.Data.OutstandingShares > 0);
+        }
+
         private Task<ApiResponse<StandardIndustrialClassificationResponse>> GetStandardIndustrialClassSwitch(string by, string value)
         {
             return by switch

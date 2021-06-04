@@ -136,5 +136,27 @@ namespace MatthiWare.FinancialModelingPrep.Core.AdvancedData
 
             return client.GetJsonAsync<List<T>>(url, pathParams, queryString);
         }
+
+        public async Task<ApiResponse<SharesFloatResponse>> GetSharesFloatAsync(string symbol)
+        {
+            const string url = "[version]/shares_float";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v4.ToString() }
+            };
+
+            var queryString = new QueryStringBuilder();
+            queryString.Add("symbol", symbol);
+
+            var result = await client.GetJsonAsync<List<SharesFloatResponse>>(url, pathParams, queryString);
+
+            if (result.HasError)
+            {
+                return ApiResponse.FromError<SharesFloatResponse>(result.Error);
+            }
+
+            return ApiResponse.FromSucces(result.Data.First());
+        }
     }
 }
