@@ -38,5 +38,7 @@ namespace MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation
 
         public Task<ApiResponse<CompanyRatingResponse>> GetCompanyRatingAsync(string symbol);
         public Task<ApiResponse<List<CompanyRatingResponse>>> GetHistoricalCompanyRatingAsync(string symbol, int? limit = 140);
+
+        public Task<ApiResponse<List<PressReleasesResponse>>> GetPressReleasesAsync(string symbol, int? limit = null);
     }
 }

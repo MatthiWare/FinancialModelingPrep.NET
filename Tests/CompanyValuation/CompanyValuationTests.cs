@@ -255,6 +255,18 @@ namespace Tests.CompanyValuation
             Assert.Equal("AAPL", result.Data.Symbol);
         }
 
+        [Fact]
+        public async Task GetPressReleasesAsync()
+        {
+            var result = await api.GetPressReleasesAsync("AAPL", 2);
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+            Assert.Equal(2, result.Data.Count);
+            Assert.All(result.Data, data => Assert.False(string.IsNullOrEmpty(data.Title)));
+            Assert.All(result.Data, data => Assert.False(string.IsNullOrEmpty(data.Text)));
+        }
+
         public static IEnumerable<object[]> AvailableExchanges
         {
             get 

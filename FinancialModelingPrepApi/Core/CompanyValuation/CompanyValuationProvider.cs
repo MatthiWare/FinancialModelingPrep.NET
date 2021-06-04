@@ -439,5 +439,25 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
 
             return client.GetJsonAsync<List<TickerSearchResponse>>(byTicker ? urlByTicker : url, pathParams, queryString);
         }
+
+        public Task<ApiResponse<List<PressReleasesResponse>>> GetPressReleasesAsync(string symbol, int? limit = null)
+        {
+            const string url = "[version]/press-releases/[symbol]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "symbol", symbol},
+            };
+
+            var queryString = new QueryStringBuilder();
+
+            if (limit != null)
+            {
+                queryString.Add("limit", limit);
+            }
+
+            return client.GetJsonAsync<List<PressReleasesResponse>>(url, pathParams, queryString);
+        }
     }
 }
