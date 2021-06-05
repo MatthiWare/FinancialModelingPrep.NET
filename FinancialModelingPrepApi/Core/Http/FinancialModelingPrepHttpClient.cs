@@ -33,11 +33,11 @@ namespace MatthiWare.FinancialModelingPrep.Core.Http
 
         public async Task<ApiResponse<string>> GetStringAsync(string urlPattern, NameValueCollection pathParams, QueryStringBuilder queryString)
         {
-            //await throttler.WaitAsync();
+            await throttler.WaitAsync();
 
             var response = await CallApiAsync(urlPattern, pathParams, queryString);
 
-            //throttler.Release();
+            throttler.Release();
 
             if (response.HasError)
             {
