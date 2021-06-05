@@ -143,10 +143,10 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double? WorkingCapital { get; set; }
 
         [JsonPropertyName("tangibleAssetValue")]
-        public long? TangibleAssetValue { get; set; }
+        public double? TangibleAssetValue { get; set; }
 
         [JsonPropertyName("netCurrentAssetValue")]
-        public long? NetCurrentAssetValue { get; set; }
+        public double? NetCurrentAssetValue { get; set; }
 
         [JsonPropertyName("investedCapital")]
         public double? InvestedCapital { get; set; }

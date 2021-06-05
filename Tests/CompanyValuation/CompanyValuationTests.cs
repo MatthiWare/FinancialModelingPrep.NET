@@ -192,6 +192,7 @@ namespace Tests.CompanyValuation
         [InlineData("CMCSA", Period.Annual)]
         [InlineData("O", Period.Annual)]
         [InlineData("BRK.B", Period.Annual)]
+        [InlineData("CX", Period.Annual)]
         public async Task GetCompanyKeyMetricsAsync(string symbol, Period period)
         {
             var result = await api.GetCompanyKeyMetricsAsync(symbol, period, 5);
