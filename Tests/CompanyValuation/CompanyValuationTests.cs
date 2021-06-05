@@ -181,15 +181,25 @@ namespace Tests.CompanyValuation
             result.AssertNoErrors();
         }
 
-        [Fact]
-        public async Task GetCompanyKeyMetricsAsync()
+        [Theory]
+        [InlineData("AAPL", Period.Quarter)]
+        [InlineData("AGS.BR", Period.Quarter)]
+        [InlineData("CMCSA", Period.Quarter)]
+        [InlineData("PINE", Period.Quarter)]
+        [InlineData("LGEN.L", Period.Quarter)]  
+        [InlineData("AAPL", Period.Annual)]
+        [InlineData("AGS.BR", Period.Annual)]
+        [InlineData("CMCSA", Period.Annual)]
+        [InlineData("O", Period.Annual)]
+        [InlineData("BRK.B", Period.Annual)]
+        public async Task GetCompanyKeyMetricsAsync(string symbol, Period period)
         {
-            var result = await api.GetCompanyKeyMetricsAsync("AAPL", Period.Quarter, 5);
+            var result = await api.GetCompanyKeyMetricsAsync(symbol, period, 5);
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
             Assert.Equal(5, result.Data.Count);
-            Assert.All(result.Data, data => Assert.Equal("AAPL", data.Symbol));
+            Assert.All(result.Data, data => Assert.Equal(symbol, data.Symbol));
         }
 
         [Theory]
