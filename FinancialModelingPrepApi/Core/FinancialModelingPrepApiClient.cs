@@ -3,6 +3,7 @@ using MatthiWare.FinancialModelingPrep.Abstractions.Calendars;
 using MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation;
 using MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund;
 using MatthiWare.FinancialModelingPrep.Abstractions.MarketIndexes;
+using MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries;
 
 namespace MatthiWare.FinancialModelingPrep.Core
 {
@@ -24,17 +25,22 @@ namespace MatthiWare.FinancialModelingPrep.Core
         /// <inheritdoc/>
         public IInstitutionalFundProvider InstitutionalFund { get; }
 
+        /// <inheritdoc/>
+        public IStockTimeSeriesProvider StockTimeSeries { get; }
+
         public FinancialModelingPrepApiClient(ICompanyValuationProvider companyValuation,
                                               IMarketIndexesProvider marketIndexes,
                                               IAdvancedDataProvider advancedData,
                                               ICalendarsProvider calendars,
-                                              IInstitutionalFundProvider institutionalFund)
+                                              IInstitutionalFundProvider institutionalFund,
+                                              IStockTimeSeriesProvider stockTimeSeries)
         {
             CompanyValuation = companyValuation;
             MarketIndexes = marketIndexes;
             AdvancedData = advancedData;
             Calendars = calendars;
             InstitutionalFund = institutionalFund;
+            StockTimeSeries = stockTimeSeries;
         }
     }
 }

@@ -3,6 +3,7 @@ using MatthiWare.FinancialModelingPrep.Abstractions.Calendars;
 using MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation;
 using MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund;
 using MatthiWare.FinancialModelingPrep.Abstractions.MarketIndexes;
+using MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries;
 using MatthiWare.FinancialModelingPrep.Core;
 using MatthiWare.FinancialModelingPrep.Core.AdvancedData;
 using MatthiWare.FinancialModelingPrep.Core.Calendars;
@@ -10,6 +11,7 @@ using MatthiWare.FinancialModelingPrep.Core.CompanyValuation;
 using MatthiWare.FinancialModelingPrep.Core.Http;
 using MatthiWare.FinancialModelingPrep.Core.InstitutionalFund;
 using MatthiWare.FinancialModelingPrep.Core.MarketIndexes;
+using MatthiWare.FinancialModelingPrep.Core.StockTimeSeries;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using System;
@@ -39,6 +41,7 @@ namespace MatthiWare.FinancialModelingPrep
             services.TryAddTransient<IAdvancedDataProvider, AdvancedDataProvider>();
             services.TryAddTransient<ICalendarsProvider, CalendarsProvider>();
             services.TryAddTransient<IInstitutionalFundProvider, InstitutionalFundProvider>();
+            services.TryAddTransient<IStockTimeSeriesProvider, StockTimeSeriesProvider>();
         }
     }
 }

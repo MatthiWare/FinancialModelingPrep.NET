@@ -50,5 +50,13 @@ namespace Tests
 
             Assert.NotNull(api.MarketIndexes);
         }
+
+        [Fact]
+        public void API_Contains_StockTimeSeries_Provider()
+        {
+            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
+
+            Assert.NotNull(api.StockTimeSeries);
+        }
     }
 }

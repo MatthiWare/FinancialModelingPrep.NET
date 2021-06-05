@@ -3,6 +3,7 @@ using MatthiWare.FinancialModelingPrep.Abstractions.Calendars;
 using MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation;
 using MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund;
 using MatthiWare.FinancialModelingPrep.Abstractions.MarketIndexes;
+using MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries;
 
 namespace MatthiWare.FinancialModelingPrep
 {
@@ -36,5 +37,10 @@ namespace MatthiWare.FinancialModelingPrep
         /// All Instituational Fund Endpoints are grouped here
         /// </summary>
         IInstitutionalFundProvider InstitutionalFund { get; }
+
+        /// <summary>
+        /// All Stock Time Series Endpoints are grouped here
+        /// </summary>
+        IStockTimeSeriesProvider StockTimeSeries { get; }
     }
 }
