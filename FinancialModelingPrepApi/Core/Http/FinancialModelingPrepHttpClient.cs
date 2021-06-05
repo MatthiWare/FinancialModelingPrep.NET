@@ -4,6 +4,7 @@ using System;
 using System.Collections.Specialized;
 using System.Net.Http;
 using System.Text.Json;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MatthiWare.FinancialModelingPrep.Core.Http
@@ -15,12 +16,14 @@ namespace MatthiWare.FinancialModelingPrep.Core.Http
         private readonly JsonSerializerOptions jsonSerializerOptions;
         private const string EmptyArrayResponse = "[ ]";
         private const string ErrorMessageResponse = "Error Message";
+        private readonly SemaphoreSlim throttler;
 
         public FinancialModelingPrepHttpClient(HttpClient client, FinancialModelingPrepOptions options)
         {
             this.client = client ?? throw new ArgumentNullException(nameof(client));
             this.options = options ?? throw new ArgumentNullException(nameof(options));
             this.jsonSerializerOptions = new JsonSerializerOptions(JsonSerializerDefaults.Web);
+            this.throttler = new SemaphoreSlim(options.MaxRequestLimit);
 
             if (string.IsNullOrWhiteSpace(this.options.ApiKey))
             {
@@ -30,7 +33,11 @@ namespace MatthiWare.FinancialModelingPrep.Core.Http
 
         public async Task<ApiResponse<string>> GetStringAsync(string urlPattern, NameValueCollection pathParams, QueryStringBuilder queryString)
         {
+            //await throttler.WaitAsync();
+
             var response = await CallApiAsync(urlPattern, pathParams, queryString);
+
+            //throttler.Release();
 
             if (response.HasError)
             {
