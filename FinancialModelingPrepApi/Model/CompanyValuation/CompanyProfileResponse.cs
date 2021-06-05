@@ -1,36 +1,109 @@
-﻿namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
+﻿using System.Text.Json.Serialization;
+
+namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
 {
     public class CompanyProfileResponse
     {
-        public string symbol { get; set; }
-        public double price { get; set; }
-        public double beta { get; set; }
-        public int volAvg { get; set; }
-        public long mktCap { get; set; }
-        public double lastDiv { get; set; }
-        public string range { get; set; }
-        public double changes { get; set; }
-        public string companyName { get; set; }
-        public string currency { get; set; }
-        public string isin { get; set; }
-        public string cusip { get; set; }
-        public string exchange { get; set; }
-        public string exchangeShortName { get; set; }
-        public string industry { get; set; }
-        public string website { get; set; }
-        public string description { get; set; }
-        public string ceo { get; set; }
-        public string sector { get; set; }
-        public string country { get; set; }
-        public string fullTimeEmployees { get; set; }
-        public string phone { get; set; }
-        public string address { get; set; }
-        public string city { get; set; }
-        public string state { get; set; }
-        public string zip { get; set; }
-        public double dcfDiff { get; set; }
-        public double dcf { get; set; }
-        public string image { get; set; }
-        public string ipoDate { get; set; }
+        [JsonPropertyName("symbol")]
+        public string Symbol { get; set; }
+
+        [JsonPropertyName("price")]
+        public double Price { get; set; }
+
+        [JsonPropertyName("beta")]
+        public double Beta { get; set; }
+
+        [JsonPropertyName("volAvg")]
+        public int VolAvg { get; set; }
+
+        [JsonPropertyName("mktCap")]
+        public object MktCap { get; set; }
+
+        [JsonPropertyName("lastDiv")]
+        public double LastDiv { get; set; }
+
+        [JsonPropertyName("range")]
+        public string Range { get; set; }
+
+        [JsonPropertyName("changes")]
+        public double Changes { get; set; }
+
+        [JsonPropertyName("companyName")]
+        public string CompanyName { get; set; }
+
+        [JsonPropertyName("currency")]
+        public string Currency { get; set; }
+
+        [JsonPropertyName("cik")]
+        public string Cik { get; set; }
+
+        [JsonPropertyName("isin")]
+        public string Isin { get; set; }
+
+        [JsonPropertyName("cusip")]
+        public string Cusip { get; set; }
+
+        [JsonPropertyName("exchange")]
+        public string Exchange { get; set; }
+
+        [JsonPropertyName("exchangeShortName")]
+        public string ExchangeShortName { get; set; }
+
+        [JsonPropertyName("industry")]
+        public string Industry { get; set; }
+
+        [JsonPropertyName("website")]
+        public string Website { get; set; }
+
+        [JsonPropertyName("description")]
+        public string Description { get; set; }
+
+        [JsonPropertyName("ceo")]
+        public string Ceo { get; set; }
+
+        [JsonPropertyName("sector")]
+        public string Sector { get; set; }
+
+        [JsonPropertyName("country")]
+        public string Country { get; set; }
+
+        [JsonPropertyName("fullTimeEmployees")]
+        public string FullTimeEmployees { get; set; }
+
+        [JsonPropertyName("phone")]
+        public string Phone { get; set; }
+
+        [JsonPropertyName("address")]
+        public string Address { get; set; }
+
+        [JsonPropertyName("city")]
+        public string City { get; set; }
+
+        [JsonPropertyName("state")]
+        public string State { get; set; }
+
+        [JsonPropertyName("zip")]
+        public string Zip { get; set; }
+
+        [JsonPropertyName("dcfDiff")]
+        public double? DcfDiff { get; set; }
+
+        [JsonPropertyName("dcf")]
+        public double? Dcf { get; set; }
+
+        [JsonPropertyName("image")]
+        public string Image { get; set; }
+
+        [JsonPropertyName("ipoDate")]
+        public string IpoDate { get; set; }
+
+        [JsonPropertyName("defaultImage")]
+        public bool DefaultImage { get; set; }
+
+        [JsonPropertyName("isEtf")]
+        public bool IsEtf { get; set; }
+
+        [JsonPropertyName("isActivelyTrading")]
+        public bool IsActivelyTrading { get; set; }
     }
 }

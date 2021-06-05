@@ -21,13 +21,15 @@ namespace Tests.CompanyValuation
             api = ServiceProvider.GetRequiredService<ICompanyValuationProvider>();
         }
 
-        [Fact]
-        public async Task GetCompanyProfileTests()
+        [Theory]
+        [InlineData("AAPL")]
+        [InlineData("SPY")]
+        public async Task GetCompanyProfileTests(string symbol)
         {
-            var result = await api.GetCompanyProfileAsync("AAPL");
+            var result = await api.GetCompanyProfileAsync(symbol);
 
             result.AssertNoErrors();
-            Assert.Equal("AAPL", result.Data.symbol);
+            Assert.Equal(symbol, result.Data.Symbol);
         }
 
         [Fact]
