@@ -19,5 +19,20 @@ namespace MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries
         /// <param name="symbol">Ticker symbol</param>
         /// <returns><see cref="HistoricalStockSplitResponse"/></returns>
         Task<ApiResponse<HistoricalStockSplitResponse>> GetHistoricalStockSplitsAsync(string symbol);
+
+        /// <summary>
+        /// Get Daily Historical Prices
+        /// </summary>
+        /// <param name="symbol">Ticker symbol</param>
+        /// <returns><see cref="HistoricalPriceResponse"/></returns>
+        Task<ApiResponse<HistoricalPriceResponse>> GetHistoricalDailyPricesAsync(string symbol);
+
+        /// <summary>
+        /// Get Daily Historical Prices
+        /// Should be used to display on a linechart
+        /// </summary>
+        /// <param name="symbol">Ticker symbol</param>
+        /// <returns><see cref="HistoricalPriceForLineChartResponse"/></returns>
+        Task<ApiResponse<HistoricalPriceForLineChartResponse>> GetHistoricalDailyPricesForLineChartAsync(string symbol);
     }
 }

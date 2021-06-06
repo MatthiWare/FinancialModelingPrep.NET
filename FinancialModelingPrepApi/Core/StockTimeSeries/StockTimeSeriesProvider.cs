@@ -18,6 +18,38 @@ namespace MatthiWare.FinancialModelingPrep.Core.StockTimeSeries
         }
 
         /// <inheritdoc/>
+        public Task<ApiResponse<HistoricalPriceResponse>> GetHistoricalDailyPricesAsync(string symbol)
+        {
+            const string url = "[version]/historical-price-full/[symbol]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "symbol", symbol }
+            };
+
+            return client.GetJsonAsync<HistoricalPriceResponse>(url, pathParams, null);
+        }
+
+        /// <inheritdoc/>
+        public Task<ApiResponse<HistoricalPriceForLineChartResponse>> GetHistoricalDailyPricesForLineChartAsync(string symbol)
+        {
+            const string url = "[version]/historical-price-full/[symbol]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "symbol", symbol }
+            };
+
+            var queryString = new QueryStringBuilder();
+
+            queryString.Add("serietype", "line");
+
+            return client.GetJsonAsync<HistoricalPriceForLineChartResponse>(url, pathParams, queryString);
+        }
+
+        /// <inheritdoc/>
         public Task<ApiResponse<HistoricalDividendsResponse>> GetHistoricalDividendsAsync(string symbol)
         {
             const string url = "[version]/historical-price-full/stock_dividend/[symbol]";

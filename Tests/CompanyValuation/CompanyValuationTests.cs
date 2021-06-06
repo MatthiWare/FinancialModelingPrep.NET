@@ -24,6 +24,7 @@ namespace Tests.CompanyValuation
         [Theory]
         [InlineData("AAPL")]
         [InlineData("SPY")]
+        [InlineData("GSM")]
         public async Task GetCompanyProfileTests(string symbol)
         {
             var result = await api.GetCompanyProfileAsync(symbol);
