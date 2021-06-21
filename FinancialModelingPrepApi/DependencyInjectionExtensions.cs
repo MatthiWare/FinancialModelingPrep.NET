@@ -1,6 +1,7 @@
 ﻿using MatthiWare.FinancialModelingPrep.Abstractions.AdvancedData;
 using MatthiWare.FinancialModelingPrep.Abstractions.Calendars;
 using MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation;
+using MatthiWare.FinancialModelingPrep.Abstractions.Http;
 using MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund;
 using MatthiWare.FinancialModelingPrep.Abstractions.MarketIndexes;
 using MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries;
@@ -36,6 +37,7 @@ namespace MatthiWare.FinancialModelingPrep
                 => client.BaseAddress = new Uri("https://financialmodelingprep.com/api/"));
 
             services.TryAddSingleton<IFinancialModelingPrepApiClient, FinancialModelingPrepApiClient>();
+            services.TryAddSingleton<IRequestRateLimiter, RequestRateLimiter>();
             services.TryAddTransient<ICompanyValuationProvider, CompanyValuationProvider>();
             services.TryAddTransient<IMarketIndexesProvider, MarketIndexesProvider>();
             services.TryAddTransient<IAdvancedDataProvider, AdvancedDataProvider>();

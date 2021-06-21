@@ -1,10 +1,10 @@
-﻿using MatthiWare.FinancialModelingPrep.Model;
+﻿using MatthiWare.FinancialModelingPrep.Abstractions.Http;
+using MatthiWare.FinancialModelingPrep.Model;
 using MatthiWare.FinancialModelingPrep.Model.Error;
 using System;
 using System.Collections.Specialized;
 using System.Net.Http;
 using System.Text.Json;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace MatthiWare.FinancialModelingPrep.Core.Http
@@ -13,17 +13,17 @@ namespace MatthiWare.FinancialModelingPrep.Core.Http
     {
         private readonly HttpClient client;
         private readonly FinancialModelingPrepOptions options;
+        private readonly IRequestRateLimiter rateLimiter;
         private readonly JsonSerializerOptions jsonSerializerOptions;
         private const string EmptyArrayResponse = "[ ]";
         private const string ErrorMessageResponse = "Error Message";
-        private readonly SemaphoreSlim throttler;
 
-        public FinancialModelingPrepHttpClient(HttpClient client, FinancialModelingPrepOptions options)
+        public FinancialModelingPrepHttpClient(HttpClient client, FinancialModelingPrepOptions options, IRequestRateLimiter rateLimiter)
         {
             this.client = client ?? throw new ArgumentNullException(nameof(client));
             this.options = options ?? throw new ArgumentNullException(nameof(options));
+            this.rateLimiter = rateLimiter ?? throw new ArgumentNullException(nameof(rateLimiter));
             this.jsonSerializerOptions = new JsonSerializerOptions(JsonSerializerDefaults.Web);
-            this.throttler = new SemaphoreSlim(options.MaxRequestLimit);
 
             if (string.IsNullOrWhiteSpace(this.options.ApiKey))
             {
@@ -33,30 +33,35 @@ namespace MatthiWare.FinancialModelingPrep.Core.Http
 
         public async Task<ApiResponse<string>> GetStringAsync(string urlPattern, NameValueCollection pathParams, QueryStringBuilder queryString)
         {
-            await throttler.WaitAsync();
-
-            var response = await CallApiAsync(urlPattern, pathParams, queryString);
-
-            throttler.Release();
-
-            if (response.HasError)
+            try
             {
-                return ApiResponse.FromError<string>(response.Error);
-            }
+                await rateLimiter.ThrottleAsync();
 
-            if (response.Data.Contains(ErrorMessageResponse))
+                var response = await CallApiAsync(urlPattern, pathParams, queryString);
+
+                if (response.HasError)
+                {
+                    return ApiResponse.FromError<string>(response.Error);
+                }
+
+                if (response.Data.Contains(ErrorMessageResponse))
+                {
+                    var errorData = JsonSerializer.Deserialize<ErrorResponse>(response.Data);
+
+                    return ApiResponse.FromError<string>(errorData.ErrorMessage);
+                }
+
+                if (response.Data.Equals(EmptyArrayResponse, StringComparison.OrdinalIgnoreCase))
+                {
+                    return ApiResponse.FromError<string>("Invalid parameters");
+                }
+
+                return ApiResponse.FromSucces(response.Data);
+            }
+            finally
             {
-                var errorData = JsonSerializer.Deserialize<ErrorResponse>(response.Data);
-
-                return ApiResponse.FromError<string>(errorData.ErrorMessage);
+                rateLimiter.ReleaseThrottle();
             }
-
-            if (response.Data.Equals(EmptyArrayResponse, StringComparison.OrdinalIgnoreCase))
-            {
-                return ApiResponse.FromError<string>("Invalid parameters");
-            }
-
-            return ApiResponse.FromSucces(response.Data);
         }
 
         public async Task<ApiResponse<T>> GetJsonAsync<T>(string urlPattern, NameValueCollection pathParams, QueryStringBuilder queryString)
