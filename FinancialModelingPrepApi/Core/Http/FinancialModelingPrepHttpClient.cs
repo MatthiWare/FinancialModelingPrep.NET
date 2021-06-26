@@ -1,6 +1,7 @@
 ﻿using MatthiWare.FinancialModelingPrep.Abstractions.Http;
 using MatthiWare.FinancialModelingPrep.Model;
 using MatthiWare.FinancialModelingPrep.Model.Error;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Specialized;
 using System.Net.Http;
@@ -14,15 +15,19 @@ namespace MatthiWare.FinancialModelingPrep.Core.Http
         private readonly HttpClient client;
         private readonly FinancialModelingPrepOptions options;
         private readonly IRequestRateLimiter rateLimiter;
+        private readonly ILogger<FinancialModelingPrepHttpClient> logger;
         private readonly JsonSerializerOptions jsonSerializerOptions;
         private const string EmptyArrayResponse = "[ ]";
         private const string ErrorMessageResponse = "Error Message";
 
-        public FinancialModelingPrepHttpClient(HttpClient client, FinancialModelingPrepOptions options, IRequestRateLimiter rateLimiter)
+        public FinancialModelingPrepHttpClient(HttpClient client, FinancialModelingPrepOptions options,
+                                               IRequestRateLimiter rateLimiter,
+                                               ILogger<FinancialModelingPrepHttpClient> logger)
         {
             this.client = client ?? throw new ArgumentNullException(nameof(client));
             this.options = options ?? throw new ArgumentNullException(nameof(options));
             this.rateLimiter = rateLimiter ?? throw new ArgumentNullException(nameof(rateLimiter));
+            this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
             this.jsonSerializerOptions = new JsonSerializerOptions(JsonSerializerDefaults.Web);
 
             if (string.IsNullOrWhiteSpace(this.options.ApiKey))
@@ -35,9 +40,14 @@ namespace MatthiWare.FinancialModelingPrep.Core.Http
         {
             try
             {
-                await rateLimiter.ThrottleAsync();
+                var (wasThrottled, totalDelay) = await rateLimiter.ThrottleAsync();
 
                 var response = await CallApiAsync(urlPattern, pathParams, queryString);
+
+                if (wasThrottled)
+                {
+                    logger.LogDebug("FMP API Call was throttled by {throttle} ms", totalDelay.TotalMilliseconds);
+                }
 
                 if (response.HasError)
                 {
