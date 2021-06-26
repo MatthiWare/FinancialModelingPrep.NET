@@ -43,6 +43,9 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         [JsonPropertyName("sellingAndMarketingExpenses")]
         public double SellingAndMarketingExpenses { get; set; }
 
+        [JsonPropertyName("sellingGeneralAndAdministrativeExpenses")]
+        public long SellingGeneralAndAdministrativeExpenses { get; set; }
+
         [JsonPropertyName("otherExpenses")]
         public int OtherExpenses { get; set; }
 
