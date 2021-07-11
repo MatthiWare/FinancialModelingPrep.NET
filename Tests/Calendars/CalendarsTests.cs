@@ -109,7 +109,8 @@ namespace Tests.Calendars
             var firstResult = result.Data.First(_ => _.Symbol == "BRO");
 
             Assert.Equal("BRO", firstResult.Symbol);
-            Assert.Equal(0.0925, firstResult.AdjDividend);
+            Assert.Equal(0.0925, firstResult.Dividend.Value, 4);
+            Assert.Equal(0.0925, firstResult.AdjDividend, 4);
             Assert.Equal("2020-11-04", firstResult.RecordDate);
             Assert.Equal("2020-11-18", firstResult.PaymentDate);
             Assert.Equal("2020-10-20", firstResult.DeclarationDate);
