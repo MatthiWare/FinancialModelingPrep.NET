@@ -94,14 +94,14 @@ else
 - Instituational Fund
 - Stock Time Series (Partially covered)
 - Technical Indicators (Not yet covered)
-- Market Indexes (Partially covered)
+- Market Indexes
 - Alternative Data (Not yet covered)
 - Commodities (Not yet covered)
 - ETF (Not yet covered)
 - Mutual Funds (Not yet covered)
-- Euronext (Not yet covered)
-- TSX (Not yet covered)
-- Stock Market (Not yet covered)
+- Euronext
+- TSX
+- Stock Market (Partially covered)
 - Cryptocurrencies (Not yet covered)
 - Forex (Not yet covered)
 

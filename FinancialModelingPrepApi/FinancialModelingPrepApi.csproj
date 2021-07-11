@@ -5,11 +5,11 @@
     <RootNamespace>MatthiWare.FinancialModelingPrep</RootNamespace>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>0.1.3.0</AssemblyVersion>
-    <FileVersion>0.1.3.0</FileVersion>
+    <AssemblyVersion>0.1.4.0</AssemblyVersion>
+    <FileVersion>0.1.4.0</FileVersion>
     <Company>MatthiWare</Company>
     <PackageId>MatthiWare.FinancialModelingPrep</PackageId>
-    <Version>0.1.3</Version>
+    <Version>0.1.4</Version>
     <Description>FinancialModelingPrep API Client written in .NET 5</Description>
     <Copyright>Copyright Matthias Beerens 2021</Copyright>
     <Product>FinancialModelingPrep API Client</Product>
@@ -19,8 +19,13 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>FinancialModelingPrep stock quote finance-api</PackageTags>
     <PackageProjectUrl>https://github.com/MatthiWare/FinancialModelingPrep.NET</PackageProjectUrl>
-    <PackageReleaseNotes>- Add shares float endpoint
-- Add press releases endpoint</PackageReleaseNotes>
+    <PackageReleaseNotes>- Add Historical Daily Prices
+- Add Stock Time Series
+- Add SellingGeneralAndAdministrativeExpensens to Income Statement
+- Add debtToMarketCAp to key metrics
+- Add Rate Limiter
+- Add Gainers, Losers, Most Active
+- Fix general bugs/issues</PackageReleaseNotes>
     <AssemblyName>FinancialModelingPrep</AssemblyName>
   </PropertyGroup>
 
