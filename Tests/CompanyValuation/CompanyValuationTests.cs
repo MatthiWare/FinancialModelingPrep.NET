@@ -174,10 +174,17 @@ namespace Tests.CompanyValuation
             Assert.All(result.Data, data => Assert.Equal("AAPL", data.Symbol));
         }
 
-        [Fact]
-        public async Task GetCompanyKeyMetricsTTMAsync()
+        [Theory]
+        [InlineData("AAPL")]
+        [InlineData("JNJ")]
+        [InlineData("AGS.BR")]
+        [InlineData("ADM.L")]
+        [InlineData("PPL.TO")]
+        [InlineData("WDP.BR")]
+        [InlineData("ENX.PA")]
+        public async Task GetCompanyKeyMetricsTTMAsync(string symbol)
         {
-            var result = await api.GetCompanyKeyMetricsTTMAsync("AAPL");
+            var result = await api.GetCompanyKeyMetricsTTMAsync(symbol);
 
             result.AssertNoErrors();
         }
@@ -188,7 +195,12 @@ namespace Tests.CompanyValuation
         [InlineData("CMCSA", Period.Quarter)]
         [InlineData("PINE", Period.Quarter)]
         [InlineData("LGEN.L", Period.Quarter)]  
+        [InlineData("WDP.BR", Period.Quarter)]
+        [InlineData("ADM.L", Period.Quarter)]  
+        [InlineData("PPL.TO", Period.Quarter)]
         [InlineData("AAPL", Period.Annual)]
+        [InlineData("PPL.TO", Period.Annual)]
+        [InlineData("WDP.BR", Period.Annual)]
         [InlineData("AGS.BR", Period.Annual)]
         [InlineData("CMCSA", Period.Annual)]
         [InlineData("O", Period.Annual)]
