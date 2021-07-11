@@ -53,10 +53,10 @@ namespace Tests.StockTimeSeries
 
             var split = result.Data.Historical.First(data => data.Date == "2021-06-04");
 
-            Assert.Equal(125.89, split.Close);
-            Assert.Equal(124.07, split.Open);
-            Assert.Equal(126.16, split.High);
-            Assert.Equal(123.85, split.Low);
+            Assert.Equal(125.89, split.Close, 2);
+            Assert.Equal(124.07, split.Open, 2);
+            Assert.Equal(126.16, split.High, 2);
+            Assert.Equal(123.85, split.Low, 2);
         }
 
         [Fact]
@@ -68,7 +68,7 @@ namespace Tests.StockTimeSeries
 
             var split = result.Data.Historical.First(data => data.Date == "2021-06-04");
 
-            Assert.Equal(125.89, split.Close);
+            Assert.Equal(125.89, split.Close, 2);
         }
     }
 }
