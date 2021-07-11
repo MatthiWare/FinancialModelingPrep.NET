@@ -3,6 +3,7 @@ using MatthiWare.FinancialModelingPrep.Abstractions.Calendars;
 using MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation;
 using MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund;
 using MatthiWare.FinancialModelingPrep.Abstractions.MarketIndexes;
+using MatthiWare.FinancialModelingPrep.Abstractions.StockMarket;
 using MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries;
 
 namespace MatthiWare.FinancialModelingPrep
@@ -42,5 +43,10 @@ namespace MatthiWare.FinancialModelingPrep
         /// All Stock Time Series Endpoints are grouped here
         /// </summary>
         IStockTimeSeriesProvider StockTimeSeries { get; }
+
+        /// <summary>
+        /// All Stock Market Related Endpoints are grouped here (Most Active, Gainers, Losers)
+        /// </summary>
+        IStockMarketProvider StockMarket { get; }
     }
 }

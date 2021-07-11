@@ -47,5 +47,11 @@ namespace Tests
         {
             Assert.NotNull(api.StockTimeSeries);
         }
+
+        [Fact]
+        public void API_Contains_StockMarket_Provider()
+        {
+            Assert.NotNull(api.StockMarket);
+        }
     }
 }
