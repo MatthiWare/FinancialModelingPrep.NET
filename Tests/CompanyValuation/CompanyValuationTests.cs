@@ -218,7 +218,7 @@ namespace Tests.CompanyValuation
 
         [Theory]
         [MemberData(nameof(AvailableExchanges))]
-        public async Task GetQuotesAsync(Exchange exchange)
+        public async Task GetQuotesWithExchangeAsync(Exchange exchange)
         {
             var result = await api.GetQuotesAsync(exchange);
 
@@ -233,6 +233,22 @@ namespace Tests.CompanyValuation
 
             result.AssertNoErrors();
             Assert.Equal("AAPL", result.Data.Symbol);
+        }
+
+        [Fact]
+        public async Task GetQuotesAsync()
+        {
+            var result = await api.GetQuotesAsync(new[] { "AAPL", "MSFT" });
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+            Assert.Equal(2, result.Data.Count);
+
+            var first = result.Data.First();
+            var last = result.Data.Last();
+
+            Assert.Equal("AAPL", first.Symbol);
+            Assert.Equal("MSFT", last.Symbol);
         }
 
         [Fact]

@@ -2,6 +2,7 @@
 using MatthiWare.FinancialModelingPrep.Core.Http;
 using MatthiWare.FinancialModelingPrep.Model;
 using MatthiWare.FinancialModelingPrep.Model.CompanyValuation;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
@@ -357,6 +358,26 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
             }
 
             return ApiResponse.FromSucces(result.Data.First());
+        }
+
+        public Task<ApiResponse<List<QuoteResponse>>> GetQuotesAsync(IEnumerable<string> symbols)
+        {
+            const string url = "[version]/quote/[symbols]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "symbols", string.Join(',', symbols) }
+            };
+
+            if (string.IsNullOrEmpty(pathParams["symbols"]))
+            {
+                throw new ArgumentException(
+                    "List of symbols cannot result in an empty string. At least one ticker symbol needs to be added.",
+                    nameof(symbols));
+            }
+
+            return client.GetJsonAsync<List<QuoteResponse>>(url, pathParams, null);
         }
 
         public Task<ApiResponse<List<QuoteResponse>>> GetQuotesAsync(Exchange exchange)
