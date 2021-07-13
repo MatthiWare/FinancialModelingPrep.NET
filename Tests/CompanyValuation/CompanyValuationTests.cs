@@ -114,7 +114,17 @@ namespace Tests.CompanyValuation
         }
 
         [Fact]
-        public async Task GetStockNewsAsync()
+        public async Task GetLatestStockNewsAsync()
+        {
+            var result = await api.GetLatestStockNewsAsync(5);
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+            Assert.Equal(5, result.Data.Count);
+        }
+
+        [Fact]
+        public async Task GetStockNewsSingleAsync()
         {
             var result = await api.GetStockNewsAsync("AAPL", 5);
 
@@ -122,6 +132,16 @@ namespace Tests.CompanyValuation
             Assert.NotEmpty(result.Data);
             Assert.Equal(5, result.Data.Count);
             Assert.All(result.Data, data => Assert.Equal("AAPL", data.Symbol));
+        }
+
+        [Fact]
+        public async Task GetStockNewsMultipleAsync()
+        {
+            var result = await api.GetStockNewsAsync(new[] { "AAPL", "MSFT" }, 5);
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+            Assert.Equal(5, result.Data.Count);
         }
 
         [Fact]

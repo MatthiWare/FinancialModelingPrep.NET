@@ -195,6 +195,46 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
             return client.GetJsonAsync<List<StockNewsResponse>>(url, pathParams, queryString);
         }
 
+        public Task<ApiResponse<List<StockNewsResponse>>> GetLatestStockNewsAsync(int? limit = 50)
+        {
+            const string url = "[version]/stock_news";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+            };
+
+            var queryString = new QueryStringBuilder();
+
+            if (limit != null)
+            {
+                queryString.Add("limit", limit);
+            }
+
+            return client.GetJsonAsync<List<StockNewsResponse>>(url, pathParams, queryString);
+        }
+
+        public Task<ApiResponse<List<StockNewsResponse>>> GetStockNewsAsync(IEnumerable<string> symbols, int? limit = 50)
+        {
+            const string url = "[version]/stock_news";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+            };
+
+            var queryString = new QueryStringBuilder();
+
+            queryString.Add("tickers", string.Join(',', symbols));
+
+            if (limit != null)
+            {
+                queryString.Add("limit", limit);
+            }
+
+            return client.GetJsonAsync<List<StockNewsResponse>>(url, pathParams, queryString);
+        }
+
         public async Task<ApiResponse<CompanyRatingResponse>> GetCompanyRatingAsync(string symbol)
         {
             const string url = "[version]/rating/[symbol]";
