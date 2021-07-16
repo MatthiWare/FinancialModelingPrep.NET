@@ -29,10 +29,29 @@ namespace MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries
 
         /// <summary>
         /// Get Daily Historical Prices
+        /// </summary>
+        /// <param name="symbol">Ticker symbol</param>        
+        /// <param name="from">From date (YYYY-MM-DD)</param>
+        /// <param name="to">To date (YYYY-MM-DD)</param>
+        /// <returns><see cref="HistoricalPriceResponse"/></returns>
+        Task<ApiResponse<HistoricalPriceResponse>> GetHistoricalDailyPricesAsync(string symbol, string from, string to);
+
+        /// <summary>
+        /// Get Daily Historical Prices
         /// Should be used to display on a linechart
         /// </summary>
         /// <param name="symbol">Ticker symbol</param>
         /// <returns><see cref="HistoricalPriceForLineChartResponse"/></returns>
         Task<ApiResponse<HistoricalPriceForLineChartResponse>> GetHistoricalDailyPricesForLineChartAsync(string symbol);
+
+        /// <summary>
+        /// Get Daily Historical Prices
+        /// Should be used to display on a linechart
+        /// </summary>
+        /// <param name="symbol">Ticker symbol</param>
+        /// <param name="from">From date (YYYY-MM-DD)</param>
+        /// <param name="to">To date (YYYY-MM-DD)</param>
+        /// <returns><see cref="HistoricalPriceForLineChartResponse"/></returns>
+        Task<ApiResponse<HistoricalPriceForLineChartResponse>> GetHistoricalDailyPricesForLineChartAsync(string symbol, string from, string to);
     }
 }

@@ -60,11 +60,42 @@ namespace Tests.StockTimeSeries
         }
 
         [Fact]
+        public async Task GetHistoricalDailyPricesUsingFromToAsync()
+        {
+            var result = await api.GetHistoricalDailyPricesAsync("AAPL", "2021-06-03", "2021-06-05");
+
+            result.AssertNoErrors();
+
+            Assert.Equal(2, result.Data.Historical.Count);
+
+            var split = result.Data.Historical.First(data => data.Date == "2021-06-04");
+
+            Assert.Equal(125.89, split.Close, 2);
+            Assert.Equal(124.07, split.Open, 2);
+            Assert.Equal(126.16, split.High, 2);
+            Assert.Equal(123.85, split.Low, 2);
+        }
+
+        [Fact]
         public async Task GetHistoricalDailyPricesForLineChartAsync()
         {
             var result = await api.GetHistoricalDailyPricesForLineChartAsync("AAPL");
 
             result.AssertNoErrors();
+
+            var split = result.Data.Historical.First(data => data.Date == "2021-06-04");
+
+            Assert.Equal(125.89, split.Close, 2);
+        }
+
+        [Fact]
+        public async Task GetHistoricalDailyPricesForLineChartUsingFromToAsync()
+        {
+            var result = await api.GetHistoricalDailyPricesForLineChartAsync("AAPL", "2021-06-03", "2021-06-05");
+
+            result.AssertNoErrors();
+
+            Assert.Equal(2, result.Data.Historical.Count);
 
             var split = result.Data.Historical.First(data => data.Date == "2021-06-04");
 

@@ -30,6 +30,24 @@ namespace MatthiWare.FinancialModelingPrep.Core.StockTimeSeries
 
             return client.GetJsonAsync<HistoricalPriceResponse>(url, pathParams, null);
         }
+        
+        /// <inheritdoc/>
+        public Task<ApiResponse<HistoricalPriceResponse>> GetHistoricalDailyPricesAsync(string symbol, string from, string to)
+        {
+            const string url = "[version]/historical-price-full/[symbol]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "symbol", symbol }
+            };
+
+            var queryString = new QueryStringBuilder();
+            queryString.Add("from", from);
+            queryString.Add("to", to);
+
+            return client.GetJsonAsync<HistoricalPriceResponse>(url, pathParams, queryString);
+        }
 
         /// <inheritdoc/>
         public Task<ApiResponse<HistoricalPriceForLineChartResponse>> GetHistoricalDailyPricesForLineChartAsync(string symbol)
@@ -45,6 +63,26 @@ namespace MatthiWare.FinancialModelingPrep.Core.StockTimeSeries
             var queryString = new QueryStringBuilder();
 
             queryString.Add("serietype", "line");
+
+            return client.GetJsonAsync<HistoricalPriceForLineChartResponse>(url, pathParams, queryString);
+        }
+
+        /// <inheritdoc/>
+        public Task<ApiResponse<HistoricalPriceForLineChartResponse>> GetHistoricalDailyPricesForLineChartAsync(string symbol, string from, string to)
+        {
+            const string url = "[version]/historical-price-full/[symbol]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "symbol", symbol }
+            };
+
+            var queryString = new QueryStringBuilder();
+
+            queryString.Add("serietype", "line");
+            queryString.Add("from", from);
+            queryString.Add("to", to);
 
             return client.GetJsonAsync<HistoricalPriceForLineChartResponse>(url, pathParams, queryString);
         }
