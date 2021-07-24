@@ -23,28 +23,28 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public string Period { get; set; }
 
         [JsonPropertyName("cashAndCashEquivalents")]
-        public long CashAndCashEquivalents { get; set; }
+        public double CashAndCashEquivalents { get; set; }
 
         [JsonPropertyName("shortTermInvestments")]
-        public long ShortTermInvestments { get; set; }
+        public double ShortTermInvestments { get; set; }
 
         [JsonPropertyName("cashAndShortTermInvestments")]
-        public long CashAndShortTermInvestments { get; set; }
+        public double CashAndShortTermInvestments { get; set; }
 
         [JsonPropertyName("netReceivables")]
-        public long NetReceivables { get; set; }
+        public double NetReceivables { get; set; }
 
         [JsonPropertyName("inventory")]
-        public long Inventory { get; set; }
+        public double Inventory { get; set; }
 
         [JsonPropertyName("otherCurrentAssets")]
-        public long OtherCurrentAssets { get; set; }
+        public double OtherCurrentAssets { get; set; }
 
         [JsonPropertyName("totalCurrentAssets")]
-        public long TotalCurrentAssets { get; set; }
+        public double TotalCurrentAssets { get; set; }
 
         [JsonPropertyName("propertyPlantEquipmentNet")]
-        public long PropertyPlantEquipmentNet { get; set; }
+        public double PropertyPlantEquipmentNet { get; set; }
 
         [JsonPropertyName("goodwill")]
         public double Goodwill { get; set; }
@@ -62,19 +62,19 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double TaxAssets { get; set; }
 
         [JsonPropertyName("otherNonCurrentAssets")]
-        public long OtherNonCurrentAssets { get; set; }
+        public double OtherNonCurrentAssets { get; set; }
 
         [JsonPropertyName("totalNonCurrentAssets")]
-        public long TotalNonCurrentAssets { get; set; }
+        public double TotalNonCurrentAssets { get; set; }
 
         [JsonPropertyName("otherAssets")]
         public double OtherAssets { get; set; }
 
         [JsonPropertyName("totalAssets")]
-        public long TotalAssets { get; set; }
+        public double TotalAssets { get; set; }
 
         [JsonPropertyName("accountPayables")]
-        public long AccountPayables { get; set; }
+        public double AccountPayables { get; set; }
 
         [JsonPropertyName("shortTermDebt")]
         public double ShortTermDebt { get; set; }
@@ -89,10 +89,10 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double OtherCurrentLiabilities { get; set; }
 
         [JsonPropertyName("totalCurrentLiabilities")]
-        public long TotalCurrentLiabilities { get; set; }
+        public double TotalCurrentLiabilities { get; set; }
 
         [JsonPropertyName("longTermDebt")]
-        public long LongTermDebt { get; set; }
+        public double LongTermDebt { get; set; }
 
         [JsonPropertyName("deferredRevenueNonCurrent")]
         public double DeferredRevenueNonCurrent { get; set; }
@@ -101,43 +101,43 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double DeferredTaxLiabilitiesNonCurrent { get; set; }
 
         [JsonPropertyName("otherNonCurrentLiabilities")]
-        public long OtherNonCurrentLiabilities { get; set; }
+        public double OtherNonCurrentLiabilities { get; set; }
 
         [JsonPropertyName("totalNonCurrentLiabilities")]
-        public long TotalNonCurrentLiabilities { get; set; }
+        public double TotalNonCurrentLiabilities { get; set; }
 
         [JsonPropertyName("otherLiabilities")]
         public double OtherLiabilities { get; set; }
 
         [JsonPropertyName("totalLiabilities")]
-        public long TotalLiabilities { get; set; }
+        public double TotalLiabilities { get; set; }
 
         [JsonPropertyName("commonStock")]
-        public long CommonStock { get; set; }
+        public double CommonStock { get; set; }
 
         [JsonPropertyName("retainedEarnings")]
-        public long RetainedEarnings { get; set; }
+        public double RetainedEarnings { get; set; }
 
         [JsonPropertyName("accumulatedOtherComprehensiveIncomeLoss")]
-        public long AccumulatedOtherComprehensiveIncomeLoss { get; set; }
+        public double AccumulatedOtherComprehensiveIncomeLoss { get; set; }
 
         [JsonPropertyName("othertotalStockholdersEquity")]
         public double OthertotalStockholdersEquity { get; set; }
 
         [JsonPropertyName("totalStockholdersEquity")]
-        public long TotalStockholdersEquity { get; set; }
+        public double TotalStockholdersEquity { get; set; }
 
         [JsonPropertyName("totalLiabilitiesAndStockholdersEquity")]
-        public long TotalLiabilitiesAndStockholdersEquity { get; set; }
+        public double TotalLiabilitiesAndStockholdersEquity { get; set; }
 
         [JsonPropertyName("totalInvestments")]
         public double TotalInvestments { get; set; }
 
         [JsonPropertyName("totalDebt")]
-        public long TotalDebt { get; set; }
+        public double TotalDebt { get; set; }
 
         [JsonPropertyName("netDebt")]
-        public long NetDebt { get; set; }
+        public double NetDebt { get; set; }
 
         [JsonPropertyName("link")]
         public string Link { get; set; }
