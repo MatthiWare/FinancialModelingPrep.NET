@@ -80,15 +80,19 @@ namespace Tests.CompanyValuation
             Assert.All(result.Data, data => Assert.Equal("AAPL", data.symbol));
         }
 
-        [Fact]
-        public async Task GetIncomeStatement()
+        [Theory]
+        [InlineData("AAPL")]
+        [InlineData("O")]
+        [InlineData("AGS.BR")]
+        [InlineData("PPL.TO")]
+        public async Task GetIncomeStatement(string symbol)
         {
-            var result = await api.GetIncomeStatementAsync("AAPL", Period.Annual, 5);
+            var result = await api.GetIncomeStatementAsync(symbol, Period.Annual, 5);
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
             Assert.Equal(5, result.Data.Count);
-            Assert.All(result.Data, data => Assert.Equal("AAPL", data.Symbol));
+            Assert.All(result.Data, data => Assert.Equal(symbol, data.Symbol));
         }
 
         [Fact]

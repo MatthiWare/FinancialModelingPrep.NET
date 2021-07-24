@@ -23,70 +23,70 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public string Period { get; set; }
 
         [JsonPropertyName("revenue")]
-        public long Revenue { get; set; }
+        public double Revenue { get; set; }
 
         [JsonPropertyName("costOfRevenue")]
-        public long CostOfRevenue { get; set; }
+        public double CostOfRevenue { get; set; }
 
         [JsonPropertyName("grossProfit")]
-        public long GrossProfit { get; set; }
+        public double GrossProfit { get; set; }
 
         [JsonPropertyName("grossProfitRatio")]
         public double GrossProfitRatio { get; set; }
 
         [JsonPropertyName("researchAndDevelopmentExpenses")]
-        public long ResearchAndDevelopmentExpenses { get; set; }
+        public double ResearchAndDevelopmentExpenses { get; set; }
 
         [JsonPropertyName("generalAndAdministrativeExpenses")]
-        public long GeneralAndAdministrativeExpenses { get; set; }
+        public double GeneralAndAdministrativeExpenses { get; set; }
 
         [JsonPropertyName("sellingAndMarketingExpenses")]
         public double SellingAndMarketingExpenses { get; set; }
 
         [JsonPropertyName("sellingGeneralAndAdministrativeExpenses")]
-        public long SellingGeneralAndAdministrativeExpenses { get; set; }
+        public double SellingGeneralAndAdministrativeExpenses { get; set; }
 
         [JsonPropertyName("otherExpenses")]
-        public int OtherExpenses { get; set; }
+        public double OtherExpenses { get; set; }
 
         [JsonPropertyName("operatingExpenses")]
-        public long OperatingExpenses { get; set; }
+        public double OperatingExpenses { get; set; }
 
         [JsonPropertyName("costAndExpenses")]
-        public long CostAndExpenses { get; set; }
+        public double CostAndExpenses { get; set; }
 
         [JsonPropertyName("interestExpense")]
-        public long InterestExpense { get; set; }
+        public double InterestExpense { get; set; }
 
         [JsonPropertyName("depreciationAndAmortization")]
-        public long DepreciationAndAmortization { get; set; }
+        public double DepreciationAndAmortization { get; set; }
 
         [JsonPropertyName("ebitda")]
-        public long Ebitda { get; set; }
+        public double Ebitda { get; set; }
 
         [JsonPropertyName("ebitdaratio")]
         public double Ebitdaratio { get; set; }
 
         [JsonPropertyName("operatingIncome")]
-        public long OperatingIncome { get; set; }
+        public double OperatingIncome { get; set; }
 
         [JsonPropertyName("operatingIncomeRatio")]
         public double OperatingIncomeRatio { get; set; }
 
         [JsonPropertyName("totalOtherIncomeExpensesNet")]
-        public int TotalOtherIncomeExpensesNet { get; set; }
+        public double TotalOtherIncomeExpensesNet { get; set; }
 
         [JsonPropertyName("incomeBeforeTax")]
-        public long IncomeBeforeTax { get; set; }
+        public double IncomeBeforeTax { get; set; }
 
         [JsonPropertyName("incomeBeforeTaxRatio")]
         public double IncomeBeforeTaxRatio { get; set; }
 
         [JsonPropertyName("incomeTaxExpense")]
-        public long IncomeTaxExpense { get; set; }
+        public double IncomeTaxExpense { get; set; }
 
         [JsonPropertyName("netIncome")]
-        public long NetIncome { get; set; }
+        public double NetIncome { get; set; }
 
         [JsonPropertyName("netIncomeRatio")]
         public double NetIncomeRatio { get; set; }
@@ -98,10 +98,10 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double Epsdiluted { get; set; }
 
         [JsonPropertyName("weightedAverageShsOut")]
-        public long WeightedAverageShsOut { get; set; }
+        public double WeightedAverageShsOut { get; set; }
 
         [JsonPropertyName("weightedAverageShsOutDil")]
-        public long WeightedAverageShsOutDil { get; set; }
+        public double WeightedAverageShsOutDil { get; set; }
 
         [JsonPropertyName("link")]
         public string Link { get; set; }
