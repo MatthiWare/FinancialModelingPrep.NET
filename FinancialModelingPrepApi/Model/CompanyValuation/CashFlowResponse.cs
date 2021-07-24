@@ -23,40 +23,40 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public string Period { get; set; }
 
         [JsonPropertyName("netIncome")]
-        public long NetIncome { get; set; }
+        public double NetIncome { get; set; }
 
         [JsonPropertyName("depreciationAndAmortization")]
-        public long DepreciationAndAmortization { get; set; }
+        public double DepreciationAndAmortization { get; set; }
 
         [JsonPropertyName("deferredIncomeTax")]
-        public long DeferredIncomeTax { get; set; }
+        public double DeferredIncomeTax { get; set; }
 
         [JsonPropertyName("stockBasedCompensation")]
-        public long StockBasedCompensation { get; set; }
+        public double StockBasedCompensation { get; set; }
 
         [JsonPropertyName("changeInWorkingCapital")]
-        public long ChangeInWorkingCapital { get; set; }
+        public double ChangeInWorkingCapital { get; set; }
 
         [JsonPropertyName("accountsReceivables")]
         public double AccountsReceivables { get; set; }
 
         [JsonPropertyName("inventory")]
-        public long Inventory { get; set; }
+        public double Inventory { get; set; }
 
         [JsonPropertyName("accountsPayables")]
-        public long AccountsPayables { get; set; }
+        public double AccountsPayables { get; set; }
 
         [JsonPropertyName("otherWorkingCapital")]
-        public long OtherWorkingCapital { get; set; }
+        public double OtherWorkingCapital { get; set; }
 
         [JsonPropertyName("otherNonCashItems")]
-        public long OtherNonCashItems { get; set; }
+        public double OtherNonCashItems { get; set; }
 
         [JsonPropertyName("netCashProvidedByOperatingActivities")]
-        public long NetCashProvidedByOperatingActivities { get; set; }
+        public double NetCashProvidedByOperatingActivities { get; set; }
 
         [JsonPropertyName("investmentsInPropertyPlantAndEquipment")]
-        public long InvestmentsInPropertyPlantAndEquipment { get; set; }
+        public double InvestmentsInPropertyPlantAndEquipment { get; set; }
 
         [JsonPropertyName("acquisitionsNet")]
         public double AcquisitionsNet { get; set; }
@@ -65,7 +65,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double PurchasesOfInvestments { get; set; }
 
         [JsonPropertyName("salesMaturitiesOfInvestments")]
-        public long SalesMaturitiesOfInvestments { get; set; }
+        public double SalesMaturitiesOfInvestments { get; set; }
 
         [JsonPropertyName("otherInvestingActivites")]
         public double OtherInvestingActivites { get; set; }
@@ -80,7 +80,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double CommonStockIssued { get; set; }
 
         [JsonPropertyName("commonStockRepurchased")]
-        public long CommonStockRepurchased { get; set; }
+        public double CommonStockRepurchased { get; set; }
 
         [JsonPropertyName("dividendsPaid")]
         public double DividendsPaid { get; set; }
@@ -89,28 +89,28 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double OtherFinancingActivites { get; set; }
 
         [JsonPropertyName("netCashUsedProvidedByFinancingActivities")]
-        public long NetCashUsedProvidedByFinancingActivities { get; set; }
+        public double NetCashUsedProvidedByFinancingActivities { get; set; }
 
         [JsonPropertyName("effectOfForexChangesOnCash")]
         public double EffectOfForexChangesOnCash { get; set; }
 
         [JsonPropertyName("netChangeInCash")]
-        public long NetChangeInCash { get; set; }
+        public double NetChangeInCash { get; set; }
 
         [JsonPropertyName("cashAtEndOfPeriod")]
-        public long CashAtEndOfPeriod { get; set; }
+        public double CashAtEndOfPeriod { get; set; }
 
         [JsonPropertyName("cashAtBeginningOfPeriod")]
-        public long CashAtBeginningOfPeriod { get; set; }
+        public double CashAtBeginningOfPeriod { get; set; }
 
         [JsonPropertyName("operatingCashFlow")]
-        public long OperatingCashFlow { get; set; }
+        public double OperatingCashFlow { get; set; }
 
         [JsonPropertyName("capitalExpenditure")]
-        public long CapitalExpenditure { get; set; }
+        public double CapitalExpenditure { get; set; }
 
         [JsonPropertyName("freeCashFlow")]
-        public long FreeCashFlow { get; set; }
+        public double FreeCashFlow { get; set; }
 
         [JsonPropertyName("link")]
         public string Link { get; set; }
