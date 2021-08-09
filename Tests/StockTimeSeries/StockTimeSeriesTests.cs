@@ -1,5 +1,7 @@
 ﻿using MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
@@ -88,6 +90,28 @@ namespace Tests.StockTimeSeries
             Assert.Equal(125.89, split.Close, 2);
         }
 
+        [Theory]
+        [MemberData(nameof(AvailableHistoricalChartSeries))]
+        public async Task GetHistoricalPricesForChartWithVolume(HistoricalChartSeries series)
+        {
+            var result = await api.GetHistoricalPricesForChartWithVolume("AAPL", series);
+
+            result.AssertNoErrors();
+
+            Assert.True(result.Data.Count > 0);
+        }
+
+        [Theory]
+        [MemberData(nameof(AvailableHistoricalChartSeries))]
+        public async Task GetHistoricalPricesForChartWithVolume2(HistoricalChartSeries series)
+        {
+            var result = await api.GetHistoricalPricesForChartWithVolume("AGS.BR", series);
+
+            result.AssertNoErrors();
+
+            Assert.True(result.Data.Count > 0);
+        }
+
         [Fact]
         public async Task GetHistoricalDailyPricesForLineChartUsingFromToAsync()
         {
@@ -100,6 +124,17 @@ namespace Tests.StockTimeSeries
             var split = result.Data.Historical.First(data => data.Date == "2021-06-04");
 
             Assert.Equal(125.89, split.Close, 2);
+        }
+
+        public static IEnumerable<object[]> AvailableHistoricalChartSeries
+        {
+            get
+            {
+                foreach (var enumValue in Enum.GetValues<HistoricalChartSeries>())
+                {
+                    yield return new object[] { enumValue };
+                }
+            }
         }
     }
 }

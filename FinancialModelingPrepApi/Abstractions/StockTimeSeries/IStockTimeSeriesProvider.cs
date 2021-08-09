@@ -1,5 +1,6 @@
 ﻿using MatthiWare.FinancialModelingPrep.Model;
 using MatthiWare.FinancialModelingPrep.Model.StockTimeSeries;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries
@@ -53,5 +54,13 @@ namespace MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries
         /// <param name="to">To date (YYYY-MM-DD)</param>
         /// <returns><see cref="HistoricalPriceForLineChartResponse"/></returns>
         Task<ApiResponse<HistoricalPriceForLineChartResponse>> GetHistoricalDailyPricesForLineChartAsync(string symbol, string from, string to);
+
+        /// <summary>
+        /// Get Daily Historical Prices for charts with volume
+        /// </summary>
+        /// <param name="symbol">Ticker symbol</param>
+        /// <param name="series">Time series</param>
+        /// <returns><see cref="HistoricalPriceForLineChartResponse"/></returns>
+        Task<ApiResponse<List<HistoricalPriceForChartWithVolumeResponse>>> GetHistoricalPricesForChartWithVolume(string symbol, HistoricalChartSeries series);
     }
 }
