@@ -102,6 +102,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.StockTimeSeries
             return client.GetJsonAsync<HistoricalDividendsResponse>(url, pathParams, null);
         }
 
+        /// <inheritdoc/>
         public Task<ApiResponse<List<HistoricalPriceForChartWithVolumeResponse>>> GetHistoricalPricesForChartWithVolume(string symbol, HistoricalChartSeries series)
         {
             const string url = "[version]/historical-chart/[series]/[symbol]";
