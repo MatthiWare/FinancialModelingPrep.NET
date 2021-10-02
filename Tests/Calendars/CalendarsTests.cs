@@ -50,13 +50,6 @@ namespace Tests.Calendars
 
             result.AssertNoErrors();
             Assert.All(result.Data, _ => Assert.Equal("2021-04-14", _.Date));
-
-            var earnings = result.Data.First(_ => _.Symbol == "JPM");
-
-            Assert.Equal(4.5, earnings.Eps);
-            Assert.Equal(0, earnings.RevenueEstimated);
-            Assert.Equal(0, earnings.Revenue);
-            Assert.Equal("bmo", earnings.Time);
         }
 
         [Fact]
