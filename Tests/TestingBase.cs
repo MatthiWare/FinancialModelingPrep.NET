@@ -5,6 +5,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using System;
 using Xunit.Abstractions;
+using MatthiWare.FinancialModelingPrep.Abstractions.Http;
+using MatthiWare.FinancialModelingPrep.Core.Http;
 
 namespace Tests
 {
@@ -16,6 +18,7 @@ namespace Tests
         private static readonly IConfigurationRoot ConfigurationRoot;
 
         private static FinancialModelingPrepOptions testingOptions;
+        private static IRequestRateLimiter sharedRateLimiter;
 
         static TestingBase()
         {
@@ -24,6 +27,7 @@ namespace Tests
             ConfigurationRoot = config.Build();
 
             testingOptions = CreateTestingOptions();
+            sharedRateLimiter = new RequestRateLimiter(testingOptions);
         }
 
         public TestingBase(ITestOutputHelper testOutput)
@@ -39,6 +43,7 @@ namespace Tests
                 builder.SetMinimumLevel(LogLevel.Debug);
             });
 
+            this.Services.AddSingleton(sharedRateLimiter);
             this.Services.AddFinancialModelingPrepApiClient(testingOptions);
 
             Build();
