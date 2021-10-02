@@ -33,6 +33,39 @@ namespace Tests.CompanyValuation
             Assert.Equal(symbol, result.Data.Symbol);
         }
 
+        [Theory]
+        [InlineData("AAPL", false)]
+        [InlineData("BST", true)]
+        public async Task GetCompanyProfile_IsFund_Tests(string symbol, bool isFund)
+        {
+            var result = await api.GetCompanyProfileAsync(symbol);
+
+            result.AssertNoErrors();
+            Assert.Equal(isFund, result.Data.IsFund);
+        }
+
+        [Theory]
+        [InlineData("AAPL", false)]
+        [InlineData("BABA", true)]
+        public async Task GetCompanyProfile_IsAdr_Tests(string symbol, bool isAdr)
+        {
+            var result = await api.GetCompanyProfileAsync(symbol);
+
+            result.AssertNoErrors();
+            Assert.Equal(isAdr, result.Data.IsAdr);
+        }
+
+        [Theory]
+        [InlineData("AAPL", false)]
+        [InlineData("SPY", true)]
+        public async Task GetCompanyProfile_IsEtf_Tests(string symbol, bool isEtf)
+        {
+            var result = await api.GetCompanyProfileAsync(symbol);
+
+            result.AssertNoErrors();
+            Assert.Equal(isEtf, result.Data.IsEtf);
+        }
+
         [Fact]
         public async Task GetCompanyProfile_Unknown_Symbol_Returns_HasError_True()
         {
