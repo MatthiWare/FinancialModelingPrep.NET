@@ -141,6 +141,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.StockTimeSeries
                 HistoricalChartSeries.ThirtyMinutes => "30min",
                 HistoricalChartSeries.Hourly => "1hour",
                 HistoricalChartSeries.FourHours => "4hour",
+                _ => throw new NotImplementedException(),
             };
         }
     }
