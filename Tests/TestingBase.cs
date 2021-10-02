@@ -15,11 +15,15 @@ namespace Tests
 
         private static readonly IConfigurationRoot ConfigurationRoot;
 
+        private static FinancialModelingPrepOptions testingOptions;
+
         static TestingBase()
         {
             var config = new ConfigurationBuilder();
             config.AddEnvironmentVariables("FMP_TESTS_");
             ConfigurationRoot = config.Build();
+
+            testingOptions = CreateTestingOptions();
         }
 
         public TestingBase(ITestOutputHelper testOutput)
@@ -35,12 +39,12 @@ namespace Tests
                 builder.SetMinimumLevel(LogLevel.Debug);
             });
 
-            this.Services.AddFinancialModelingPrepApiClient(CreateDefaultFMPOptions());
+            this.Services.AddFinancialModelingPrepApiClient(testingOptions);
 
             Build();
         }
 
-        private static FinancialModelingPrepOptions CreateDefaultFMPOptions()
+        private static FinancialModelingPrepOptions CreateTestingOptions()
         {
             var apiKeySection = ConfigurationRoot.GetSection("API_KEY");
 
@@ -48,7 +52,9 @@ namespace Tests
 
             return new FinancialModelingPrepOptions()
             {
-                ApiKey = apiKey
+                ApiKey = apiKey,
+                MaxAPICallsPerMinute = 150, // lower the amount to avoid hitting limits on subsequent commit pushes
+                MaxRequestPerSecond = 5, // lower the amount to avoid hitting limits on subsequent commit pushes
             };
         }
 
