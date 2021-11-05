@@ -4,6 +4,7 @@ using MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation;
 using MatthiWare.FinancialModelingPrep.Abstractions.Http;
 using MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund;
 using MatthiWare.FinancialModelingPrep.Abstractions.MarketIndexes;
+using MatthiWare.FinancialModelingPrep.Abstractions.Statistics;
 using MatthiWare.FinancialModelingPrep.Abstractions.StockMarket;
 using MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries;
 using MatthiWare.FinancialModelingPrep.Core;
@@ -13,6 +14,7 @@ using MatthiWare.FinancialModelingPrep.Core.CompanyValuation;
 using MatthiWare.FinancialModelingPrep.Core.Http;
 using MatthiWare.FinancialModelingPrep.Core.InstitutionalFund;
 using MatthiWare.FinancialModelingPrep.Core.MarketIndexes;
+using MatthiWare.FinancialModelingPrep.Core.Statistics;
 using MatthiWare.FinancialModelingPrep.Core.StockMarket;
 using MatthiWare.FinancialModelingPrep.Core.StockTimeSeries;
 using Microsoft.Extensions.DependencyInjection;
@@ -47,6 +49,7 @@ namespace MatthiWare.FinancialModelingPrep
             services.TryAddTransient<IInstitutionalFundProvider, InstitutionalFundProvider>();
             services.TryAddTransient<IStockTimeSeriesProvider, StockTimeSeriesProvider>();
             services.TryAddTransient<IStockMarketProvider, StockMarketProvider>();
+            services.TryAddTransient<IStockStatisticsProvider, StockStatisticsProvider>();
         }
     }
 }

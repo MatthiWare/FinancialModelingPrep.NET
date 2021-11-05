@@ -97,6 +97,20 @@
             <param name="date"></param>
             <returns></returns>
         </member>
+        <member name="T:MatthiWare.FinancialModelingPrep.Abstractions.Statistics.IStockStatisticsProvider">
+            <summary>
+            Stock related statistics
+            </summary>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.Statistics.IStockStatisticsProvider.GetAnalystEstimatesAsync(System.String,MatthiWare.FinancialModelingPrep.Model.Period,System.Nullable{System.Int32})">
+            <summary>
+            Get analyst estimates
+            </summary>
+            <param name="symbol">Stock symbol</param>
+            <param name="period">Period (Annual or Quarterly)</param>
+            <param name="limit">Limts the amount of results</param>
+            <returns></returns>
+        </member>
         <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries.IStockTimeSeriesProvider.GetHistoricalDividendsAsync(System.String)">
             <summary>
             Get Daily Historical Dividends
@@ -194,6 +208,11 @@
             All Stock Market Related Endpoints are grouped here (Most Active, Gainers, Losers)
             </summary>
         </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.IFinancialModelingPrepApiClient.StockStatistics">
+            <summary>
+            Statistic Related Endpoint are grouped here (Estimates)
+            </summary>
+        </member>
         <member name="M:MatthiWare.FinancialModelingPrep.Core.Calendars.CalendarsProvider.GetEarningsCalendarAsync(System.String,System.String)">
             <inheritdoc/>
         </member>
@@ -239,6 +258,9 @@
         <member name="P:MatthiWare.FinancialModelingPrep.Core.FinancialModelingPrepApiClient.StockMarket">
             <inheritdoc/>
         </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.FinancialModelingPrepApiClient.#ctor(MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation.ICompanyValuationProvider,MatthiWare.FinancialModelingPrep.Abstractions.MarketIndexes.IMarketIndexesProvider,MatthiWare.FinancialModelingPrep.Abstractions.AdvancedData.IAdvancedDataProvider,MatthiWare.FinancialModelingPrep.Abstractions.Calendars.ICalendarsProvider,MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund.IInstitutionalFundProvider,MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries.IStockTimeSeriesProvider,MatthiWare.FinancialModelingPrep.Abstractions.StockMarket.IStockMarketProvider,MatthiWare.FinancialModelingPrep.Abstractions.Statistics.IStockStatisticsProvider)">
+            <inheritdoc/>
+        </member>
         <member name="M:MatthiWare.FinancialModelingPrep.Core.InstitutionalFund.InstitutionalFundProvider.Get13FListAsync">
             <inheritdoc/>
         </member>
@@ -252,6 +274,12 @@
             <inheritdoc/>
         </member>
         <member name="M:MatthiWare.FinancialModelingPrep.Core.InstitutionalFund.InstitutionalFundProvider.SearchCikByName(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MatthiWare.FinancialModelingPrep.Core.Statistics.StockStatisticsProvider">
+            <inheritdoc/>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.Statistics.StockStatisticsProvider.GetAnalystEstimatesAsync(System.String,MatthiWare.FinancialModelingPrep.Model.Period,System.Nullable{System.Int32})">
             <inheritdoc/>
         </member>
         <member name="M:MatthiWare.FinancialModelingPrep.Core.StockTimeSeries.StockTimeSeriesProvider.GetHistoricalDailyPricesAsync(System.String)">
