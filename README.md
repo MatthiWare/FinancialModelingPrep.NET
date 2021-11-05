@@ -94,6 +94,7 @@ else
 - Instituational Fund
 - Stock Time Series (Partially covered)
 - Technical Indicators (Not yet covered)
+- Stock Statistics (Partially covered)
 - Market Indexes
 - Alternative Data (Not yet covered)
 - Commodities (Not yet covered)
