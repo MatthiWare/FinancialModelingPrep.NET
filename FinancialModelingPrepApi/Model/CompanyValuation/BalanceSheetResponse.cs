@@ -133,6 +133,15 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         [JsonPropertyName("totalLiabilitiesAndStockholdersEquity")]
         public double TotalLiabilitiesAndStockholdersEquity { get; set; }
 
+        [JsonPropertyName("minorityInteret")]
+        public double MinorityInterest { get; set; }
+
+        [JsonPropertyName("totalEquity")]
+        public double TotalEquity { get; set; }
+
+        [JsonPropertyName("totalLiabilitiesAndTotalEquity")]
+        public double TotalLiabilitiesAndTotalEquity { get; set; }
+
         [JsonPropertyName("totalInvestments")]
         public double TotalInvestments { get; set; }
 
