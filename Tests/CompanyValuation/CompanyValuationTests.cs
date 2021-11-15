@@ -242,6 +242,15 @@ namespace Tests.CompanyValuation
 
         [Theory]
         [InlineData("AAPL")]
+        public async Task GetRatiosTTMAsync(string symbol)
+        {
+            var result = await api.GetRatiosTTMAsync(symbol);
+
+            result.AssertNoErrors();
+        }
+
+        [Theory]
+        [InlineData("AAPL")]
         [InlineData("JNJ")]
         [InlineData("AGS.BR")]
         [InlineData("ADM.L")]

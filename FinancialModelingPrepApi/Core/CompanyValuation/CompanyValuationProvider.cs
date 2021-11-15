@@ -335,6 +335,26 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
             return client.GetJsonAsync<List<HistoricalDailyDCFResponse>>(url, pathParams, queryString);
         }
 
+        public async Task<ApiResponse<RatiosTTMResponse>> GetRatiosTTMAsync(string symbol)
+        {
+            const string url = "[version]/ratios-ttm/[symbol]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "symbol", symbol }
+            };
+
+            var result = await client.GetJsonAsync<List<RatiosTTMResponse>>(url, pathParams, null);
+
+            if (result.HasError)
+            {
+                return ApiResponse.FromError<RatiosTTMResponse>(result.Error);
+            }
+
+            return ApiResponse.FromSucces(result.Data.First());
+        }
+
         public async Task<ApiResponse<KeyMetricsTTMResponse>> GetCompanyKeyMetricsTTMAsync(string symbol)
         {
             const string url = "[version]/key-metrics-ttm/[symbol]";
