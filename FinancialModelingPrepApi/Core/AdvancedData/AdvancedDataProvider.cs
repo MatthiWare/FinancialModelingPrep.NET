@@ -39,7 +39,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.AdvancedData
 
             if (period == Period.Quarter && quarter != null)
             {
-                queryString.Add("period", quarter.Value.ToString().ToLower());
+                queryString.Add("period", quarter.Value.ToString());
             }
             else
             {
