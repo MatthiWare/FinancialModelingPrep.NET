@@ -32,7 +32,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.Statistics
 
             var queryString = new QueryStringBuilder();
 
-            queryString.Add("period", period);
+            queryString.Add("period", period.ToString().ToLower());
 
             if (limit != null)
             {
