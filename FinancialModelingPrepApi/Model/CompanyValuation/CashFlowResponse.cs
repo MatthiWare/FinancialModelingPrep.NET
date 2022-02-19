@@ -13,6 +13,9 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         [JsonPropertyName("reportedCurrency")]
         public string ReportedCurrency { get; set; }
 
+        [JsonPropertyName("cik")]
+        public string Cik { get; set; }
+
         [JsonPropertyName("fillingDate")]
         public string FillingDate { get; set; }
 
