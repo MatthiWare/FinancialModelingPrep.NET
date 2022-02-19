@@ -13,6 +13,9 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         [JsonPropertyName("reportedCurrency")]
         public string ReportedCurrency { get; set; }
 
+        [JsonPropertyName("cik")]
+        public string Cik { get; set; }
+
         [JsonPropertyName("fillingDate")]
         public string FillingDate { get; set; }
 
@@ -57,6 +60,9 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
 
         [JsonPropertyName("costAndExpenses")]
         public double CostAndExpenses { get; set; }
+
+        [JsonPropertyName("interestIncome")]
+        public double InterestIncome { get; set; }
 
         [JsonPropertyName("interestExpense")]
         public double InterestExpense { get; set; }
