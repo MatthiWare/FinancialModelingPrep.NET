@@ -17,7 +17,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public int VolAvg { get; set; }
 
         [JsonPropertyName("mktCap")]
-        public object MktCap { get; set; }
+        public int MktCap { get; set; }
 
         [JsonPropertyName("lastDiv")]
         public double LastDiv { get; set; }
@@ -103,13 +103,13 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         [JsonPropertyName("isEtf")]
         public bool IsEtf { get; set; }
 
+        [JsonPropertyName("isActivelyTrading")]
+        public bool IsActivelyTrading { get; set; }
+
         [JsonPropertyName("isAdr")]
         public bool IsAdr { get; set; }
 
         [JsonPropertyName("isFund")]
         public bool IsFund { get; set; }
-
-        [JsonPropertyName("isActivelyTrading")]
-        public bool IsActivelyTrading { get; set; }
     }
 }
