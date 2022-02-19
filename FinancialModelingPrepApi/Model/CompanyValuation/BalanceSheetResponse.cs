@@ -13,6 +13,9 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         [JsonPropertyName("reportedCurrency")]
         public string ReportedCurrency { get; set; }
 
+        [JsonPropertyName("cik")]
+        public string Cik { get; set; }
+
         [JsonPropertyName("fillingDate")]
         public string FillingDate { get; set; }
 
@@ -112,8 +115,14 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         [JsonPropertyName("otherLiabilities")]
         public double OtherLiabilities { get; set; }
 
+        [JsonPropertyName("capitalLeaseObligations")]
+        public double CapitalLeaseObligations { get; set; }
+
         [JsonPropertyName("totalLiabilities")]
         public double TotalLiabilities { get; set; }
+
+        [JsonPropertyName("preferredStock")]
+        public double PreferredStock { get; set; }
 
         [JsonPropertyName("commonStock")]
         public double CommonStock { get; set; }
@@ -133,7 +142,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         [JsonPropertyName("totalLiabilitiesAndStockholdersEquity")]
         public double TotalLiabilitiesAndStockholdersEquity { get; set; }
 
-        [JsonPropertyName("minorityInteret")]
+        [JsonPropertyName("minorityInterest")]
         public double MinorityInterest { get; set; }
 
         [JsonPropertyName("totalEquity")]
