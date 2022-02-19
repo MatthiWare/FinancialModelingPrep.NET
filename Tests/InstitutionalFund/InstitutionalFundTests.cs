@@ -61,10 +61,6 @@ namespace Tests.InstitutionalFund
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
-
-            var apple = result.Data.First(_ => _.Tickercusip == "AAPL");
-
-            Assert.Equal(245155566, apple.Shares);
         }
     }
 }
