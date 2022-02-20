@@ -27,6 +27,7 @@ namespace MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation
         public Task<ApiResponse<List<MarketCapResponse>>> GetHistoricalMarketCapitalizationAsync(string symbol, int? limit = 100);
 
         public Task<ApiResponse<List<SymbolResponse>>> GetSymbolsListAsync();
+        public Task<ApiResponse<List<string>>> GetSymbolsWithFinancialStatementsAsync();
         public Task<ApiResponse<List<SymbolResponse>>> GetTradableSymbolsListAsync();
         public Task<ApiResponse<List<SymbolResponse>>> GetETFListAsync();
 

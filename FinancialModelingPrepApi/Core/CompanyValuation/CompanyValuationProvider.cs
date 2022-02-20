@@ -75,6 +75,18 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
             return client.GetJsonAsync<List<SymbolResponse>>(url, pathParams, null);
         }
 
+        public Task<ApiResponse<List<string>>> GetSymbolsWithFinancialStatementsAsync()
+        {
+            const string url = "[version]/financial-statement-symbol-lists";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() }
+            };
+
+            return client.GetJsonAsync<List<string>>(url, pathParams, null);
+        }
+
         public Task<ApiResponse<List<EnterpriseValueResponse>>> GetEnterpriseValueAsync(string symbol, Period period = Period.Quarter, int? limit = 40)
         {
             const string url = "[version]/enterprise-values/[symbol]";

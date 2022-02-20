@@ -103,6 +103,15 @@ namespace Tests.CompanyValuation
         }
 
         [Fact]
+        public async Task GetSymbolsWithFinancialStatementsAsync()
+        {
+            var result = await api.GetSymbolsWithFinancialStatementsAsync();
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+        }
+
+        [Fact]
         public async Task GetEnterpriseValue()
         {
             var result = await api.GetEnterpriseValueAsync("AAPL", Period.Annual, 5);
