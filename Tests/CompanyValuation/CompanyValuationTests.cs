@@ -310,13 +310,15 @@ namespace Tests.CompanyValuation
             Assert.NotEmpty(result.Data);
         }
 
-        [Fact]
-        public async Task GetQuoteAsync()
+        [Theory]
+        [InlineData("AAPL")]
+        [InlineData("EURUSD")]
+        public async Task GetQuoteAsync(string tickerOrFx)
         {
-            var result = await api.GetQuoteAsync("AAPL");
+            var result = await api.GetQuoteAsync(tickerOrFx);
 
             result.AssertNoErrors();
-            Assert.Equal("AAPL", result.Data.Symbol);
+            Assert.Equal(tickerOrFx, result.Data.Symbol);
         }
 
         [Fact]
@@ -342,7 +344,7 @@ namespace Tests.CompanyValuation
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
-            Assert.True(result.Data.Count <= 5);
+            Assert.True(result.Data.Count >= 1);
 
             var firstResult = result.Data.First(_ => _.Symbol == "AGS.BR");
             Assert.Equal("AGS.BR", firstResult.Symbol);
@@ -355,7 +357,7 @@ namespace Tests.CompanyValuation
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
-            Assert.True(result.Data.Count <= 5);
+            Assert.True(result.Data.Count >= 1);
 
             var firstResult = result.Data.First(_ => _.Symbol == "AGS.BR");
             Assert.Equal("AGS.BR", firstResult.Symbol);
