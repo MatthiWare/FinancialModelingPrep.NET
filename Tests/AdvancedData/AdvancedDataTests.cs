@@ -91,6 +91,16 @@ namespace Tests.AdvancedData
             Assert.True(result.Data.OutstandingShares > 0);
         }
 
+        [Fact]
+        public async Task GetESGScoreAsync()
+        {
+            var result = await api.GetESGScoreAsync("AAPL");
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+            
+        }
+
         private Task<ApiResponse<StandardIndustrialClassificationResponse>> GetStandardIndustrialClassSwitch(string by, string value)
         {
             return by switch

@@ -23,5 +23,7 @@ namespace MatthiWare.FinancialModelingPrep.Abstractions.AdvancedData
         Task<ApiResponse<List<IndustryPEResponse>>> GetIndustriesPriceEarningsRatioAsync(string date, string exchange);
 
         Task<ApiResponse<SharesFloatResponse>> GetSharesFloatAsync(string symbol);
+
+        Task<ApiResponse<List<ESGScoreResponse>>> GetESGScoreAsync(string symbol);
     }
 }

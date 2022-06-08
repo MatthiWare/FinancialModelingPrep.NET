@@ -158,5 +158,20 @@ namespace MatthiWare.FinancialModelingPrep.Core.AdvancedData
 
             return ApiResponse.FromSucces(result.Data.First());
         }
+
+        public Task<ApiResponse<List<ESGScoreResponse>>> GetESGScoreAsync(string symbol)
+        {
+            const string url = "[version]/esg-environmental-social-governance-data";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v4.ToString() }
+            };
+
+            var queryString = new QueryStringBuilder();
+            queryString.Add("symbol", symbol);
+
+            return client.GetJsonAsync<List<ESGScoreResponse>>(url, pathParams, queryString);
+        }
     }
 }
