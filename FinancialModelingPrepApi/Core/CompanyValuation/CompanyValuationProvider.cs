@@ -504,13 +504,13 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
             return client.GetJsonAsync<List<MarketCapResponse>>(url, pathParams, queryString);
         }
 
-        public Task<ApiResponse<List<TickerSearchResponse>>> SearchAsync(string query, Exchange exchange, int? limit = null)
+        public Task<ApiResponse<List<TickerSearchResponse>>> SearchAsync(string query, Exchange? exchange, int? limit = null)
             => SearchInternalAsync(query, exchange, false, limit);
 
-        public Task<ApiResponse<List<TickerSearchResponse>>> SearchByTickerAsync(string query, Exchange exchange, int? limit = null)
+        public Task<ApiResponse<List<TickerSearchResponse>>> SearchByTickerAsync(string query, Exchange? exchange, int? limit = null)
             => SearchInternalAsync(query, exchange, true, limit);
 
-        private Task<ApiResponse<List<TickerSearchResponse>>> SearchInternalAsync(string query, Exchange exchange, bool byTicker, int? limit)
+        private Task<ApiResponse<List<TickerSearchResponse>>> SearchInternalAsync(string query, Exchange? exchange, bool byTicker, int? limit)
         {
             const string url = "[version]/search";
             const string urlByTicker = "[version]/search-ticker";
@@ -523,7 +523,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
             var queryString = new QueryStringBuilder();
 
             queryString.Add("query", query);
-            queryString.Add("exchange", exchange.ToString());
+            if (exchange.HasValue) queryString.Add("exchange", exchange.Value.ToString());
 
             if (limit != null)
             {

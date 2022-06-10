@@ -11,8 +11,8 @@ namespace MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation
         public Task<ApiResponse<List<QuoteResponse>>> GetQuotesAsync(IEnumerable<string> symbols);
         public Task<ApiResponse<List<QuoteResponse>>> GetQuotesAsync(Exchange exchange);
 
-        public Task<ApiResponse<List<TickerSearchResponse>>> SearchAsync(string query, Exchange exchange, int? limit = null);
-        public Task<ApiResponse<List<TickerSearchResponse>>> SearchByTickerAsync(string query, Exchange exchange, int? limit = null);
+        public Task<ApiResponse<List<TickerSearchResponse>>> SearchAsync(string query, Exchange? exchange, int? limit = null);
+        public Task<ApiResponse<List<TickerSearchResponse>>> SearchByTickerAsync(string query, Exchange? exchange, int? limit = null);
 
         public Task<ApiResponse<CompanyProfileResponse>> GetCompanyProfileAsync(string symbol);
         public Task<ApiResponse<RatiosTTMResponse>> GetRatiosTTMAsync(string symbol);
