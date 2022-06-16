@@ -364,6 +364,19 @@ namespace Tests.CompanyValuation
         }
 
         [Fact]
+        public async Task SearchByTickerWithoutExchangeAsync()
+        {
+            var result = await api.SearchByTickerAsync("AAPL", null, 5);
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+            Assert.True(result.Data.Count >= 1);
+
+            var firstResult = result.Data.First(_ => _.Symbol == "AAPL");
+            Assert.Equal("AAPL", firstResult.Symbol);
+        }
+
+        [Fact]
         public async Task GetHistoricalMarketCapAsync()
         {
             var result = await api.GetHistoricalMarketCapitalizationAsync("AAPL", 5);
