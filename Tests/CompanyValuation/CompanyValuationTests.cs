@@ -111,15 +111,19 @@ namespace Tests.CompanyValuation
             Assert.NotEmpty(result.Data);
         }
 
-        [Fact]
-        public async Task GetEnterpriseValue()
+        [Theory]
+        [InlineData("AAPL")]
+        [InlineData("AGS.BR")]
+        [InlineData("NNN")]
+        [InlineData("UGI")]
+        public async Task GetEnterpriseValue(string symbol)
         {
-            var result = await api.GetEnterpriseValueAsync("AAPL", Period.Annual, 5);
+            var result = await api.GetEnterpriseValueAsync(symbol, Period.Annual, 5);
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
             Assert.Equal(5, result.Data.Count);
-            Assert.All(result.Data, data => Assert.Equal("AAPL", data.Symbol));
+            Assert.All(result.Data, data => Assert.Equal(symbol, data.Symbol));
         }
 
         [Theory]
