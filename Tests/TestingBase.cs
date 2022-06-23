@@ -17,8 +17,8 @@ namespace Tests
 
         private static readonly IConfigurationRoot ConfigurationRoot;
 
-        private static FinancialModelingPrepOptions testingOptions;
-        private static IRequestRateLimiter sharedRateLimiter;
+        private static readonly FinancialModelingPrepOptions testingOptions;
+        private static readonly IRequestRateLimiter sharedRateLimiter;
 
         static TestingBase()
         {
@@ -67,7 +67,7 @@ namespace Tests
         {
             var config = new LoggingConfig();
 
-            config.Formatter = new RemoveApiKeyFromLogSanitizer("demo", config.Formatter);
+            config.SensitiveValues.Add(testingOptions.ApiKey);
 
             return config;
         }
