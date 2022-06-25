@@ -552,5 +552,19 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
 
             return client.GetJsonAsync<List<PressReleasesResponse>>(url, pathParams, queryString);
         }
+
+        /// <inheritdoc />
+        public Task<ApiResponse<List<SymbolChangeResponse>>> GetSymbolChangesAsync()
+        {
+            const string url = "[version]/symbol_change";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v4.ToString() }
+            };
+
+            return client.GetJsonAsync<List<SymbolChangeResponse>>(url, pathParams, null);
+
+        }
     }
 }
