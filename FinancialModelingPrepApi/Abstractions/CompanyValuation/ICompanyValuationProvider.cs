@@ -7,6 +7,13 @@ namespace MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation
 {
     public interface ICompanyValuationProvider
     {
+        /// <summary>
+        /// Public comapnies sometimes change their symbol and thanks to this endpoint you will be able to know if there is any symbol change happened. 
+        /// Data for new symbol is getting transferred from the old symbol the same day
+        /// </summary>
+        /// <returns></returns>
+        public Task<ApiResponse<List<SymbolChangeResponse>>> GetSymbolChangesAsync();
+
         public Task<ApiResponse<QuoteResponse>> GetQuoteAsync(string symbol);
         public Task<ApiResponse<List<QuoteResponse>>> GetQuotesAsync(IEnumerable<string> symbols);
         public Task<ApiResponse<List<QuoteResponse>>> GetQuotesAsync(Exchange exchange);

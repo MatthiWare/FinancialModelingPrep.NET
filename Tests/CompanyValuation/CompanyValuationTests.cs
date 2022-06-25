@@ -21,6 +21,16 @@ namespace Tests.CompanyValuation
             api = ServiceProvider.GetRequiredService<ICompanyValuationProvider>();
         }
 
+
+        [Fact]
+        public async Task GetSymbolChangesAsyncTests()
+        {
+            var result = await api.GetSymbolChangesAsync();
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+        }
+
         [Theory]
         [InlineData("AAPL")]
         [InlineData("SPY")]
