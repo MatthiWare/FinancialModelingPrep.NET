@@ -18,5 +18,8 @@ namespace MatthiWare.FinancialModelingPrep.Abstractions.Statistics
         /// <param name="limit">Limts the amount of results</param>
         /// <returns></returns>
         public Task<ApiResponse<List<AnalystEstimateItem>>> GetAnalystEstimatesAsync(string symbol, Period period = Period.Annual, int? limit = 30);
+
+        // Social Sentiment
+        public Task<ApiResponse<List<SocialSentimentItem>>> GetSocialSentimentAsync(string symbol, int page = 0);
     }
 }
