@@ -62,6 +62,13 @@
             <param name="to">To date YYYY-MM-DD</param>
             <returns></returns>
         </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation.ICompanyValuationProvider.GetSymbolChangesAsync">
+            <summary>
+            Public comapnies sometimes change their symbol and thanks to this endpoint you will be able to know if there is any symbol change happened. 
+            Data for new symbol is getting transferred from the old symbol the same day
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund.IInstitutionalFundProvider.Get13FListAsync">
             <summary>
             Complete list of all institutional investment managers by cik 
@@ -233,6 +240,9 @@
         </member>
         <member name="M:MatthiWare.FinancialModelingPrep.Core.Calendars.CalendarsProvider.GetStockSplitCalendarAsync(System.String,System.String)">
             <inheritdoc/>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.CompanyValuation.CompanyValuationProvider.GetSymbolChangesAsync">
+            <inheritdoc />
         </member>
         <member name="T:MatthiWare.FinancialModelingPrep.Core.FinancialModelingPrepApiClient">
             <inheritdoc/>
