@@ -41,5 +41,14 @@ namespace Tests.StockMarket
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
         }
+
+        [Fact]
+        public async Task GetStockScreen()
+        {
+            var result = await api.StockScreener(marketCapMoreThan: 1000000000, betaMoreThan: 1, volumeMoreThan: 10000, sector: MatthiWare.FinancialModelingPrep.Sector.Technology, exchange: MatthiWare.FinancialModelingPrep.Model.Exchange.NASDAQ);
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+        }
     }
 }
