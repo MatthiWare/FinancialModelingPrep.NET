@@ -49,6 +49,7 @@ namespace MatthiWare.FinancialModelingPrep
             services.TryAddTransient<IInstitutionalFundProvider, InstitutionalFundProvider>();
             services.TryAddTransient<IStockTimeSeriesProvider, StockTimeSeriesProvider>();
             services.TryAddTransient<IStockMarketProvider, StockMarketProvider>();
+            services.TryAddTransient<ICryptoMarketProvider, CryptoMarketProvider>();
             services.TryAddTransient<IStockStatisticsProvider, StockStatisticsProvider>();
         }
     }

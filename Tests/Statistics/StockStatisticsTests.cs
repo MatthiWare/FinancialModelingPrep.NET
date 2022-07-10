@@ -33,5 +33,14 @@ namespace Tests.Statistics
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
         }
+
+        [Fact]
+        public async Task GetSocialSentimentAsync()
+        {
+            var result = await api.GetSocialSentimentAsync("AAPL");
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+        }
     }
 }
