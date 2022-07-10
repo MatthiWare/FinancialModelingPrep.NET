@@ -44,16 +44,15 @@ namespace MatthiWare.FinancialModelingPrep.Core.Statistics
 
         public Task<ApiResponse<List<SocialSentimentItem>>> GetSocialSentimentAsync(string symbol, int page = 0)
         {
-            const string url = "[version]/historical/social-sentiment/[symbol]";
+            const string url = "[version]/historical/social-sentiment/";
 
             var pathParams = new NameValueCollection()
             {
-                { "version", ApiVersion.v4.ToString() },
-                { "symbol", symbol },
+                { "version", ApiVersion.v4.ToString() }
             };
 
             var queryString = new QueryStringBuilder();
-
+            queryString.Add("symbol", symbol);
             queryString.Add("page", page.ToString());
 
             return client.GetJsonAsync<List<SocialSentimentItem>>(url, pathParams, queryString);
