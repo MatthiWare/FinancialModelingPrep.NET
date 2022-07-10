@@ -302,7 +302,7 @@ namespace Tests.CompanyValuation
         [InlineData("AGS.BR", Period.Annual)]
         [InlineData("CMCSA", Period.Annual)]
         [InlineData("O", Period.Annual)]
-        [InlineData("BRK.B", Period.Annual)]
+        [InlineData("BRK-B", Period.Annual)]
         [InlineData("CX", Period.Annual)]
         public async Task GetCompanyKeyMetricsAsync(string symbol, Period period)
         {
