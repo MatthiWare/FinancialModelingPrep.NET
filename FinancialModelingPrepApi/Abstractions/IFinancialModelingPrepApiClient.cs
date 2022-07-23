@@ -1,6 +1,7 @@
 ﻿using MatthiWare.FinancialModelingPrep.Abstractions.AdvancedData;
 using MatthiWare.FinancialModelingPrep.Abstractions.Calendars;
 using MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation;
+using MatthiWare.FinancialModelingPrep.Abstractions.Fund;
 using MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund;
 using MatthiWare.FinancialModelingPrep.Abstractions.MarketIndexes;
 using MatthiWare.FinancialModelingPrep.Abstractions.Statistics;
@@ -54,5 +55,15 @@ namespace MatthiWare.FinancialModelingPrep
         /// Statistic Related Endpoint are grouped here (Estimates)
         /// </summary>
         IStockStatisticsProvider StockStatistics { get; }
+
+        /// <summary>
+        /// Cryptomarket related enpoints
+        /// </summary>
+        ICryptoMarketProvider Crypto { get; }
+
+        /// <summary>
+        /// ETF/Mutual Fund related enpoints
+        /// </summary>
+        IFundProvider Fund { get; }
     }
 }
