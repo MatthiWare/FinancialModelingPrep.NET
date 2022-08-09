@@ -53,5 +53,17 @@ namespace Tests
         {
             Assert.NotNull(api.StockMarket);
         }
+
+        [Fact]
+        public void API_Contains_CryptoMarket_Provider()
+        {
+            Assert.NotNull(api.Crypto);
+        }
+
+        [Fact]
+        public void API_Contains_Fund_Provider()
+        {
+            Assert.NotNull(api.Fund);
+        }
     }
 }

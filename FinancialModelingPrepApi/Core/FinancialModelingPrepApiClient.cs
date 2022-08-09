@@ -1,6 +1,7 @@
 ﻿using MatthiWare.FinancialModelingPrep.Abstractions.AdvancedData;
 using MatthiWare.FinancialModelingPrep.Abstractions.Calendars;
 using MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation;
+using MatthiWare.FinancialModelingPrep.Abstractions.Fund;
 using MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund;
 using MatthiWare.FinancialModelingPrep.Abstractions.MarketIndexes;
 using MatthiWare.FinancialModelingPrep.Abstractions.Statistics;
@@ -33,7 +34,14 @@ namespace MatthiWare.FinancialModelingPrep.Core
         /// <inheritdoc/>
         public IStockMarketProvider StockMarket { get; }
 
+        /// <inheritdoc/>
         public IStockStatisticsProvider StockStatistics { get; }
+
+        /// <inheritdoc/>
+        public ICryptoMarketProvider Crypto { get; }
+
+        /// <inheritdoc/>
+        public IFundProvider Fund { get; }
 
         /// <inheritdoc/>
         public FinancialModelingPrepApiClient(ICompanyValuationProvider companyValuation,
@@ -43,7 +51,9 @@ namespace MatthiWare.FinancialModelingPrep.Core
                                               IInstitutionalFundProvider institutionalFund,
                                               IStockTimeSeriesProvider stockTimeSeries,
                                               IStockMarketProvider stockMarket,
-                                              IStockStatisticsProvider stockStatistics)
+                                              IStockStatisticsProvider stockStatistics,
+                                              ICryptoMarketProvider cryptoMarket,
+                                              IFundProvider fund)
         {
             CompanyValuation = companyValuation;
             MarketIndexes = marketIndexes;
@@ -53,6 +63,8 @@ namespace MatthiWare.FinancialModelingPrep.Core
             StockTimeSeries = stockTimeSeries;
             StockMarket = stockMarket;
             StockStatistics = stockStatistics;
+            Crypto = cryptoMarket;
+            Fund = fund;
         }
     }
 }
