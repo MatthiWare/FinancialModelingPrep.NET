@@ -46,7 +46,7 @@ namespace Tests.CompanyValuation
         [Theory]
         [InlineData("AAPL", false)]
         [InlineData("BST", true, Skip = "IsFund returns incorrect result")]
-        public async Task GetCompanyProfile_IsFund_Tests(string symbol, bool isFund)
+         public async Task GetCompanyProfile_IsFund_Tests(string symbol, bool isFund)
         {
             var result = await api.GetCompanyProfileAsync(symbol);
 
@@ -302,7 +302,7 @@ namespace Tests.CompanyValuation
         [InlineData("AGS.BR", Period.Annual)]
         [InlineData("CMCSA", Period.Annual)]
         [InlineData("O", Period.Annual)]
-        [InlineData("BRK.B", Period.Annual)]
+        [InlineData("BRK-B", Period.Annual)]
         [InlineData("CX", Period.Annual)]
         public async Task GetCompanyKeyMetricsAsync(string symbol, Period period)
         {
