@@ -1,4 +1,4 @@
-﻿using MatthiWare.FinancialModelingPrep.Abstractions.StockMarket;
+﻿using MatthiWare.FinancialModelingPrep.Abstractions.Crypto;
 using Microsoft.Extensions.DependencyInjection;
 using System.Threading.Tasks;
 using Xunit;
@@ -13,6 +13,16 @@ namespace Tests.StockMarket
         public CryptoMarketTests(ITestOutputHelper testOutput) : base(testOutput)
         {
             api = ServiceProvider.GetRequiredService<ICryptoMarketProvider>();
+        }
+
+        [Fact]
+        public async Task GetCryptocurrencyRealtime()
+        {
+            var result = await api.GetQuote("BTCUSD");
+
+            result.AssertNoErrors();
+            Assert.NotNull(result.Data);
+            Assert.Equal("BTCUSD", result.Data[0].Symbol);
         }
 
         [Fact]

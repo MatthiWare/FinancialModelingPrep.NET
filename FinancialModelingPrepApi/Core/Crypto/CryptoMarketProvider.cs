@@ -1,8 +1,8 @@
-﻿using MatthiWare.FinancialModelingPrep.Abstractions.StockMarket;
+﻿using MatthiWare.FinancialModelingPrep.Abstractions.Crypto;
+using MatthiWare.FinancialModelingPrep.Abstractions.StockMarket;
 using MatthiWare.FinancialModelingPrep.Core.Http;
 using MatthiWare.FinancialModelingPrep.Model;
 using MatthiWare.FinancialModelingPrep.Model.Crypto;
-using MatthiWare.FinancialModelingPrep.Model.StockMarket;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Threading.Tasks;
@@ -29,6 +29,19 @@ namespace MatthiWare.FinancialModelingPrep.Core.StockMarket
             };
 
             return client.GetJsonAsync<List<CryptoItem>>(url, pathParams, null);
+        }
+
+        public Task<ApiResponse<List<CryptoQuoteResponse>>> GetQuote(string symbol)
+        {
+            const string url = "[version]/quote/[symbol]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "symbol", symbol },
+            };
+
+            return client.GetJsonAsync<List<CryptoQuoteResponse>>(url, pathParams, null);
         }
 
         public Task<ApiResponse<CryptoHistoricalPriceDailyItem>> GetDailyPrices(string symbol)

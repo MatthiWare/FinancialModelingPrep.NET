@@ -36,7 +36,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
                 return ApiResponse.FromError<CompanyProfileResponse>(result.Error);
             }
 
-            return ApiResponse.FromSucces(result.Data.First());
+            return ApiResponse.FromSuccess(result.Data.First());
         }
 
         public Task<ApiResponse<List<SymbolResponse>>> GetETFListAsync()
@@ -264,7 +264,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
                 return ApiResponse.FromError<CompanyRatingResponse>(result.Error);
             }
 
-            return ApiResponse.FromSucces(result.Data.First());
+            return ApiResponse.FromSuccess(result.Data.First());
         }
 
         public Task<ApiResponse<List<CompanyRatingResponse>>> GetHistoricalCompanyRatingAsync(string symbol, int? limit = 140)
@@ -304,7 +304,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
                 return ApiResponse.FromError<DCFResponse>(result.Error);
             }
 
-            return ApiResponse.FromSucces(result.Data.First());
+            return ApiResponse.FromSuccess(result.Data.First());
         }
 
         public Task<ApiResponse<List<HistoricalDCFResponse>>> GetHistoricalDiscountedCashFlowAsync(string symbol, Period period = Period.Annual)
@@ -364,7 +364,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
                 return ApiResponse.FromError<RatiosTTMResponse>(result.Error);
             }
 
-            return ApiResponse.FromSucces(result.Data.First());
+            return ApiResponse.FromSuccess(result.Data.First());
         }
 
         public async Task<ApiResponse<KeyMetricsTTMResponse>> GetCompanyKeyMetricsTTMAsync(string symbol)
@@ -384,7 +384,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
                 return ApiResponse.FromError<KeyMetricsTTMResponse>(result.Error);
             }
 
-            return ApiResponse.FromSucces(result.Data.First());
+            return ApiResponse.FromSuccess(result.Data.First());
         }
 
         public Task<ApiResponse<List<KeyMetricsResponse>>> GetCompanyKeyMetricsAsync(string symbol, Period period = Period.Annual, int? limit = 130)
@@ -429,7 +429,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
                 return ApiResponse.FromError<QuoteResponse>(result.Error);
             }
 
-            return ApiResponse.FromSucces(result.Data.First());
+            return ApiResponse.FromSuccess(result.Data.First());
         }
 
         public Task<ApiResponse<List<QuoteResponse>>> GetQuotesAsync(IEnumerable<string> symbols)
@@ -482,7 +482,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
                 return ApiResponse.FromError<MarketCapResponse>(result.Error);
             }
 
-            return ApiResponse.FromSucces(result.Data.First());
+            return ApiResponse.FromSuccess(result.Data.First());
         }
 
         public Task<ApiResponse<List<MarketCapResponse>>> GetHistoricalMarketCapitalizationAsync(string symbol, int? limit = 100)
