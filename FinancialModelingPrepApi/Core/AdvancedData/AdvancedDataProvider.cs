@@ -77,7 +77,29 @@ namespace MatthiWare.FinancialModelingPrep.Core.AdvancedData
                 return ApiResponse.FromError<StandardIndustrialClassificationResponse>(result.Error);
             }
 
-            return ApiResponse.FromSucces(result.Data.First());
+            return ApiResponse.FromSuccess(result.Data.First());
+        }
+
+        public async Task<ApiResponse<List<FinancialScoreResponse>>> GetFinancialScore(string symbol)
+        {
+            const string url = "[version]/score";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v4.ToString() }
+            };
+
+            var queryString = new QueryStringBuilder();
+            queryString.Add("symbol", symbol);
+
+            var result = await client.GetJsonAsync<List<FinancialScoreResponse>>(url, pathParams, queryString);
+
+            if (result.HasError)
+            {
+                return ApiResponse.FromError<List<FinancialScoreResponse>>(result.Error);
+            }
+
+            return ApiResponse.FromSuccess(result.Data);
         }
 
         public async Task<ApiResponse<CompanyPeersResponse>> GetStockPeersAsync(string symbol)
@@ -99,7 +121,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.AdvancedData
                 return ApiResponse.FromError<CompanyPeersResponse>(result.Error);
             }
 
-            return ApiResponse.FromSucces(result.Data.First());
+            return ApiResponse.FromSuccess(result.Data.First());
         }
 
         public Task<ApiResponse<List<SectorPEResponse>>> GetSectorsPriceEarningsRatioAsync(string date, string exchange)
@@ -156,7 +178,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.AdvancedData
                 return ApiResponse.FromError<SharesFloatResponse>(result.Error);
             }
 
-            return ApiResponse.FromSucces(result.Data.First());
+            return ApiResponse.FromSuccess(result.Data.First());
         }
 
         public Task<ApiResponse<List<ESGScoreResponse>>> GetESGScoreAsync(string symbol)

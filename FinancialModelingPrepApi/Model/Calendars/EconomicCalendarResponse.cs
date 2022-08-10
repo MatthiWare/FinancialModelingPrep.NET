@@ -14,18 +14,18 @@ namespace MatthiWare.FinancialModelingPrep.Model.Calendars
         public string Country { get; set; }
 
         [JsonPropertyName("actual")]
-        public double? Actual { get; set; }
+        public decimal? Actual { get; set; }
 
         [JsonPropertyName("previous")]
-        public double? Previous { get; set; }
+        public decimal? Previous { get; set; }
 
         [JsonPropertyName("change")]
-        public double? Change { get; set; }
+        public decimal? Change { get; set; }
 
         [JsonPropertyName("changePercentage")]
-        public double? ChangePercentage { get; set; }
+        public decimal? ChangePercentage { get; set; }
 
         [JsonPropertyName("estimate")]
-        public double? Estimate { get; set; }
+        public decimal? Estimate { get; set; }
     }
 }

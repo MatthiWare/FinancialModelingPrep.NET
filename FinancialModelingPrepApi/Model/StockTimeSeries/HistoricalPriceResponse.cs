@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using MatthiWare.FinancialModelingPrep.Abstractions.Model;
+using System;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace MatthiWare.FinancialModelingPrep.Model.StockTimeSeries
@@ -12,45 +14,45 @@ namespace MatthiWare.FinancialModelingPrep.Model.StockTimeSeries
         public List<HistoricalPriceItem> Historical { get; set; }
     }
 
-    public class HistoricalPriceItem
+    public class HistoricalPriceItem : IHistoricalQuote
     {
         [JsonPropertyName("date")]
         public string Date { get; set; }
 
         [JsonPropertyName("open")]
-        public double Open { get; set; }
+        public decimal Open { get; set; }
 
         [JsonPropertyName("high")]
-        public double High { get; set; }
+        public decimal High { get; set; }
 
         [JsonPropertyName("low")]
-        public double Low { get; set; }
+        public decimal Low { get; set; }
 
         [JsonPropertyName("close")]
-        public double Close { get; set; }
+        public decimal Close { get; set; }
 
         [JsonPropertyName("adjClose")]
-        public double AdjClose { get; set; }
+        public decimal AdjClose { get; set; }
 
         [JsonPropertyName("volume")]
-        public double Volume { get; set; }
+        public decimal Volume { get; set; }
 
         [JsonPropertyName("unadjustedVolume")]
-        public double UnadjustedVolume { get; set; }
+        public decimal UnadjustedVolume { get; set; }
 
         [JsonPropertyName("change")]
-        public double Change { get; set; }
+        public decimal? Change { get; set; }
 
         [JsonPropertyName("changePercent")]
-        public double ChangePercent { get; set; }
+        public decimal? ChangePercent { get; set; }
 
         [JsonPropertyName("vwap")]
-        public double Vwap { get; set; }
+        public decimal Vwap { get; set; }
 
         [JsonPropertyName("label")]
         public string Label { get; set; }
 
         [JsonPropertyName("changeOverTime")]
-        public double ChangeOverTime { get; set; }
+        public decimal ChangeOverTime { get; set; }
     }
 }

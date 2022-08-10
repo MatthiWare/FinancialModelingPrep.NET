@@ -11,13 +11,13 @@ namespace MatthiWare.FinancialModelingPrep.Model.AdvancedData
         public string Date { get; set; }
 
         [JsonPropertyName("freeFloat")]
-        public double FreeFloat { get; set; }
+        public decimal FreeFloat { get; set; }
 
         [JsonPropertyName("floatShares")]
-        public double FloatShares { get; set; }
+        public decimal FloatShares { get; set; }
 
         [JsonPropertyName("outstandingShares")]
-        public double OutstandingShares { get; set; }
+        public decimal OutstandingShares { get; set; }
 
         [JsonPropertyName("source")]
         public string Source { get; set; }

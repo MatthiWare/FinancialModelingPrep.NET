@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MatthiWare.FinancialModelingPrep.Abstractions.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,10 +29,10 @@ namespace MatthiWare.FinancialModelingPrep.Model.Crypto
         public long Volume { get; set; }
     }
 
-    public class CyptoHistoricalPriceDailyListing
+    public class CyptoHistoricalPriceDailyListing : IHistoricalQuote
     {
         [JsonPropertyName("date")]
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
 
         [JsonPropertyName("open")]
         public decimal Open { get; set; }
@@ -45,20 +46,20 @@ namespace MatthiWare.FinancialModelingPrep.Model.Crypto
         [JsonPropertyName("close")]
         public decimal Close { get; set; }
 
+        [JsonPropertyName("change")]
+        public decimal? Change { get; set; }
+
+        [JsonPropertyName("changePercent")]
+        public decimal? ChangePercent { get; set; }
+
+        [JsonPropertyName("volume")]
+        public decimal Volume { get; set; }
+
         [JsonPropertyName("adjClose")]
         public decimal AdjClose { get; set; }
 
-        [JsonPropertyName("volume")]
-        public double Volume { get; set; }
-
         [JsonPropertyName("unadjustedVolume")]
-        public double UnadjustedVolume { get; set; }
-
-        [JsonPropertyName("change")]
-        public decimal Change { get; set; }
-
-        [JsonPropertyName("changePercent")]
-        public decimal ChangePercent { get; set; }
+        public decimal UnadjustedVolume { get; set; }
 
         [JsonPropertyName("vwap")]
         public decimal VWAP { get; set; }
@@ -67,6 +68,6 @@ namespace MatthiWare.FinancialModelingPrep.Model.Crypto
         public string Label { get; set; }
 
         [JsonPropertyName("changeOvertime")]
-        public double ChangeOvertime { get; set; }
+        public decimal ChangeOvertime { get; set; }
     }
 }

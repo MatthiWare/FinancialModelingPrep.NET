@@ -1,4 +1,5 @@
 ﻿using MatthiWare.FinancialModelingPrep.Model;
+using MatthiWare.FinancialModelingPrep.Model.StockMarket;
 using MatthiWare.FinancialModelingPrep.Model.StockTimeSeries;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -7,6 +8,12 @@ namespace MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries
 {
     public interface IStockTimeSeriesProvider
     {
+        /// <summary>
+        /// Get the latest quote for given stock.
+        /// </summary>
+        /// <param name="symbol"></param>
+        /// <returns></returns>
+        public Task<ApiResponse<List<StockQuoteResponse>>> GetQuoteAsync(string symbol);
         /// <summary>
         /// Get Daily Historical Dividends
         /// </summary>

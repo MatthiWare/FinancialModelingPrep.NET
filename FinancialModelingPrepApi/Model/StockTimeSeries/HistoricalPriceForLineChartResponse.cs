@@ -18,6 +18,6 @@ namespace MatthiWare.FinancialModelingPrep.Model.StockTimeSeries
         public string Date { get; set; }
 
         [JsonPropertyName("close")]
-        public double Close { get; set; }
+        public decimal Close { get; set; }
     }
 }

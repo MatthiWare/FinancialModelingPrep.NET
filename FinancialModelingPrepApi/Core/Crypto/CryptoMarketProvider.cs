@@ -1,8 +1,8 @@
-﻿using MatthiWare.FinancialModelingPrep.Abstractions.StockMarket;
+﻿using MatthiWare.FinancialModelingPrep.Abstractions.Crypto;
+using MatthiWare.FinancialModelingPrep.Abstractions.StockMarket;
 using MatthiWare.FinancialModelingPrep.Core.Http;
 using MatthiWare.FinancialModelingPrep.Model;
 using MatthiWare.FinancialModelingPrep.Model.Crypto;
-using MatthiWare.FinancialModelingPrep.Model.StockMarket;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Threading.Tasks;
@@ -18,7 +18,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.StockMarket
             this.client = client ?? throw new System.ArgumentNullException(nameof(client));
         }
 
-        public Task<ApiResponse<List<CryptoItem>>> GetAvilableCryptocurrencies()
+        public async Task<ApiResponse<List<CryptoItem>>> GetAvilableCryptocurrenciesAsync()
         {
 
             const string url = "[version]/symbol/available-cryptocurrencies";
@@ -28,10 +28,23 @@ namespace MatthiWare.FinancialModelingPrep.Core.StockMarket
                 { "version", ApiVersion.v3.ToString() }
             };
 
-            return client.GetJsonAsync<List<CryptoItem>>(url, pathParams, null);
+            return await client.GetJsonAsync<List<CryptoItem>>(url, pathParams, null);
         }
 
-        public Task<ApiResponse<CryptoHistoricalPriceDailyItem>> GetDailyPrices(string symbol)
+        public async Task<ApiResponse<List<CryptoQuoteResponse>>> GetQuoteAsync(string symbol)
+        {
+            const string url = "[version]/quote/[symbol]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "symbol", symbol },
+            };
+
+            return await client.GetJsonAsync<List<CryptoQuoteResponse>>(url, pathParams, null);
+        }
+
+        public async Task<ApiResponse<CryptoHistoricalPriceDailyItem>> GetDailyPricesAsync(string symbol)
         {
             const string url = "[version]/historical-price-full/[symbol]";
 
@@ -41,10 +54,10 @@ namespace MatthiWare.FinancialModelingPrep.Core.StockMarket
                 { "symbol", symbol }
             };
 
-            return client.GetJsonAsync<CryptoHistoricalPriceDailyItem>(url, pathParams, null);
+            return await client.GetJsonAsync<CryptoHistoricalPriceDailyItem>(url, pathParams, null);
         }
 
-        public Task<ApiResponse<List<CryptoHistoricalPricePeriodListing>>> GetHistoricalPrices(string symbol, HistoricalPricingPeriod period)
+        public async Task<ApiResponse<List<CryptoHistoricalPricePeriodListing>>> GetHistoricalQuoteAsync(string symbol, HistoricalPricingPeriod period)
         {
             const string url = "[version]/historical-chart/[pricePeriod]/[symbol]";
 
@@ -57,9 +70,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.StockMarket
                 { "pricePeriod", pricePeriod }
             };
 
-            var queryString = new QueryStringBuilder();
-
-            return client.GetJsonAsync<List<CryptoHistoricalPricePeriodListing>>(url, pathParams, queryString);
+            return await client.GetJsonAsync<List<CryptoHistoricalPricePeriodListing>>(url, pathParams, null);
         }
     }
 }

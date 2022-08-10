@@ -14,174 +14,174 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public string Period { get; set; }
 
         [JsonPropertyName("revenuePerShare")]
-        public double? RevenuePerShare { get; set; }
+        public decimal? RevenuePerShare { get; set; }
 
         [JsonPropertyName("netIncomePerShare")]
-        public double? NetIncomePerShare { get; set; }
+        public decimal? NetIncomePerShare { get; set; }
 
         [JsonPropertyName("operatingCashFlowPerShare")]
-        public double? OperatingCashFlowPerShare { get; set; }
+        public decimal? OperatingCashFlowPerShare { get; set; }
 
         [JsonPropertyName("freeCashFlowPerShare")]
-        public double? FreeCashFlowPerShare { get; set; }
+        public decimal? FreeCashFlowPerShare { get; set; }
 
         [JsonPropertyName("cashPerShare")]
-        public double? CashPerShare { get; set; }
+        public decimal? CashPerShare { get; set; }
 
         [JsonPropertyName("bookValuePerShare")]
-        public double? BookValuePerShare { get; set; }
+        public decimal? BookValuePerShare { get; set; }
 
         [JsonPropertyName("tangibleBookValuePerShare")]
-        public double? TangibleBookValuePerShare { get; set; }
+        public decimal? TangibleBookValuePerShare { get; set; }
 
         [JsonPropertyName("shareholdersEquityPerShare")]
-        public double? ShareholdersEquityPerShare { get; set; }
+        public decimal? ShareholdersEquityPerShare { get; set; }
 
         [JsonPropertyName("interestDebtPerShare")]
-        public double? InterestDebtPerShare { get; set; }
+        public decimal? InterestDebtPerShare { get; set; }
 
         [JsonPropertyName("marketCap")]
-        public double? MarketCap { get; set; }
+        public decimal? MarketCap { get; set; }
 
         [JsonPropertyName("enterpriseValue")]
-        public double? EnterpriseValue { get; set; }
+        public decimal? EnterpriseValue { get; set; }
 
         [JsonPropertyName("peRatio")]
-        public double? PeRatio { get; set; }
+        public decimal? PeRatio { get; set; }
 
         [JsonPropertyName("priceToSalesRatio")]
-        public double? PriceToSalesRatio { get; set; }
+        public decimal? PriceToSalesRatio { get; set; }
 
         [JsonPropertyName("pocfratio")]
-        public double? Pocfratio { get; set; }
+        public decimal? Pocfratio { get; set; }
 
         [JsonPropertyName("pfcfRatio")]
-        public double? PfcfRatio { get; set; }
+        public decimal? PfcfRatio { get; set; }
 
         [JsonPropertyName("pbRatio")]
-        public double? PbRatio { get; set; }
+        public decimal? PbRatio { get; set; }
 
         [JsonPropertyName("ptbRatio")]
-        public double? PtbRatio { get; set; }
+        public decimal? PtbRatio { get; set; }
 
         [JsonPropertyName("evToSales")]
-        public double? EvToSales { get; set; }
+        public decimal? EvToSales { get; set; }
 
         [JsonPropertyName("enterpriseValueOverEBITDA")]
-        public double? EnterpriseValueOverEBITDA { get; set; }
+        public decimal? EnterpriseValueOverEBITDA { get; set; }
 
         [JsonPropertyName("evToOperatingCashFlow")]
-        public double? EvToOperatingCashFlow { get; set; }
+        public decimal? EvToOperatingCashFlow { get; set; }
 
         [JsonPropertyName("evToFreeCashFlow")]
-        public double? EvToFreeCashFlow { get; set; }
+        public decimal? EvToFreeCashFlow { get; set; }
 
         [JsonPropertyName("earningsYield")]
-        public double? EarningsYield { get; set; }
+        public decimal? EarningsYield { get; set; }
 
         [JsonPropertyName("freeCashFlowYield")]
-        public double? FreeCashFlowYield { get; set; }
+        public decimal? FreeCashFlowYield { get; set; }
 
         [JsonPropertyName("debtToEquity")]
-        public double? DebtToEquity { get; set; }
+        public decimal? DebtToEquity { get; set; }
 
         [JsonPropertyName("debtToAssets")]
-        public double? DebtToAssets { get; set; }
+        public decimal? DebtToAssets { get; set; }
 
         [JsonPropertyName("netDebtToEBITDA")]
-        public double? NetDebtToEBITDA { get; set; }
+        public decimal? NetDebtToEBITDA { get; set; }
 
         [JsonPropertyName("currentRatio")]
-        public double? CurrentRatio { get; set; }
+        public decimal? CurrentRatio { get; set; }
 
         [JsonPropertyName("interestCoverage")]
-        public double? InterestCoverage { get; set; }
+        public decimal? InterestCoverage { get; set; }
 
         [JsonPropertyName("incomeQuality")]
-        public double? IncomeQuality { get; set; }
+        public decimal? IncomeQuality { get; set; }
 
         [JsonPropertyName("dividendYield")]
-        public double? DividendYield { get; set; }
+        public decimal? DividendYield { get; set; }
 
         [JsonPropertyName("payoutRatio")]
-        public double? PayoutRatio { get; set; }
+        public decimal? PayoutRatio { get; set; }
 
         [JsonPropertyName("salesGeneralAndAdministrativeToRevenue")]
-        public double? SalesGeneralAndAdministrativeToRevenue { get; set; }
+        public decimal? SalesGeneralAndAdministrativeToRevenue { get; set; }
 
         [JsonPropertyName("researchAndDdevelopementToRevenue")]
-        public double? ResearchAndDdevelopementToRevenue { get; set; }
+        public decimal? ResearchAndDdevelopementToRevenue { get; set; }
 
         [JsonPropertyName("intangiblesToTotalAssets")]
-        public double? IntangiblesToTotalAssets { get; set; }
+        public decimal? IntangiblesToTotalAssets { get; set; }
 
         [JsonPropertyName("capexToOperatingCashFlow")]
-        public double? CapexToOperatingCashFlow { get; set; }
+        public decimal? CapexToOperatingCashFlow { get; set; }
 
         [JsonPropertyName("capexToRevenue")]
-        public double? CapexToRevenue { get; set; }
+        public decimal? CapexToRevenue { get; set; }
 
         [JsonPropertyName("capexToDepreciation")]
-        public double? CapexToDepreciation { get; set; }
+        public decimal? CapexToDepreciation { get; set; }
 
         [JsonPropertyName("stockBasedCompensationToRevenue")]
-        public double? StockBasedCompensationToRevenue { get; set; }
+        public decimal? StockBasedCompensationToRevenue { get; set; }
 
         [JsonPropertyName("grahamNumber")]
-        public double? GrahamNumber { get; set; }
+        public decimal? GrahamNumber { get; set; }
 
         [JsonPropertyName("roic")]
-        public double? Roic { get; set; }
+        public decimal? Roic { get; set; }
 
         [JsonPropertyName("returnOnTangibleAssets")]
-        public double? ReturnOnTangibleAssets { get; set; }
+        public decimal? ReturnOnTangibleAssets { get; set; }
 
         [JsonPropertyName("grahamNetNet")]
-        public double? GrahamNetNet { get; set; }
+        public decimal? GrahamNetNet { get; set; }
 
         [JsonPropertyName("workingCapital")]
-        public double? WorkingCapital { get; set; }
+        public decimal? WorkingCapital { get; set; }
 
         [JsonPropertyName("tangibleAssetValue")]
-        public double? TangibleAssetValue { get; set; }
+        public decimal? TangibleAssetValue { get; set; }
 
         [JsonPropertyName("netCurrentAssetValue")]
-        public double? NetCurrentAssetValue { get; set; }
+        public decimal? NetCurrentAssetValue { get; set; }
 
         [JsonPropertyName("investedCapital")]
-        public double? InvestedCapital { get; set; }
+        public decimal? InvestedCapital { get; set; }
 
         [JsonPropertyName("averageReceivables")]
-        public double? AverageReceivables { get; set; }
+        public decimal? AverageReceivables { get; set; }
 
         [JsonPropertyName("averagePayables")]
-        public double? AveragePayables { get; set; }
+        public decimal? AveragePayables { get; set; }
 
         [JsonPropertyName("averageInventory")]
-        public double? AverageInventory { get; set; }
+        public decimal? AverageInventory { get; set; }
 
         [JsonPropertyName("daysSalesOutstanding")]
-        public double? DaysSalesOutstanding { get; set; }
+        public decimal? DaysSalesOutstanding { get; set; }
 
         [JsonPropertyName("daysPayablesOutstanding")]
-        public double? DaysPayablesOutstanding { get; set; }
+        public decimal? DaysPayablesOutstanding { get; set; }
 
         [JsonPropertyName("daysOfInventoryOnHand")]
-        public double? DaysOfInventoryOnHand { get; set; }
+        public decimal? DaysOfInventoryOnHand { get; set; }
 
         [JsonPropertyName("receivablesTurnover")]
-        public double? ReceivablesTurnover { get; set; }
+        public decimal? ReceivablesTurnover { get; set; }
 
         [JsonPropertyName("payablesTurnover")]
-        public double? PayablesTurnover { get; set; }
+        public decimal? PayablesTurnover { get; set; }
 
         [JsonPropertyName("inventoryTurnover")]
-        public double? InventoryTurnover { get; set; }
+        public decimal? InventoryTurnover { get; set; }
 
         [JsonPropertyName("roe")]
-        public double? Roe { get; set; }
+        public decimal? Roe { get; set; }
 
         [JsonPropertyName("capexPerShare")]
-        public double? CapexPerShare { get; set; }
+        public decimal? CapexPerShare { get; set; }
     }
 }

@@ -8,10 +8,10 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public string Symbol { get; set; }
 
         [JsonPropertyName("price")]
-        public double Price { get; set; }
+        public decimal Price { get; set; }
 
         [JsonPropertyName("beta")]
-        public double Beta { get; set; }
+        public decimal Beta { get; set; }
 
         [JsonPropertyName("volAvg")]
         public int VolAvg { get; set; }
@@ -20,13 +20,13 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public long MktCap { get; set; }
 
         [JsonPropertyName("lastDiv")]
-        public double LastDiv { get; set; }
+        public decimal LastDiv { get; set; }
 
         [JsonPropertyName("range")]
         public string Range { get; set; }
 
         [JsonPropertyName("changes")]
-        public double Changes { get; set; }
+        public decimal Changes { get; set; }
 
         [JsonPropertyName("companyName")]
         public string CompanyName { get; set; }
@@ -86,10 +86,10 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public string Zip { get; set; }
 
         [JsonPropertyName("dcfDiff")]
-        public double? DcfDiff { get; set; }
+        public decimal? DcfDiff { get; set; }
 
         [JsonPropertyName("dcf")]
-        public double? Dcf { get; set; }
+        public decimal? Dcf { get; set; }
 
         [JsonPropertyName("image")]
         public string Image { get; set; }

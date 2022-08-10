@@ -29,94 +29,94 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public string Period { get; set; }
 
         [JsonPropertyName("netIncome")]
-        public double NetIncome { get; set; }
+        public decimal NetIncome { get; set; }
 
         [JsonPropertyName("depreciationAndAmortization")]
-        public double DepreciationAndAmortization { get; set; }
+        public decimal DepreciationAndAmortization { get; set; }
 
         [JsonPropertyName("deferredIncomeTax")]
-        public double DeferredIncomeTax { get; set; }
+        public decimal DeferredIncomeTax { get; set; }
 
         [JsonPropertyName("stockBasedCompensation")]
-        public double StockBasedCompensation { get; set; }
+        public decimal StockBasedCompensation { get; set; }
 
         [JsonPropertyName("changeInWorkingCapital")]
-        public double ChangeInWorkingCapital { get; set; }
+        public decimal ChangeInWorkingCapital { get; set; }
 
         [JsonPropertyName("accountsReceivables")]
-        public double AccountsReceivables { get; set; }
+        public decimal AccountsReceivables { get; set; }
 
         [JsonPropertyName("inventory")]
-        public double Inventory { get; set; }
+        public decimal Inventory { get; set; }
 
         [JsonPropertyName("accountsPayables")]
-        public double AccountsPayables { get; set; }
+        public decimal AccountsPayables { get; set; }
 
         [JsonPropertyName("otherWorkingCapital")]
-        public double OtherWorkingCapital { get; set; }
+        public decimal OtherWorkingCapital { get; set; }
 
         [JsonPropertyName("otherNonCashItems")]
-        public double OtherNonCashItems { get; set; }
+        public decimal OtherNonCashItems { get; set; }
 
         [JsonPropertyName("netCashProvidedByOperatingActivities")]
-        public double NetCashProvidedByOperatingActivities { get; set; }
+        public decimal NetCashProvidedByOperatingActivities { get; set; }
 
         [JsonPropertyName("investmentsInPropertyPlantAndEquipment")]
-        public double InvestmentsInPropertyPlantAndEquipment { get; set; }
+        public decimal InvestmentsInPropertyPlantAndEquipment { get; set; }
 
         [JsonPropertyName("acquisitionsNet")]
-        public double AcquisitionsNet { get; set; }
+        public decimal AcquisitionsNet { get; set; }
 
         [JsonPropertyName("purchasesOfInvestments")]
-        public double PurchasesOfInvestments { get; set; }
+        public decimal PurchasesOfInvestments { get; set; }
 
         [JsonPropertyName("salesMaturitiesOfInvestments")]
-        public double SalesMaturitiesOfInvestments { get; set; }
+        public decimal SalesMaturitiesOfInvestments { get; set; }
 
         [JsonPropertyName("otherInvestingActivites")]
-        public double OtherInvestingActivites { get; set; }
+        public decimal OtherInvestingActivites { get; set; }
 
         [JsonPropertyName("netCashUsedForInvestingActivites")]
-        public double NetCashUsedForInvestingActivites { get; set; }
+        public decimal NetCashUsedForInvestingActivites { get; set; }
 
         [JsonPropertyName("debtRepayment")]
-        public double DebtRepayment { get; set; }
+        public decimal DebtRepayment { get; set; }
 
         [JsonPropertyName("commonStockIssued")]
-        public double CommonStockIssued { get; set; }
+        public decimal CommonStockIssued { get; set; }
 
         [JsonPropertyName("commonStockRepurchased")]
-        public double CommonStockRepurchased { get; set; }
+        public decimal CommonStockRepurchased { get; set; }
 
         [JsonPropertyName("dividendsPaid")]
-        public double DividendsPaid { get; set; }
+        public decimal DividendsPaid { get; set; }
 
         [JsonPropertyName("otherFinancingActivites")]
-        public double OtherFinancingActivites { get; set; }
+        public decimal OtherFinancingActivites { get; set; }
 
         [JsonPropertyName("netCashUsedProvidedByFinancingActivities")]
-        public double NetCashUsedProvidedByFinancingActivities { get; set; }
+        public decimal NetCashUsedProvidedByFinancingActivities { get; set; }
 
         [JsonPropertyName("effectOfForexChangesOnCash")]
-        public double EffectOfForexChangesOnCash { get; set; }
+        public decimal EffectOfForexChangesOnCash { get; set; }
 
         [JsonPropertyName("netChangeInCash")]
-        public double NetChangeInCash { get; set; }
+        public decimal NetChangeInCash { get; set; }
 
         [JsonPropertyName("cashAtEndOfPeriod")]
-        public double CashAtEndOfPeriod { get; set; }
+        public decimal CashAtEndOfPeriod { get; set; }
 
         [JsonPropertyName("cashAtBeginningOfPeriod")]
-        public double CashAtBeginningOfPeriod { get; set; }
+        public decimal CashAtBeginningOfPeriod { get; set; }
 
         [JsonPropertyName("operatingCashFlow")]
-        public double OperatingCashFlow { get; set; }
+        public decimal OperatingCashFlow { get; set; }
 
         [JsonPropertyName("capitalExpenditure")]
-        public double CapitalExpenditure { get; set; }
+        public decimal CapitalExpenditure { get; set; }
 
         [JsonPropertyName("freeCashFlow")]
-        public double FreeCashFlow { get; set; }
+        public decimal FreeCashFlow { get; set; }
 
         [JsonPropertyName("link")]
         public string Link { get; set; }

@@ -1,6 +1,7 @@
 ﻿using MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries;
 using MatthiWare.FinancialModelingPrep.Core.Http;
 using MatthiWare.FinancialModelingPrep.Model;
+using MatthiWare.FinancialModelingPrep.Model.StockMarket;
 using MatthiWare.FinancialModelingPrep.Model.StockTimeSeries;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,19 @@ namespace MatthiWare.FinancialModelingPrep.Core.StockTimeSeries
         public StockTimeSeriesProvider(FinancialModelingPrepHttpClient client)
         {
             this.client = client ?? throw new ArgumentNullException(nameof(client));
+        }
+
+        public async Task<ApiResponse<List<StockQuoteResponse>>> GetQuoteAsync(string symbol)
+        {
+            const string url = "[version]/quote/[symbol]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "symbol", symbol },
+            };
+
+            return await client.GetJsonAsync<List<StockQuoteResponse>>(url, pathParams, null);
         }
 
         /// <inheritdoc/>

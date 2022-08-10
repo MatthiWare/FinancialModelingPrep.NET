@@ -14,9 +14,9 @@ namespace MatthiWare.FinancialModelingPrep.Model.Fund
         public int SharesNumber { get; set; }
 
         [JsonPropertyName("weightPercentage")]
-        public double WeightPercentage { get; set; }
+        public decimal WeightPercentage { get; set; }
 
         [JsonPropertyName("marketValue")]
-        public double MarketValue { get; set; }
+        public decimal MarketValue { get; set; }
     }
 }

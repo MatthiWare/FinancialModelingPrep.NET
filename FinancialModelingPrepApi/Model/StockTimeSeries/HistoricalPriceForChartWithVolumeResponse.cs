@@ -8,16 +8,16 @@ namespace MatthiWare.FinancialModelingPrep.Model.StockTimeSeries
         public string Date { get; set; }
 
         [JsonPropertyName("open")]
-        public double Open { get; set; }
+        public decimal Open { get; set; }
 
         [JsonPropertyName("low")]
-        public double Low { get; set; }
+        public decimal Low { get; set; }
 
         [JsonPropertyName("high")]
-        public double High { get; set; }
+        public decimal High { get; set; }
 
         [JsonPropertyName("close")]
-        public double Close { get; set; }
+        public decimal Close { get; set; }
 
         [JsonPropertyName("volume")]
         public int Volume { get; set; }

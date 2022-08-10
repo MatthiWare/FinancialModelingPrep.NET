@@ -11,6 +11,6 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public string Date { get; set; }
 
         [JsonPropertyName("marketCap")]
-        public double MarketCap { get; set; }
+        public decimal MarketCap { get; set; }
     }
 }

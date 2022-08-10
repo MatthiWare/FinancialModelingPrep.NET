@@ -11,10 +11,10 @@ namespace MatthiWare.FinancialModelingPrep.Model.StockTimeSeries
         public string Label { get; set; }
 
         [JsonPropertyName("adjDividend")]
-        public double AdjDividend { get; set; }
+        public decimal AdjDividend { get; set; }
 
         [JsonPropertyName("dividend")]
-        public double Dividend { get; set; }
+        public decimal Dividend { get; set; }
 
         [JsonPropertyName("recordDate")]
         public string RecordDate { get; set; }
