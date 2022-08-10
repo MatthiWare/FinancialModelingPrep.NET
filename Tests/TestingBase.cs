@@ -53,7 +53,7 @@ namespace Tests
         {
             var apiKeySection = ConfigurationRoot.GetSection("API_KEY");
 
-            var apiKey = apiKeySection?.Value ?? "demo";
+            var apiKey = apiKeySection?.Value ?? "5a05061896c9dab0aa10f2b655cc5651";
 
             return new FinancialModelingPrepOptions()
             {
