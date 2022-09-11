@@ -29,88 +29,88 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public string Period { get; set; }
 
         [JsonPropertyName("revenue")]
-        public double Revenue { get; set; }
+        public decimal Revenue { get; set; }
 
         [JsonPropertyName("costOfRevenue")]
-        public double CostOfRevenue { get; set; }
+        public decimal CostOfRevenue { get; set; }
 
         [JsonPropertyName("grossProfit")]
-        public double GrossProfit { get; set; }
+        public decimal GrossProfit { get; set; }
 
         [JsonPropertyName("grossProfitRatio")]
-        public double GrossProfitRatio { get; set; }
+        public decimal GrossProfitRatio { get; set; }
 
         [JsonPropertyName("researchAndDevelopmentExpenses")]
-        public double ResearchAndDevelopmentExpenses { get; set; }
+        public decimal ResearchAndDevelopmentExpenses { get; set; }
 
         [JsonPropertyName("generalAndAdministrativeExpenses")]
-        public double GeneralAndAdministrativeExpenses { get; set; }
+        public decimal GeneralAndAdministrativeExpenses { get; set; }
 
         [JsonPropertyName("sellingAndMarketingExpenses")]
-        public double SellingAndMarketingExpenses { get; set; }
+        public decimal SellingAndMarketingExpenses { get; set; }
 
         [JsonPropertyName("sellingGeneralAndAdministrativeExpenses")]
-        public double SellingGeneralAndAdministrativeExpenses { get; set; }
+        public decimal SellingGeneralAndAdministrativeExpenses { get; set; }
 
         [JsonPropertyName("otherExpenses")]
-        public double OtherExpenses { get; set; }
+        public decimal OtherExpenses { get; set; }
 
         [JsonPropertyName("operatingExpenses")]
-        public double OperatingExpenses { get; set; }
+        public decimal OperatingExpenses { get; set; }
 
         [JsonPropertyName("costAndExpenses")]
-        public double CostAndExpenses { get; set; }
+        public decimal CostAndExpenses { get; set; }
 
         [JsonPropertyName("interestIncome")]
-        public double InterestIncome { get; set; }
+        public decimal InterestIncome { get; set; }
 
         [JsonPropertyName("interestExpense")]
-        public double InterestExpense { get; set; }
+        public decimal InterestExpense { get; set; }
 
         [JsonPropertyName("depreciationAndAmortization")]
-        public double DepreciationAndAmortization { get; set; }
+        public decimal DepreciationAndAmortization { get; set; }
 
         [JsonPropertyName("ebitda")]
-        public double Ebitda { get; set; }
+        public decimal Ebitda { get; set; }
 
         [JsonPropertyName("ebitdaratio")]
-        public double Ebitdaratio { get; set; }
+        public decimal Ebitdaratio { get; set; }
 
         [JsonPropertyName("operatingIncome")]
-        public double OperatingIncome { get; set; }
+        public decimal OperatingIncome { get; set; }
 
         [JsonPropertyName("operatingIncomeRatio")]
-        public double OperatingIncomeRatio { get; set; }
+        public decimal OperatingIncomeRatio { get; set; }
 
         [JsonPropertyName("totalOtherIncomeExpensesNet")]
-        public double TotalOtherIncomeExpensesNet { get; set; }
+        public decimal TotalOtherIncomeExpensesNet { get; set; }
 
         [JsonPropertyName("incomeBeforeTax")]
-        public double IncomeBeforeTax { get; set; }
+        public decimal IncomeBeforeTax { get; set; }
 
         [JsonPropertyName("incomeBeforeTaxRatio")]
-        public double IncomeBeforeTaxRatio { get; set; }
+        public decimal IncomeBeforeTaxRatio { get; set; }
 
         [JsonPropertyName("incomeTaxExpense")]
-        public double IncomeTaxExpense { get; set; }
+        public decimal IncomeTaxExpense { get; set; }
 
         [JsonPropertyName("netIncome")]
-        public double NetIncome { get; set; }
+        public decimal NetIncome { get; set; }
 
         [JsonPropertyName("netIncomeRatio")]
-        public double NetIncomeRatio { get; set; }
+        public decimal NetIncomeRatio { get; set; }
 
         [JsonPropertyName("eps")]
-        public double Eps { get; set; }
+        public decimal Eps { get; set; }
 
         [JsonPropertyName("epsdiluted")]
-        public double Epsdiluted { get; set; }
+        public decimal Epsdiluted { get; set; }
 
         [JsonPropertyName("weightedAverageShsOut")]
-        public double WeightedAverageShsOut { get; set; }
+        public decimal WeightedAverageShsOut { get; set; }
 
         [JsonPropertyName("weightedAverageShsOutDil")]
-        public double WeightedAverageShsOutDil { get; set; }
+        public decimal WeightedAverageShsOutDil { get; set; }
 
         [JsonPropertyName("link")]
         public string Link { get; set; }

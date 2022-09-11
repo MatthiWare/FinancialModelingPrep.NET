@@ -66,7 +66,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.Http
                     return ApiResponse.FromError<string>("Invalid parameters");
                 }
 
-                return ApiResponse.FromSucces(response.Data);
+                return ApiResponse.FromSuccess(response.Data);
             }
             finally
             {
@@ -88,7 +88,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.Http
 
                 var data = JsonSerializer.Deserialize<T>(response.Data, jsonSerializerOptions);
 
-                return ApiResponse.FromSucces(data);
+                return ApiResponse.FromSuccess(data);
             }
             catch (JsonException ex)
             {
@@ -112,7 +112,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.Http
                 return ApiResponse.FromError<string>($"{response.StatusCode} - {content}");
             }
 
-            return ApiResponse.FromSucces(content);
+            return ApiResponse.FromSuccess(content);
         }
 
         private static void PreProcessUrl(ref string url, ref NameValueCollection pathParams, ref QueryStringBuilder qsb)

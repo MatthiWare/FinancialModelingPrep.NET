@@ -11,9 +11,9 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public string Date { get; set; }
 
         [JsonPropertyName("dcf")]
-        public double Dcf { get; set; }
+        public decimal Dcf { get; set; }
 
         [JsonPropertyName("StockPrice")]
-        public double StockPrice { get; set; }
+        public decimal StockPrice { get; set; }
     }
 }

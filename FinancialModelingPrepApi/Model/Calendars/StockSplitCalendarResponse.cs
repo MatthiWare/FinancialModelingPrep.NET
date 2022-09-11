@@ -14,9 +14,9 @@ namespace MatthiWare.FinancialModelingPrep.Model.Calendars
         public string Symbol { get; set; }
 
         [JsonPropertyName("numerator")]
-        public double Numerator { get; set; }
+        public decimal Numerator { get; set; }
 
         [JsonPropertyName("denominator")]
-        public double Denominator { get; set; }
+        public decimal Denominator { get; set; }
     }
 }

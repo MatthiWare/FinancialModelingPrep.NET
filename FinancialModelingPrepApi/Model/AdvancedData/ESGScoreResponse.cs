@@ -23,16 +23,16 @@ namespace MatthiWare.FinancialModelingPrep.Model.AdvancedData
         public string Date { get; set; }
 
         [JsonPropertyName("environmentalScore")]
-        public double EnvironmentalScore { get; set; }
+        public decimal EnvironmentalScore { get; set; }
 
         [JsonPropertyName("socialScore")]
-        public double SocialScore { get; set; }
+        public decimal SocialScore { get; set; }
 
         [JsonPropertyName("governanceScore")]
-        public double GovernanceScore { get; set; }
+        public decimal GovernanceScore { get; set; }
 
         [JsonPropertyName("ESGScore")]
-        public double ESGScore { get; set; }
+        public decimal ESGScore { get; set; }
 
         [JsonPropertyName("url")]
         public string Url { get; set; }

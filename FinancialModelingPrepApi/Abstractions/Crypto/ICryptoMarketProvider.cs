@@ -1,17 +1,20 @@
 ﻿using MatthiWare.FinancialModelingPrep.Model;
 using MatthiWare.FinancialModelingPrep.Model.Crypto;
-using MatthiWare.FinancialModelingPrep.Model.StockMarket;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MatthiWare.FinancialModelingPrep.Abstractions.StockMarket
+namespace MatthiWare.FinancialModelingPrep.Abstractions.Crypto
 {
     public interface ICryptoMarketProvider
     {
-        public Task<ApiResponse<List<CryptoItem>>> GetAvilableCryptocurrencies();
+        Task<ApiResponse<List<CryptoItem>>> GetAvilableCryptocurrenciesAsync();
 
-        public Task<ApiResponse<List<CryptoHistoricalPricePeriodListing>>> GetHistoricalPrices(string symbol, HistoricalPricingPeriod period);
+        Task<ApiResponse<CryptoHistoricalPriceDailyItem>> GetHistoricalQuoteAsync(string symbol);
 
-        public Task<ApiResponse<CryptoHistoricalPriceDailyItem>> GetDailyPrices(string symbol);
+        Task<ApiResponse<CryptoHistoricalPriceDailyItem>> GetHistoricalQuoteAsync(string symbol, string from, string to);
+        
+        Task<ApiResponse<List<CryptoHistoricalPricePeriodListing>>> GetHistoricalQuoteAsync(string symbol, HistoricalPricingPeriod period);
+
+        Task<ApiResponse<List<CryptoQuoteResponse>>> GetQuoteAsync(string symbol);
     }
 }

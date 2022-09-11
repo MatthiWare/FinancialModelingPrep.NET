@@ -11,18 +11,18 @@ namespace MatthiWare.FinancialModelingPrep.Model.Calendars
         public string Symbol { get; set; }
 
         [JsonPropertyName("eps")]
-        public double? Eps { get; set; }
+        public decimal? Eps { get; set; }
 
         [JsonPropertyName("epsEstimated")]
-        public double? EpsEstimated { get; set; }
+        public decimal? EpsEstimated { get; set; }
 
         [JsonPropertyName("time")]
         public string Time { get; set; }
 
         [JsonPropertyName("revenue")]
-        public double? Revenue { get; set; }
+        public decimal? Revenue { get; set; }
 
         [JsonPropertyName("revenueEstimated")]
-        public double? RevenueEstimated { get; set; }
+        public decimal? RevenueEstimated { get; set; }
     }
 }

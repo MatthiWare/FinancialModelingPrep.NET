@@ -13,6 +13,6 @@ namespace MatthiWare.FinancialModelingPrep.Model.Crypto
         public string Symbol { get; set; }
 
         [JsonPropertyName("historical")]
-        public List<CyptoHistoricalPriceDailyListing> HistoricalPrices { get; set; }
+        public List<CyptoHistoricalPriceDailyListing> Historical { get; set; }
     }
 }

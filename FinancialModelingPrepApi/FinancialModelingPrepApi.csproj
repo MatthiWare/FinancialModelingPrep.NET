@@ -1,54 +1,55 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFramework>net5.0</TargetFramework>
-		<RootNamespace>MatthiWare.FinancialModelingPrep</RootNamespace>
-		<PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<Company>MatthiWare</Company>
-		<PackageId>MatthiWare.FinancialModelingPrep</PackageId>
-		<Description>FinancialModelingPrep API Client written in .NET 5</Description>
-		<Copyright>Copyright Matthias Beerens 2021</Copyright>
-		<Product>FinancialModelingPrep API Client</Product>
-		<Authors>Matthias Beerens</Authors>
-		<PackageLicenseFile>LICENSE</PackageLicenseFile>
-		<RepositoryUrl>https://github.com/MatthiWare/FinancialModelingPrep.NET</RepositoryUrl>
-		<RepositoryType>git</RepositoryType>
-		<PackageTags>FinancialModelingPrep stock quote finance-api</PackageTags>
-		<PackageProjectUrl>https://github.com/MatthiWare/FinancialModelingPrep.NET</PackageProjectUrl>
-		<PackageReleaseNotes>
-			- GetEnterpriseValueAsync Type fixed
-		</PackageReleaseNotes>
-		<AssemblyName>FinancialModelingPrep</AssemblyName>
-	</PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>MatthiWare.FinancialModelingPrep</RootNamespace>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <AssemblyVersion>0.1.12.0</AssemblyVersion>
+    <FileVersion>0.1.12.0</FileVersion>
+    <Company>MatthiWare</Company>
+    <PackageId>MatthiWare.FinancialModelingPrep</PackageId>
+    <Version>0.1.12</Version>
+    <Description>FinancialModelingPrep API Client written in .NET 5</Description>
+    <Copyright>Copyright Matthias Beerens 2021</Copyright>
+    <Product>FinancialModelingPrep API Client</Product>
+    <Authors>Matthias Beerens</Authors>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/MatthiWare/FinancialModelingPrep.NET</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>FinancialModelingPrep stock quote finance-api</PackageTags>
+    <PackageProjectUrl>https://github.com/MatthiWare/FinancialModelingPrep.NET</PackageProjectUrl>
+    <PackageReleaseNotes>
+		- GetEnterpriseValueAsync Type fixed
+	</PackageReleaseNotes>
+    <AssemblyName>FinancialModelingPrep</AssemblyName>
+    <Platforms>AnyCPU;x86;x64</Platforms>
+  </PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-		<DocumentationFile>D:\Source\Repos\FinancialModelingPrep.NET\FinancialModelingPrepApi\FinancialModelingPrepApi.xml</DocumentationFile>
-	</PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>D:\Source\Repos\FinancialModelingPrep.NET\FinancialModelingPrepApi\FinancialModelingPrepApi.xml</DocumentationFile>
+  </PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="Bert.RateLimiters" Version="1.0.15" />
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
-		<PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.1" />
-		<PackageReference Include="MinVer" Version="4.1.0">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-	</ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <DocumentationFile>D:\Source\Repos\FinancialModelingPrep.NET\FinancialModelingPrepApi\FinancialModelingPrepApi.xml</DocumentationFile>
+  </PropertyGroup>
 
-	<PropertyGroup>
-		<MinVerSkip Condition="'$(Configuration)|$(Platform)'=='Debug'">true</MinVerSkip>
-		<MinVerTagPrefix>v</MinVerTagPrefix>
-		<MinVerIgnoreHeight>true</MinVerIgnoreHeight>
-		<MinVerVerbosity>normal</MinVerVerbosity>
-	</PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+    <DocumentationFile>D:\Source\Repos\FinancialModelingPrep.NET\FinancialModelingPrepApi\FinancialModelingPrepApi.xml</DocumentationFile>
+  </PropertyGroup>
 
-	<ItemGroup>
-		<None Include="..\LICENSE">
-			<Pack>True</Pack>
-			<PackagePath></PackagePath>
-		</None>
-	</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Bert.RateLimiters" Version="1.0.15" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

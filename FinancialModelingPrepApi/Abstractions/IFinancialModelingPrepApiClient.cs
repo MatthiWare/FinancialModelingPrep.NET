@@ -1,7 +1,10 @@
 ﻿using MatthiWare.FinancialModelingPrep.Abstractions.AdvancedData;
 using MatthiWare.FinancialModelingPrep.Abstractions.Calendars;
 using MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation;
+using MatthiWare.FinancialModelingPrep.Abstractions.Crypto;
+using MatthiWare.FinancialModelingPrep.Abstractions.Forex;
 using MatthiWare.FinancialModelingPrep.Abstractions.Fund;
+using MatthiWare.FinancialModelingPrep.Abstractions.Futures;
 using MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund;
 using MatthiWare.FinancialModelingPrep.Abstractions.MarketIndexes;
 using MatthiWare.FinancialModelingPrep.Abstractions.Statistics;
@@ -60,6 +63,16 @@ namespace MatthiWare.FinancialModelingPrep
         /// Cryptomarket related enpoints
         /// </summary>
         ICryptoMarketProvider Crypto { get; }
+
+        /// <summary>
+        /// Forex related enpoints
+        /// </summary>
+        IForexMarketProvider Forex { get; }
+
+        /// <summary>
+        /// Futures related enpoints
+        /// </summary>
+        IFuturesMarketProvider Futures { get; }
 
         /// <summary>
         /// ETF/Mutual Fund related enpoints

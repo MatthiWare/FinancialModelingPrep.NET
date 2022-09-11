@@ -11,58 +11,58 @@ namespace MatthiWare.FinancialModelingPrep.Model.Statistics
         public string Date { get; set; }
 
         [JsonPropertyName("estimatedRevenueLow")]
-        public double EstimatedRevenueLow { get; set; }
+        public decimal EstimatedRevenueLow { get; set; }
 
         [JsonPropertyName("estimatedRevenueHigh")]
-        public double EstimatedRevenueHigh { get; set; }
+        public decimal EstimatedRevenueHigh { get; set; }
 
         [JsonPropertyName("estimatedRevenueAvg")]
-        public double EstimatedRevenueAvg { get; set; }
+        public decimal EstimatedRevenueAvg { get; set; }
 
         [JsonPropertyName("estimatedEbitdaLow")]
-        public double EstimatedEbitdaLow { get; set; }
+        public decimal EstimatedEbitdaLow { get; set; }
 
         [JsonPropertyName("estimatedEbitdaHigh")]
-        public double EstimatedEbitdaHigh { get; set; }
+        public decimal EstimatedEbitdaHigh { get; set; }
 
         [JsonPropertyName("estimatedEbitdaAvg")]
-        public double EstimatedEbitdaAvg { get; set; }
+        public decimal EstimatedEbitdaAvg { get; set; }
 
         [JsonPropertyName("estimatedEbitLow")]
-        public double EstimatedEbitLow { get; set; }
+        public decimal EstimatedEbitLow { get; set; }
 
         [JsonPropertyName("estimatedEbitHigh")]
-        public double EstimatedEbitHigh { get; set; }
+        public decimal EstimatedEbitHigh { get; set; }
 
         [JsonPropertyName("estimatedEbitAvg")]
-        public double EstimatedEbitAvg { get; set; }
+        public decimal EstimatedEbitAvg { get; set; }
 
         [JsonPropertyName("estimatedNetIncomeLow")]
-        public double EstimatedNetIncomeLow { get; set; }
+        public decimal EstimatedNetIncomeLow { get; set; }
 
         [JsonPropertyName("estimatedNetIncomeHigh")]
-        public double EstimatedNetIncomeHigh { get; set; }
+        public decimal EstimatedNetIncomeHigh { get; set; }
 
         [JsonPropertyName("estimatedNetIncomeAvg")]
-        public double EstimatedNetIncomeAvg { get; set; }
+        public decimal EstimatedNetIncomeAvg { get; set; }
 
         [JsonPropertyName("estimatedSgaExpenseLow")]
-        public double EstimatedSgaExpenseLow { get; set; }
+        public decimal EstimatedSgaExpenseLow { get; set; }
 
         [JsonPropertyName("estimatedSgaExpenseHigh")]
-        public double EstimatedSgaExpenseHigh { get; set; }
+        public decimal EstimatedSgaExpenseHigh { get; set; }
 
         [JsonPropertyName("estimatedSgaExpenseAvg")]
-        public double EstimatedSgaExpenseAvg { get; set; }
+        public decimal EstimatedSgaExpenseAvg { get; set; }
 
         [JsonPropertyName("estimatedEpsAvg")]
-        public double EstimatedEpsAvg { get; set; }
+        public decimal EstimatedEpsAvg { get; set; }
 
         [JsonPropertyName("estimatedEpsHigh")]
-        public double EstimatedEpsHigh { get; set; }
+        public decimal EstimatedEpsHigh { get; set; }
 
         [JsonPropertyName("estimatedEpsLow")]
-        public double EstimatedEpsLow { get; set; }
+        public decimal EstimatedEpsLow { get; set; }
 
         [JsonPropertyName("numberAnalystEstimatedRevenue")]
         public int NumberAnalystEstimatedRevenue { get; set; }

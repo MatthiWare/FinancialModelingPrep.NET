@@ -29,6 +29,15 @@ namespace Tests.AdvancedData
         }
 
         [Fact]
+        public async Task GetFinancialScoreAsync()
+        {
+            var result = await api.GetFinancialScore("AAPL");
+
+            result.AssertNoErrors();
+            Assert.Equal("AAPL", result.Data[0].Symbol);
+        }
+
+        [Fact]
         public async Task GetFinancialReportQuarterAsync()
         {
             var result = await api.GetQuarterlyReportsForm10QJsonAsync("AAPL", 2020, Quarter.Q1);

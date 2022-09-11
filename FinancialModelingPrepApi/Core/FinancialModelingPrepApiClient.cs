@@ -1,7 +1,10 @@
 ﻿using MatthiWare.FinancialModelingPrep.Abstractions.AdvancedData;
 using MatthiWare.FinancialModelingPrep.Abstractions.Calendars;
 using MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation;
+using MatthiWare.FinancialModelingPrep.Abstractions.Crypto;
+using MatthiWare.FinancialModelingPrep.Abstractions.Forex;
 using MatthiWare.FinancialModelingPrep.Abstractions.Fund;
+using MatthiWare.FinancialModelingPrep.Abstractions.Futures;
 using MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund;
 using MatthiWare.FinancialModelingPrep.Abstractions.MarketIndexes;
 using MatthiWare.FinancialModelingPrep.Abstractions.Statistics;
@@ -41,6 +44,12 @@ namespace MatthiWare.FinancialModelingPrep.Core
         public ICryptoMarketProvider Crypto { get; }
 
         /// <inheritdoc/>
+        public IForexMarketProvider Forex { get; }
+
+        /// <inheritdoc/>
+        public IFuturesMarketProvider Futures { get; }
+
+        /// <inheritdoc/>
         public IFundProvider Fund { get; }
 
         /// <inheritdoc/>
@@ -53,6 +62,8 @@ namespace MatthiWare.FinancialModelingPrep.Core
                                               IStockMarketProvider stockMarket,
                                               IStockStatisticsProvider stockStatistics,
                                               ICryptoMarketProvider cryptoMarket,
+                                              IForexMarketProvider forexMarket,
+                                              IFuturesMarketProvider futuresMarket,
                                               IFundProvider fund)
         {
             CompanyValuation = companyValuation;
@@ -64,6 +75,8 @@ namespace MatthiWare.FinancialModelingPrep.Core
             StockMarket = stockMarket;
             StockStatistics = stockStatistics;
             Crypto = cryptoMarket;
+            Forex = forexMarket;
+            Futures = futuresMarket;
             Fund = fund;
         }
     }

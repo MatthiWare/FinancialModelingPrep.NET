@@ -1,6 +1,7 @@
 ﻿using MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries;
 using MatthiWare.FinancialModelingPrep.Core.Http;
 using MatthiWare.FinancialModelingPrep.Model;
+using MatthiWare.FinancialModelingPrep.Model.StockMarket;
 using MatthiWare.FinancialModelingPrep.Model.StockTimeSeries;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,19 @@ namespace MatthiWare.FinancialModelingPrep.Core.StockTimeSeries
         public StockTimeSeriesProvider(FinancialModelingPrepHttpClient client)
         {
             this.client = client ?? throw new ArgumentNullException(nameof(client));
+        }
+
+        public async Task<ApiResponse<List<StockQuoteResponse>>> GetQuoteAsync(string symbol)
+        {
+            const string url = "[version]/quote/[symbol]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "symbol", symbol },
+            };
+
+            return await client.GetJsonAsync<List<StockQuoteResponse>>(url, pathParams, null);
         }
 
         /// <inheritdoc/>
@@ -103,14 +117,16 @@ namespace MatthiWare.FinancialModelingPrep.Core.StockTimeSeries
         }
 
         /// <inheritdoc/>
-        public Task<ApiResponse<List<HistoricalPriceForChartWithVolumeResponse>>> GetHistoricalPricesForChartWithVolume(string symbol, HistoricalChartSeries series)
+        public Task<ApiResponse<List<HistoricalPriceForChartWithVolumeResponse>>> GetHistoricalPricesForChartWithVolume(string symbol, HistoricalPricingPeriod series)
         {
             const string url = "[version]/historical-chart/[series]/[symbol]";
+
+            string seriesPeriod = EnumMappings.HistoricalPrices[series];
 
             var pathParams = new NameValueCollection()
             {
                 { "version", ApiVersion.v3.ToString() },
-                { "series", HistoricalChartSeriesToString(series) },
+                { "series", seriesPeriod },
                 { "symbol", symbol }
             };
 
@@ -129,20 +145,6 @@ namespace MatthiWare.FinancialModelingPrep.Core.StockTimeSeries
             };
 
             return client.GetJsonAsync<HistoricalStockSplitResponse>(url, pathParams, null);
-        }
-
-        private static string HistoricalChartSeriesToString(HistoricalChartSeries series)
-        {
-            return series switch
-            {
-                HistoricalChartSeries.OneMinute => "1min",
-                HistoricalChartSeries.FiveMinutes => "5min",
-                HistoricalChartSeries.FifteenMinutes => "15min",
-                HistoricalChartSeries.ThirtyMinutes => "30min",
-                HistoricalChartSeries.Hourly => "1hour",
-                HistoricalChartSeries.FourHours => "4hour",
-                _ => throw new NotImplementedException(),
-            };
         }
     }
 }

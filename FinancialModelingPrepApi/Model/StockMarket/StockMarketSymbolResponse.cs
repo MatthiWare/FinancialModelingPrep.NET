@@ -8,7 +8,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.StockMarket
         public string Ticker { get; set; }
 
         [JsonPropertyName("changes")]
-        public double Changes { get; set; }
+        public decimal Changes { get; set; }
 
         [JsonPropertyName("price")]
         public string Price { get; set; }

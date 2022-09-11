@@ -1,4 +1,4 @@
-﻿using MatthiWare.FinancialModelingPrep.Abstractions.StockMarket;
+﻿using MatthiWare.FinancialModelingPrep.Abstractions.Crypto;
 using Microsoft.Extensions.DependencyInjection;
 using System.Threading.Tasks;
 using Xunit;
@@ -16,9 +16,19 @@ namespace Tests.StockMarket
         }
 
         [Fact]
+        public async Task GetCryptocurrencyRealtime()
+        {
+            var result = await api.GetQuoteAsync("BTCUSD");
+
+            result.AssertNoErrors();
+            Assert.NotNull(result.Data);
+            Assert.Equal("BTCUSD", result.Data[0].Symbol);
+        }
+
+        [Fact]
         public async Task GetAvailableCryptocurrencies()
         {
-            var result = await api.GetAvilableCryptocurrencies();
+            var result = await api.GetAvilableCryptocurrenciesAsync();
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
@@ -27,7 +37,7 @@ namespace Tests.StockMarket
         [Fact]
         public async Task GetDailyPrice()
         {
-            var result = await api.GetDailyPrices("BTCUSD");
+            var result = await api.GetDailyPricesAsync("BTCUSD");
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data.HistoricalPrices);
@@ -36,7 +46,7 @@ namespace Tests.StockMarket
         [Fact]
         public async Task GetPeriodPriceData()
         {
-            var result = await api.GetHistoricalPrices("BTCUSD", MatthiWare.FinancialModelingPrep.Model.HistoricalPricingPeriod.OneHour);
+            var result = await api.GetHistoricalQuoteAsync("BTCUSD", MatthiWare.FinancialModelingPrep.Model.HistoricalPricingPeriod.OneHour);
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);

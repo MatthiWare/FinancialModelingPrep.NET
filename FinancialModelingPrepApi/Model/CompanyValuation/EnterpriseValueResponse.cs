@@ -11,21 +11,21 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public string Date { get; set; }
 
         [JsonPropertyName("stockPrice")]
-        public double StockPrice { get; set; }
+        public decimal StockPrice { get; set; }
 
         [JsonPropertyName("numberOfShares")]
         public long NumberOfShares { get; set; }
 
         [JsonPropertyName("marketCapitalization")]
-        public double MarketCapitalization { get; set; }
+        public decimal MarketCapitalization { get; set; }
 
         [JsonPropertyName("minusCashAndCashEquivalents")]
-        public double MinusCashAndCashEquivalents { get; set; }
+        public decimal MinusCashAndCashEquivalents { get; set; }
 
         [JsonPropertyName("addTotalDebt")]
-        public double AddTotalDebt { get; set; }
+        public decimal AddTotalDebt { get; set; }
 
         [JsonPropertyName("enterpriseValue")]
-        public double EnterpriseValue { get; set; }
+        public decimal EnterpriseValue { get; set; }
     }
 }

@@ -5,177 +5,177 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
     public class RatiosTTMResponse
     {
         [JsonPropertyName("dividendYielTTM")]
-        public double? DividendYielTTM { get; set; }
+        public decimal? DividendYielTTM { get; set; }
 
         [JsonPropertyName("dividendYielPercentageTTM")]
-        public double? DividendYielPercentageTTM { get; set; }
+        public decimal? DividendYielPercentageTTM { get; set; }
 
         [JsonPropertyName("peRatioTTM")]
-        public double? PeRatioTTM { get; set; }
+        public decimal? PeRatioTTM { get; set; }
 
         [JsonPropertyName("pegRatioTTM")]
-        public double? PegRatioTTM { get; set; }
+        public decimal? PegRatioTTM { get; set; }
 
         [JsonPropertyName("payoutRatioTTM")]
-        public double? PayoutRatioTTM { get; set; }
+        public decimal? PayoutRatioTTM { get; set; }
 
         [JsonPropertyName("currentRatioTTM")]
-        public double? CurrentRatioTTM { get; set; }
+        public decimal? CurrentRatioTTM { get; set; }
 
         [JsonPropertyName("quickRatioTTM")]
-        public double? QuickRatioTTM { get; set; }
+        public decimal? QuickRatioTTM { get; set; }
 
         [JsonPropertyName("cashRatioTTM")]
-        public double? CashRatioTTM { get; set; }
+        public decimal? CashRatioTTM { get; set; }
 
         [JsonPropertyName("daysOfSalesOutstandingTTM")]
-        public double? DaysOfSalesOutstandingTTM { get; set; }
+        public decimal? DaysOfSalesOutstandingTTM { get; set; }
 
         [JsonPropertyName("daysOfInventoryOutstandingTTM")]
-        public double? DaysOfInventoryOutstandingTTM { get; set; }
+        public decimal? DaysOfInventoryOutstandingTTM { get; set; }
 
         [JsonPropertyName("operatingCycleTTM")]
-        public double? OperatingCycleTTM { get; set; }
+        public decimal? OperatingCycleTTM { get; set; }
 
         [JsonPropertyName("daysOfPayablesOutstandingTTM")]
-        public double? DaysOfPayablesOutstandingTTM { get; set; }
+        public decimal? DaysOfPayablesOutstandingTTM { get; set; }
 
         [JsonPropertyName("cashConversionCycleTTM")]
-        public double? CashConversionCycleTTM { get; set; }
+        public decimal? CashConversionCycleTTM { get; set; }
 
         [JsonPropertyName("grossProfitMarginTTM")]
-        public double? GrossProfitMarginTTM { get; set; }
+        public decimal? GrossProfitMarginTTM { get; set; }
 
         [JsonPropertyName("operatingProfitMarginTTM")]
-        public double? OperatingProfitMarginTTM { get; set; }
+        public decimal? OperatingProfitMarginTTM { get; set; }
 
         [JsonPropertyName("pretaxProfitMarginTTM")]
-        public double? PretaxProfitMarginTTM { get; set; }
+        public decimal? PretaxProfitMarginTTM { get; set; }
 
         [JsonPropertyName("netProfitMarginTTM")]
-        public double? NetProfitMarginTTM { get; set; }
+        public decimal? NetProfitMarginTTM { get; set; }
 
         [JsonPropertyName("effectiveTaxRateTTM")]
-        public double? EffectiveTaxRateTTM { get; set; }
+        public decimal? EffectiveTaxRateTTM { get; set; }
 
         [JsonPropertyName("returnOnAssetsTTM")]
-        public double? ReturnOnAssetsTTM { get; set; }
+        public decimal? ReturnOnAssetsTTM { get; set; }
 
         [JsonPropertyName("returnOnEquityTTM")]
-        public double? ReturnOnEquityTTM { get; set; }
+        public decimal? ReturnOnEquityTTM { get; set; }
 
         [JsonPropertyName("returnOnCapitalEmployedTTM")]
-        public double? ReturnOnCapitalEmployedTTM { get; set; }
+        public decimal? ReturnOnCapitalEmployedTTM { get; set; }
 
         [JsonPropertyName("netIncomePerEBTTTM")]
-        public double? NetIncomePerEBTTTM { get; set; }
+        public decimal? NetIncomePerEBTTTM { get; set; }
 
         [JsonPropertyName("ebtPerEbitTTM")]
-        public double? EbtPerEbitTTM { get; set; }
+        public decimal? EbtPerEbitTTM { get; set; }
 
         [JsonPropertyName("ebitPerRevenueTTM")]
-        public double? EbitPerRevenueTTM { get; set; }
+        public decimal? EbitPerRevenueTTM { get; set; }
 
         [JsonPropertyName("debtRatioTTM")]
-        public double? DebtRatioTTM { get; set; }
+        public decimal? DebtRatioTTM { get; set; }
 
         [JsonPropertyName("debtEquityRatioTTM")]
-        public double? DebtEquityRatioTTM { get; set; }
+        public decimal? DebtEquityRatioTTM { get; set; }
 
         [JsonPropertyName("longTermDebtToCapitalizationTTM")]
-        public double? LongTermDebtToCapitalizationTTM { get; set; }
+        public decimal? LongTermDebtToCapitalizationTTM { get; set; }
 
         [JsonPropertyName("totalDebtToCapitalizationTTM")]
-        public double? TotalDebtToCapitalizationTTM { get; set; }
+        public decimal? TotalDebtToCapitalizationTTM { get; set; }
 
         [JsonPropertyName("interestCoverageTTM")]
-        public double? InterestCoverageTTM { get; set; }
+        public decimal? InterestCoverageTTM { get; set; }
 
         [JsonPropertyName("cashFlowToDebtRatioTTM")]
-        public double? CashFlowToDebtRatioTTM { get; set; }
+        public decimal? CashFlowToDebtRatioTTM { get; set; }
 
         [JsonPropertyName("companyEquityMultiplierTTM")]
-        public double? CompanyEquityMultiplierTTM { get; set; }
+        public decimal? CompanyEquityMultiplierTTM { get; set; }
 
         [JsonPropertyName("receivablesTurnoverTTM")]
-        public double? ReceivablesTurnoverTTM { get; set; }
+        public decimal? ReceivablesTurnoverTTM { get; set; }
 
         [JsonPropertyName("payablesTurnoverTTM")]
-        public double? PayablesTurnoverTTM { get; set; }
+        public decimal? PayablesTurnoverTTM { get; set; }
 
         [JsonPropertyName("inventoryTurnoverTTM")]
-        public double? InventoryTurnoverTTM { get; set; }
+        public decimal? InventoryTurnoverTTM { get; set; }
 
         [JsonPropertyName("fixedAssetTurnoverTTM")]
-        public double? FixedAssetTurnoverTTM { get; set; }
+        public decimal? FixedAssetTurnoverTTM { get; set; }
 
         [JsonPropertyName("assetTurnoverTTM")]
-        public double? AssetTurnoverTTM { get; set; }
+        public decimal? AssetTurnoverTTM { get; set; }
 
         [JsonPropertyName("operatingCashFlowPerShareTTM")]
-        public double? OperatingCashFlowPerShareTTM { get; set; }
+        public decimal? OperatingCashFlowPerShareTTM { get; set; }
 
         [JsonPropertyName("freeCashFlowPerShareTTM")]
-        public double? FreeCashFlowPerShareTTM { get; set; }
+        public decimal? FreeCashFlowPerShareTTM { get; set; }
 
         [JsonPropertyName("cashPerShareTTM")]
-        public double? CashPerShareTTM { get; set; }
+        public decimal? CashPerShareTTM { get; set; }
 
         [JsonPropertyName("operatingCashFlowSalesRatioTTM")]
-        public double? OperatingCashFlowSalesRatioTTM { get; set; }
+        public decimal? OperatingCashFlowSalesRatioTTM { get; set; }
 
         [JsonPropertyName("freeCashFlowOperatingCashFlowRatioTTM")]
-        public double? FreeCashFlowOperatingCashFlowRatioTTM { get; set; }
+        public decimal? FreeCashFlowOperatingCashFlowRatioTTM { get; set; }
 
         [JsonPropertyName("cashFlowCoverageRatiosTTM")]
-        public double? CashFlowCoverageRatiosTTM { get; set; }
+        public decimal? CashFlowCoverageRatiosTTM { get; set; }
 
         [JsonPropertyName("shortTermCoverageRatiosTTM")]
-        public double? ShortTermCoverageRatiosTTM { get; set; }
+        public decimal? ShortTermCoverageRatiosTTM { get; set; }
 
         [JsonPropertyName("capitalExpenditureCoverageRatioTTM")]
-        public double? CapitalExpenditureCoverageRatioTTM { get; set; }
+        public decimal? CapitalExpenditureCoverageRatioTTM { get; set; }
 
         [JsonPropertyName("dividendPaidAndCapexCoverageRatioTTM")]
-        public double? DividendPaidAndCapexCoverageRatioTTM { get; set; }
+        public decimal? DividendPaidAndCapexCoverageRatioTTM { get; set; }
 
         [JsonPropertyName("priceBookValueRatioTTM")]
-        public double? PriceBookValueRatioTTM { get; set; }
+        public decimal? PriceBookValueRatioTTM { get; set; }
 
         [JsonPropertyName("priceToBookRatioTTM")]
-        public double? PriceToBookRatioTTM { get; set; }
+        public decimal? PriceToBookRatioTTM { get; set; }
 
         [JsonPropertyName("priceToSalesRatioTTM")]
-        public double? PriceToSalesRatioTTM { get; set; }
+        public decimal? PriceToSalesRatioTTM { get; set; }
 
         [JsonPropertyName("priceEarningsRatioTTM")]
-        public double? PriceEarningsRatioTTM { get; set; }
+        public decimal? PriceEarningsRatioTTM { get; set; }
 
         [JsonPropertyName("priceToFreeCashFlowsRatioTTM")]
-        public double? PriceToFreeCashFlowsRatioTTM { get; set; }
+        public decimal? PriceToFreeCashFlowsRatioTTM { get; set; }
 
         [JsonPropertyName("priceToOperatingCashFlowsRatioTTM")]
-        public double? PriceToOperatingCashFlowsRatioTTM { get; set; }
+        public decimal? PriceToOperatingCashFlowsRatioTTM { get; set; }
 
         [JsonPropertyName("priceCashFlowRatioTTM")]
-        public double? PriceCashFlowRatioTTM { get; set; }
+        public decimal? PriceCashFlowRatioTTM { get; set; }
 
         [JsonPropertyName("priceEarningsToGrowthRatioTTM")]
-        public double? PriceEarningsToGrowthRatioTTM { get; set; }
+        public decimal? PriceEarningsToGrowthRatioTTM { get; set; }
 
         [JsonPropertyName("priceSalesRatioTTM")]
-        public double? PriceSalesRatioTTM { get; set; }
+        public decimal? PriceSalesRatioTTM { get; set; }
 
         [JsonPropertyName("dividendYieldTTM")]
-        public double? DividendYieldTTM { get; set; }
+        public decimal? DividendYieldTTM { get; set; }
 
         [JsonPropertyName("enterpriseValueMultipleTTM")]
-        public double? EnterpriseValueMultipleTTM { get; set; }
+        public decimal? EnterpriseValueMultipleTTM { get; set; }
 
         [JsonPropertyName("priceFairValueTTM")]
-        public double? PriceFairValueTTM { get; set; }
+        public decimal? PriceFairValueTTM { get; set; }
 
         [JsonPropertyName("dividendPerShareTTM")]
-        public double? DividendPerShareTTM { get; set; }
+        public decimal? DividendPerShareTTM { get; set; }
     }
 }
