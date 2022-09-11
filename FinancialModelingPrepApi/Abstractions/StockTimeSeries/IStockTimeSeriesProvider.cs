@@ -68,6 +68,6 @@ namespace MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries
         /// <param name="symbol">Ticker symbol</param>
         /// <param name="series">Time series</param>
         /// <returns><see cref="HistoricalPriceForLineChartResponse"/></returns>
-        Task<ApiResponse<List<HistoricalPriceForChartWithVolumeResponse>>> GetHistoricalPricesForChartWithVolume(string symbol, HistoricalChartSeries series);
+        Task<ApiResponse<List<HistoricalPriceForChartWithVolumeResponse>>> GetHistoricalPricesForChartWithVolume(string symbol, HistoricalPricingPeriod series);
     }
 }

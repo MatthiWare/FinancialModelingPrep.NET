@@ -9,9 +9,11 @@ namespace MatthiWare.FinancialModelingPrep.Abstractions.Crypto
     {
         Task<ApiResponse<List<CryptoItem>>> GetAvilableCryptocurrenciesAsync();
 
-        Task<ApiResponse<List<CryptoHistoricalPricePeriodListing>>> GetHistoricalQuoteAsync(string symbol, HistoricalPricingPeriod period);
+        Task<ApiResponse<CryptoHistoricalPriceDailyItem>> GetHistoricalQuoteAsync(string symbol);
 
-        Task<ApiResponse<CryptoHistoricalPriceDailyItem>> GetDailyPricesAsync(string symbol);
+        Task<ApiResponse<CryptoHistoricalPriceDailyItem>> GetHistoricalQuoteAsync(string symbol, string from, string to);
+        
+        Task<ApiResponse<List<CryptoHistoricalPricePeriodListing>>> GetHistoricalQuoteAsync(string symbol, HistoricalPricingPeriod period);
 
         Task<ApiResponse<List<CryptoQuoteResponse>>> GetQuoteAsync(string symbol);
     }

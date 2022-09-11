@@ -13,6 +13,9 @@
         FifteenMinute,
         ThirtyMinute,
         OneHour,
-        FourHour
+        FourHour,
+        Day,
+        Week,
+        Month
     }
 }

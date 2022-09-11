@@ -32,16 +32,16 @@ namespace MatthiWare.FinancialModelingPrep.Model.StockMarket
         public decimal DayHigh { get; set; }
 
         [JsonPropertyName("yearlow")]
-        public decimal YearlyLow { get; set; }
+        public decimal? YearlyLow { get; set; }
 
         [JsonPropertyName("yearhigh")]
-        public decimal YearlyHigh { get; set; }
+        public decimal? YearlyHigh { get; set; }
 
         [JsonPropertyName("priceavg50")]
-        public decimal PriceAvg50 { get; set; }
+        public decimal? PriceAvg50 { get; set; }
 
         [JsonPropertyName("priceavg200")]
-        public decimal PriceAvg200 { get; set; }
+        public decimal? PriceAvg200 { get; set; }
 
         [JsonPropertyName("change")]
         public decimal Change { get; set; }
