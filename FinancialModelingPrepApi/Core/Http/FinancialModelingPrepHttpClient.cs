@@ -28,7 +28,10 @@ namespace MatthiWare.FinancialModelingPrep.Core.Http
             this.options = options ?? throw new ArgumentNullException(nameof(options));
             this.rateLimiter = rateLimiter ?? throw new ArgumentNullException(nameof(rateLimiter));
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
-            this.jsonSerializerOptions = new JsonSerializerOptions(JsonSerializerDefaults.Web);
+            this.jsonSerializerOptions = new JsonSerializerOptions(JsonSerializerDefaults.Web)
+            {
+                PropertyNameCaseInsensitive = true,
+            };
 
             if (string.IsNullOrWhiteSpace(this.options.ApiKey))
             {
