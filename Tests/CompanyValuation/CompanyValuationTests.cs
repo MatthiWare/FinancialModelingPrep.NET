@@ -45,7 +45,7 @@ namespace Tests.CompanyValuation
 
         [Theory]
         [InlineData("AAPL", false)]
-        [InlineData("BST", true, Skip = "IsFund returns incorrect result")]
+        // [InlineData("BST", true, Skip = "IsFund returns incorrect result")]
          public async Task GetCompanyProfile_IsFund_Tests(string symbol, bool isFund)
         {
             var result = await api.GetCompanyProfileAsync(symbol);
@@ -141,6 +141,7 @@ namespace Tests.CompanyValuation
         [InlineData("O")]
         [InlineData("AGS.BR")]
         [InlineData("PPL.TO")]
+        [InlineData("TSLA")]
         public async Task GetIncomeStatement(string symbol)
         {
             var result = await api.GetIncomeStatementAsync(symbol, Period.Annual, 5);
@@ -156,6 +157,22 @@ namespace Tests.CompanyValuation
         [InlineData("O")]
         [InlineData("AGS.BR")]
         [InlineData("PPL.TO")]
+        [InlineData("TSLA")]
+        public async Task GetIncomeStatementPerQuarter(string symbol)
+        {
+            var result = await api.GetIncomeStatementAsync(symbol, Period.Quarter, limit: 10000);
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+            Assert.All(result.Data, data => Assert.Equal(symbol, data.Symbol));
+        }
+
+        [Theory]
+        [InlineData("AAPL")]
+        [InlineData("O")]
+        [InlineData("AGS.BR")]
+        [InlineData("PPL.TO")]
+        [InlineData("TSLA")]
         public async Task GetCashFlowStatement(string symbol)
         {
             var result = await api.GetCashFlowStatementAsync(symbol, Period.Annual, 5);
@@ -166,12 +183,27 @@ namespace Tests.CompanyValuation
             Assert.All(result.Data, data => Assert.Equal(symbol, data.Symbol));
         }
 
+        [Theory]
+        [InlineData("AAPL")]
+        [InlineData("O")]
+        [InlineData("AGS.BR")]
+        [InlineData("PPL.TO")]
+        [InlineData("TSLA")]
+        public async Task GetCashFlowStatementPerQuarter(string symbol)
+        {
+            var result = await api.GetCashFlowStatementAsync(symbol, Period.Quarter, limit: 10000);
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+            Assert.All(result.Data, data => Assert.Equal(symbol, data.Symbol));
+        }
 
         [Theory]
         [InlineData("AAPL")]
         [InlineData("O")]
         [InlineData("AGS.BR")]
         [InlineData("PPL.TO")]
+        [InlineData("TSLA")]
         public async Task GetBalanceSheetStatement(string symbol)
         {
             var result = await api.GetBalanceSheetStatementAsync(symbol, Period.Annual, 5);
@@ -179,6 +211,21 @@ namespace Tests.CompanyValuation
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
             Assert.Equal(5, result.Data.Count);
+            Assert.All(result.Data, data => Assert.Equal(symbol, data.Symbol));
+        }
+
+        [Theory]
+        [InlineData("AAPL")]
+        [InlineData("O")]
+        [InlineData("AGS.BR")]
+        [InlineData("PPL.TO")]
+        [InlineData("TSLA")]
+        public async Task GetBalanceSheetStatementPerQuarter(string symbol)
+        {
+            var result = await api.GetBalanceSheetStatementAsync(symbol, Period.Quarter, limit: 10000);
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
             Assert.All(result.Data, data => Assert.Equal(symbol, data.Symbol));
         }
 

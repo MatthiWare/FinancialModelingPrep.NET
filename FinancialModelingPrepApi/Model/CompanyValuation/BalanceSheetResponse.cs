@@ -134,7 +134,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double AccumulatedOtherComprehensiveIncomeLoss { get; set; }
 
         [JsonPropertyName("othertotalStockholdersEquity")]
-        public double OthertotalStockholdersEquity { get; set; }
+        public double? OthertotalStockholdersEquity { get; set; }
 
         [JsonPropertyName("totalStockholdersEquity")]
         public double TotalStockholdersEquity { get; set; }
