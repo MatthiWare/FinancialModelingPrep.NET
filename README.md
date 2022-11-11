@@ -3,9 +3,10 @@
 [![.NET](https://github.com/MatthiWare/FinancialModelingPrep.NET/actions/workflows/dotnet.yml/badge.svg)](https://github.com/MatthiWare/FinancialModelingPrep.NET/actions/workflows/dotnet.yml)
 [![Nuget](https://buildstats.info/nuget/MatthiWare.FinancialModelingPrep)](https://www.nuget.org/packages/MatthiWare.FinancialModelingPrep/)
 
-.NET 5 API Client For https://financialmodelingprep.com/ API written in C#
+.NET 7 API Client For https://financialmodelingprep.com/ API written in C#
 
 ## Installation
+
 ```powershell
 PM> Install-Package MatthiWare.FinancialModelingPrep
 ```
@@ -13,11 +14,13 @@ PM> Install-Package MatthiWare.FinancialModelingPrep
 # Quick Start
 
 ### Register FinancialModelingPrepApiClient in Dependency Injection provider
-> You can find your API Key here https://financialmodelingprep.com/developer/docs/dashboard
-``` csharp
+
+> You can find your API Key here https://site.financialmodelingprep.com/developer/docs/dashboard/
+
+```csharp
 using MatthiWare.FinancialModelingPrep;
 
-Services.AddFinancialModelingPrepApiClient(new FinancialModelingPrepOptions() 
+Services.AddFinancialModelingPrepApiClient(new FinancialModelingPrepOptions()
 {
     ApiKey = "API-KEY-HERE"
 });
@@ -41,7 +44,7 @@ var quoteResult = await api.CompanyValuation.GetQuoteAsync("AAPL");
 
 ### Get Stock Price Quote
 
-``` csharp
+```csharp
 var response = await api.CompanyValuation.GetQuoteAsync("AAPL");
 
 // Display Apple Stock Quote
@@ -50,7 +53,7 @@ Console.WriteLine($"$AAPL is currently trading at: {response.Data.Price}");
 
 ### All API Responses are wrapped in an `ApiResponse<T>` object.
 
-``` csharp
+```csharp
 public class ApiResponse<T>
 {
     /// <summary>
@@ -72,21 +75,22 @@ public class ApiResponse<T>
 
 Example:
 
-``` csharp
+```csharp
 var response = await api.CompanyValuation.GetQuoteAsync("AAPL");
 
 // Display Apple Stock Quote
 if (!quoteResult.HasError)
 {
    Console.WriteLine($"$AAPL is currently trading at: {response.Data.Price}");
-} 
-else 
+}
+else
 {
    Console.WriteLine($"Error occured, message: {response.Error}");
 }
 ```
 
 ### Covered Endpoints
+
 - Company Valuation
 - Advanced Data
 - Insider Trading (Not yet covered)
@@ -98,14 +102,12 @@ else
 - Market Indexes
 - Alternative Data (Not yet covered)
 - Commodities (Not yet covered)
-- ETF (Not yet covered)
+- ETF (Partially covered)
 - Mutual Funds (Not yet covered)
-- Euronext
-- TSX
 - Stock Market (Partially covered)
-- Cryptocurrencies (Not yet covered)
-- Forex (Not yet covered)
+- Cryptocurrencies (Partially covered)
+- Forex (Partially covered)
 
 ### Contribute
-Create a PR where you add or improve an Endpoint
 
+Create a PR where you add or improve an Endpoint
