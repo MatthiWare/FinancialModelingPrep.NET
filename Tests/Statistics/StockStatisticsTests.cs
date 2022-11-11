@@ -17,7 +17,7 @@ namespace Tests.Statistics
         }
 
         [Theory]
-        [InlineData("AAPL")]
+        [InlineData("AAPL", 10)]
         [InlineData("SHUR.BR", 10)]
         public async Task GetAnalystEstimatesAsyncAnnualy(string ticker, int limit = 1)
         {
@@ -28,22 +28,20 @@ namespace Tests.Statistics
         }
 
         [Theory]
-        [InlineData("AAPL")]
-        [InlineData("SHUR.BR")]
-        public async Task GetAnalystEstimatesAsyncQuarterly(string ticker)
+        [InlineData("AAPL", 10)]
+        [InlineData("SHUR.BR", 10)]
+        public async Task GetAnalystEstimatesAsyncQuarterly(string ticker, int limit = 1)
         {
-            var result = await api.GetAnalystEstimatesAsync(ticker, Period.Quarter, limit: 1);
+            var result = await api.GetAnalystEstimatesAsync(ticker, Period.Quarter, limit: limit);
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
         }
 
-        [Theory]
-        [InlineData("AAPL")]
-        [InlineData("SHUR.BR")]
-        public async Task GetSocialSentimentAsync(string ticker)
+        [Fact]
+        public async Task GetSocialSentimentAsync()
         {
-            var result = await api.GetSocialSentimentAsync(ticker);
+            var result = await api.GetSocialSentimentAsync("AAPL");
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
