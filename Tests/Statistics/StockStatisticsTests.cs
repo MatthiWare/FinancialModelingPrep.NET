@@ -16,19 +16,23 @@ namespace Tests.Statistics
             api = ServiceProvider.GetRequiredService<IStockStatisticsProvider>();
         }
 
-        [Fact]
-        public async Task GetAnalystEstimatesAsyncAnnualy()
+        [Theory]
+        [InlineData("AAPL", 10)]
+        [InlineData("SHUR.BR", 10)]
+        public async Task GetAnalystEstimatesAsyncAnnualy(string ticker, int limit = 1)
         {
-            var result = await api.GetAnalystEstimatesAsync("AAPL", Period.Annual, limit: 1);
+            var result = await api.GetAnalystEstimatesAsync(ticker, Period.Annual, limit: limit);
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
         }
 
-        [Fact]
-        public async Task GetAnalystEstimatesAsyncQuarterly()
+        [Theory]
+        [InlineData("AAPL", 10)]
+        [InlineData("SHUR.BR", 10)]
+        public async Task GetAnalystEstimatesAsyncQuarterly(string ticker, int limit = 1)
         {
-            var result = await api.GetAnalystEstimatesAsync("AAPL", Period.Quarter, limit: 1);
+            var result = await api.GetAnalystEstimatesAsync(ticker, Period.Quarter, limit: limit);
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
