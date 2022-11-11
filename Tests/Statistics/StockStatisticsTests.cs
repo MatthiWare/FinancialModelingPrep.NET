@@ -16,28 +16,34 @@ namespace Tests.Statistics
             api = ServiceProvider.GetRequiredService<IStockStatisticsProvider>();
         }
 
-        [Fact]
-        public async Task GetAnalystEstimatesAsyncAnnualy()
+        [Theory]
+        [InlineData("AAPL")]
+        [InlineData("SHUR.BR", 10)]
+        public async Task GetAnalystEstimatesAsyncAnnualy(string ticker, int limit = 1)
         {
-            var result = await api.GetAnalystEstimatesAsync("AAPL", Period.Annual, limit: 1);
+            var result = await api.GetAnalystEstimatesAsync(ticker, Period.Annual, limit: limit);
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
         }
 
-        [Fact]
-        public async Task GetAnalystEstimatesAsyncQuarterly()
+        [Theory]
+        [InlineData("AAPL")]
+        [InlineData("SHUR.BR")]
+        public async Task GetAnalystEstimatesAsyncQuarterly(string ticker)
         {
-            var result = await api.GetAnalystEstimatesAsync("AAPL", Period.Quarter, limit: 1);
+            var result = await api.GetAnalystEstimatesAsync(ticker, Period.Quarter, limit: 1);
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
         }
 
-        [Fact]
-        public async Task GetSocialSentimentAsync()
+        [Theory]
+        [InlineData("AAPL")]
+        [InlineData("SHUR.BR")]
+        public async Task GetSocialSentimentAsync(string ticker)
         {
-            var result = await api.GetSocialSentimentAsync("AAPL");
+            var result = await api.GetSocialSentimentAsync(ticker);
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
