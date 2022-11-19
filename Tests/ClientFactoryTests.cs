@@ -65,5 +65,11 @@ namespace Tests
         {
             Assert.NotNull(api.Fund);
         }
+
+        [Fact]
+        public void API_Contains_Economics_Provider()
+        {
+            Assert.NotNull(api.Economics);
+        }
     }
 }

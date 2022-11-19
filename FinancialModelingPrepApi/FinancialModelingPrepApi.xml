@@ -69,6 +69,15 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.Economics.IEconomicsProvider.GetEconomicIndicatorAsync(MatthiWare.FinancialModelingPrep.Model.Economics.EconomicIndicator,System.String,System.String)">
+            <summary>
+            Gets the economic indicator result for a given timeframe
+            </summary>
+            <param name="indicator">Economic indicator to use</param>
+            <param name="from">Format YYYY-MM-DD</param>
+            <param name="to">Format YYYY-MM-DD</param>
+            <returns><see cref="T:MatthiWare.FinancialModelingPrep.Model.Economics.EconomicIndicatorResponse"/></returns>
+        </member>
         <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund.IInstitutionalFundProvider.Get13FListAsync">
             <summary>
             Complete list of all institutional investment managers by cik 
@@ -220,6 +229,24 @@
             Statistic Related Endpoint are grouped here (Estimates)
             </summary>
         </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.IFinancialModelingPrepApiClient.Crypto">
+            <summary>
+            Cryptomarket related enpoints
+            </summary>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.IFinancialModelingPrepApiClient.Fund">
+            <summary>
+            ETF/Mutual Fund related enpoints
+            </summary>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.IFinancialModelingPrepApiClient.Economics">
+            <summary>
+            Economics related endpoints
+            - Market risk premium
+            - Treasury rates
+            - Economic indicators
+            </summary>
+        </member>
         <member name="M:MatthiWare.FinancialModelingPrep.Core.Calendars.CalendarsProvider.GetEarningsCalendarAsync(System.String,System.String)">
             <inheritdoc/>
         </member>
@@ -243,6 +270,9 @@
         </member>
         <member name="M:MatthiWare.FinancialModelingPrep.Core.CompanyValuation.CompanyValuationProvider.GetSymbolChangesAsync">
             <inheritdoc />
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.Economics.EconomicsProvider.GetEconomicIndicatorAsync(MatthiWare.FinancialModelingPrep.Model.Economics.EconomicIndicator,System.String,System.String)">
+            <inheritdoc/>
         </member>
         <member name="T:MatthiWare.FinancialModelingPrep.Core.FinancialModelingPrepApiClient">
             <inheritdoc/>
@@ -268,7 +298,19 @@
         <member name="P:MatthiWare.FinancialModelingPrep.Core.FinancialModelingPrepApiClient.StockMarket">
             <inheritdoc/>
         </member>
-        <member name="M:MatthiWare.FinancialModelingPrep.Core.FinancialModelingPrepApiClient.#ctor(MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation.ICompanyValuationProvider,MatthiWare.FinancialModelingPrep.Abstractions.MarketIndexes.IMarketIndexesProvider,MatthiWare.FinancialModelingPrep.Abstractions.AdvancedData.IAdvancedDataProvider,MatthiWare.FinancialModelingPrep.Abstractions.Calendars.ICalendarsProvider,MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund.IInstitutionalFundProvider,MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries.IStockTimeSeriesProvider,MatthiWare.FinancialModelingPrep.Abstractions.StockMarket.IStockMarketProvider,MatthiWare.FinancialModelingPrep.Abstractions.Statistics.IStockStatisticsProvider)">
+        <member name="P:MatthiWare.FinancialModelingPrep.Core.FinancialModelingPrepApiClient.StockStatistics">
+            <inheritdoc/>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.Core.FinancialModelingPrepApiClient.Crypto">
+            <inheritdoc/>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.Core.FinancialModelingPrepApiClient.Fund">
+            <inheritdoc/>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.Core.FinancialModelingPrepApiClient.Economics">
+            <inheritdoc/>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.FinancialModelingPrepApiClient.#ctor(MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation.ICompanyValuationProvider,MatthiWare.FinancialModelingPrep.Abstractions.MarketIndexes.IMarketIndexesProvider,MatthiWare.FinancialModelingPrep.Abstractions.AdvancedData.IAdvancedDataProvider,MatthiWare.FinancialModelingPrep.Abstractions.Calendars.ICalendarsProvider,MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund.IInstitutionalFundProvider,MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries.IStockTimeSeriesProvider,MatthiWare.FinancialModelingPrep.Abstractions.StockMarket.IStockMarketProvider,MatthiWare.FinancialModelingPrep.Abstractions.Statistics.IStockStatisticsProvider,MatthiWare.FinancialModelingPrep.Abstractions.StockMarket.ICryptoMarketProvider,MatthiWare.FinancialModelingPrep.Abstractions.Fund.IFundProvider,MatthiWare.FinancialModelingPrep.Abstractions.Economics.IEconomicsProvider)">
             <inheritdoc/>
         </member>
         <member name="M:MatthiWare.FinancialModelingPrep.Core.InstitutionalFund.InstitutionalFundProvider.Get13FListAsync">
