@@ -1,6 +1,7 @@
 ﻿using MatthiWare.FinancialModelingPrep.Abstractions.AdvancedData;
 using MatthiWare.FinancialModelingPrep.Abstractions.Calendars;
 using MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation;
+using MatthiWare.FinancialModelingPrep.Abstractions.Economics;
 using MatthiWare.FinancialModelingPrep.Abstractions.Fund;
 using MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund;
 using MatthiWare.FinancialModelingPrep.Abstractions.MarketIndexes;
@@ -19,51 +20,60 @@ namespace MatthiWare.FinancialModelingPrep
         /// Advanced Data Endpoints are grouped here
         /// Note: most of these endpoints require a premium API Key
         /// </summary>
-        IAdvancedDataProvider AdvancedData { get; }
+        public IAdvancedDataProvider AdvancedData { get; }
 
         /// <summary>
         /// All Company Valuation Endpoints are grouped here
         /// </summary>
-        ICompanyValuationProvider CompanyValuation { get; }
+        public ICompanyValuationProvider CompanyValuation { get; }
 
         /// <summary>
         /// All Market Index Endpoints are grouped here
         /// </summary>
-        IMarketIndexesProvider MarketIndexes { get; }
+        public IMarketIndexesProvider MarketIndexes { get; }
 
         /// <summary>
         /// All Calendar related Endpoints are grouped here (Earnings, IPO, stock splits, Dividends, Economic)
         /// </summary>
-        ICalendarsProvider Calendars { get; }
+        public ICalendarsProvider Calendars { get; }
 
         /// <summary>
         /// All Instituational Fund Endpoints are grouped here
         /// </summary>
-        IInstitutionalFundProvider InstitutionalFund { get; }
+        public IInstitutionalFundProvider InstitutionalFund { get; }
 
         /// <summary>
         /// All Stock Time Series Endpoints are grouped here
         /// </summary>
-        IStockTimeSeriesProvider StockTimeSeries { get; }
+        public IStockTimeSeriesProvider StockTimeSeries { get; }
 
         /// <summary>
         /// All Stock Market Related Endpoints are grouped here (Most Active, Gainers, Losers)
         /// </summary>
-        IStockMarketProvider StockMarket { get; }
+        public IStockMarketProvider StockMarket { get; }
 
         /// <summary>
         /// Statistic Related Endpoint are grouped here (Estimates)
         /// </summary>
-        IStockStatisticsProvider StockStatistics { get; }
+        public IStockStatisticsProvider StockStatistics { get; }
 
         /// <summary>
         /// Cryptomarket related enpoints
         /// </summary>
-        ICryptoMarketProvider Crypto { get; }
+        public ICryptoMarketProvider Crypto { get; }
 
         /// <summary>
         /// ETF/Mutual Fund related enpoints
         /// </summary>
-        IFundProvider Fund { get; }
+        public IFundProvider Fund { get; }
+
+
+        /// <summary>
+        /// Economics related endpoints
+        /// - Market risk premium
+        /// - Treasury rates
+        /// - Economic indicators
+        /// </summary>
+        public IEconomicsProvider Economics { get; }
     }
 }

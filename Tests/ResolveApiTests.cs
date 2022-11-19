@@ -74,5 +74,29 @@ namespace Tests
 
             Assert.NotNull(api.StockStatistics);
         }
+
+        [Fact]
+        public void API_Contains_Crypto_Provider()
+        {
+            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
+
+            Assert.NotNull(api.Crypto);
+        }
+
+        [Fact]
+        public void API_Contains_Fund_Provider()
+        {
+            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
+
+            Assert.NotNull(api.Fund);
+        }
+
+        [Fact]
+        public void API_Contains_Economics_Provider()
+        {
+            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
+
+            Assert.NotNull(api.Economics);
+        }
     }
 }
