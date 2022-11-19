@@ -16,8 +16,8 @@
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>FinancialModelingPrep stock quote finance-api</PackageTags>
 		<PackageProjectUrl>https://github.com/MatthiWare/FinancialModelingPrep.NET</PackageProjectUrl>
-		<PackageReleaseNotes>
-			- Include .NET 6 and .NET 7 in nuget package
+		<PackageReleaseNotes>- Include .NET 6 and .NET 7 in nuget package
+- Add Economic Indicators
 		</PackageReleaseNotes>
 		<AssemblyName>FinancialModelingPrep</AssemblyName>
 	</PropertyGroup>

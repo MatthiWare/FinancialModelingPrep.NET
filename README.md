@@ -107,6 +107,7 @@ else
 - Stock Market (Partially covered)
 - Cryptocurrencies (Partially covered)
 - Forex (Partially covered)
+- Economics (Partially covered)
 
 ### Contribute
 
