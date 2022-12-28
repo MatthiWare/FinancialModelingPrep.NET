@@ -140,7 +140,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public long? WorkingCapitalTTM { get; set; }
 
         [JsonPropertyName("tangibleAssetValueTTM")]
-        public object TangibleAssetValueTTM { get; set; }
+        public long? TangibleAssetValueTTM { get; set; }
 
         [JsonPropertyName("netCurrentAssetValueTTM")]
         public double? NetCurrentAssetValueTTM { get; set; }
