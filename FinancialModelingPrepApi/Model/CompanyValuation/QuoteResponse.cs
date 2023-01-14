@@ -69,6 +69,6 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public long? SharesOutstanding { get; set; }
 
         [JsonPropertyName("timestamp")]
-        public int Timestamp { get; set; }
+        public int? Timestamp { get; set; }
     }
 }
