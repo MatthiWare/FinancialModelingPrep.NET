@@ -42,7 +42,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double? PriceAvg200 { get; set; }
 
         [JsonPropertyName("volume")]
-        public long? Volume { get; set; }
+        public double? Volume { get; set; }
 
         [JsonPropertyName("avgVolume")]
         public long? AvgVolume { get; set; }
@@ -66,7 +66,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public string EarningsAnnouncement { get; set; }
 
         [JsonPropertyName("sharesOutstanding")]
-        public long? SharesOutstanding { get; set; }
+        public double? SharesOutstanding { get; set; }
 
         [JsonPropertyName("timestamp")]
         public int? Timestamp { get; set; }
