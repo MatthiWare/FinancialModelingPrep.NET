@@ -11,7 +11,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public string Name { get; set; }
 
         [JsonPropertyName("price")]
-        public double Price { get; set; }
+        public double? Price { get; set; }
 
         [JsonPropertyName("exchange")]
         public string Exchange { get; set; }
