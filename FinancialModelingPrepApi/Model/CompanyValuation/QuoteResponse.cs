@@ -45,7 +45,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double? Volume { get; set; }
 
         [JsonPropertyName("avgVolume")]
-        public long? AvgVolume { get; set; }
+        public double? AvgVolume { get; set; }
 
         [JsonPropertyName("exchange")]
         public string Exchange { get; set; }
