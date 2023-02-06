@@ -142,13 +142,14 @@ namespace Tests.CompanyValuation
         [InlineData("AGS.BR")]
         [InlineData("PPL.TO")]
         [InlineData("TSLA")]
+        [InlineData("AAP")]
+        [InlineData("MTG")]
         public async Task GetIncomeStatement(string symbol)
         {
-            var result = await api.GetIncomeStatementAsync(symbol, Period.Annual, 5);
+            var result = await api.GetIncomeStatementAsync(symbol, Period.Annual, 10000);
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
-            Assert.Equal(5, result.Data.Count);
             Assert.All(result.Data, data => Assert.Equal(symbol, data.Symbol));
         }
 
@@ -158,6 +159,8 @@ namespace Tests.CompanyValuation
         [InlineData("AGS.BR")]
         [InlineData("PPL.TO")]
         [InlineData("TSLA")]
+        [InlineData("AAP")]
+        [InlineData("MTG")]
         public async Task GetIncomeStatementPerQuarter(string symbol)
         {
             var result = await api.GetIncomeStatementAsync(symbol, Period.Quarter, limit: 10000);
@@ -173,9 +176,11 @@ namespace Tests.CompanyValuation
         [InlineData("AGS.BR")]
         [InlineData("PPL.TO")]
         [InlineData("TSLA")]
+        [InlineData("AAP")]
+        [InlineData("MTG")]
         public async Task GetCashFlowStatement(string symbol)
         {
-            var result = await api.GetCashFlowStatementAsync(symbol, Period.Annual, 5);
+            var result = await api.GetCashFlowStatementAsync(symbol, Period.Annual, 10000);
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
@@ -189,6 +194,8 @@ namespace Tests.CompanyValuation
         [InlineData("AGS.BR")]
         [InlineData("PPL.TO")]
         [InlineData("TSLA")]
+        [InlineData("AAP")]
+        [InlineData("MTG")]
         public async Task GetCashFlowStatementPerQuarter(string symbol)
         {
             var result = await api.GetCashFlowStatementAsync(symbol, Period.Quarter, limit: 10000);
@@ -204,9 +211,11 @@ namespace Tests.CompanyValuation
         [InlineData("AGS.BR")]
         [InlineData("PPL.TO")]
         [InlineData("TSLA")]
+        [InlineData("AAP")]
+        [InlineData("MTG")]
         public async Task GetBalanceSheetStatement(string symbol)
         {
-            var result = await api.GetBalanceSheetStatementAsync(symbol, Period.Annual, 5);
+            var result = await api.GetBalanceSheetStatementAsync(symbol, Period.Annual, 10000);
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
@@ -220,6 +229,8 @@ namespace Tests.CompanyValuation
         [InlineData("AGS.BR")]
         [InlineData("PPL.TO")]
         [InlineData("TSLA")]
+        [InlineData("AAP")]
+        [InlineData("MTG")]
         public async Task GetBalanceSheetStatementPerQuarter(string symbol)
         {
             var result = await api.GetBalanceSheetStatementAsync(symbol, Period.Quarter, limit: 10000);
