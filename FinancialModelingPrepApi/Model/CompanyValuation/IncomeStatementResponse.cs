@@ -62,7 +62,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double CostAndExpenses { get; set; }
 
         [JsonPropertyName("interestIncome")]
-        public double InterestIncome { get; set; }
+        public double? InterestIncome { get; set; }
 
         [JsonPropertyName("interestExpense")]
         public double InterestExpense { get; set; }
