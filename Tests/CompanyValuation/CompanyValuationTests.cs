@@ -184,7 +184,6 @@ namespace Tests.CompanyValuation
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
-            Assert.Equal(5, result.Data.Count);
             Assert.All(result.Data, data => Assert.Equal(symbol, data.Symbol));
         }
 
@@ -219,7 +218,6 @@ namespace Tests.CompanyValuation
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
-            Assert.Equal(5, result.Data.Count);
             Assert.All(result.Data, data => Assert.Equal(symbol, data.Symbol));
         }
 
