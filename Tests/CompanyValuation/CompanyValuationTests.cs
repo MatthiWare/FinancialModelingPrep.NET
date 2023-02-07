@@ -1,9 +1,7 @@
-﻿using MatthiWare.FinancialModelingPrep;
-using MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation;
+﻿using MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation;
 using MatthiWare.FinancialModelingPrep.Model;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -35,6 +33,13 @@ namespace Tests.CompanyValuation
         [InlineData("AAPL")]
         [InlineData("SPY")]
         [InlineData("GSM")]
+        [InlineData("AGS.BR")]
+        [InlineData("PPL.TO")]
+        [InlineData("TSLA")]
+        [InlineData("AAP")]
+        [InlineData("MTG")]
+        [InlineData("BZZUY")]
+        [InlineData("SWIR")]
         public async Task GetCompanyProfileTests(string symbol)
         {
             var result = await api.GetCompanyProfileAsync(symbol);
@@ -122,10 +127,17 @@ namespace Tests.CompanyValuation
         }
 
         [Theory]
-        [InlineData("AAPL")]
-        [InlineData("AGS.BR")]
         [InlineData("NNN")]
         [InlineData("UGI")]
+        [InlineData("AAPL")]
+        [InlineData("GSM")]
+        [InlineData("AGS.BR")]
+        [InlineData("PPL.TO")]
+        [InlineData("TSLA")]
+        [InlineData("AAP")]
+        [InlineData("MTG")]
+        [InlineData("BZZUY")]
+        [InlineData("SWIR")]
         public async Task GetEnterpriseValue(string symbol)
         {
             var result = await api.GetEnterpriseValueAsync(symbol, Period.Annual, 5);
@@ -144,6 +156,9 @@ namespace Tests.CompanyValuation
         [InlineData("TSLA")]
         [InlineData("AAP")]
         [InlineData("MTG")]
+        [InlineData("GSM")]
+        [InlineData("BZZUY")]
+        [InlineData("SWIR")]
         public async Task GetIncomeStatement(string symbol)
         {
             var result = await api.GetIncomeStatementAsync(symbol, Period.Annual, 10000);
@@ -161,6 +176,9 @@ namespace Tests.CompanyValuation
         [InlineData("TSLA")]
         [InlineData("AAP")]
         [InlineData("MTG")]
+        [InlineData("GSM")]
+        [InlineData("BZZUY")]
+        [InlineData("SWIR")]
         public async Task GetIncomeStatementPerQuarter(string symbol)
         {
             var result = await api.GetIncomeStatementAsync(symbol, Period.Quarter, limit: 10000);
@@ -178,6 +196,9 @@ namespace Tests.CompanyValuation
         [InlineData("TSLA")]
         [InlineData("AAP")]
         [InlineData("MTG")]
+        [InlineData("GSM")]
+        [InlineData("BZZUY")]
+        [InlineData("SWIR")]
         public async Task GetCashFlowStatement(string symbol)
         {
             var result = await api.GetCashFlowStatementAsync(symbol, Period.Annual, 10000);
@@ -195,6 +216,9 @@ namespace Tests.CompanyValuation
         [InlineData("TSLA")]
         [InlineData("AAP")]
         [InlineData("MTG")]
+        [InlineData("GSM")]
+        [InlineData("BZZUY")]
+        [InlineData("SWIR")]
         public async Task GetCashFlowStatementPerQuarter(string symbol)
         {
             var result = await api.GetCashFlowStatementAsync(symbol, Period.Quarter, limit: 10000);
@@ -212,6 +236,9 @@ namespace Tests.CompanyValuation
         [InlineData("TSLA")]
         [InlineData("AAP")]
         [InlineData("MTG")]
+        [InlineData("GSM")]
+        [InlineData("BZZUY")]
+        [InlineData("SWIR")]
         public async Task GetBalanceSheetStatement(string symbol)
         {
             var result = await api.GetBalanceSheetStatementAsync(symbol, Period.Annual, 10000);
@@ -229,6 +256,9 @@ namespace Tests.CompanyValuation
         [InlineData("TSLA")]
         [InlineData("AAP")]
         [InlineData("MTG")]
+        [InlineData("GSM")]
+        [InlineData("BZZUY")]
+        [InlineData("SWIR")]
         public async Task GetBalanceSheetStatementPerQuarter(string symbol)
         {
             var result = await api.GetBalanceSheetStatementAsync(symbol, Period.Quarter, limit: 10000);
@@ -336,6 +366,15 @@ namespace Tests.CompanyValuation
         [InlineData("PPL.TO")]
         [InlineData("WDP.BR")]
         [InlineData("ENX.PA")]
+        [InlineData("NNN")]
+        [InlineData("UGI")]
+        [InlineData("SPY")]
+        [InlineData("GSM")]
+        [InlineData("TSLA")]
+        [InlineData("AAP")]
+        [InlineData("MTG")]
+        [InlineData("BZZUY")]
+        [InlineData("SWIR")]
         public async Task GetCompanyKeyMetricsTTMAsync(string symbol)
         {
             var result = await api.GetCompanyKeyMetricsTTMAsync(symbol);
