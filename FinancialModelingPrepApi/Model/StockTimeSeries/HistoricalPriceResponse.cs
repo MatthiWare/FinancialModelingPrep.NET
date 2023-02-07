@@ -36,7 +36,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.StockTimeSeries
         public double Volume { get; set; }
 
         [JsonPropertyName("unadjustedVolume")]
-        public double UnadjustedVolume { get; set; }
+        public double? UnadjustedVolume { get; set; }
 
         [JsonPropertyName("change")]
         public double Change { get; set; }

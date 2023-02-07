@@ -8,7 +8,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public string Symbol { get; set; }
 
         [JsonPropertyName("price")]
-        public double Price { get; set; }
+        public double? Price { get; set; }
 
         [JsonPropertyName("beta")]
         public double Beta { get; set; }
@@ -26,7 +26,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public string Range { get; set; }
 
         [JsonPropertyName("changes")]
-        public double Changes { get; set; }
+        public double? Changes { get; set; }
 
         [JsonPropertyName("companyName")]
         public string CompanyName { get; set; }

@@ -61,6 +61,22 @@ namespace Tests.StockTimeSeries
             Assert.Equal(123.85, split.Low, 2);
         }
 
+        [Theory]
+        [InlineData("AMD")]
+        [InlineData("O")]
+        [InlineData("BZZUY")]
+        [InlineData("SWIR")]
+        [InlineData("PPL.TO")]
+        [InlineData("LGEN.L")]
+        [InlineData("AGS.BR")]
+        public async Task GetHistoricalDailyPricesAsync_2(string ticker)
+        {
+            var result = await api.GetHistoricalDailyPricesAsync(ticker);
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data.Historical);
+        }
+
         [Fact]
         public async Task GetHistoricalDailyPricesUsingFromToAsync()
         {
