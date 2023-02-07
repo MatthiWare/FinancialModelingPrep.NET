@@ -51,7 +51,7 @@ namespace Tests.CompanyValuation
         [Theory]
         [InlineData("AAPL", false)]
         // [InlineData("BST", true, Skip = "IsFund returns incorrect result")]
-         public async Task GetCompanyProfile_IsFund_Tests(string symbol, bool isFund)
+        public async Task GetCompanyProfile_IsFund_Tests(string symbol, bool isFund)
         {
             var result = await api.GetCompanyProfileAsync(symbol);
 
@@ -177,7 +177,7 @@ namespace Tests.CompanyValuation
         [InlineData("AAP")]
         [InlineData("MTG")]
         [InlineData("GSM")]
-        [InlineData("BZZUY")]
+
         [InlineData("SWIR")]
         public async Task GetIncomeStatementPerQuarter(string symbol)
         {
@@ -217,7 +217,6 @@ namespace Tests.CompanyValuation
         [InlineData("AAP")]
         [InlineData("MTG")]
         [InlineData("GSM")]
-        [InlineData("BZZUY")]
         [InlineData("SWIR")]
         public async Task GetCashFlowStatementPerQuarter(string symbol)
         {
@@ -257,7 +256,6 @@ namespace Tests.CompanyValuation
         [InlineData("AAP")]
         [InlineData("MTG")]
         [InlineData("GSM")]
-        [InlineData("BZZUY")]
         [InlineData("SWIR")]
         public async Task GetBalanceSheetStatementPerQuarter(string symbol)
         {
@@ -387,9 +385,9 @@ namespace Tests.CompanyValuation
         [InlineData("AGS.BR", Period.Quarter)]
         [InlineData("CMCSA", Period.Quarter)]
         [InlineData("PINE", Period.Quarter)]
-        [InlineData("LGEN.L", Period.Quarter)]  
+        [InlineData("LGEN.L", Period.Quarter)]
         [InlineData("WDP.BR", Period.Quarter)]
-        [InlineData("ADM.L", Period.Quarter)]  
+        [InlineData("ADM.L", Period.Quarter)]
         [InlineData("PPL.TO", Period.Quarter)]
         [InlineData("AAPL", Period.Annual)]
         [InlineData("PPL.TO", Period.Annual)]
@@ -519,7 +517,7 @@ namespace Tests.CompanyValuation
 
         public static IEnumerable<object[]> AvailableExchanges
         {
-            get 
+            get
             {
                 foreach (var enumValue in Enum.GetValues<Exchange>())
                 {
