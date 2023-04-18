@@ -6,6 +6,7 @@ using MatthiWare.FinancialModelingPrep.Model.StockTimeSeries;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MatthiWare.FinancialModelingPrep.Core.StockTimeSeries
@@ -47,7 +48,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.StockTimeSeries
         }
         
         /// <inheritdoc/>
-        public Task<ApiResponse<HistoricalPriceResponse>> GetHistoricalDailyPricesAsync(string symbol, string from, string to)
+        public async Task<ApiResponse<HistoricalPriceResponse>> GetHistoricalDailyPricesAsync(string symbol, string from, string to)
         {
             const string url = "[version]/historical-price-full/[symbol]";
 
@@ -61,7 +62,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.StockTimeSeries
             queryString.Add("from", from);
             queryString.Add("to", to);
 
-            return client.GetJsonAsync<HistoricalPriceResponse>(url, pathParams, queryString);
+            return await client.GetJsonAsync<HistoricalPriceResponse>(url, pathParams, queryString);
         }
 
         /// <inheritdoc/>

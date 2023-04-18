@@ -22,35 +22,39 @@ namespace MatthiWare.FinancialModelingPrep.Model.StockMarket
         [JsonPropertyName("price")]
         public decimal Price { get; set; }
 
-        [JsonPropertyName("previousclose")]
+        [JsonPropertyName("previousClose")]
         public decimal PreviousClose { get; set; }
 
-        [JsonPropertyName("daylow")]
+        [JsonPropertyName("dayLow")]
         public decimal DayLow { get; set; }
 
-        [JsonPropertyName("dayhigh")]
+        [JsonPropertyName("dayHigh")]
         public decimal DayHigh { get; set; }
 
-        [JsonPropertyName("yearlow")]
+        [JsonPropertyName("yearLow")]
         public decimal? YearlyLow { get; set; }
 
-        [JsonPropertyName("yearhigh")]
+        [JsonPropertyName("yearHigh")]
         public decimal? YearlyHigh { get; set; }
 
-        [JsonPropertyName("priceavg50")]
+        [JsonPropertyName("priceAvg50")]
         public decimal? PriceAvg50 { get; set; }
 
-        [JsonPropertyName("priceavg200")]
+        [JsonPropertyName("priceAvg200")]
         public decimal? PriceAvg200 { get; set; }
 
         [JsonPropertyName("change")]
         public decimal Change { get; set; }
 
-        [JsonPropertyName("changespercentage")]
+        [JsonPropertyName("changesPercentage")]
         public decimal ChangesPercentage { get; set; }
 
         [JsonPropertyName("timestamp")]
         public long Timestamp { get; set; }
+        [JsonPropertyName("volume")]
+        public ulong Volume { get; set; }
+        [JsonPropertyName("avgVolume")]
+        public ulong AvgVolume { get; set; }
 
         // Not used by Forex or Futures.
 

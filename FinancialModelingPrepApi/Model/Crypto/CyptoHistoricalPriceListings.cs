@@ -35,7 +35,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.Crypto
         public string Date { get; set; }
 
         [JsonPropertyName("open")]
-        public decimal Open { get; set; }
+        public decimal? Open { get; set; }
 
         [JsonPropertyName("high")]
         public decimal? High { get; set; }

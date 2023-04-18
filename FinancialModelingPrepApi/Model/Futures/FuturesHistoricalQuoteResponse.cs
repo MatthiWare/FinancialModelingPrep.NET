@@ -10,7 +10,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.Futures
         public string Date { get; set; }
 
         [JsonPropertyName("open")]
-        public decimal Open { get; set; }
+        public decimal? Open { get; set; }
 
         [JsonPropertyName("high")]
         public decimal? High { get; set; }
@@ -26,5 +26,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.Futures
 
         [JsonPropertyName("changePercent")]
         public decimal? ChangePercent { get; set; }
+        [JsonPropertyName("volume")]
+        public decimal Volume { get; set; }
     }
 }

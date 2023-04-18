@@ -104,7 +104,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.Http
 
             var requestUrl = $"{urlPattern}{queryString}";
 
-            using var response = await client.GetAsync(requestUrl);
+            using var response = await client.GetAsync(requestUrl).ConfigureAwait(false);
             var content = await response.Content.ReadAsStringAsync();
 
             if (!response.IsSuccessStatusCode)

@@ -4,6 +4,7 @@ using MatthiWare.FinancialModelingPrep.Model;
 using MatthiWare.FinancialModelingPrep.Model.StockMarket;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace MatthiWare.FinancialModelingPrep.Core.StockMarket
@@ -99,6 +100,43 @@ namespace MatthiWare.FinancialModelingPrep.Core.StockMarket
             
 
             return client.GetJsonAsync<List<StockScreenerItem>>(url, pathParams, queryString);
+        }
+
+        public Task<ApiResponse<List<IndexConstituentResponse>>> GetSP500Constituents()
+        {
+            const string url = "[version]/sp500_constituent";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() }
+            };
+
+            return client.GetJsonAsync<List<IndexConstituentResponse>>(url, pathParams, null);
+        }
+
+        public Task<ApiResponse<List<IndexConstituentResponse>>> GetNasdaqConstituents()
+        {
+            const string url = "[version]/nasdaq_constituent";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() }
+            };
+
+            return client.GetJsonAsync<List<IndexConstituentResponse>>(url, pathParams, null);
+        }
+
+        public Task<ApiResponse<StockDividendResponse>> GetStockHistoricalDividends(string symbol)
+        {
+            const string url = "[version]/[symbol]";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() },
+                { "symbol", symbol },
+            };
+
+            return client.GetJsonAsync<StockDividendResponse>(url, pathParams, null);
         }
 
         public Task<ApiResponse<List<StockMarketSymbolResponse>>> GetBiggestGainerStocksAsync()

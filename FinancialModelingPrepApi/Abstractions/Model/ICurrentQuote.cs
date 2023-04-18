@@ -49,6 +49,10 @@ namespace MatthiWare.FinancialModelingPrep.Abstractions.Model
 
         [JsonPropertyName("timestamp")]
         public long Timestamp { get; set; }
+        [JsonPropertyName("volume")]
+        public ulong Volume { get; set; }
+        [JsonPropertyName("avgVolume")]
+        public ulong AvgVolume { get; set; }
 
         // Not used by Forex or Futures.
 
