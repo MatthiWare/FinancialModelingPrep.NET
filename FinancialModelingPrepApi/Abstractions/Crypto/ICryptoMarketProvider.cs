@@ -8,6 +8,7 @@ namespace MatthiWare.FinancialModelingPrep.Abstractions.Crypto
     public interface ICryptoMarketProvider
     {
         Task<ApiResponse<List<CryptoItem>>> GetAvilableCryptocurrenciesAsync();
+        Task<ApiResponse<List<CryptoQuoteResponse>>> GetDailyQuotes(); 
 
         Task<ApiResponse<CryptoHistoricalPriceDailyItem>> GetHistoricalQuoteAsync(string symbol);
 

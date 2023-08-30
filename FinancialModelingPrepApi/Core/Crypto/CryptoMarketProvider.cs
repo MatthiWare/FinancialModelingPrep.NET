@@ -20,7 +20,6 @@ namespace MatthiWare.FinancialModelingPrep.Core.StockMarket
 
         public async Task<ApiResponse<List<CryptoItem>>> GetAvilableCryptocurrenciesAsync()
         {
-
             const string url = "[version]/symbol/available-cryptocurrencies";
 
             var pathParams = new NameValueCollection()
@@ -29,6 +28,18 @@ namespace MatthiWare.FinancialModelingPrep.Core.StockMarket
             };
 
             return await client.GetJsonAsync<List<CryptoItem>>(url, pathParams, null);
+        }
+
+        public async Task<ApiResponse<List<CryptoQuoteResponse>>> GetDailyQuotes()
+        {
+            const string url = "[version]/quotes/crypto";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v3.ToString() }
+            };
+
+            return await client.GetJsonAsync<List<CryptoQuoteResponse>>(url, pathParams, null);
         }
 
         public async Task<ApiResponse<List<CryptoQuoteResponse>>> GetQuoteAsync(string symbol)

@@ -17,60 +17,60 @@ namespace MatthiWare.FinancialModelingPrep.Model.Forex
         public string Exchange { get; set; }
 
         [JsonPropertyName("open")]
-        public decimal Open { get; set; }
+        public double? Open { get; set; }
 
         [JsonPropertyName("price")]
-        public decimal Price { get; set; }
+        public double? Price { get; set; }
 
         [JsonPropertyName("previousclose")]
-        public decimal PreviousClose { get; set; }
+        public double? PreviousClose { get; set; }
 
         [JsonPropertyName("daylow")]
-        public decimal DayLow { get; set; }
+        public double? DayLow { get; set; }
 
         [JsonPropertyName("dayhigh")]
-        public decimal DayHigh { get; set; }
+        public double? DayHigh { get; set; }
 
         [JsonPropertyName("yearlow")]
-        public decimal? YearlyLow { get; set; }
+        public double? YearlyLow { get; set; }
 
         [JsonPropertyName("yearhigh")]
-        public decimal? YearlyHigh { get; set; }
+        public double? YearlyHigh { get; set; }
 
         [JsonPropertyName("priceavg50")]
-        public decimal? PriceAvg50 { get; set; }
+        public double? PriceAvg50 { get; set; }
 
         [JsonPropertyName("priceavg200")]
-        public decimal? PriceAvg200 { get; set; }
+        public double? PriceAvg200 { get; set; }
 
         [JsonPropertyName("change")]
-        public decimal Change { get; set; }
+        public double? Change { get; set; }
 
         [JsonPropertyName("changespercentage")]
-        public decimal ChangesPercentage { get; set; }
+        public double? ChangesPercentage { get; set; }
 
         [JsonPropertyName("timestamp")]
-        public long Timestamp { get; set; }
+        public long? Timestamp { get; set; }
         [JsonPropertyName("volume")]
-        public ulong Volume { get; set; }
+        public double? Volume { get; set; }
         [JsonPropertyName("avgVolume")]
-        public ulong AvgVolume { get; set; }
+        public double? AvgVolume { get; set; }
 
         // Not used by Forex or Futures.
 
         [JsonPropertyName("eps")]
-        public decimal? Eps { get; set; }
+        public double? Eps { get; set; }
 
         [JsonPropertyName("pe")]
-        public decimal? Pe { get; set; }
+        public double? Pe { get; set; }
 
         [JsonPropertyName("earningsAnnouncement")]
         public string? EarningsAnnouncement { get; set; }
 
         [JsonPropertyName("sharesOutstanding")]
-        public long? SharesOutstanding { get; set; }
+        public double? SharesOutstanding { get; set; }
 
         [JsonPropertyName("marketCap")]
-        public decimal? MarketCap { get; set; }
+        public double? MarketCap { get; set; }
     }
 }

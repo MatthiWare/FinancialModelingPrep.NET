@@ -35,39 +35,39 @@ namespace MatthiWare.FinancialModelingPrep.Model.Crypto
         public string Date { get; set; }
 
         [JsonPropertyName("open")]
-        public decimal? Open { get; set; }
+        public double? Open { get; set; }
 
         [JsonPropertyName("high")]
-        public decimal? High { get; set; }
+        public double? High { get; set; }
 
         [JsonPropertyName("low")]
-        public decimal? Low { get; set; }
+        public double? Low { get; set; }
 
         [JsonPropertyName("close")]
-        public decimal Close { get; set; }
+        public double Close { get; set; }
 
         [JsonPropertyName("change")]
-        public decimal? Change { get; set; }
+        public double? Change { get; set; }
 
         [JsonPropertyName("changePercent")]
-        public decimal? ChangePercent { get; set; }
+        public double? ChangePercent { get; set; }
 
         [JsonPropertyName("volume")]
-        public decimal Volume { get; set; }
+        public double Volume { get; set; }
 
         [JsonPropertyName("adjClose")]
-        public decimal AdjClose { get; set; }
+        public double AdjClose { get; set; }
 
         [JsonPropertyName("unadjustedVolume")]
-        public decimal UnadjustedVolume { get; set; }
+        public double UnadjustedVolume { get; set; }
 
         [JsonPropertyName("vwap")]
-        public decimal VWAP { get; set; }
+        public double VWAP { get; set; }
 
         [JsonPropertyName("label")]
         public string Label { get; set; }
 
         [JsonPropertyName("changeOvertime")]
-        public decimal ChangeOvertime { get; set; }
+        public double ChangeOvertime { get; set; }
     }
 }
