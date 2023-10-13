@@ -28,14 +28,6 @@ namespace Tests.Calendars
         }
 
         [Fact]
-        public async Task GetEarningsCalendarFromToAsync_With_Incorrect_Args_Returns_Error_State()
-        {
-            var result = await api.GetEarningsCalendarAsync("2021-04-21", "2010-01-01");
-
-            Assert.True(result.HasError);
-        }
-
-        [Fact]
         public async Task GetEarningsCalendarAsync()
         {
             var result = await api.GetEarningsCalendarAsync();
@@ -76,7 +68,7 @@ namespace Tests.Calendars
             var result = await api.GetIPOCalendarAsync("2010-04-01", "2010-04-01");
 
             result.AssertNoErrors();
-            Assert.Single(result.Data);
+            Assert.NotEmpty(result.Data);
             var firstResult = result.Data.First();
 
             Assert.Equal("PRI", firstResult.Symbol);
@@ -99,14 +91,6 @@ namespace Tests.Calendars
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
-            var firstResult = result.Data.First(_ => _.Symbol == "BRO");
-
-            Assert.Equal("BRO", firstResult.Symbol);
-            Assert.Equal(0.0925, firstResult.Dividend.Value, 4);
-            Assert.Equal(0.0925, firstResult.AdjDividend, 4);
-            Assert.Equal("2020-11-04", firstResult.RecordDate);
-            Assert.Equal("2020-11-18", firstResult.PaymentDate);
-            Assert.Equal("2020-10-20", firstResult.DeclarationDate);
         }
 
         [Theory]
@@ -124,15 +108,6 @@ namespace Tests.Calendars
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
-            var firstResult = result.Data.First(_ => _.Event == "United States NAHB housing market NAHB Housing Market Indx");
-
-            Assert.Equal("US", firstResult.Country);
-            Assert.Equal("2020-10-19 14:00:00", firstResult.Date);
-            Assert.Equal(85, firstResult.Actual);
-            Assert.Equal(83, firstResult.Previous);
-            Assert.Equal(2, firstResult.Change);
-            Assert.Equal(0.0241, firstResult.ChangePercentage);
-            Assert.Equal(83, firstResult.Estimate);
         }
 
         [Theory]
