@@ -104,10 +104,9 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
                 queryString.Add("limit", limit);
             }
 
-            if (period == Period.Quarter)
-            {
-                queryString.Add("period", period.ToString().ToLower());
-            }
+            // mandatory
+            queryString.Add("period", period.ToString().ToLower());
+            
 
             return client.GetJsonAsync<List<EnterpriseValueResponse>>(url, pathParams, queryString);
         }
