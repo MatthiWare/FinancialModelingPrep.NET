@@ -138,9 +138,31 @@ namespace Tests.CompanyValuation
         [InlineData("MTG")]
         [InlineData("BZZUY")]
         [InlineData("SWIR")]
-        public async Task GetEnterpriseValue(string symbol)
+        public async Task GetEnterpriseValueAnnual(string symbol)
         {
             var result = await api.GetEnterpriseValueAsync(symbol, Period.Annual, 5);
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+            Assert.Equal(5, result.Data.Count);
+            Assert.All(result.Data, data => Assert.Equal(symbol, data.Symbol));
+        }
+
+        [Theory]
+        [InlineData("NNN")]
+        [InlineData("UGI")]
+        [InlineData("AAPL")]
+        [InlineData("GSM")]
+        [InlineData("AGS.BR")]
+        [InlineData("PPL.TO")]
+        [InlineData("TSLA")]
+        [InlineData("AAP")]
+        [InlineData("MTG")]
+        [InlineData("BZZUY")]
+        [InlineData("SWIR")]
+        public async Task GetEnterpriseValueQuarter(string symbol)
+        {
+            var result = await api.GetEnterpriseValueAsync(symbol, Period.Quarter, 5);
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
@@ -506,11 +528,10 @@ namespace Tests.CompanyValuation
         [Fact]
         public async Task GetPressReleasesAsync()
         {
-            var result = await api.GetPressReleasesAsync("AAPL", 2);
+            var result = await api.GetPressReleasesAsync("AAPL");
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
-            Assert.Equal(2, result.Data.Count);
             Assert.All(result.Data, data => Assert.False(string.IsNullOrEmpty(data.Title)));
             Assert.All(result.Data, data => Assert.False(string.IsNullOrEmpty(data.Text)));
         }

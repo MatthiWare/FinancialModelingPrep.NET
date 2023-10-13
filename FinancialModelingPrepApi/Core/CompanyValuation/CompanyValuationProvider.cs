@@ -104,10 +104,9 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
                 queryString.Add("limit", limit);
             }
 
-            if (period == Period.Quarter)
-            {
-                queryString.Add("period", period.ToString().ToLower());
-            }
+            // mandatory
+            queryString.Add("period", period.ToString().ToLower());
+            
 
             return client.GetJsonAsync<List<EnterpriseValueResponse>>(url, pathParams, queryString);
         }
@@ -533,7 +532,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
             return client.GetJsonAsync<List<TickerSearchResponse>>(byTicker ? urlByTicker : url, pathParams, queryString);
         }
 
-        public Task<ApiResponse<List<PressReleasesResponse>>> GetPressReleasesAsync(string symbol, int? limit = null)
+        public Task<ApiResponse<List<PressReleasesResponse>>> GetPressReleasesAsync(string symbol, int? page = null)
         {
             const string url = "[version]/press-releases/[symbol]";
 
@@ -545,9 +544,9 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
 
             var queryString = new QueryStringBuilder();
 
-            if (limit != null)
+            if (page != null)
             {
-                queryString.Add("limit", limit);
+                queryString.Add("page", page);
             }
 
             return client.GetJsonAsync<List<PressReleasesResponse>>(url, pathParams, queryString);

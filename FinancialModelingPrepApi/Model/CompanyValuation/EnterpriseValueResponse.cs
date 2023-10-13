@@ -20,12 +20,12 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double MarketCapitalization { get; set; }
 
         [JsonPropertyName("minusCashAndCashEquivalents")]
-        public double MinusCashAndCashEquivalents { get; set; }
+        public double? MinusCashAndCashEquivalents { get; set; }
 
         [JsonPropertyName("addTotalDebt")]
-        public double AddTotalDebt { get; set; }
+        public double? AddTotalDebt { get; set; }
 
         [JsonPropertyName("enterpriseValue")]
-        public double EnterpriseValue { get; set; }
+        public double? EnterpriseValue { get; set; }
     }
 }
