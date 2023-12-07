@@ -24,6 +24,7 @@
 	</PackageReleaseNotes>
     <AssemblyName>FinancialModelingPrep</AssemblyName>
     <Platforms>AnyCPU;x86;x64</Platforms>
+    <Configurations>Debug;Release;multi-launch</Configurations>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

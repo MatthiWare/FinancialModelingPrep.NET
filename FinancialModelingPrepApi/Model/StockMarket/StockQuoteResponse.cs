@@ -1,5 +1,4 @@
 ﻿using MatthiWare.FinancialModelingPrep.Abstractions.Model;
-using System;
 using System.Text.Json.Serialization;
 
 namespace MatthiWare.FinancialModelingPrep.Model.StockMarket
