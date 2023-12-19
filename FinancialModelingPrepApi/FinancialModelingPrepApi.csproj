@@ -28,15 +28,15 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>D:\Source\Repos\FinancialModelingPrep.NET\FinancialModelingPrepApi\FinancialModelingPrepApi.xml</DocumentationFile>
+    <DocumentationFile>./FinancialModelingPrep.NET/FinancialModelingPrepApi/FinancialModelingPrepApi.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <DocumentationFile>D:\Source\Repos\FinancialModelingPrep.NET\FinancialModelingPrepApi\FinancialModelingPrepApi.xml</DocumentationFile>
+    <DocumentationFile>./FinancialModelingPrep.NET/FinancialModelingPrepApi/FinancialModelingPrepApi.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
-    <DocumentationFile>D:\Source\Repos\FinancialModelingPrep.NET\FinancialModelingPrepApi\FinancialModelingPrepApi.xml</DocumentationFile>
+    <DocumentationFile>./FinancialModelingPrep.NET/FinancialModelingPrepApi/FinancialModelingPrepApi.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,0 +1,423 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FinancialModelingPrep</name>
+    </assembly>
+    <members>
+        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.Calendars.ICalendarsProvider.GetEarningsCalendarAsync(System.String,System.String)">
+            <summary>
+            Gets the Earnings Calendar
+            </summary>
+            <param name="from">Format YYYY-MM-DD</param>
+            <param name="to">Format YYYY-MM-DD</param>
+            <returns><see cref="T:System.Collections.Generic.List`1"/></returns>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.Calendars.ICalendarsProvider.GetEarningsCalendarAsync">
+            <summary>
+            Gets the Earnings Calendar
+            </summary>
+            <returns><see cref="T:System.Collections.Generic.List`1"/></returns>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.Calendars.ICalendarsProvider.GetHistoricalEarningsCalendarAsync(System.String,System.Nullable{System.Int32})">
+            <summary>
+            Gets the Historical Earnings
+            </summary>
+            <param name="symbol">Symbol to use</param>
+            <param name="limit">Limits the amount of items. Null acts as unlimited.</param>
+            <returns><see cref="T:System.Collections.Generic.List`1"/></returns>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.Calendars.ICalendarsProvider.GetIPOCalendarAsync(System.String,System.String)">
+            <summary>
+            Gets the IPO Calendar
+            The maximum time interval between from and to is 3 months.
+            </summary>
+            <param name="from">From date YYYY-MM-DD</param>
+            <param name="to">To date YYYY-MM-DD</param>
+            <returns></returns>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.Calendars.ICalendarsProvider.GetDividendCalendarAsync(System.String,System.String)">
+            <summary>
+            Gets the Dividend Calendar
+            The maximum time interval between from and to is 3 months.
+            </summary>
+            <param name="from">From date YYYY-MM-DD</param>
+            <param name="to">To date YYYY-MM-DD</param>
+            <returns></returns>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.Calendars.ICalendarsProvider.GetEconomicCalendarAsync(System.String,System.String)">
+            <summary>
+            Gets the Economic Calendar
+            The maximum time interval between from and to is 3 months.
+            </summary>
+            <param name="from">From date YYYY-MM-DD</param>
+            <param name="to">To date YYYY-MM-DD</param>
+            <returns></returns>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.Calendars.ICalendarsProvider.GetStockSplitCalendarAsync(System.String,System.String)">
+            <summary>
+            Gets the Stock Split Calendar
+            The maximum time interval between from and to is 3 months.
+            </summary>
+            <param name="from">From date YYYY-MM-DD</param>
+            <param name="to">To date YYYY-MM-DD</param>
+            <returns></returns>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation.ICompanyValuationProvider.GetSymbolChangesAsync">
+            <summary>
+            Public comapnies sometimes change their symbol and thanks to this endpoint you will be able to know if there is any symbol change happened. 
+            Data for new symbol is getting transferred from the old symbol the same day
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund.IInstitutionalFundProvider.Get13FListAsync">
+            <summary>
+            Complete list of all institutional investment managers by cik 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund.IInstitutionalFundProvider.MapCusipAsync(System.String)">
+            <summary>
+            Cusip mapper
+            </summary>
+            <param name="cusip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund.IInstitutionalFundProvider.SearchCikByName(System.String)">
+            <summary>
+            FORM 13F cik search by name 
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund.IInstitutionalFundProvider.GetCompanyNameByCik(System.String)">
+            <summary>
+            FORM 13F get company name by cik
+            </summary>
+            <param name="cik"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund.IInstitutionalFundProvider.GetForm13FAsync(System.String,System.String)">
+            <summary>
+            FORM 13F statements provides position-level report of all institutional investment managers with more than $100m in assets under management (i.e. Berkshire hathaway cik).
+            </summary>
+            <param name="cik"></param>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MatthiWare.FinancialModelingPrep.Abstractions.Statistics.IStockStatisticsProvider">
+            <summary>
+            Stock related statistics
+            </summary>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.Statistics.IStockStatisticsProvider.GetAnalystEstimatesAsync(System.String,MatthiWare.FinancialModelingPrep.Model.Period,System.Nullable{System.Int32})">
+            <summary>
+            Get analyst estimates
+            </summary>
+            <param name="symbol">Stock symbol</param>
+            <param name="period">Period (Annual or Quarterly)</param>
+            <param name="limit">Limts the amount of results</param>
+            <returns></returns>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries.IStockTimeSeriesProvider.GetQuoteAsync(System.String)">
+            <summary>
+            Get the latest quote for given stock.
+            </summary>
+            <param name="symbol"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries.IStockTimeSeriesProvider.GetHistoricalDividendsAsync(System.String)">
+            <summary>
+            Get Daily Historical Dividends
+            </summary>
+            <param name="symbol">Ticker symbol</param>
+            <returns><see cref="T:MatthiWare.FinancialModelingPrep.Model.StockTimeSeries.HistoricalDividendsResponse"/></returns>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries.IStockTimeSeriesProvider.GetHistoricalStockSplitsAsync(System.String)">
+            <summary>
+            Get Daily Historical Stock Splits
+            </summary>
+            <param name="symbol">Ticker symbol</param>
+            <returns><see cref="T:MatthiWare.FinancialModelingPrep.Model.StockTimeSeries.HistoricalStockSplitResponse"/></returns>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries.IStockTimeSeriesProvider.GetHistoricalDailyPricesAsync(System.String)">
+            <summary>
+            Get Daily Historical Prices
+            </summary>
+            <param name="symbol">Ticker symbol</param>
+            <returns><see cref="T:MatthiWare.FinancialModelingPrep.Model.StockTimeSeries.HistoricalPriceResponse"/></returns>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries.IStockTimeSeriesProvider.GetHistoricalDailyPricesAsync(System.String,System.String,System.String)">
+            <summary>
+            Get Daily Historical Prices
+            </summary>
+            <param name="symbol">Ticker symbol</param>        
+            <param name="from">From date (YYYY-MM-DD)</param>
+            <param name="to">To date (YYYY-MM-DD)</param>
+            <returns><see cref="T:MatthiWare.FinancialModelingPrep.Model.StockTimeSeries.HistoricalPriceResponse"/></returns>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries.IStockTimeSeriesProvider.GetHistoricalDailyPricesForLineChartAsync(System.String)">
+            <summary>
+            Get Daily Historical Prices
+            Should be used to display on a linechart
+            </summary>
+            <param name="symbol">Ticker symbol</param>
+            <returns><see cref="T:MatthiWare.FinancialModelingPrep.Model.StockTimeSeries.HistoricalPriceForLineChartResponse"/></returns>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries.IStockTimeSeriesProvider.GetHistoricalDailyPricesForLineChartAsync(System.String,System.String,System.String)">
+            <summary>
+            Get Daily Historical Prices
+            Should be used to display on a linechart
+            </summary>
+            <param name="symbol">Ticker symbol</param>
+            <param name="from">From date (YYYY-MM-DD)</param>
+            <param name="to">To date (YYYY-MM-DD)</param>
+            <returns><see cref="T:MatthiWare.FinancialModelingPrep.Model.StockTimeSeries.HistoricalPriceForLineChartResponse"/></returns>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries.IStockTimeSeriesProvider.GetHistoricalPricesForChartWithVolume(System.String,MatthiWare.FinancialModelingPrep.Model.HistoricalPricingPeriod)">
+            <summary>
+            Get Daily Historical Prices for charts with volume
+            </summary>
+            <param name="symbol">Ticker symbol</param>
+            <param name="series">Time series</param>
+            <returns><see cref="T:MatthiWare.FinancialModelingPrep.Model.StockTimeSeries.HistoricalPriceForLineChartResponse"/></returns>
+        </member>
+        <member name="T:MatthiWare.FinancialModelingPrep.IFinancialModelingPrepApiClient">
+            <summary>
+            FMP Client that exposes different sections of Endpoints
+            </summary>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.IFinancialModelingPrepApiClient.AdvancedData">
+            <summary>
+            Advanced Data Endpoints are grouped here
+            Note: most of these endpoints require a premium API Key
+            </summary>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.IFinancialModelingPrepApiClient.CompanyValuation">
+            <summary>
+            All Company Valuation Endpoints are grouped here
+            </summary>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.IFinancialModelingPrepApiClient.MarketIndexes">
+            <summary>
+            All Market Index Endpoints are grouped here
+            </summary>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.IFinancialModelingPrepApiClient.Calendars">
+            <summary>
+            All Calendar related Endpoints are grouped here (Earnings, IPO, stock splits, Dividends, Economic)
+            </summary>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.IFinancialModelingPrepApiClient.InstitutionalFund">
+            <summary>
+            All Instituational Fund Endpoints are grouped here
+            </summary>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.IFinancialModelingPrepApiClient.StockTimeSeries">
+            <summary>
+            All Stock Time Series Endpoints are grouped here
+            </summary>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.IFinancialModelingPrepApiClient.StockMarket">
+            <summary>
+            All Stock Market Related Endpoints are grouped here (Most Active, Gainers, Losers)
+            </summary>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.IFinancialModelingPrepApiClient.StockStatistics">
+            <summary>
+            Statistic Related Endpoint are grouped here (Estimates)
+            </summary>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.IFinancialModelingPrepApiClient.Crypto">
+            <summary>
+            Cryptomarket related enpoints
+            </summary>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.IFinancialModelingPrepApiClient.Forex">
+            <summary>
+            Forex related enpoints
+            </summary>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.IFinancialModelingPrepApiClient.Futures">
+            <summary>
+            Futures related enpoints
+            </summary>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.IFinancialModelingPrepApiClient.Fund">
+            <summary>
+            ETF/Mutual Fund related enpoints
+            </summary>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.Calendars.CalendarsProvider.GetEarningsCalendarAsync(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.Calendars.CalendarsProvider.GetEarningsCalendarAsync">
+            <inheritdoc/>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.Calendars.CalendarsProvider.GetHistoricalEarningsCalendarAsync(System.String,System.Nullable{System.Int32})">
+            <inheritdoc/>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.Calendars.CalendarsProvider.GetIPOCalendarAsync(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.Calendars.CalendarsProvider.GetDividendCalendarAsync(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.Calendars.CalendarsProvider.GetEconomicCalendarAsync(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.Calendars.CalendarsProvider.GetStockSplitCalendarAsync(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.CompanyValuation.CompanyValuationProvider.GetSymbolChangesAsync">
+            <inheritdoc />
+        </member>
+        <member name="T:MatthiWare.FinancialModelingPrep.Core.FinancialModelingPrepApiClient">
+            <inheritdoc/>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.Core.FinancialModelingPrepApiClient.CompanyValuation">
+            <inheritdoc/>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.Core.FinancialModelingPrepApiClient.MarketIndexes">
+            <inheritdoc/>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.Core.FinancialModelingPrepApiClient.AdvancedData">
+            <inheritdoc/>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.Core.FinancialModelingPrepApiClient.Calendars">
+            <inheritdoc/>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.Core.FinancialModelingPrepApiClient.InstitutionalFund">
+            <inheritdoc/>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.Core.FinancialModelingPrepApiClient.StockTimeSeries">
+            <inheritdoc/>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.Core.FinancialModelingPrepApiClient.StockMarket">
+            <inheritdoc/>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.Core.FinancialModelingPrepApiClient.StockStatistics">
+            <inheritdoc/>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.Core.FinancialModelingPrepApiClient.Crypto">
+            <inheritdoc/>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.Core.FinancialModelingPrepApiClient.Forex">
+            <inheritdoc/>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.Core.FinancialModelingPrepApiClient.Futures">
+            <inheritdoc/>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.Core.FinancialModelingPrepApiClient.Fund">
+            <inheritdoc/>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.FinancialModelingPrepApiClient.#ctor(MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation.ICompanyValuationProvider,MatthiWare.FinancialModelingPrep.Abstractions.MarketIndexes.IMarketIndexesProvider,MatthiWare.FinancialModelingPrep.Abstractions.AdvancedData.IAdvancedDataProvider,MatthiWare.FinancialModelingPrep.Abstractions.Calendars.ICalendarsProvider,MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund.IInstitutionalFundProvider,MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries.IStockTimeSeriesProvider,MatthiWare.FinancialModelingPrep.Abstractions.StockMarket.IStockMarketProvider,MatthiWare.FinancialModelingPrep.Abstractions.Statistics.IStockStatisticsProvider,MatthiWare.FinancialModelingPrep.Abstractions.Crypto.ICryptoMarketProvider,MatthiWare.FinancialModelingPrep.Abstractions.Forex.IForexMarketProvider,MatthiWare.FinancialModelingPrep.Abstractions.Futures.IFuturesMarketProvider,MatthiWare.FinancialModelingPrep.Abstractions.Fund.IFundProvider)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.InstitutionalFund.InstitutionalFundProvider.Get13FListAsync">
+            <inheritdoc/>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.InstitutionalFund.InstitutionalFundProvider.GetCompanyNameByCik(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.InstitutionalFund.InstitutionalFundProvider.GetForm13FAsync(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.InstitutionalFund.InstitutionalFundProvider.MapCusipAsync(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.InstitutionalFund.InstitutionalFundProvider.SearchCikByName(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MatthiWare.FinancialModelingPrep.Core.Statistics.StockStatisticsProvider">
+            <inheritdoc/>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.Statistics.StockStatisticsProvider.GetAnalystEstimatesAsync(System.String,MatthiWare.FinancialModelingPrep.Model.Period,System.Nullable{System.Int32})">
+            <inheritdoc/>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.StockTimeSeries.StockTimeSeriesProvider.GetHistoricalDailyPricesAsync(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.StockTimeSeries.StockTimeSeriesProvider.GetHistoricalDailyPricesAsync(System.String,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.StockTimeSeries.StockTimeSeriesProvider.GetHistoricalDailyPricesForLineChartAsync(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.StockTimeSeries.StockTimeSeriesProvider.GetHistoricalDailyPricesForLineChartAsync(System.String,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.StockTimeSeries.StockTimeSeriesProvider.GetHistoricalDividendsAsync(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.StockTimeSeries.StockTimeSeriesProvider.GetHistoricalPricesForChartWithVolume(System.String,MatthiWare.FinancialModelingPrep.Model.HistoricalPricingPeriod)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.StockTimeSeries.StockTimeSeriesProvider.GetHistoricalStockSplitsAsync(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.DependencyInjectionExtensions.AddFinancialModelingPrepApiClient(Microsoft.Extensions.DependencyInjection.IServiceCollection,MatthiWare.FinancialModelingPrep.FinancialModelingPrepOptions)">
+            <summary>
+            Adds the <see cref="T:MatthiWare.FinancialModelingPrep.IFinancialModelingPrepApiClient"/> to the services.
+            This package does not override any existing registrations. 
+            </summary>
+            <param name="services">DI Service Collection</param>
+            <param name="options">FMP Options <see cref="T:MatthiWare.FinancialModelingPrep.FinancialModelingPrepOptions"/> if left as null it will use the default options and default API Key</param>
+        </member>
+        <member name="T:MatthiWare.FinancialModelingPrep.FinancialModelingPrepApiClientFactory">
+            <summary>
+            Exposes factory methods to easily create clients without using dependency injection.
+             If you do want to use DI please see <see cref="M:MatthiWare.FinancialModelingPrep.DependencyInjectionExtensions.AddFinancialModelingPrepApiClient(Microsoft.Extensions.DependencyInjection.IServiceCollection,MatthiWare.FinancialModelingPrep.FinancialModelingPrepOptions)"/>
+            </summary>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.FinancialModelingPrepApiClientFactory.CreateClient(MatthiWare.FinancialModelingPrep.FinancialModelingPrepOptions)">
+            <summary>
+            Creates an FMP API Client with all dependencies already wired up.
+            If you do want to use DI please see <see cref="M:MatthiWare.FinancialModelingPrep.DependencyInjectionExtensions.AddFinancialModelingPrepApiClient(Microsoft.Extensions.DependencyInjection.IServiceCollection,MatthiWare.FinancialModelingPrep.FinancialModelingPrepOptions)"/>
+            </summary>
+            <param name="options"><see cref="T:MatthiWare.FinancialModelingPrep.FinancialModelingPrepOptions"/></param>
+            <returns>An instance of <see cref="T:MatthiWare.FinancialModelingPrep.IFinancialModelingPrepApiClient"/></returns>
+        </member>
+        <member name="T:MatthiWare.FinancialModelingPrep.FinancialModelingPrepOptions">
+            <summary>
+            FMP Options
+            </summary>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.FinancialModelingPrepOptions.ApiKey">
+            <summary>
+            Get or set the FMP API Key.
+            You can find your API Key in the dashboard (https://financialmodelingprep.com/developer/docs/dashboard)
+            By default it will use the 'demo' API Key that is limited and not all endpoints will work. 
+            </summary>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.FinancialModelingPrepOptions.MaxRequestPerSecond">
+            <summary>
+            Gets or sets the maximum allowed of requests per second.
+            By default the max allowed is 10. If you have a different rate limit you can configure it here.
+            See Rate Limitation #15 https://financialmodelingprep.com/developer/docs/terms-of-service
+            </summary>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.FinancialModelingPrepOptions.MaxAPICallsPerMinute">
+            <summary>
+            Gets or sets the maximum allowed API Calls per second.
+            You can find the defaults on the pricing documentation. 
+            By default we use the 300 "starter" limit.
+            https://financialmodelingprep.com/developer/docs/pricing
+            </summary>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.Model.ApiResponse`1.Error">
+            <summary>
+            Error message if any occured
+            </summary>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.Model.ApiResponse`1.HasError">
+            <summary>
+            True if there was an error with the request otherwise false
+            </summary>
+        </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.Model.ApiResponse`1.Data">
+            <summary>
+            The FMP API response object <see cref="!:T"/>
+            </summary>
+        </member>
+    </members>
+</doc>
