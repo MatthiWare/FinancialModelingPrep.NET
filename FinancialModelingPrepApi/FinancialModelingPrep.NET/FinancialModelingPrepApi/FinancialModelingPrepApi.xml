@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>FinancialModelingPrep</name>
+        <name>FinancialModelingPrepExtended</name>
     </assembly>
     <members>
         <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.Calendars.ICalendarsProvider.GetEarningsCalendarAsync(System.String,System.String)">
