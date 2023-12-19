@@ -1,13 +1,11 @@
-# FinancialModelingPrep.NET
+# FinancialModelingPrep.NET Extended
+.NET 8 API Client For https://financialmodelingprep.com/ API written in C#. Extended edition based on MatthiWare's foundation -- see repo this is forked off of.
 
-[![.NET](https://github.com/MatthiWare/FinancialModelingPrep.NET/actions/workflows/dotnet.yml/badge.svg)](https://github.com/MatthiWare/FinancialModelingPrep.NET/actions/workflows/dotnet.yml)
-[![Nuget](https://buildstats.info/nuget/MatthiWare.FinancialModelingPrep)](https://www.nuget.org/packages/MatthiWare.FinancialModelingPrep/)
-
-.NET 5 API Client For https://financialmodelingprep.com/ API written in C#
+Actively maintained as part of a financial analysis project.
 
 ## Installation
 ```powershell
-PM> Install-Package MatthiWare.FinancialModelingPrep
+PM> Install-Package 1130Labs.FinancialModelingPrepExtended
 ```
 
 # Quick Start
@@ -103,8 +101,8 @@ else
 - Euronext
 - TSX
 - Stock Market (Partially covered)
-- Cryptocurrencies (Not yet covered)
-- Forex (Not yet covered)
+- Cryptocurrencies
+- Forex
 
 ### Contribute
 Create a PR where you add or improve an Endpoint
