@@ -25,7 +25,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.Crypto
         public decimal Close { get; set; }
 
         [JsonPropertyName("volume")]
-        public long Volume { get; set; }
+        public double Volume { get; set; }
     }
 
     public class CyptoHistoricalPriceDailyListing
