@@ -1,6 +1,7 @@
 ﻿using MatthiWare.FinancialModelingPrep.Abstractions.AdvancedData;
 using MatthiWare.FinancialModelingPrep.Abstractions.Calendars;
 using MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation;
+using MatthiWare.FinancialModelingPrep.Abstractions.Crypto;
 using MatthiWare.FinancialModelingPrep.Abstractions.Economics;
 using MatthiWare.FinancialModelingPrep.Abstractions.Fund;
 using MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund;

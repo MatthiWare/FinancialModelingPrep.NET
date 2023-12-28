@@ -14,10 +14,9 @@
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<RepositoryUrl>https://github.com/MatthiWare/FinancialModelingPrep.NET</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<PackageTags>FinancialModelingPrep stock quote finance-api</PackageTags>
+		<PackageTags>FinancialModelingPrep stock quote finance-api fmp</PackageTags>
 		<PackageProjectUrl>https://github.com/MatthiWare/FinancialModelingPrep.NET</PackageProjectUrl>
-		<PackageReleaseNotes>- Include .NET 6 and .NET 7 in nuget package
-- Add Economic Indicators
+		<PackageReleaseNotes>- Update crypto namespace
 		</PackageReleaseNotes>
 		<AssemblyName>FinancialModelingPrep</AssemblyName>
 	</PropertyGroup>

@@ -4,7 +4,7 @@ using MatthiWare.FinancialModelingPrep.Model.StockMarket;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MatthiWare.FinancialModelingPrep.Abstractions.StockMarket
+namespace MatthiWare.FinancialModelingPrep.Abstractions.Crypto
 {
     public interface ICryptoMarketProvider
     {

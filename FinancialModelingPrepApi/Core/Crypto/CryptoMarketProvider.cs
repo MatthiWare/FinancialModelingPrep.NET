@@ -1,13 +1,12 @@
-﻿using MatthiWare.FinancialModelingPrep.Abstractions.StockMarket;
+﻿using MatthiWare.FinancialModelingPrep.Abstractions.Crypto;
 using MatthiWare.FinancialModelingPrep.Core.Http;
 using MatthiWare.FinancialModelingPrep.Model;
 using MatthiWare.FinancialModelingPrep.Model.Crypto;
-using MatthiWare.FinancialModelingPrep.Model.StockMarket;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Threading.Tasks;
 
-namespace MatthiWare.FinancialModelingPrep.Core.StockMarket
+namespace MatthiWare.FinancialModelingPrep.Core.Crypto
 {
     public sealed class CryptoMarketProvider : ICryptoMarketProvider
     {

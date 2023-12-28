@@ -98,7 +98,20 @@ namespace Tests.AdvancedData
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
-            
+        }
+
+        [Theory]
+        [InlineData("AAPL")]
+        [InlineData("AGS.BR")]
+        [InlineData("PPL.TO")]
+        [InlineData("AAP")]
+        public async Task GetCompanyProfileTests(string symbol)
+        {
+            var result = await api.GetFinancialScoreAsync(symbol);
+
+            result.AssertNoErrors();
+
+            Assert.Equal(symbol, result.Data.Symbol);
         }
 
         private Task<ApiResponse<StandardIndustrialClassificationResponse>> GetStandardIndustrialClassSwitch(string by, string value)
