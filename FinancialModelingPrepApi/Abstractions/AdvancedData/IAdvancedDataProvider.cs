@@ -25,5 +25,7 @@ namespace MatthiWare.FinancialModelingPrep.Abstractions.AdvancedData
         Task<ApiResponse<SharesFloatResponse>> GetSharesFloatAsync(string symbol);
 
         Task<ApiResponse<List<ESGScoreResponse>>> GetESGScoreAsync(string symbol);
+
+        Task<ApiResponse<FinancialScoreResponse>> GetFinancialScoreAsync(string symbol);
     }
 }

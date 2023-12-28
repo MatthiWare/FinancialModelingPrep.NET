@@ -173,5 +173,27 @@ namespace MatthiWare.FinancialModelingPrep.Core.AdvancedData
 
             return client.GetJsonAsync<List<ESGScoreResponse>>(url, pathParams, queryString);
         }
+
+        public async Task<ApiResponse<FinancialScoreResponse>> GetFinancialScoreAsync(string symbol)
+        {
+            const string url = "[version]/score";
+
+            var pathParams = new NameValueCollection()
+            {
+                { "version", ApiVersion.v4.ToString() }
+            };
+
+            var queryString = new QueryStringBuilder();
+            queryString.Add("symbol", symbol);
+
+            var result = await client.GetJsonAsync<List<FinancialScoreResponse>>(url, pathParams, queryString);
+
+            if (result.HasError)
+            {
+                return ApiResponse.FromError<FinancialScoreResponse>(result.Error);
+            }
+
+            return ApiResponse.FromSucces(result.Data.First());
+        }
     }
 }
