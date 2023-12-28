@@ -1,10 +1,11 @@
-﻿using MatthiWare.FinancialModelingPrep.Abstractions.StockMarket;
+﻿
+using MatthiWare.FinancialModelingPrep.Abstractions.Crypto;
 using Microsoft.Extensions.DependencyInjection;
 using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Tests.StockMarket
+namespace Tests.Crypto
 {
     public class CryptoMarketTests : TestingBase
     {
