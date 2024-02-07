@@ -37,10 +37,10 @@ namespace Tests.StockMarket
         [Fact]
         public async Task GetDailyPrice()
         {
-            var result = await api.GetDailyPricesAsync("BTCUSD");
+            var result = await api.GetHistoricalQuoteAsync("BTCUSD");
 
             result.AssertNoErrors();
-            Assert.NotEmpty(result.Data.HistoricalPrices);
+            Assert.NotEmpty(result.Data.Historical);
         }
 
         [Fact]

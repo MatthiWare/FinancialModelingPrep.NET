@@ -27,5 +27,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.Calendars
 
         [JsonPropertyName("estimate")]
         public decimal? Estimate { get; set; }
+        [JsonPropertyName("impact")]
+        public string? Impact { get; set; }
     }
 }

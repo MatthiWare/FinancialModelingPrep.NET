@@ -5,15 +5,15 @@
     <RootNamespace>MatthiWare.FinancialModelingPrep</RootNamespace>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>0.1.0.0</AssemblyVersion>
-    <FileVersion>0.1.0.0</FileVersion>
+    <AssemblyVersion></AssemblyVersion>
+    <FileVersion></FileVersion>
     <Company>MatthiWare, 1130 Labs</Company>
-    <PackageId>1130Labs.FinancialModelingPrepExtended</PackageId>
-    <Version>0.1.0</Version>
+    <PackageId>FinancialModelingPrepExtended</PackageId>
+    <Version>0.1.1</Version>
     <Description>FinancialModelingPrep API Client.</Description>
     <Copyright>MIT</Copyright>
     <Product>FinancialModelingPrep API Client</Product>
-    <Authors>Matthias Beerens, Michael McCabe</Authors>
+    <Authors>Matthias Beerens, 1130 Labs</Authors>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryUrl>https://github.com/mccabe93/FinancialModelingPrepExtended</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
