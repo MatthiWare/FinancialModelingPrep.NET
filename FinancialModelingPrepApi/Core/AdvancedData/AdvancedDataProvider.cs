@@ -80,7 +80,29 @@ namespace MatthiWare.FinancialModelingPrep.Core.AdvancedData
             return ApiResponse.FromSuccess(result.Data.First());
         }
 
-        public async Task<ApiResponse<List<FinancialScoreResponse>>> GetFinancialScore(string symbol)
+        public async Task<ApiResponse<List<CommitmentOfTradersResponse>>> GetCommitmentOfTradersReportAsync(string symbol)
+        {
+            const string url = "[version]/commitment_of_traders_report";
+
+            var pathParams = new NameValueCollection()
+                {
+                    { "version", ApiVersion.v4.ToString() }
+                };
+
+            var queryString = new QueryStringBuilder();
+            queryString.Add("symbol", symbol);
+
+            var result = await client.GetJsonAsync<List<CommitmentOfTradersResponse>>(url, pathParams, queryString);
+
+            if (result.HasError)
+            {
+                return ApiResponse.FromError<List<CommitmentOfTradersResponse>>(result.Error);
+            }
+
+            return ApiResponse.FromSuccess(result.Data);
+        }
+
+        public async Task<ApiResponse<List<FinancialScoreResponse>>> GetFinancialScoreAsync(string symbol)
         {
             const string url = "[version]/score";
 

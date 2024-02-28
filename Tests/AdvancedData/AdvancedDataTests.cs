@@ -3,6 +3,7 @@ using MatthiWare.FinancialModelingPrep.Abstractions.AdvancedData;
 using MatthiWare.FinancialModelingPrep.Model;
 using MatthiWare.FinancialModelingPrep.Model.AdvancedData;
 using Microsoft.Extensions.DependencyInjection;
+using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
@@ -17,6 +18,7 @@ namespace Tests.AdvancedData
         {
             api = ServiceProvider.GetRequiredService<IAdvancedDataProvider>();
         }
+        
 
         [Fact]
         public async Task GetFinancialReportAnnualAsync()
@@ -31,7 +33,7 @@ namespace Tests.AdvancedData
         [Fact]
         public async Task GetFinancialScoreAsync()
         {
-            var result = await api.GetFinancialScore("AAPL");
+            var result = await api.GetFinancialScoreAsync("AAPL");
 
             result.AssertNoErrors();
             Assert.Equal("AAPL", result.Data[0].Symbol);
@@ -119,6 +121,16 @@ namespace Tests.AdvancedData
                 "symbol" => api.GetStandardIndustrialClassificationBySymbolAsync(value),
                 _ => null,
             };
+        }
+
+        [Fact]
+        public async Task CommitmentOfTradersReportTest()
+        {
+            var result = await api.GetCommitmentOfTradersReportAsync("ES");
+
+            result.AssertNoErrors();
+            Assert.NotEmpty(result.Data);
+            Assert.Equal("AAPL", result.Data.First().Symbol);
         }
     }
 }

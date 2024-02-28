@@ -9,7 +9,7 @@
     <FileVersion></FileVersion>
     <Company>MatthiWare, 1130 Labs</Company>
     <PackageId>FinancialModelingPrepExtended</PackageId>
-    <Version>0.1.1</Version>
+    <Version>0.2.0</Version>
     <Description>FinancialModelingPrep API Client.</Description>
     <Copyright>MIT</Copyright>
     <Product>FinancialModelingPrep API Client</Product>
