@@ -155,7 +155,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public long? AveragePayablesTTM { get; set; }
 
         [JsonPropertyName("averageInventoryTTM")]
-        public long? AverageInventoryTTM { get; set; }
+        public double? AverageInventoryTTM { get; set; }
 
         [JsonPropertyName("daysSalesOutstandingTTM")]
         public double? DaysSalesOutstandingTTM { get; set; }
