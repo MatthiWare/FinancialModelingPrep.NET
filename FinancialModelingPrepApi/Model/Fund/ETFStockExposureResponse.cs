@@ -11,7 +11,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.Fund
         public string AssetExposure { get; set; }
 
         [JsonPropertyName("sharesNumber")]
-        public int SharesNumber { get; set; }
+        public double SharesNumber { get; set; }
 
         [JsonPropertyName("weightPercentage")]
         public double WeightPercentage { get; set; }
