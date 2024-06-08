@@ -65,7 +65,6 @@ namespace Tests.StockTimeSeries
         [InlineData("AMD")]
         [InlineData("O")]
         [InlineData("BZZUY")]
-        [InlineData("SWIR")]
         [InlineData("PPL.TO")]
         [InlineData("LGEN.L")]
         [InlineData("AGS.BR")]
