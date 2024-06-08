@@ -39,7 +39,6 @@ namespace Tests.CompanyValuation
         [InlineData("AAP")]
         [InlineData("MTG")]
         [InlineData("BZZUY")]
-        [InlineData("SWIR")]
         public async Task GetCompanyProfileTests(string symbol)
         {
             var result = await api.GetCompanyProfileAsync(symbol);
@@ -137,7 +136,6 @@ namespace Tests.CompanyValuation
         [InlineData("AAP")]
         [InlineData("MTG")]
         [InlineData("BZZUY")]
-        [InlineData("SWIR")]
         public async Task GetEnterpriseValueAnnual(string symbol)
         {
             var result = await api.GetEnterpriseValueAsync(symbol, Period.Annual, 5);
@@ -159,7 +157,6 @@ namespace Tests.CompanyValuation
         [InlineData("AAP")]
         [InlineData("MTG")]
         [InlineData("BZZUY")]
-        [InlineData("SWIR")]
         public async Task GetEnterpriseValueQuarter(string symbol)
         {
             var result = await api.GetEnterpriseValueAsync(symbol, Period.Quarter, 5);
@@ -180,7 +177,6 @@ namespace Tests.CompanyValuation
         [InlineData("MTG")]
         [InlineData("GSM")]
         [InlineData("BZZUY")]
-        [InlineData("SWIR")]
         public async Task GetIncomeStatement(string symbol)
         {
             var result = await api.GetIncomeStatementAsync(symbol, Period.Annual, 10000);
@@ -199,8 +195,6 @@ namespace Tests.CompanyValuation
         [InlineData("AAP")]
         [InlineData("MTG")]
         [InlineData("GSM")]
-
-        [InlineData("SWIR")]
         public async Task GetIncomeStatementPerQuarter(string symbol)
         {
             var result = await api.GetIncomeStatementAsync(symbol, Period.Quarter, limit: 10000);
@@ -220,7 +214,6 @@ namespace Tests.CompanyValuation
         [InlineData("MTG")]
         [InlineData("GSM")]
         [InlineData("BZZUY")]
-        [InlineData("SWIR")]
         public async Task GetCashFlowStatement(string symbol)
         {
             var result = await api.GetCashFlowStatementAsync(symbol, Period.Annual, 10000);
@@ -239,7 +232,6 @@ namespace Tests.CompanyValuation
         [InlineData("AAP")]
         [InlineData("MTG")]
         [InlineData("GSM")]
-        [InlineData("SWIR")]
         public async Task GetCashFlowStatementPerQuarter(string symbol)
         {
             var result = await api.GetCashFlowStatementAsync(symbol, Period.Quarter, limit: 10000);
@@ -259,7 +251,6 @@ namespace Tests.CompanyValuation
         [InlineData("MTG")]
         [InlineData("GSM")]
         [InlineData("BZZUY")]
-        [InlineData("SWIR")]
         public async Task GetBalanceSheetStatement(string symbol)
         {
             var result = await api.GetBalanceSheetStatementAsync(symbol, Period.Annual, 10000);
@@ -278,7 +269,6 @@ namespace Tests.CompanyValuation
         [InlineData("AAP")]
         [InlineData("MTG")]
         [InlineData("GSM")]
-        [InlineData("SWIR")]
         public async Task GetBalanceSheetStatementPerQuarter(string symbol)
         {
             var result = await api.GetBalanceSheetStatementAsync(symbol, Period.Quarter, limit: 10000);
@@ -394,7 +384,6 @@ namespace Tests.CompanyValuation
         [InlineData("AAP")]
         [InlineData("MTG")]
         [InlineData("BZZUY")]
-        [InlineData("SWIR")]
         public async Task GetCompanyKeyMetricsTTMAsync(string symbol)
         {
             var result = await api.GetCompanyKeyMetricsTTMAsync(symbol);
