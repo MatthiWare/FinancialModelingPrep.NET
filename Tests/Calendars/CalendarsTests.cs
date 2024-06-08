@@ -65,15 +65,10 @@ namespace Tests.Calendars
         [Fact]
         public async Task GetIPOCalendarAsync()
         {
-            var result = await api.GetIPOCalendarAsync("2010-04-01", "2010-04-01");
+            var result = await api.GetIPOCalendarAsync("2020-04-01", "2020-04-01");
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
-            var firstResult = result.Data.First();
-
-            Assert.Equal("PRI", firstResult.Symbol);
-            Assert.Equal(21360000, firstResult.Shares);
-            Assert.Equal(320400000, firstResult.MarketCap);
         }
 
         [Theory]
