@@ -7,7 +7,7 @@
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Company>MatthiWare</Company>
 		<PackageId>MatthiWare.FinancialModelingPrep</PackageId>
-		<Description>FinancialModelingPrep API Client written in .NET 7</Description>
+		<Description>FinancialModelingPrep API Client written in .NET 8</Description>
 		<Copyright>Copyright Matthias Beerens 2021</Copyright>
 		<Product>FinancialModelingPrep API Client</Product>
 		<Authors>Matthias Beerens</Authors>
@@ -16,7 +16,10 @@
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>FinancialModelingPrep stock quote finance-api fmp</PackageTags>
 		<PackageProjectUrl>https://github.com/MatthiWare/FinancialModelingPrep.NET</PackageProjectUrl>
-		<PackageReleaseNotes>- Update crypto namespace
+		<PackageReleaseNotes>- Update to .NET 8
+		- Add financial score
+		- Update dependencies
+		- Bugfixes
 		</PackageReleaseNotes>
 		<AssemblyName>FinancialModelingPrep</AssemblyName>
 	</PropertyGroup>
