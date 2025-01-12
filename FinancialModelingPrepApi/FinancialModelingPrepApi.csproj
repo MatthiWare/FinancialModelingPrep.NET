@@ -18,6 +18,7 @@
 		<PackageProjectUrl>https://github.com/MatthiWare/FinancialModelingPrep.NET</PackageProjectUrl>
 		<PackageReleaseNotes>- Update dependencies
 		- Bugfixes
+		- Remove historical discounted cashflows endpoints
 		</PackageReleaseNotes>
 		<AssemblyName>FinancialModelingPrep</AssemblyName>
 	</PropertyGroup>
