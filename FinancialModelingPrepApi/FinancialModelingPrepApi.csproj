@@ -16,9 +16,7 @@
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>FinancialModelingPrep stock quote finance-api fmp</PackageTags>
 		<PackageProjectUrl>https://github.com/MatthiWare/FinancialModelingPrep.NET</PackageProjectUrl>
-		<PackageReleaseNotes>- Update to .NET 8
-		- Add financial score
-		- Update dependencies
+		<PackageReleaseNotes>- Update dependencies
 		- Bugfixes
 		</PackageReleaseNotes>
 		<AssemblyName>FinancialModelingPrep</AssemblyName>
