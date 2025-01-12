@@ -65,7 +65,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double? InterestIncome { get; set; }
 
         [JsonPropertyName("interestExpense")]
-        public double InterestExpense { get; set; }
+        public double? InterestExpense { get; set; }
 
         [JsonPropertyName("depreciationAndAmortization")]
         public double DepreciationAndAmortization { get; set; }
