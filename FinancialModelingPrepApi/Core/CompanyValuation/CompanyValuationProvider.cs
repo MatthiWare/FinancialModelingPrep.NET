@@ -306,46 +306,6 @@ namespace MatthiWare.FinancialModelingPrep.Core.CompanyValuation
             return ApiResponse.FromSucces(result.Data.First());
         }
 
-        public Task<ApiResponse<List<HistoricalDCFResponse>>> GetHistoricalDiscountedCashFlowAsync(string symbol, Period period = Period.Annual)
-        {
-            const string url = "[version]/historical-discounted-cash-flow-statement/[symbol]";
-
-            var pathParams = new NameValueCollection()
-            {
-                { "version", ApiVersion.v3.ToString() },
-                { "symbol", symbol }
-            };
-
-            var queryString = new QueryStringBuilder();
-
-            if (period != Period.Annual)
-            {
-                queryString.Add("period", period.ToString().ToLower());
-            }
-
-            return client.GetJsonAsync<List<HistoricalDCFResponse>>(url, pathParams, queryString);
-        }
-
-        public Task<ApiResponse<List<HistoricalDailyDCFResponse>>> GetHistoricalDiscountedCashFlowDailyAsync(string symbol, int? limit = 100)
-        {
-            const string url = "[version]/historical-discounted-cash-flow-statement/[symbol]";
-
-            var pathParams = new NameValueCollection()
-            {
-                { "version", ApiVersion.v3.ToString() },
-                { "symbol", symbol }
-            };
-
-            var queryString = new QueryStringBuilder();
-
-            if (limit != null)
-            {
-                queryString.Add("limit", limit);
-            }
-
-            return client.GetJsonAsync<List<HistoricalDailyDCFResponse>>(url, pathParams, queryString);
-        }
-
         public async Task<ApiResponse<RatiosTTMResponse>> GetRatiosTTMAsync(string symbol)
         {
             const string url = "[version]/ratios-ttm/[symbol]";
