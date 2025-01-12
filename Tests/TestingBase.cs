@@ -1,4 +1,4 @@
-﻿using Divergic.Logging.Xunit;
+﻿using Neovolve.Logging.Xunit;
 using MatthiWare.FinancialModelingPrep;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
