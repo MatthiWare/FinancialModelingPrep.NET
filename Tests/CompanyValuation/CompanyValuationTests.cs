@@ -177,6 +177,7 @@ namespace Tests.CompanyValuation
         [InlineData("MTG")]
         [InlineData("GSM")]
         [InlineData("BZZUY")]
+        [InlineData("MPW")]
         public async Task GetIncomeStatement(string symbol)
         {
             var result = await api.GetIncomeStatementAsync(symbol, Period.Annual, 10000);
@@ -195,6 +196,7 @@ namespace Tests.CompanyValuation
         [InlineData("AAP")]
         [InlineData("MTG")]
         [InlineData("GSM")]
+        [InlineData("MPW")]
         public async Task GetIncomeStatementPerQuarter(string symbol)
         {
             var result = await api.GetIncomeStatementAsync(symbol, Period.Quarter, limit: 10000);
