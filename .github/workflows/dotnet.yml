@@ -35,7 +35,7 @@ jobs:
         name: Nuget
         path: /home/runner/work/FinancialModelingPrep.NET/FinancialModelingPrep.NET/FinancialModelingPrepApi/bin/Release/*.nupkg
     - name: Upload Release Build Artifacts
-      uses: actions/upload-artifact@v2.2.3
+      uses: actions/upload-artifact@v4
       with:
         name: Release Build
         path: /home/runner/work/FinancialModelingPrep.NET/FinancialModelingPrep.NET/FinancialModelingPrepApi/bin/Release/**/*
