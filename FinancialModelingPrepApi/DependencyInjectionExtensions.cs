@@ -26,6 +26,8 @@ using MatthiWare.FinancialModelingPrep.Core.StockTimeSeries;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using System;
+using MatthiWare.FinancialModelingPrep.Abstractions.StatementAnalysis;
+using MatthiWare.FinancialModelingPrep.Core.StatementAnalysis;
 
 namespace MatthiWare.FinancialModelingPrep
 {
@@ -59,6 +61,7 @@ namespace MatthiWare.FinancialModelingPrep
             services.TryAddTransient<IStockStatisticsProvider, StockStatisticsProvider>();
             services.TryAddTransient<IFundProvider, FundProvider>();
             services.TryAddTransient<IEconomicsProvider, EconomicsProvider>();
+            services.TryAddTransient<IStatementAnalysisProvider, StatementAnalysisProvider>();
         }
     }
 }

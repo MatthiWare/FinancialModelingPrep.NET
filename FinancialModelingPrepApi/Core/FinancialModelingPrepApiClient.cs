@@ -6,6 +6,7 @@ using MatthiWare.FinancialModelingPrep.Abstractions.Economics;
 using MatthiWare.FinancialModelingPrep.Abstractions.Fund;
 using MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund;
 using MatthiWare.FinancialModelingPrep.Abstractions.MarketIndexes;
+using MatthiWare.FinancialModelingPrep.Abstractions.StatementAnalysis;
 using MatthiWare.FinancialModelingPrep.Abstractions.Statistics;
 using MatthiWare.FinancialModelingPrep.Abstractions.StockMarket;
 using MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries;
@@ -48,6 +49,8 @@ namespace MatthiWare.FinancialModelingPrep.Core
         /// <inheritdoc/>
         public IEconomicsProvider Economics { get; }
 
+        public IStatementAnalysisProvider StatementAnalysis { get; }
+
         /// <inheritdoc/>
         public FinancialModelingPrepApiClient(ICompanyValuationProvider companyValuation,
                                               IMarketIndexesProvider marketIndexes,
@@ -59,7 +62,8 @@ namespace MatthiWare.FinancialModelingPrep.Core
                                               IStockStatisticsProvider stockStatistics,
                                               ICryptoMarketProvider cryptoMarket,
                                               IFundProvider fund,
-                                              IEconomicsProvider economics)
+                                              IEconomicsProvider economics,
+                                              IStatementAnalysisProvider statementAnalysis)
         {
             CompanyValuation = companyValuation;
             MarketIndexes = marketIndexes;
@@ -72,6 +76,7 @@ namespace MatthiWare.FinancialModelingPrep.Core
             Crypto = cryptoMarket;
             Fund = fund;
             Economics = economics;
+            StatementAnalysis = statementAnalysis;
         }
     }
 }

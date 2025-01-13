@@ -6,6 +6,7 @@ using MatthiWare.FinancialModelingPrep.Abstractions.Economics;
 using MatthiWare.FinancialModelingPrep.Abstractions.Fund;
 using MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund;
 using MatthiWare.FinancialModelingPrep.Abstractions.MarketIndexes;
+using MatthiWare.FinancialModelingPrep.Abstractions.StatementAnalysis;
 using MatthiWare.FinancialModelingPrep.Abstractions.Statistics;
 using MatthiWare.FinancialModelingPrep.Abstractions.StockMarket;
 using MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries;
@@ -76,5 +77,11 @@ namespace MatthiWare.FinancialModelingPrep
         /// - Economic indicators
         /// </summary>
         public IEconomicsProvider Economics { get; }
+        
+        /// <summary>
+        /// Statement Analysis related endpoints
+        /// - Financial Growth
+        /// </summary>
+        public IStatementAnalysisProvider StatementAnalysis { get; }
     }
 }
