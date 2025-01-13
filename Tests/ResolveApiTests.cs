@@ -98,5 +98,13 @@ namespace Tests
 
             Assert.NotNull(api.Economics);
         }
+        
+        [Fact]
+        public void API_Contains_StatementAnalysis_Provider()
+        {
+            var api = ServiceProvider.GetRequiredService<IFinancialModelingPrepApiClient>();
+
+            Assert.NotNull(api.StatementAnalysis);
+        }
     }
 }

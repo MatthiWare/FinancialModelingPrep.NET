@@ -21,8 +21,8 @@ public class FinancialGrowthResponse
     public double? EarningsBeforeInterestAndTaxes { get; set; }
     [JsonPropertyName("operatingIncomeGrowth")]
     public double? OperatingIncomeGrowth { get; set; }
-    [JsonPropertyName("newIncomeGrowth")]
-    public double? netIncomeGrowth { get; set; }
+    [JsonPropertyName("netIncomeGrowth")]
+    public double? NetIncomeGrowth { get; set; }
     [JsonPropertyName("epsGrowth")]
     public double? EarningsPerShareGrowth { get; set; }
     [JsonPropertyName("epsDilutedGrowth")]

@@ -62,7 +62,6 @@ namespace MatthiWare.FinancialModelingPrep
             services.TryAddTransient<IFundProvider, FundProvider>();
             services.TryAddTransient<IEconomicsProvider, EconomicsProvider>();
             services.TryAddTransient<IStatementAnalysisProvider, StatementAnalysisProvider>();
-
         }
     }
 }
