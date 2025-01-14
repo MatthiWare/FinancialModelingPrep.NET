@@ -17,8 +17,7 @@
 		<PackageTags>FinancialModelingPrep stock quote finance-api fmp</PackageTags>
 		<PackageProjectUrl>https://github.com/MatthiWare/FinancialModelingPrep.NET</PackageProjectUrl>
 		<PackageReleaseNotes>- Update dependencies
-		- Bugfixes
-		- Remove historical discounted cashflows endpoints
+		- Add Financial Growth Endpoints
 		</PackageReleaseNotes>
 		<AssemblyName>FinancialModelingPrep</AssemblyName>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
