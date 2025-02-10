@@ -103,7 +103,7 @@ namespace MatthiWare.FinancialModelingPrep.Core.StockTimeSeries
         }
 
         /// <inheritdoc/>
-        public Task<ApiResponse<List<HistoricalPriceForChartWithVolumeResponse>>> GetHistoricalPricesForChartWithVolume(string symbol, HistoricalChartSeries series)
+        public Task<ApiResponse<List<HistoricalPriceForChartWithVolumeResponse>>> GetHistoricalPricesForChartWithVolume(string symbol, HistoricalChartSeries series, string from, string to, bool extended)
         {
             const string url = "[version]/historical-chart/[series]/[symbol]";
 
@@ -114,7 +114,12 @@ namespace MatthiWare.FinancialModelingPrep.Core.StockTimeSeries
                 { "symbol", symbol }
             };
 
-            return client.GetJsonAsync<List<HistoricalPriceForChartWithVolumeResponse>>(url, pathParams, null);
+            var queryString = new QueryStringBuilder();
+            queryString.Add("from", from);
+            queryString.Add("to", to);
+            queryString.Add("extended", extended ? "true" : "false");
+
+            return client.GetJsonAsync<List<HistoricalPriceForChartWithVolumeResponse>>(url, pathParams, queryString);
         }
 
         /// <inheritdoc/>
