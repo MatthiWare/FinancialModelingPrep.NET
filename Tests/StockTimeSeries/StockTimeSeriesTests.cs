@@ -109,9 +109,15 @@ namespace Tests.StockTimeSeries
         [MemberData(nameof(AvailableHistoricalChartSeries))]
         public async Task GetHistoricalPricesForChartWithVolume(HistoricalChartSeries series)
         {
-            var result = await api.GetHistoricalPricesForChartWithVolume("AAPL", series);
+            var fromDate = new DateTime(2025, 2, 2);
+            var toDate = new DateTime(2025, 2, 4);
+
+            var result = await api.GetHistoricalPricesForChartWithVolume("AAPL", series, fromDate.ToString("yyyy-MM-dd"), toDate.ToString("yyyy-MM-dd"), false);
 
             result.AssertNoErrors();
+            
+            Assert.Equal(toDate.Date, DateTime.Parse(result.Data.First().Date).Date);
+            Assert.Equal(fromDate.Date.AddDays(1), DateTime.Parse(result.Data.Last().Date).Date);
 
             Assert.True(result.Data.Count > 0);
         }
@@ -120,9 +126,35 @@ namespace Tests.StockTimeSeries
         [MemberData(nameof(AvailableHistoricalChartSeries))]
         public async Task GetHistoricalPricesForChartWithVolume2(HistoricalChartSeries series)
         {
-            var result = await api.GetHistoricalPricesForChartWithVolume("AGS.BR", series);
+            var fromDate = new DateTime(2025, 2, 2);
+            var toDate = new DateTime(2025, 2, 4);
+
+            var result = await api.GetHistoricalPricesForChartWithVolume("AGS.BR", series, fromDate.ToString("yyyy-MM-dd"), toDate.ToString("yyyy-MM-dd"), false);
 
             result.AssertNoErrors();
+
+            Assert.Equal(toDate.Date, DateTime.Parse(result.Data.First().Date).Date);
+            Assert.Equal(fromDate.Date.AddDays(1), DateTime.Parse(result.Data.Last().Date).Date);
+
+            Assert.True(result.Data.Count > 0);
+        }
+
+        [Theory]
+        [MemberData(nameof(AvailableHistoricalChartSeries))]
+        public async Task GetHistoricalPricesForChartWithVolumeExtended(HistoricalChartSeries series)
+        {
+            var fromDate = new DateTime(2025, 2, 2);
+            var toDate = new DateTime(2025, 2, 4);
+
+            var result = await api.GetHistoricalPricesForChartWithVolume("AAPL", series, fromDate.ToString("yyyy-MM-dd"), toDate.ToString("yyyy-MM-dd"), true);
+
+            result.AssertNoErrors();
+
+            Assert.Equal(toDate.Date, DateTime.Parse(result.Data.First().Date).Date);
+            Assert.Equal(fromDate.Date.AddDays(1), DateTime.Parse(result.Data.Last().Date).Date);
+
+            Assert.True(DateTime.Parse(result.Data.First().Date).Hour > 15);
+            Assert.True(DateTime.Parse(result.Data.Last().Date).Hour < 9);
 
             Assert.True(result.Data.Count > 0);
         }
