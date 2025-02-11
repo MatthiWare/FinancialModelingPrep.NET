@@ -44,16 +44,16 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double ChangeInWorkingCapital { get; set; }
 
         [JsonPropertyName("accountsReceivables")]
-        public double AccountsReceivables { get; set; }
+        public double? AccountsReceivables { get; set; }
 
         [JsonPropertyName("inventory")]
-        public double Inventory { get; set; }
+        public double? Inventory { get; set; }
 
         [JsonPropertyName("accountsPayables")]
-        public double AccountsPayables { get; set; }
+        public double? AccountsPayables { get; set; }
 
         [JsonPropertyName("otherWorkingCapital")]
-        public double OtherWorkingCapital { get; set; }
+        public double? OtherWorkingCapital { get; set; }
 
         [JsonPropertyName("otherNonCashItems")]
         public double OtherNonCashItems { get; set; }
@@ -65,7 +65,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double InvestmentsInPropertyPlantAndEquipment { get; set; }
 
         [JsonPropertyName("acquisitionsNet")]
-        public double AcquisitionsNet { get; set; }
+        public double? AcquisitionsNet { get; set; }
 
         [JsonPropertyName("purchasesOfInvestments")]
         public double PurchasesOfInvestments { get; set; }
@@ -86,13 +86,13 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double CommonStockIssued { get; set; }
 
         [JsonPropertyName("commonStockRepurchased")]
-        public double CommonStockRepurchased { get; set; }
+        public double? CommonStockRepurchased { get; set; }
 
         [JsonPropertyName("dividendsPaid")]
-        public double DividendsPaid { get; set; }
+        public double? DividendsPaid { get; set; }
 
         [JsonPropertyName("otherFinancingActivites")]
-        public double OtherFinancingActivites { get; set; }
+        public double? OtherFinancingActivites { get; set; }
 
         [JsonPropertyName("netCashUsedProvidedByFinancingActivities")]
         public double NetCashUsedProvidedByFinancingActivities { get; set; }
