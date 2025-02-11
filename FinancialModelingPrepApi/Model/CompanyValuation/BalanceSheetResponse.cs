@@ -32,7 +32,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double CashAndCashEquivalents { get; set; }
 
         [JsonPropertyName("shortTermInvestments")]
-        public double ShortTermInvestments { get; set; }
+        public double? ShortTermInvestments { get; set; }
 
         [JsonPropertyName("cashAndShortTermInvestments")]
         public double CashAndShortTermInvestments { get; set; }
@@ -56,13 +56,13 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double Goodwill { get; set; }
 
         [JsonPropertyName("intangibleAssets")]
-        public double IntangibleAssets { get; set; }
+        public double? IntangibleAssets { get; set; }
 
         [JsonPropertyName("goodwillAndIntangibleAssets")]
         public double GoodwillAndIntangibleAssets { get; set; }
 
         [JsonPropertyName("longTermInvestments")]
-        public double LongTermInvestments { get; set; }
+        public double? LongTermInvestments { get; set; }
 
         [JsonPropertyName("taxAssets")]
         public double TaxAssets { get; set; }
@@ -86,7 +86,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double ShortTermDebt { get; set; }
 
         [JsonPropertyName("taxPayables")]
-        public double TaxPayables { get; set; }
+        public double? TaxPayables { get; set; }
 
         [JsonPropertyName("deferredRevenue")]
         public double DeferredRevenue { get; set; }
@@ -104,7 +104,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double DeferredRevenueNonCurrent { get; set; }
 
         [JsonPropertyName("deferredTaxLiabilitiesNonCurrent")]
-        public double DeferredTaxLiabilitiesNonCurrent { get; set; }
+        public double? DeferredTaxLiabilitiesNonCurrent { get; set; }
 
         [JsonPropertyName("otherNonCurrentLiabilities")]
         public double OtherNonCurrentLiabilities { get; set; }
@@ -125,13 +125,13 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double PreferredStock { get; set; }
 
         [JsonPropertyName("commonStock")]
-        public double CommonStock { get; set; }
+        public double? CommonStock { get; set; }
 
         [JsonPropertyName("retainedEarnings")]
-        public double RetainedEarnings { get; set; }
+        public double? RetainedEarnings { get; set; }
 
         [JsonPropertyName("accumulatedOtherComprehensiveIncomeLoss")]
-        public double AccumulatedOtherComprehensiveIncomeLoss { get; set; }
+        public double? AccumulatedOtherComprehensiveIncomeLoss { get; set; }
 
         [JsonPropertyName("othertotalStockholdersEquity")]
         public double? OthertotalStockholdersEquity { get; set; }
@@ -152,7 +152,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double TotalLiabilitiesAndTotalEquity { get; set; }
 
         [JsonPropertyName("totalInvestments")]
-        public double TotalInvestments { get; set; }
+        public double? TotalInvestments { get; set; }
 
         [JsonPropertyName("totalDebt")]
         public double TotalDebt { get; set; }
