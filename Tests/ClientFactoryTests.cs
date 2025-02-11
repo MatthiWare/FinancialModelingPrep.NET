@@ -9,7 +9,7 @@ namespace Tests
 
         public ClientFactoryTests()
         {
-            this.api = FinancialModelingPrepApiClientFactory.CreateClient(new FinancialModelingPrepOptions());
+            this.api = FinancialModelingPrepApiClientFactory.CreateClient(new());
         }
 
         [Fact]
@@ -70,6 +70,12 @@ namespace Tests
         public void API_Contains_Economics_Provider()
         {
             Assert.NotNull(api.Economics);
+        }
+        
+        [Fact]
+        public void API_Contains_StatementAnalysis_Provider()
+        {
+            Assert.NotNull(api.StatementAnalysis);
         }
     }
 }
