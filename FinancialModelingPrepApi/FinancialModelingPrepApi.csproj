@@ -16,8 +16,10 @@
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>FinancialModelingPrep stock quote finance-api fmp</PackageTags>
 		<PackageProjectUrl>https://github.com/MatthiWare/FinancialModelingPrep.NET</PackageProjectUrl>
-		<PackageReleaseNotes>- Update dependencies
-		- Add Financial Growth Endpoints
+		<PackageReleaseNotes>
+			- Add query params to GetHistoricalPricesForChartWithVolume
+			- Fix volume average type
+			- Fix properties nullable
 		</PackageReleaseNotes>
 		<AssemblyName>FinancialModelingPrep</AssemblyName>
 		<PackageReadmeFile>README.md</PackageReadmeFile>

@@ -175,12 +175,15 @@
             <param name="to">To date (YYYY-MM-DD)</param>
             <returns><see cref="T:MatthiWare.FinancialModelingPrep.Model.StockTimeSeries.HistoricalPriceForLineChartResponse"/></returns>
         </member>
-        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries.IStockTimeSeriesProvider.GetHistoricalPricesForChartWithVolume(System.String,MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries.HistoricalChartSeries)">
+        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries.IStockTimeSeriesProvider.GetHistoricalPricesForChartWithVolume(System.String,MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries.HistoricalChartSeries,System.String,System.String,System.Boolean)">
             <summary>
             Get Daily Historical Prices for charts with volume
             </summary>
             <param name="symbol">Ticker symbol</param>
             <param name="series">Time series</param>
+            <param name="from">From date (YYYY-MM-DD)</param>
+            <param name="to">To date (YYYY-MM-DD)</param>
+            <param name="extended">Extended hours</param>
             <returns><see cref="T:MatthiWare.FinancialModelingPrep.Model.StockTimeSeries.HistoricalPriceForLineChartResponse"/></returns>
         </member>
         <member name="T:MatthiWare.FinancialModelingPrep.IFinancialModelingPrepApiClient">
@@ -358,7 +361,7 @@
         <member name="M:MatthiWare.FinancialModelingPrep.Core.StockTimeSeries.StockTimeSeriesProvider.GetHistoricalDividendsAsync(System.String)">
             <inheritdoc/>
         </member>
-        <member name="M:MatthiWare.FinancialModelingPrep.Core.StockTimeSeries.StockTimeSeriesProvider.GetHistoricalPricesForChartWithVolume(System.String,MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries.HistoricalChartSeries)">
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.StockTimeSeries.StockTimeSeriesProvider.GetHistoricalPricesForChartWithVolume(System.String,MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries.HistoricalChartSeries,System.String,System.String,System.Boolean)">
             <inheritdoc/>
         </member>
         <member name="M:MatthiWare.FinancialModelingPrep.Core.StockTimeSeries.StockTimeSeriesProvider.GetHistoricalStockSplitsAsync(System.String)">
