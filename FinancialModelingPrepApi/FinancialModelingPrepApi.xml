@@ -175,12 +175,15 @@
             <param name="to">To date (YYYY-MM-DD)</param>
             <returns><see cref="T:MatthiWare.FinancialModelingPrep.Model.StockTimeSeries.HistoricalPriceForLineChartResponse"/></returns>
         </member>
-        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries.IStockTimeSeriesProvider.GetHistoricalPricesForChartWithVolume(System.String,MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries.HistoricalChartSeries)">
+        <member name="M:MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries.IStockTimeSeriesProvider.GetHistoricalPricesForChartWithVolume(System.String,MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries.HistoricalChartSeries,System.String,System.String,System.Boolean)">
             <summary>
             Get Daily Historical Prices for charts with volume
             </summary>
             <param name="symbol">Ticker symbol</param>
             <param name="series">Time series</param>
+            <param name="from">From date (YYYY-MM-DD)</param>
+            <param name="to">To date (YYYY-MM-DD)</param>
+            <param name="extended">Extended hours</param>
             <returns><see cref="T:MatthiWare.FinancialModelingPrep.Model.StockTimeSeries.HistoricalPriceForLineChartResponse"/></returns>
         </member>
         <member name="T:MatthiWare.FinancialModelingPrep.IFinancialModelingPrepApiClient">
@@ -247,6 +250,12 @@
             - Economic indicators
             </summary>
         </member>
+        <member name="P:MatthiWare.FinancialModelingPrep.IFinancialModelingPrepApiClient.StatementAnalysis">
+            <summary>
+            Statement Analysis related endpoints
+            - Financial Growth
+            </summary>
+        </member>
         <member name="M:MatthiWare.FinancialModelingPrep.Core.Calendars.CalendarsProvider.GetEarningsCalendarAsync(System.String,System.String)">
             <inheritdoc/>
         </member>
@@ -310,7 +319,7 @@
         <member name="P:MatthiWare.FinancialModelingPrep.Core.FinancialModelingPrepApiClient.Economics">
             <inheritdoc/>
         </member>
-        <member name="M:MatthiWare.FinancialModelingPrep.Core.FinancialModelingPrepApiClient.#ctor(MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation.ICompanyValuationProvider,MatthiWare.FinancialModelingPrep.Abstractions.MarketIndexes.IMarketIndexesProvider,MatthiWare.FinancialModelingPrep.Abstractions.AdvancedData.IAdvancedDataProvider,MatthiWare.FinancialModelingPrep.Abstractions.Calendars.ICalendarsProvider,MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund.IInstitutionalFundProvider,MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries.IStockTimeSeriesProvider,MatthiWare.FinancialModelingPrep.Abstractions.StockMarket.IStockMarketProvider,MatthiWare.FinancialModelingPrep.Abstractions.Statistics.IStockStatisticsProvider,MatthiWare.FinancialModelingPrep.Abstractions.Crypto.ICryptoMarketProvider,MatthiWare.FinancialModelingPrep.Abstractions.Fund.IFundProvider,MatthiWare.FinancialModelingPrep.Abstractions.Economics.IEconomicsProvider)">
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.FinancialModelingPrepApiClient.#ctor(MatthiWare.FinancialModelingPrep.Abstractions.CompanyValuation.ICompanyValuationProvider,MatthiWare.FinancialModelingPrep.Abstractions.MarketIndexes.IMarketIndexesProvider,MatthiWare.FinancialModelingPrep.Abstractions.AdvancedData.IAdvancedDataProvider,MatthiWare.FinancialModelingPrep.Abstractions.Calendars.ICalendarsProvider,MatthiWare.FinancialModelingPrep.Abstractions.InstitutionalFund.IInstitutionalFundProvider,MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries.IStockTimeSeriesProvider,MatthiWare.FinancialModelingPrep.Abstractions.StockMarket.IStockMarketProvider,MatthiWare.FinancialModelingPrep.Abstractions.Statistics.IStockStatisticsProvider,MatthiWare.FinancialModelingPrep.Abstractions.Crypto.ICryptoMarketProvider,MatthiWare.FinancialModelingPrep.Abstractions.Fund.IFundProvider,MatthiWare.FinancialModelingPrep.Abstractions.Economics.IEconomicsProvider,MatthiWare.FinancialModelingPrep.Abstractions.StatementAnalysis.IStatementAnalysisProvider)">
             <inheritdoc/>
         </member>
         <member name="M:MatthiWare.FinancialModelingPrep.Core.InstitutionalFund.InstitutionalFundProvider.Get13FListAsync">
@@ -326,6 +335,9 @@
             <inheritdoc/>
         </member>
         <member name="M:MatthiWare.FinancialModelingPrep.Core.InstitutionalFund.InstitutionalFundProvider.SearchCikByName(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.StatementAnalysis.StatementAnalysisProvider.GetFinancialGrowthAsync(System.String,MatthiWare.FinancialModelingPrep.Model.Period,System.Nullable{System.Int32})">
             <inheritdoc/>
         </member>
         <member name="T:MatthiWare.FinancialModelingPrep.Core.Statistics.StockStatisticsProvider">
@@ -349,7 +361,7 @@
         <member name="M:MatthiWare.FinancialModelingPrep.Core.StockTimeSeries.StockTimeSeriesProvider.GetHistoricalDividendsAsync(System.String)">
             <inheritdoc/>
         </member>
-        <member name="M:MatthiWare.FinancialModelingPrep.Core.StockTimeSeries.StockTimeSeriesProvider.GetHistoricalPricesForChartWithVolume(System.String,MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries.HistoricalChartSeries)">
+        <member name="M:MatthiWare.FinancialModelingPrep.Core.StockTimeSeries.StockTimeSeriesProvider.GetHistoricalPricesForChartWithVolume(System.String,MatthiWare.FinancialModelingPrep.Abstractions.StockTimeSeries.HistoricalChartSeries,System.String,System.String,System.Boolean)">
             <inheritdoc/>
         </member>
         <member name="M:MatthiWare.FinancialModelingPrep.Core.StockTimeSeries.StockTimeSeriesProvider.GetHistoricalStockSplitsAsync(System.String)">

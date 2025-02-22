@@ -14,7 +14,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double Beta { get; set; }
 
         [JsonPropertyName("volAvg")]
-        public int VolAvg { get; set; }
+        public double VolAvg { get; set; }
 
         [JsonPropertyName("mktCap")]
         public long MktCap { get; set; }
