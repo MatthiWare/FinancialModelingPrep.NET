@@ -440,27 +440,27 @@ namespace Tests.CompanyValuation
         [Fact]
         public async Task SearchAsync()
         {
-            var result = await api.SearchAsync("Ageas", Exchange.EURONEXT, 5);
+            var result = await api.SearchAsync("London Stock Exchange", Exchange.LSE, 5);
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
             Assert.True(result.Data.Count >= 1);
 
-            var firstResult = result.Data.First(_ => _.Symbol == "AGS.BR");
-            Assert.Equal("AGS.BR", firstResult.Symbol);
+            var firstResult = result.Data.FirstOrDefault();
+            Assert.Equal("LSEG.L", firstResult?.Symbol);
         }
 
         [Fact]
         public async Task SearchByTickerAsync()
         {
-            var result = await api.SearchByTickerAsync("AGS", Exchange.EURONEXT, 5);
+            var result = await api.SearchByTickerAsync("LSEG.L", Exchange.LSE, 5);
 
             result.AssertNoErrors();
             Assert.NotEmpty(result.Data);
             Assert.True(result.Data.Count >= 1);
 
-            var firstResult = result.Data.First(_ => _.Symbol == "AGS.BR");
-            Assert.Equal("AGS.BR", firstResult.Symbol);
+            var firstResult = result.Data.FirstOrDefault();
+            Assert.Equal("LSEG.L", firstResult.Symbol);
         }
 
         [Fact]
