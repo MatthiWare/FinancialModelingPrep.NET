@@ -9,6 +9,9 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
 
         [JsonPropertyName("date")]
         public string Date { get; set; }
+        
+        [JsonPropertyName("calendarYear")]
+        public string CalendarYear { get; set; }
 
         [JsonPropertyName("period")]
         public string Period { get; set; }
