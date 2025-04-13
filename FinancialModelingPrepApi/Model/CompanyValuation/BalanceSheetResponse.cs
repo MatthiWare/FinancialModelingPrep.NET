@@ -41,7 +41,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double NetReceivables { get; set; }
 
         [JsonPropertyName("inventory")]
-        public double Inventory { get; set; }
+        public double? Inventory { get; set; }
 
         [JsonPropertyName("otherCurrentAssets")]
         public double OtherCurrentAssets { get; set; }
@@ -53,7 +53,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double PropertyPlantEquipmentNet { get; set; }
 
         [JsonPropertyName("goodwill")]
-        public double Goodwill { get; set; }
+        public double? Goodwill { get; set; }
 
         [JsonPropertyName("intangibleAssets")]
         public double? IntangibleAssets { get; set; }
@@ -65,10 +65,10 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double? LongTermInvestments { get; set; }
 
         [JsonPropertyName("taxAssets")]
-        public double TaxAssets { get; set; }
+        public double? TaxAssets { get; set; }
 
         [JsonPropertyName("otherNonCurrentAssets")]
-        public double OtherNonCurrentAssets { get; set; }
+        public double? OtherNonCurrentAssets { get; set; }
 
         [JsonPropertyName("totalNonCurrentAssets")]
         public double TotalNonCurrentAssets { get; set; }
@@ -80,7 +80,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double TotalAssets { get; set; }
 
         [JsonPropertyName("accountPayables")]
-        public double AccountPayables { get; set; }
+        public double? AccountPayables { get; set; }
 
         [JsonPropertyName("shortTermDebt")]
         public double ShortTermDebt { get; set; }
@@ -89,7 +89,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double? TaxPayables { get; set; }
 
         [JsonPropertyName("deferredRevenue")]
-        public double DeferredRevenue { get; set; }
+        public double? DeferredRevenue { get; set; }
 
         [JsonPropertyName("otherCurrentLiabilities")]
         public double OtherCurrentLiabilities { get; set; }
@@ -101,7 +101,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double LongTermDebt { get; set; }
 
         [JsonPropertyName("deferredRevenueNonCurrent")]
-        public double DeferredRevenueNonCurrent { get; set; }
+        public double? DeferredRevenueNonCurrent { get; set; }
 
         [JsonPropertyName("deferredTaxLiabilitiesNonCurrent")]
         public double? DeferredTaxLiabilitiesNonCurrent { get; set; }
