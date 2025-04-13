@@ -38,7 +38,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double GrossProfit { get; set; }
 
         [JsonPropertyName("grossProfitRatio")]
-        public double GrossProfitRatio { get; set; }
+        public double? GrossProfitRatio { get; set; }
 
         [JsonPropertyName("researchAndDevelopmentExpenses")]
         public double ResearchAndDevelopmentExpenses { get; set; }
@@ -74,13 +74,13 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double Ebitda { get; set; }
 
         [JsonPropertyName("ebitdaratio")]
-        public double Ebitdaratio { get; set; }
+        public double? Ebitdaratio { get; set; }
 
         [JsonPropertyName("operatingIncome")]
         public double OperatingIncome { get; set; }
 
         [JsonPropertyName("operatingIncomeRatio")]
-        public double OperatingIncomeRatio { get; set; }
+        public double? OperatingIncomeRatio { get; set; }
 
         [JsonPropertyName("totalOtherIncomeExpensesNet")]
         public double TotalOtherIncomeExpensesNet { get; set; }
@@ -89,7 +89,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double IncomeBeforeTax { get; set; }
 
         [JsonPropertyName("incomeBeforeTaxRatio")]
-        public double IncomeBeforeTaxRatio { get; set; }
+        public double? IncomeBeforeTaxRatio { get; set; }
 
         [JsonPropertyName("incomeTaxExpense")]
         public double IncomeTaxExpense { get; set; }
@@ -98,7 +98,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double NetIncome { get; set; }
 
         [JsonPropertyName("netIncomeRatio")]
-        public double NetIncomeRatio { get; set; }
+        public double? NetIncomeRatio { get; set; }
 
         [JsonPropertyName("eps")]
         public double Eps { get; set; }
