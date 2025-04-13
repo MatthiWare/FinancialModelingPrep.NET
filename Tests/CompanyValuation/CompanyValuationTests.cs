@@ -35,6 +35,7 @@ namespace Tests.CompanyValuation
         [InlineData("GSM")]
         [InlineData("AGS.BR")]
         [InlineData("PPL.TO")]
+        [InlineData("CKN.L")]
         [InlineData("TSLA")]
         [InlineData("AAP")]
         [InlineData("MTG")]
@@ -178,6 +179,7 @@ namespace Tests.CompanyValuation
         [InlineData("GSM")]
         [InlineData("BZZUY")]
         [InlineData("MPW")]
+        [InlineData("RET.BR")]
         public async Task GetIncomeStatement(string symbol)
         {
             var result = await api.GetIncomeStatementAsync(symbol, Period.Annual, 10000);
@@ -253,6 +255,7 @@ namespace Tests.CompanyValuation
         [InlineData("MTG")]
         [InlineData("GSM")]
         [InlineData("BZZUY")]
+        [InlineData("XOM")]
         public async Task GetBalanceSheetStatement(string symbol)
         {
             var result = await api.GetBalanceSheetStatementAsync(symbol, Period.Annual, 10000);
