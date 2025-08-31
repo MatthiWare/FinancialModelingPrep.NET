@@ -83,7 +83,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double? AccountPayables { get; set; }
 
         [JsonPropertyName("shortTermDebt")]
-        public double ShortTermDebt { get; set; }
+        public double? ShortTermDebt { get; set; }
 
         [JsonPropertyName("taxPayables")]
         public double? TaxPayables { get; set; }
@@ -155,7 +155,7 @@ namespace MatthiWare.FinancialModelingPrep.Model.CompanyValuation
         public double? TotalInvestments { get; set; }
 
         [JsonPropertyName("totalDebt")]
-        public double TotalDebt { get; set; }
+        public double? TotalDebt { get; set; }
 
         [JsonPropertyName("netDebt")]
         public double NetDebt { get; set; }
